@@ -2,7 +2,7 @@
 //
 // Maps WIKI_EXERCISES.name (and common WIKI_PLANS exercise names) to
 // free-exercise-db slug ids. Lookup is case-insensitive — keys must be lowercase.
-// Add an entry whenever a JuMa display name doesn't match its dataset slug
+// Add an entry whenever a JGym display name doesn't match its dataset slug
 // (which is most of them: dataset names tend to be longer/more specific).
 
 export const NAME_ALIAS: Record<string, string> = {

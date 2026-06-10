@@ -353,7 +353,7 @@ export function SettingsModal({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Heart size={15} className={isSupporter ? 'text-brand fill-brand' : 'text-white/30'} />
-              <h3 className="text-sm font-medium">Support JuMa</h3>
+              <h3 className="text-sm font-medium">Support JGym</h3>
             </div>
             {isSupporter && (
               <span className="text-[9px] bg-brand/10 text-brand px-2 py-0.5 rounded-full font-medium">
@@ -362,7 +362,7 @@ export function SettingsModal({
             )}
           </div>
           <p className="text-[10px] text-white/30 leading-relaxed">
-            JuMa is free, open-source, and will stay that way. If it's become part of your training, a coffee helps keep
+            JGym is free, open-source, and will stay that way. If it's become part of your training, a coffee helps keep
             it alive.
           </p>
           <a
@@ -466,7 +466,7 @@ export function SettingsModal({
         <div className="space-y-3">
           <h3 className="text-xs text-white/40 uppercase tracking-wider">Privacy & Data</h3>
           <a
-            href="https://github.com/RLT-Newside/JuMa/blob/main/PRIVACY_POLICY.md"
+            href="https://github.com/RLT-Newside/JGym/blob/main/PRIVACY_POLICY.md"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs text-white/40 hover:text-white/60 transition-colors"

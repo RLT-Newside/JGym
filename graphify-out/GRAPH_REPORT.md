@@ -1,4 +1,4 @@
-# Graph Report - JuMa  (2026-06-10)
+# Graph Report - JGym  (2026-06-10)
 
 ## Corpus Check
 - 114 files · ~300,714 words
