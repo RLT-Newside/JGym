@@ -21,10 +21,10 @@ def getVersionName = { ->
 }
 
 android {
-    namespace = "com.juma.jgym"
+    namespace = "com.rltnewside.jgym"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.juma.jgym"
+        applicationId "com.rltnewside.jgym"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode getVersionCode()

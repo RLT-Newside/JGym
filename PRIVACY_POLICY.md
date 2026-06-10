@@ -4,7 +4,7 @@
 
 ## 1. Who We Are
 
-JGym is a free, open-source fitness tracking application developed by Justin Marty (RLT-Newside). Source code is available at https://github.com/RLT-Newside/JuMa.
+JGym is a free, open-source fitness tracking application developed by Justin Marty (RLT-Newside). Source code is available at https://github.com/RLT-Newside/JGym.
 
 ## 2. Data We Collect
 
@@ -79,5 +79,5 @@ We may update this privacy policy from time to time. Changes will be reflected i
 ## 10. Contact
 
 For privacy questions or data requests:
-- GitHub Issues: https://github.com/RLT-Newside/JuMa/issues
+- GitHub Issues: https://github.com/RLT-Newside/JGym/issues
 - Email: See repository contact information

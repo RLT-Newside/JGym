@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.juma.jgym',
+  appId: 'com.rltnewside.jgym',
   appName: 'JGym',
   webDir: 'dist',
   android: {

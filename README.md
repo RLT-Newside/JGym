@@ -27,7 +27,7 @@ A mobile workout tracker and music controller for Android, built with React + Ca
 
 ## Installation
 
-1. Download the latest APK from [Releases](https://github.com/RLT-Newside/JuMa/releases/latest)
+1. Download the latest APK from [Releases](https://github.com/RLT-Newside/JGym/releases/latest)
 2. Enable "Install from unknown sources" on your Android device
 3. Install the APK
 4. Open JGym → Music tab → grant notification access → enjoy

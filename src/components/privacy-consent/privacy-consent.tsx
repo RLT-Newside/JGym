@@ -28,7 +28,7 @@ export function PrivacyConsent({ onAccept }: Props) {
         </div>
 
         <a
-          href="https://github.com/RLT-Newside/JuMa/blob/main/PRIVACY_POLICY.md"
+          href="https://github.com/RLT-Newside/JGym/blob/main/PRIVACY_POLICY.md"
           target="_blank"
           rel="noopener noreferrer"
           className="block text-[10px] text-brand/60 hover:text-brand/80 transition-colors"

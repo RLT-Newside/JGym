@@ -1,5 +1,5 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
-package com.juma.jgym;
+package com.rltnewside.jgym;
 
 import android.graphics.Color;
 import android.os.Build;

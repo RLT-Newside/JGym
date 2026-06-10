@@ -4,7 +4,7 @@ import { isNewer } from '../utils/version'
 
 declare const __APP_VERSION__: string
 
-const REPO = 'RLT-Newside/JuMa'
+const REPO = 'RLT-Newside/JGym'
 const CHECK_KEY = 'gym_update_last_check'
 const CACHE_KEY = 'gym_update_cached'
 const DAY_MS = 24 * 60 * 60 * 1000

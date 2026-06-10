@@ -1,14 +1,14 @@
 # F-Droid build metadata reference
 # The actual submission file goes to https://gitlab.com/fdroid/fdroiddata
-# Copy this into fdroiddata/metadata/com.juma.jgym.yml
+# Copy this into fdroiddata/metadata/com.rltnewside.jgym.yml
 
 Categories:
   - Sports & Health
 
 License: GPL-3.0-only
 
-SourceCode: https://github.com/RLT-Newside/JuMa
-IssueTracker: https://github.com/RLT-Newside/JuMa/issues
+SourceCode: https://github.com/RLT-Newside/JGym
+IssueTracker: https://github.com/RLT-Newside/JGym/issues
 
 Summary: Minimalist offline gym workout tracker
 

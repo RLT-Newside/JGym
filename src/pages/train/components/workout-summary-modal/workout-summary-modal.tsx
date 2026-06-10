@@ -61,7 +61,7 @@ function drawSummaryCard(
 
   ctx.fillStyle = accent
   ctx.font = 'bold 36px system-ui, sans-serif'
-  const appLabel = isSupporter ? 'JUMA ★' : 'JUMA'
+  const appLabel = isSupporter ? 'JGYM ★' : 'JGYM'
   ctx.fillText(appLabel, PADDING + 16, PADDING + 32)
 
   ctx.fillStyle = 'rgba(255,255,255,0.5)'
