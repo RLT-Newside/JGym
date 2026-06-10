@@ -1,0 +1,138 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Biome check
+        run: npx biome check src/
+
+      - name: TypeScript check
+        run: npx tsc -b
+
+      - name: Run tests
+        run: npm test
+
+      - name: Vite build
+        run: npx vite build
+
+  release:
+    if: github.event_name == 'push'
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Calculate version
+        id: version
+        run: |
+          EPOCH="2026-04-21"
+          EPOCH_S=$(date -d "$EPOCH" +%s)
+          NOW_S=$(date +%s)
+          DAYS=$(( (NOW_S - EPOCH_S) / 86400 ))
+
+          ITERATION=$(( DAYS / 182 + 1 ))
+          SPRINT=$(( (DAYS % 182) / 21 ))
+
+          git fetch --tags
+          COMMIT=$(git tag -l "v${ITERATION}.${SPRINT}.*" | wc -l | tr -d ' ')
+
+          VERSION="${ITERATION}.${SPRINT}.${COMMIT}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Check if release exists
+        id: release_check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh release view "${{ steps.version.outputs.tag }}" > /dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check for code changes
+        if: steps.release_check.outputs.exists == 'false'
+        id: code_changes
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD | grep -v -E '^\.(github|gitignore)|^(README|LICENSE|PRIVACY|THIRD_PARTY|CHANGELOG|fdroid|fastlane|graphify|supporter-hashes|biome|\.nvmrc)' | grep -v '\.md$' | head -1)
+          if [ -z "$CHANGED" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        run: npm ci
+
+      - name: Build web app
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        run: npm run build
+
+      - uses: actions/setup-java@v4
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Sync Capacitor
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        run: npx cap sync android
+
+      - name: Build APK
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        run: chmod +x android/gradlew && cd android && ./gradlew assembleRelease
+
+      - name: Sign APK
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > /tmp/jgym.keystore
+          UNSIGNED="android/app/build/outputs/apk/release/app-release-unsigned.apk"
+          SIGNED="JGym-${{ steps.version.outputs.tag }}.apk"
+          ${ANDROID_HOME}/build-tools/$(ls ${ANDROID_HOME}/build-tools/ | tail -1)/apksigner sign \
+            --ks /tmp/jgym.keystore \
+            --ks-key-alias ${{ secrets.KEY_ALIAS }} \
+            --ks-pass pass:${{ secrets.KEYSTORE_PASSWORD }} \
+            --key-pass pass:${{ secrets.KEYSTORE_PASSWORD }} \
+            --out "$SIGNED" \
+            "$UNSIGNED"
+
+      - name: Create release with APK
+        if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git tag "${{ steps.version.outputs.tag }}" 2>/dev/null || true
+          git push origin "${{ steps.version.outputs.tag }}" 2>/dev/null || true
+          gh release create "${{ steps.version.outputs.tag }}" \
+            --title "JGym-${{ steps.version.outputs.tag }}" \
+            --generate-notes \
+            "JGym-${{ steps.version.outputs.tag }}.apk"

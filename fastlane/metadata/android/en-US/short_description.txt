@@ -1,0 +1,1 @@
+Minimalist gym workout tracker — log sets, track PRs, and view history.

@@ -1,0 +1,12 @@
+JGym is a minimalist, offline-first gym workout tracker.
+
+Features:
+• Log exercises, sets, reps, and weight during your session
+• Automatic personal record (PR) detection and badges
+• Session history with a calendar overview
+• Exercise library with muscle group filters and body map
+• Built-in workout plans wiki
+• Dark theme, no ads, no accounts, no tracking
+• All data stored locally on your device
+
+No internet connection required. No sign-up. No data leaves your phone.
