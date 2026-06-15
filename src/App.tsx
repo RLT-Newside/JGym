@@ -1,10 +1,12 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useCallback, useEffect, useState } from 'react'
 import { ExerciseDetail } from './components/exercise-detail/exercise-detail'
+import { Modal } from './components/modal/modal'
 import { PrivacyConsent } from './components/privacy-consent/privacy-consent'
 import { SettingsModal } from './components/settings-modal/settings-modal'
 import { UpdateBanner } from './components/update-banner/update-banner'
 import { useBackButton } from './hooks/useBackButton'
+import { useSharedImport } from './hooks/useSharedImport'
 import { useStorage } from './hooks/useStorage'
 import { useTheme } from './hooks/useTheme'
 import { useUpdateCheck } from './hooks/useUpdateCheck'
@@ -62,6 +64,11 @@ export default function App() {
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [detailExercise, setDetailExercise] = useState<Exercise | null>(null)
   const [preSelectedExercise, setPreSelectedExercise] = useState<Exercise | null>(null)
+  const [sharedImport, setSharedImport] = useState<Record<string, unknown> | null>(null)
+
+  const sharedKeyCount = sharedImport ? Object.keys(sharedImport).filter((k) => k.startsWith('gym_')).length : 0
+
+  useSharedImport(useCallback((data: Record<string, unknown>) => setSharedImport(data), []))
 
   useBackButton([
     () => {
@@ -160,6 +167,18 @@ export default function App() {
       }
     },
     [setExercises, setSessions],
+  )
+
+  const applySharedImport = useCallback(
+    (mode: 'merge' | 'replace') => {
+      if (!sharedImport) return
+      handleImport(sharedImport, mode)
+      setSharedImport(null)
+      // handleImport only re-syncs exercises/sessions state; reload so every
+      // gym_* key (plans, food, water, weight, goals, activity) re-initializes.
+      window.location.reload()
+    },
+    [sharedImport, handleImport],
   )
 
   const handleSavePlan = useCallback((plan: SavedPlan) => setSavedPlans((prev) => [...prev, plan]), [setSavedPlans])
@@ -322,6 +341,38 @@ export default function App() {
         onCheckUpdate={checkNow}
         checkingUpdate={checking}
       />
+
+      <Modal open={!!sharedImport} onClose={() => setSharedImport(null)} title="Import Backup">
+        <div className="space-y-4">
+          <p className="text-sm text-white/70 leading-relaxed">
+            Received a backup with {sharedKeyCount} data {sharedKeyCount === 1 ? 'section' : 'sections'}. Merge keeps
+            your current data and adds new entries. Replace overwrites everything with the backup.
+          </p>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => applySharedImport('merge')}
+              className="flex-1 py-2.5 rounded-xl bg-brand text-black text-sm font-medium hover:opacity-90 transition-opacity press-scale"
+            >
+              Merge
+            </button>
+            <button
+              type="button"
+              onClick={() => applySharedImport('replace')}
+              className="flex-1 py-2.5 rounded-xl bg-white/10 text-white text-sm font-medium hover:bg-white/15 transition-colors press-scale"
+            >
+              Replace
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={() => setSharedImport(null)}
+            className="w-full py-2 text-xs text-white/40 hover:text-white/60 transition-colors"
+          >
+            Cancel
+          </button>
+        </div>
+      </Modal>
     </div>
   )
 }

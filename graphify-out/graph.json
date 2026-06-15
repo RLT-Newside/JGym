@@ -53,7 +53,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/App.tsx",
       "source_location": "L1",
-      "community": 66,
+      "community": 7,
       "norm_label": "app.tsx",
       "id": "src_app_tsx"
     },
@@ -62,7 +62,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/fontsource.d.ts",
       "source_location": "L1",
-      "community": 67,
+      "community": 66,
       "norm_label": "fontsource.d.ts",
       "id": "src_fontsource_d_ts"
     },
@@ -71,7 +71,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/fileExport.ts",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "fileexport.ts",
       "id": "src_utils_fileexport_ts"
     },
@@ -80,7 +80,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/fileExport.ts",
       "source_location": "L6",
-      "community": 2,
+      "community": 1,
       "norm_label": "exportjsonfile()",
       "id": "fileexport_exportjsonfile"
     },
@@ -89,7 +89,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L1",
-      "community": 6,
+      "community": 5,
       "norm_label": "format.ts",
       "id": "src_utils_format_ts"
     },
@@ -98,7 +98,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L4",
-      "community": 6,
+      "community": 5,
       "norm_label": "formatrelativedate()",
       "id": "format_formatrelativedate"
     },
@@ -107,7 +107,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L17",
-      "community": 6,
+      "community": 5,
       "norm_label": "formatdate()",
       "id": "format_formatdate"
     },
@@ -116,7 +116,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L25",
-      "community": 6,
+      "community": 5,
       "norm_label": "formatfulldate()",
       "id": "format_formatfulldate"
     },
@@ -125,7 +125,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L34",
-      "community": 6,
+      "community": 5,
       "norm_label": "formatsetssummary()",
       "id": "format_formatsetssummary"
     },
@@ -134,7 +134,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L38",
-      "community": 6,
+      "community": 5,
       "norm_label": "formattimer()",
       "id": "format_formattimer"
     },
@@ -143,7 +143,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.ts",
       "source_location": "L46",
-      "community": 6,
+      "community": 5,
       "norm_label": "todayiso()",
       "id": "format_todayiso"
     },
@@ -152,7 +152,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/progression.test.ts",
       "source_location": "L1",
-      "community": 68,
+      "community": 67,
       "norm_label": "progression.test.ts",
       "id": "src_utils_progression_test_ts"
     },
@@ -188,7 +188,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/version.ts",
       "source_location": "L1",
-      "community": 15,
+      "community": 7,
       "norm_label": "version.ts",
       "id": "src_utils_version_ts"
     },
@@ -197,7 +197,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/version.ts",
       "source_location": "L4",
-      "community": 15,
+      "community": 7,
       "norm_label": "isnewer()",
       "id": "version_isnewer"
     },
@@ -206,7 +206,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/format.test.ts",
       "source_location": "L1",
-      "community": 69,
+      "community": 68,
       "norm_label": "format.test.ts",
       "id": "src_utils_format_test_ts"
     },
@@ -215,7 +215,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/openFoodFacts.ts",
       "source_location": "L1",
-      "community": 13,
+      "community": 14,
       "norm_label": "openfoodfacts.ts",
       "id": "src_utils_openfoodfacts_ts"
     },
@@ -224,7 +224,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/openFoodFacts.ts",
       "source_location": "L15",
-      "community": 13,
+      "community": 14,
       "norm_label": "lookupbarcode()",
       "id": "openfoodfacts_lookupbarcode"
     },
@@ -233,7 +233,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/openFoodFacts.ts",
       "source_location": "L59",
-      "community": 13,
+      "community": 14,
       "norm_label": "parseservingsize()",
       "id": "openfoodfacts_parseservingsize"
     },
@@ -242,7 +242,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/openFoodFacts.ts",
       "source_location": "L67",
-      "community": 13,
+      "community": 14,
       "norm_label": "scalemacros()",
       "id": "openfoodfacts_scalemacros"
     },
@@ -269,7 +269,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L1",
-      "community": 1,
+      "community": 2,
       "norm_label": "nutrition.ts",
       "id": "src_utils_nutrition_ts"
     },
@@ -278,7 +278,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L4",
-      "community": 1,
+      "community": 2,
       "norm_label": "getdatestr()",
       "id": "nutrition_getdatestr"
     },
@@ -287,7 +287,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L8",
-      "community": 1,
+      "community": 2,
       "norm_label": "getdaysago()",
       "id": "nutrition_getdaysago"
     },
@@ -296,7 +296,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L14",
-      "community": 1,
+      "community": 2,
       "norm_label": "getdailytotals()",
       "id": "nutrition_getdailytotals"
     },
@@ -305,7 +305,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L25",
-      "community": 1,
+      "community": 2,
       "norm_label": "getentriesbymeal()",
       "id": "nutrition_getentriesbymeal"
     },
@@ -314,7 +314,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L36",
-      "community": 1,
+      "community": 2,
       "norm_label": "getaveragedailyintake()",
       "id": "nutrition_getaveragedailyintake"
     },
@@ -323,7 +323,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L75",
-      "community": 1,
+      "community": 2,
       "norm_label": "normalizeweighttokg()",
       "id": "nutrition_normalizeweighttokg"
     },
@@ -332,7 +332,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L79",
-      "community": 1,
+      "community": 2,
       "norm_label": "getweighttrend()",
       "id": "nutrition_getweighttrend"
     },
@@ -341,7 +341,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L118",
-      "community": 1,
+      "community": 2,
       "norm_label": "estimatetdee()",
       "id": "nutrition_estimatetdee"
     },
@@ -350,7 +350,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/nutrition.ts",
       "source_location": "L173",
-      "community": 1,
+      "community": 2,
       "norm_label": "getweeklyaverages()",
       "id": "nutrition_getweeklyaverages"
     },
@@ -359,7 +359,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/progression.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 6,
       "norm_label": "progression.ts",
       "id": "src_utils_progression_ts"
     },
@@ -368,7 +368,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/progression.ts",
       "source_location": "L18",
-      "community": 5,
+      "community": 6,
       "norm_label": "loadrepranges()",
       "id": "progression_loadrepranges"
     },
@@ -377,7 +377,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/progression.ts",
       "source_location": "L29",
-      "community": 5,
+      "community": 6,
       "norm_label": "saverepranges()",
       "id": "progression_saverepranges"
     },
@@ -386,7 +386,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/progression.ts",
       "source_location": "L33",
-      "community": 5,
+      "community": 6,
       "norm_label": "getreprange()",
       "id": "progression_getreprange"
     },
@@ -395,7 +395,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/progression.ts",
       "source_location": "L44",
-      "community": 5,
+      "community": 6,
       "norm_label": "getprogressiontip()",
       "id": "progression_getprogressiontip"
     },
@@ -404,7 +404,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/exerciseImages.ts",
       "source_location": "L1",
-      "community": 16,
+      "community": 17,
       "norm_label": "exerciseimages.ts",
       "id": "src_utils_exerciseimages_ts"
     },
@@ -413,7 +413,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/exerciseImages.ts",
       "source_location": "L15",
-      "community": 16,
+      "community": 17,
       "norm_label": "localimageurl()",
       "id": "exerciseimages_localimageurl"
     },
@@ -422,7 +422,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/exerciseImages.ts",
       "source_location": "L19",
-      "community": 16,
+      "community": 17,
       "norm_label": "remoteimageurl()",
       "id": "exerciseimages_remoteimageurl"
     },
@@ -431,7 +431,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/exerciseImages.ts",
       "source_location": "L23",
-      "community": 16,
+      "community": 17,
       "norm_label": "isbundled()",
       "id": "exerciseimages_isbundled"
     },
@@ -440,7 +440,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.test.ts",
       "source_location": "L1",
-      "community": 70,
+      "community": 69,
       "norm_label": "supporter.test.ts",
       "id": "src_utils_supporter_test_ts"
     },
@@ -449,7 +449,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/patternDetection.ts",
       "source_location": "L1",
-      "community": 17,
+      "community": 18,
       "norm_label": "patterndetection.ts",
       "id": "src_utils_patterndetection_ts"
     },
@@ -458,7 +458,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/patternDetection.ts",
       "source_location": "L8",
-      "community": 17,
+      "community": 18,
       "norm_label": "clusterkey()",
       "id": "patterndetection_clusterkey"
     },
@@ -467,7 +467,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/patternDetection.ts",
       "source_location": "L12",
-      "community": 17,
+      "community": 18,
       "norm_label": "getdismissed()",
       "id": "patterndetection_getdismissed"
     },
@@ -476,7 +476,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/patternDetection.ts",
       "source_location": "L21",
-      "community": 17,
+      "community": 18,
       "norm_label": "dismisspattern()",
       "id": "patterndetection_dismisspattern"
     },
@@ -485,7 +485,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/patternDetection.ts",
       "source_location": "L27",
-      "community": 17,
+      "community": 18,
       "norm_label": "detectpattern()",
       "id": "patterndetection_detectpattern"
     },
@@ -530,7 +530,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/pr.ts",
       "source_location": "L1",
-      "community": 12,
+      "community": 13,
       "norm_label": "pr.ts",
       "id": "src_utils_pr_ts"
     },
@@ -539,7 +539,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/pr.ts",
       "source_location": "L10",
-      "community": 12,
+      "community": 13,
       "norm_label": "calculatepr()",
       "id": "pr_calculatepr"
     },
@@ -548,7 +548,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/pr.ts",
       "source_location": "L27",
-      "community": 12,
+      "community": 13,
       "norm_label": "formatpr()",
       "id": "pr_formatpr"
     },
@@ -557,7 +557,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/pr.ts",
       "source_location": "L32",
-      "community": 12,
+      "community": 13,
       "norm_label": "getlastsession()",
       "id": "pr_getlastsession"
     },
@@ -566,7 +566,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/pr.ts",
       "source_location": "L42",
-      "community": 12,
+      "community": 13,
       "norm_label": "getexercisefrequency()",
       "id": "pr_getexercisefrequency"
     },
@@ -575,7 +575,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/pr.ts",
       "source_location": "L57",
-      "community": 12,
+      "community": 13,
       "norm_label": "sortexercisesbyfrequency()",
       "id": "pr_sortexercisesbyfrequency"
     },
@@ -584,7 +584,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/version.test.ts",
       "source_location": "L1",
-      "community": 71,
+      "community": 70,
       "norm_label": "version.test.ts",
       "id": "src_utils_version_test_ts"
     },
@@ -593,7 +593,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L1",
-      "community": 8,
+      "community": 9,
       "norm_label": "supporter.ts",
       "id": "src_utils_supporter_ts"
     },
@@ -602,7 +602,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L7",
-      "community": 8,
+      "community": 9,
       "norm_label": "sha256()",
       "id": "supporter_sha256"
     },
@@ -611,7 +611,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L15",
-      "community": 8,
+      "community": 9,
       "norm_label": "fetchcodehashes()",
       "id": "supporter_fetchcodehashes"
     },
@@ -620,7 +620,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L38",
-      "community": 8,
+      "community": 9,
       "norm_label": "verifycode()",
       "id": "supporter_verifycode"
     },
@@ -629,7 +629,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L48",
-      "community": 8,
+      "community": 9,
       "norm_label": "getsavedhash()",
       "id": "supporter_getsavedhash"
     },
@@ -638,7 +638,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L52",
-      "community": 8,
+      "community": 9,
       "norm_label": "activatecode()",
       "id": "supporter_activatecode"
     },
@@ -647,7 +647,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L64",
-      "community": 8,
+      "community": 9,
       "norm_label": "deactivatesupporter()",
       "id": "supporter_deactivatesupporter"
     },
@@ -656,7 +656,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L69",
-      "community": 8,
+      "community": 9,
       "norm_label": "isactivated()",
       "id": "supporter_isactivated"
     },
@@ -665,7 +665,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/utils/supporter.ts",
       "source_location": "L73",
-      "community": 8,
+      "community": 9,
       "norm_label": "prefetchhashes()",
       "id": "supporter_prefetchhashes"
     },
@@ -674,7 +674,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/wikiPlans.ts",
       "source_location": "L1",
-      "community": 72,
+      "community": 71,
       "norm_label": "wikiplans.ts",
       "id": "src_data_wikiplans_ts"
     },
@@ -683,7 +683,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/muscleSlugMap.ts",
       "source_location": "L1",
-      "community": 73,
+      "community": 72,
       "norm_label": "muscleslugmap.ts",
       "id": "src_data_muscleslugmap_ts"
     },
@@ -692,7 +692,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/musclePaths.ts",
       "source_location": "L1",
-      "community": 74,
+      "community": 73,
       "norm_label": "musclepaths.ts",
       "id": "src_data_musclepaths_ts"
     },
@@ -701,7 +701,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/wikiExercises.ts",
       "source_location": "L1",
-      "community": 75,
+      "community": 74,
       "norm_label": "wikiexercises.ts",
       "id": "src_data_wikiexercises_ts"
     },
@@ -710,7 +710,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/freeExerciseDb/nameAlias.ts",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "namealias.ts",
       "id": "src_data_freeexercisedb_namealias_ts"
     },
@@ -719,7 +719,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/freeExerciseDb/nameAlias.ts",
       "source_location": "L96",
-      "community": 2,
+      "community": 1,
       "norm_label": "getlibraryidforname()",
       "id": "namealias_getlibraryidforname"
     },
@@ -728,7 +728,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/data/freeExerciseDb/bundledFolders.ts",
       "source_location": "L1",
-      "community": 76,
+      "community": 75,
       "norm_label": "bundledfolders.ts",
       "id": "src_data_freeexercisedb_bundledfolders_ts"
     },
@@ -782,7 +782,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/button/button.test.tsx",
       "source_location": "L1",
-      "community": 77,
+      "community": 76,
       "norm_label": "button.test.tsx",
       "id": "src_components_button_button_test_tsx"
     },
@@ -809,7 +809,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "settings-modal.tsx",
       "id": "src_components_settings_modal_settings_modal_tsx"
     },
@@ -818,7 +818,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L31",
-      "community": 2,
+      "community": 1,
       "norm_label": "reprangesettings()",
       "id": "settings_modal_reprangesettings"
     },
@@ -827,7 +827,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L168",
-      "community": 2,
+      "community": 1,
       "norm_label": "handlecheckupdate()",
       "id": "settings_modal_handlecheckupdate"
     },
@@ -836,7 +836,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L174",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleexport()",
       "id": "settings_modal_handleexport"
     },
@@ -845,7 +845,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L190",
-      "community": 2,
+      "community": 1,
       "norm_label": "handlefileselect()",
       "id": "settings_modal_handlefileselect"
     },
@@ -854,7 +854,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L210",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleimport()",
       "id": "settings_modal_handleimport"
     },
@@ -863,7 +863,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L217",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleexportexercises()",
       "id": "settings_modal_handleexportexercises"
     },
@@ -872,7 +872,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L222",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleexfileselect()",
       "id": "settings_modal_handleexfileselect"
     },
@@ -881,7 +881,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx",
       "source_location": "L245",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleimportexercisesconfirm()",
       "id": "settings_modal_handleimportexercisesconfirm"
     },
@@ -908,7 +908,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/confirm-dialog/confirm-dialog.test.tsx",
       "source_location": "L1",
-      "community": 78,
+      "community": 77,
       "norm_label": "confirm-dialog.test.tsx",
       "id": "src_components_confirm_dialog_confirm_dialog_test_tsx"
     },
@@ -935,7 +935,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/update-banner/update-banner.tsx",
       "source_location": "L1",
-      "community": 7,
+      "community": 8,
       "norm_label": "update-banner.tsx",
       "id": "src_components_update_banner_update_banner_tsx"
     },
@@ -944,7 +944,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/update-banner/update-banner.tsx",
       "source_location": "L11",
-      "community": 7,
+      "community": 8,
       "norm_label": "updatebanner()",
       "id": "update_banner_updatebanner"
     },
@@ -980,7 +980,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/exercise-detail/exercise-detail.tsx",
       "source_location": "L1",
-      "community": 79,
+      "community": 78,
       "norm_label": "exercise-detail.tsx",
       "id": "src_components_exercise_detail_exercise_detail_tsx"
     },
@@ -1016,7 +1016,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/music/browse-view.tsx",
       "source_location": "L1",
-      "community": 18,
+      "community": 19,
       "norm_label": "browse-view.tsx",
       "id": "src_components_music_browse_view_tsx"
     },
@@ -1025,7 +1025,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/music/browse-view.tsx",
       "source_location": "L35",
-      "community": 18,
+      "community": 19,
       "norm_label": "nextrepeatmode()",
       "id": "browse_view_nextrepeatmode"
     },
@@ -1034,7 +1034,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/music/browse-view.tsx",
       "source_location": "L93",
-      "community": 18,
+      "community": 19,
       "norm_label": "navigateto()",
       "id": "browse_view_navigateto"
     },
@@ -1043,7 +1043,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/music/browse-view.tsx",
       "source_location": "L98",
-      "community": 18,
+      "community": 19,
       "norm_label": "goback()",
       "id": "browse_view_goback"
     },
@@ -1052,7 +1052,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/music/browse-view.tsx",
       "source_location": "L111",
-      "community": 18,
+      "community": 19,
       "norm_label": "handleshuffleplay()",
       "id": "browse_view_handleshuffleplay"
     },
@@ -1088,7 +1088,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/music/music.tsx",
       "source_location": "L1",
-      "community": 80,
+      "community": 79,
       "norm_label": "music.tsx",
       "id": "src_components_music_music_tsx"
     },
@@ -1133,7 +1133,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/modal/modal.test.tsx",
       "source_location": "L1",
-      "community": 81,
+      "community": 80,
       "norm_label": "modal.test.tsx",
       "id": "src_components_modal_modal_test_tsx"
     },
@@ -1142,7 +1142,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/modal/modal.tsx",
       "source_location": "L1",
-      "community": 7,
+      "community": 8,
       "norm_label": "modal.tsx",
       "id": "src_components_modal_modal_tsx"
     },
@@ -1151,7 +1151,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/modal/modal.tsx",
       "source_location": "L14",
-      "community": 7,
+      "community": 8,
       "norm_label": "modal()",
       "id": "modal_modal"
     },
@@ -1178,7 +1178,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L1",
-      "community": 9,
+      "community": 10,
       "norm_label": "body-map.tsx",
       "id": "src_components_body_map_body_map_tsx"
     },
@@ -1187,7 +1187,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L25",
-      "community": 9,
+      "community": 10,
       "norm_label": "isprimary()",
       "id": "body_map_isprimary"
     },
@@ -1196,7 +1196,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L26",
-      "community": 9,
+      "community": 10,
       "norm_label": "issecondary()",
       "id": "body_map_issecondary"
     },
@@ -1205,7 +1205,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L27",
-      "community": 9,
+      "community": 10,
       "norm_label": "isselected()",
       "id": "body_map_isselected"
     },
@@ -1214,7 +1214,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L49",
-      "community": 9,
+      "community": 10,
       "norm_label": "handlebodypartpress()",
       "id": "body_map_handlebodypartpress"
     },
@@ -1223,7 +1223,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L62",
-      "community": 9,
+      "community": 10,
       "norm_label": "isslugselected()",
       "id": "body_map_isslugselected"
     },
@@ -1232,7 +1232,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L63",
-      "community": 9,
+      "community": 10,
       "norm_label": "isslugprimary()",
       "id": "body_map_isslugprimary"
     },
@@ -1241,7 +1241,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L69",
-      "community": 9,
+      "community": 10,
       "norm_label": "getmusclepathfill()",
       "id": "body_map_getmusclepathfill"
     },
@@ -1250,7 +1250,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx",
       "source_location": "L76",
-      "community": 9,
+      "community": 10,
       "norm_label": "_getmusclepathstrokewidth()",
       "id": "body_map_getmusclepathstrokewidth"
     },
@@ -1304,7 +1304,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useBackButton.ts",
       "source_location": "L1",
-      "community": 7,
+      "community": 8,
       "norm_label": "usebackbutton.ts",
       "id": "src_hooks_usebackbutton_ts"
     },
@@ -1313,7 +1313,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useBackButton.ts",
       "source_location": "L10",
-      "community": 7,
+      "community": 8,
       "norm_label": "registerbackhandler()",
       "id": "usebackbutton_registerbackhandler"
     },
@@ -1322,7 +1322,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useBackButton.ts",
       "source_location": "L18",
-      "community": 7,
+      "community": 8,
       "norm_label": "usebackhandler()",
       "id": "usebackbutton_usebackhandler"
     },
@@ -1331,7 +1331,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useBackButton.ts",
       "source_location": "L29",
-      "community": 7,
+      "community": 8,
       "norm_label": "usebackbutton()",
       "id": "usebackbutton_usebackbutton"
     },
@@ -1340,7 +1340,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useStorage.test.ts",
       "source_location": "L1",
-      "community": 82,
+      "community": 81,
       "norm_label": "usestorage.test.ts",
       "id": "src_hooks_usestorage_test_ts"
     },
@@ -1349,7 +1349,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useUpdateCheck.ts",
       "source_location": "L1",
-      "community": 15,
+      "community": 7,
       "norm_label": "useupdatecheck.ts",
       "id": "src_hooks_useupdatecheck_ts"
     },
@@ -1358,7 +1358,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useUpdateCheck.ts",
       "source_location": "L19",
-      "community": 15,
+      "community": 7,
       "norm_label": "currentversion()",
       "id": "useupdatecheck_currentversion"
     },
@@ -1367,7 +1367,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useUpdateCheck.ts",
       "source_location": "L24",
-      "community": 15,
+      "community": 7,
       "norm_label": "fetchlatest()",
       "id": "useupdatecheck_fetchlatest"
     },
@@ -1376,7 +1376,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useUpdateCheck.ts",
       "source_location": "L38",
-      "community": 15,
+      "community": 7,
       "norm_label": "useupdatecheck()",
       "id": "useupdatecheck_useupdatecheck"
     },
@@ -1448,7 +1448,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSession.test.ts",
       "source_location": "L1",
-      "community": 83,
+      "community": 82,
       "norm_label": "usesession.test.ts",
       "id": "src_hooks_usesession_test_ts"
     },
@@ -1457,7 +1457,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useMediaSession.ts",
       "source_location": "L1",
-      "community": 10,
+      "community": 11,
       "norm_label": "usemediasession.ts",
       "id": "src_hooks_usemediasession_ts"
     },
@@ -1466,7 +1466,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useMediaSession.ts",
       "source_location": "L24",
-      "community": 10,
+      "community": 11,
       "norm_label": "getplugin()",
       "id": "usemediasession_getplugin"
     },
@@ -1475,7 +1475,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useMediaSession.ts",
       "source_location": "L35",
-      "community": 10,
+      "community": 11,
       "norm_label": "usemediasession()",
       "id": "usemediasession_usemediasession"
     },
@@ -1502,7 +1502,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/usePR.ts",
       "source_location": "L1",
-      "community": 19,
+      "community": 20,
       "norm_label": "usepr.ts",
       "id": "src_hooks_usepr_ts"
     },
@@ -1511,7 +1511,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/usePR.ts",
       "source_location": "L6",
-      "community": 19,
+      "community": 20,
       "norm_label": "usepr()",
       "id": "usepr_usepr"
     },
@@ -1520,7 +1520,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/usePR.ts",
       "source_location": "L10",
-      "community": 19,
+      "community": 20,
       "norm_label": "usestreak()",
       "id": "usepr_usestreak"
     },
@@ -1556,7 +1556,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSession.ts",
       "source_location": "L1",
-      "community": 10,
+      "community": 11,
       "norm_label": "usesession.ts",
       "id": "src_hooks_usesession_ts"
     },
@@ -1565,7 +1565,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSession.ts",
       "source_location": "L15",
-      "community": 10,
+      "community": 11,
       "norm_label": "loadactive()",
       "id": "usesession_loadactive"
     },
@@ -1574,7 +1574,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSession.ts",
       "source_location": "L24",
-      "community": 10,
+      "community": 11,
       "norm_label": "saveactive()",
       "id": "usesession_saveactive"
     },
@@ -1583,7 +1583,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSession.ts",
       "source_location": "L32",
-      "community": 10,
+      "community": 11,
       "norm_label": "useactivesession()",
       "id": "usesession_useactivesession"
     },
@@ -1592,7 +1592,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useExerciseImage.ts",
       "source_location": "L1",
-      "community": 16,
+      "community": 17,
       "norm_label": "useexerciseimage.ts",
       "id": "src_hooks_useexerciseimage_ts"
     },
@@ -1601,7 +1601,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useExerciseImage.ts",
       "source_location": "L17",
-      "community": 16,
+      "community": 17,
       "norm_label": "useexerciseimage()",
       "id": "useexerciseimage_useexerciseimage"
     },
@@ -1646,7 +1646,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/train.container.tsx",
       "source_location": "L1",
-      "community": 10,
+      "community": 11,
       "norm_label": "train.container.tsx",
       "id": "src_pages_train_train_container_tsx"
     },
@@ -1655,7 +1655,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/train.container.tsx",
       "source_location": "L21",
-      "community": 10,
+      "community": 11,
       "norm_label": "traincontainer()",
       "id": "train_container_traincontainer"
     },
@@ -1682,7 +1682,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/train.view.tsx",
       "source_location": "L1",
-      "community": 84,
+      "community": 83,
       "norm_label": "train.view.tsx",
       "id": "src_pages_train_train_view_tsx"
     },
@@ -1763,7 +1763,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/exercise-entry/exercise-entry.tsx",
       "source_location": "L1",
-      "community": 12,
+      "community": 13,
       "norm_label": "exercise-entry.tsx",
       "id": "src_pages_train_components_exercise_entry_exercise_entry_tsx"
     },
@@ -1772,7 +1772,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/exercise-entry/exercise-entry.tsx",
       "source_location": "L17",
-      "community": 12,
+      "community": 13,
       "norm_label": "exerciseentrycomponent()",
       "id": "exercise_entry_exerciseentrycomponent"
     },
@@ -1781,7 +1781,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx",
       "source_location": "L1",
-      "community": 6,
+      "community": 5,
       "norm_label": "workout-summary-modal.tsx",
       "id": "src_pages_train_components_workout_summary_modal_workout_summary_modal_tsx"
     },
@@ -1790,7 +1790,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx",
       "source_location": "L24",
-      "community": 6,
+      "community": 5,
       "norm_label": "totalvolume()",
       "id": "workout_summary_modal_totalvolume"
     },
@@ -1799,7 +1799,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx",
       "source_location": "L28",
-      "community": 6,
+      "community": 5,
       "norm_label": "getaccentcolor()",
       "id": "workout_summary_modal_getaccentcolor"
     },
@@ -1808,7 +1808,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx",
       "source_location": "L32",
-      "community": 6,
+      "community": 5,
       "norm_label": "drawsummarycard()",
       "id": "workout_summary_modal_drawsummarycard"
     },
@@ -1817,7 +1817,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx",
       "source_location": "L97",
-      "community": 6,
+      "community": 5,
       "norm_label": "workoutsummarymodal()",
       "id": "workout_summary_modal_workoutsummarymodal"
     },
@@ -1826,7 +1826,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L1",
-      "community": 5,
+      "community": 6,
       "norm_label": "set-row.tsx",
       "id": "src_pages_train_components_set_row_set_row_tsx"
     },
@@ -1835,7 +1835,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L25",
-      "community": 5,
+      "community": 6,
       "norm_label": "getreptip()",
       "id": "set_row_getreptip"
     },
@@ -1844,7 +1844,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L43",
-      "community": 5,
+      "community": 6,
       "norm_label": "handleweightchange()",
       "id": "set_row_handleweightchange"
     },
@@ -1853,7 +1853,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L50",
-      "community": 5,
+      "community": 6,
       "norm_label": "handleweightblur()",
       "id": "set_row_handleweightblur"
     },
@@ -1862,7 +1862,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L61",
-      "community": 5,
+      "community": 6,
       "norm_label": "handlerepschange()",
       "id": "set_row_handlerepschange"
     },
@@ -1871,7 +1871,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L67",
-      "community": 5,
+      "community": 6,
       "norm_label": "handlerepsblur()",
       "id": "set_row_handlerepsblur"
     },
@@ -1880,7 +1880,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx",
       "source_location": "L79",
-      "community": 5,
+      "community": 6,
       "norm_label": "cycletype()",
       "id": "set_row_cycletype"
     },
@@ -1907,7 +1907,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/exercises.view.tsx",
       "source_location": "L1",
-      "community": 85,
+      "community": 84,
       "norm_label": "exercises.view.tsx",
       "id": "src_pages_exercises_exercises_view_tsx"
     },
@@ -1916,7 +1916,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/exercises.container.tsx",
       "source_location": "L1",
-      "community": 7,
+      "community": 8,
       "norm_label": "exercises.container.tsx",
       "id": "src_pages_exercises_exercises_container_tsx"
     },
@@ -1925,7 +1925,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/exercises.container.tsx",
       "source_location": "L23",
-      "community": 7,
+      "community": 8,
       "norm_label": "exerciselist()",
       "id": "exercises_container_exerciselist"
     },
@@ -1934,7 +1934,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "wiki.tsx",
       "id": "src_pages_exercises_components_wiki_wiki_tsx"
     },
@@ -1943,7 +1943,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx",
       "source_location": "L50",
-      "community": 2,
+      "community": 1,
       "norm_label": "handlecreateplan()",
       "id": "wiki_handlecreateplan"
     },
@@ -1952,7 +1952,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx",
       "source_location": "L62",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleimportplan()",
       "id": "wiki_handleimportplan"
     },
@@ -1961,7 +1961,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx",
       "source_location": "L135",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleimportgeneratedplan()",
       "id": "wiki_handleimportgeneratedplan"
     },
@@ -1970,7 +1970,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx",
       "source_location": "L220",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleexportsavedplan()",
       "id": "wiki_handleexportsavedplan"
     },
@@ -1979,7 +1979,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx",
       "source_location": "L265",
-      "community": 2,
+      "community": 1,
       "norm_label": "handleimportfile()",
       "id": "wiki_handleimportfile"
     },
@@ -2150,7 +2150,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/plan-detail/plan-detail.tsx",
       "source_location": "L1",
-      "community": 86,
+      "community": 85,
       "norm_label": "plan-detail.tsx",
       "id": "src_pages_exercises_components_wiki_plan_detail_plan_detail_tsx"
     },
@@ -2177,7 +2177,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/history/history.view.tsx",
       "source_location": "L1",
-      "community": 87,
+      "community": 86,
       "norm_label": "history.view.tsx",
       "id": "src_pages_history_history_view_tsx"
     },
@@ -2258,7 +2258,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/dashboard/dashboard.container.tsx",
       "source_location": "L1",
-      "community": 19,
+      "community": 20,
       "norm_label": "dashboard.container.tsx",
       "id": "src_pages_dashboard_dashboard_container_tsx"
     },
@@ -2267,7 +2267,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/dashboard/dashboard.container.tsx",
       "source_location": "L16",
-      "community": 19,
+      "community": 20,
       "norm_label": "dashboard()",
       "id": "dashboard_container_dashboard"
     },
@@ -2303,7 +2303,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/dashboard/dashboard.view.tsx",
       "source_location": "L1",
-      "community": 88,
+      "community": 87,
       "norm_label": "dashboard.view.tsx",
       "id": "src_pages_dashboard_dashboard_view_tsx"
     },
@@ -2312,7 +2312,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/dashboard/components/exercise-card/exercise-card.tsx",
       "source_location": "L1",
-      "community": 89,
+      "community": 88,
       "norm_label": "exercise-card.tsx",
       "id": "src_pages_dashboard_components_exercise_card_exercise_card_tsx"
     },
@@ -2321,7 +2321,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/dashboard/components/music-card/music-card.tsx",
       "source_location": "L1",
-      "community": 90,
+      "community": 89,
       "norm_label": "music-card.tsx",
       "id": "src_pages_dashboard_components_music_card_music_card_tsx"
     },
@@ -2348,7 +2348,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/nutrition.view.tsx",
       "source_location": "L1",
-      "community": 91,
+      "community": 90,
       "norm_label": "nutrition.view.tsx",
       "id": "src_pages_nutrition_nutrition_view_tsx"
     },
@@ -2375,7 +2375,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/activity-entry-form/activity-entry-form.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 2,
       "norm_label": "activity-entry-form.tsx",
       "id": "src_pages_nutrition_components_activity_entry_form_activity_entry_form_tsx"
     },
@@ -2384,7 +2384,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/activity-entry-form/activity-entry-form.tsx",
       "source_location": "L18",
-      "community": 1,
+      "community": 2,
       "norm_label": "activityentryform()",
       "id": "activity_entry_form_activityentryform"
     },
@@ -2393,7 +2393,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 2,
       "norm_label": "daily-log.tsx",
       "id": "src_pages_nutrition_components_daily_log_daily_log_tsx"
     },
@@ -2402,7 +2402,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L95",
-      "community": 1,
+      "community": 2,
       "norm_label": "addwater()",
       "id": "daily_log_addwater"
     },
@@ -2411,7 +2411,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L99",
-      "community": 1,
+      "community": 2,
       "norm_label": "handlecustomwater()",
       "id": "daily_log_handlecustomwater"
     },
@@ -2420,7 +2420,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L111",
-      "community": 1,
+      "community": 2,
       "norm_label": "prevday()",
       "id": "daily_log_prevday"
     },
@@ -2429,7 +2429,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L117",
-      "community": 1,
+      "community": 2,
       "norm_label": "nextday()",
       "id": "daily_log_nextday"
     },
@@ -2438,7 +2438,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L136",
-      "community": 1,
+      "community": 2,
       "norm_label": "handleaddformeal()",
       "id": "daily_log_handleaddformeal"
     },
@@ -2447,7 +2447,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx",
       "source_location": "L334",
-      "community": 1,
+      "community": 2,
       "norm_label": "' '()",
       "id": "daily_log"
     },
@@ -2456,7 +2456,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/nutrition-tips/nutrition-tips.tsx",
       "source_location": "L1",
-      "community": 92,
+      "community": 91,
       "norm_label": "nutrition-tips.tsx",
       "id": "src_pages_nutrition_components_nutrition_tips_nutrition_tips_tsx"
     },
@@ -2483,7 +2483,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/calorie-insights/calorie-insights.tsx",
       "source_location": "L1",
-      "community": 93,
+      "community": 92,
       "norm_label": "calorie-insights.tsx",
       "id": "src_pages_nutrition_components_calorie_insights_calorie_insights_tsx"
     },
@@ -2492,7 +2492,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L1",
-      "community": 13,
+      "community": 14,
       "norm_label": "food-entry-form.tsx",
       "id": "src_pages_nutrition_components_food_entry_form_food_entry_form_tsx"
     },
@@ -2501,7 +2501,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L39",
-      "community": 13,
+      "community": 14,
       "norm_label": "handlesave()",
       "id": "food_entry_form_handlesave"
     },
@@ -2510,7 +2510,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L56",
-      "community": 13,
+      "community": 14,
       "norm_label": "handlebarcodescan()",
       "id": "food_entry_form_handlebarcodescan"
     },
@@ -2519,7 +2519,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L95",
-      "community": 13,
+      "community": 14,
       "norm_label": "handleportionchange()",
       "id": "food_entry_form_handleportionchange"
     },
@@ -2582,7 +2582,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/router/router.tsx",
       "source_location": "L1",
-      "community": 94,
+      "community": 93,
       "norm_label": "router.tsx",
       "id": "src_router_router_tsx"
     },
@@ -2591,7 +2591,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/test/setup.ts",
       "source_location": "L1",
-      "community": 95,
+      "community": 94,
       "norm_label": "setup.ts",
       "id": "src_test_setup_ts"
     },
@@ -2600,7 +2600,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/public/sw.js",
       "source_location": "L1",
-      "community": 96,
+      "community": 95,
       "norm_label": "sw.js",
       "id": "public_sw_js"
     },
@@ -2978,7 +2978,7 @@
       "file_type": "code",
       "source_file": "android/app/src/main/java/com/juma/jgym/MediaNotificationListener.java",
       "source_location": "L1",
-      "community": 11,
+      "community": 12,
       "norm_label": "medianotificationlistener.java",
       "id": "android_app_src_main_java_com_juma_jgym_medianotificationlistener_java"
     },
@@ -2987,7 +2987,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L15",
-      "community": 11,
+      "community": 12,
       "norm_label": "medianotificationlistener",
       "id": "medianotificationlistener_medianotificationlistener"
     },
@@ -2996,7 +2996,7 @@
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "community": 11,
+      "community": 12,
       "norm_label": "notificationlistenerservice",
       "id": "notificationlistenerservice"
     },
@@ -3005,7 +3005,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L28",
-      "community": 11,
+      "community": 12,
       "norm_label": ".onlistenerconnected()",
       "id": "medianotificationlistener_medianotificationlistener_onlistenerconnected"
     },
@@ -3014,7 +3014,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L55",
-      "community": 11,
+      "community": 12,
       "norm_label": ".findandattach()",
       "id": "medianotificationlistener_medianotificationlistener_findandattach"
     },
@@ -3023,7 +3023,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L82",
-      "community": 11,
+      "community": 12,
       "norm_label": ".onlistenerdisconnected()",
       "id": "medianotificationlistener_medianotificationlistener_onlistenerdisconnected"
     },
@@ -3032,7 +3032,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L97",
-      "community": 11,
+      "community": 12,
       "norm_label": ".onnotificationposted()",
       "id": "medianotificationlistener_medianotificationlistener_onnotificationposted"
     },
@@ -3041,7 +3041,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L100",
-      "community": 11,
+      "community": 12,
       "norm_label": ".onnotificationremoved()",
       "id": "medianotificationlistener_medianotificationlistener_onnotificationremoved"
     },
@@ -3050,7 +3050,7 @@
       "file_type": "code",
       "source_file": "android/app/src/main/java/com/juma/jgym/MainActivity.java",
       "source_location": "L1",
-      "community": 20,
+      "community": 15,
       "norm_label": "mainactivity.java",
       "id": "android_app_src_main_java_com_juma_jgym_mainactivity_java"
     },
@@ -3058,8 +3058,8 @@
       "label": "MainActivity",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L15",
-      "community": 20,
+      "source_location": "L16",
+      "community": 15,
       "norm_label": "mainactivity",
       "id": "mainactivity_mainactivity"
     },
@@ -3068,7 +3068,7 @@
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "community": 20,
+      "community": 15,
       "norm_label": "bridgeactivity",
       "id": "bridgeactivity"
     },
@@ -3076,8 +3076,8 @@
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L16",
-      "community": 20,
+      "source_location": "L17",
+      "community": 15,
       "norm_label": ".oncreate()",
       "id": "mainactivity_mainactivity_oncreate"
     },
@@ -3113,7 +3113,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L1",
-      "community": 14,
+      "community": 16,
       "norm_label": "build-exercise-db.mjs",
       "id": "scripts_build_exercise_db_mjs"
     },
@@ -3122,7 +3122,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L52",
-      "community": 14,
+      "community": 16,
       "norm_label": "mapmuscle()",
       "id": "build_exercise_db_mapmuscle"
     },
@@ -3131,7 +3131,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L53",
-      "community": 14,
+      "community": 16,
       "norm_label": "dedupe()",
       "id": "build_exercise_db_dedupe"
     },
@@ -3140,7 +3140,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L55",
-      "community": 14,
+      "community": 16,
       "norm_label": "readjson()",
       "id": "build_exercise_db_readjson"
     },
@@ -3149,7 +3149,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L61",
-      "community": 14,
+      "community": 16,
       "norm_label": "readaliasmap()",
       "id": "build_exercise_db_readaliasmap"
     },
@@ -3158,7 +3158,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L72",
-      "community": 14,
+      "community": 16,
       "norm_label": "downloadimage()",
       "id": "build_exercise_db_downloadimage"
     },
@@ -3167,7 +3167,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L83",
-      "community": 14,
+      "community": 16,
       "norm_label": "tolibraryexercise()",
       "id": "build_exercise_db_tolibraryexercise"
     },
@@ -3176,7 +3176,7 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs",
       "source_location": "L105",
-      "community": 14,
+      "community": 16,
       "norm_label": "main()",
       "id": "build_exercise_db_main"
     },
@@ -3185,36 +3185,126 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaBridgePlugin.java",
       "source_location": "L1",
-      "id": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java",
       "community": 0,
-      "norm_label": "mediabridgeplugin.java"
+      "norm_label": "mediabridgeplugin.java",
+      "id": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java"
     },
     {
       "label": "MediaBrowserBridge.java",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaBrowserBridge.java",
       "source_location": "L1",
-      "id": "android_app_src_main_java_com_rltnewside_jgym_mediabrowserbridge_java",
       "community": 3,
-      "norm_label": "mediabrowserbridge.java"
+      "norm_label": "mediabrowserbridge.java",
+      "id": "android_app_src_main_java_com_rltnewside_jgym_mediabrowserbridge_java"
     },
     {
       "label": "MediaNotificationListener.java",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java",
       "source_location": "L1",
-      "id": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java",
-      "community": 11,
-      "norm_label": "medianotificationlistener.java"
+      "community": 12,
+      "norm_label": "medianotificationlistener.java",
+      "id": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java"
     },
     {
       "label": "MainActivity.java",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
       "source_location": "L1",
-      "id": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
-      "community": 20,
-      "norm_label": "mainactivity.java"
+      "community": 15,
+      "norm_label": "mainactivity.java",
+      "id": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/src/App.tsx",
+      "source_location": "L29",
+      "id": "app_app",
+      "community": 7,
+      "norm_label": "app()"
+    },
+    {
+      "label": "useSharedImport.ts",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
+      "source_location": "L1",
+      "id": "src_hooks_usesharedimport_ts",
+      "community": 7,
+      "norm_label": "usesharedimport.ts"
+    },
+    {
+      "label": "getPlugin()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
+      "source_location": "L10",
+      "id": "usesharedimport_getplugin",
+      "community": 7,
+      "norm_label": "getplugin()"
+    },
+    {
+      "label": "useSharedImport()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
+      "source_location": "L19",
+      "id": "usesharedimport_usesharedimport",
+      "community": 7,
+      "norm_label": "usesharedimport()"
+    },
+    {
+      "label": "ImportBridgePlugin.java",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L1",
+      "id": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
+      "community": 0,
+      "norm_label": "importbridgeplugin.java"
+    },
+    {
+      "label": "ImportBridgePlugin",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L18",
+      "id": "importbridgeplugin_importbridgeplugin",
+      "community": 0,
+      "norm_label": "importbridgeplugin"
+    },
+    {
+      "label": ".captureIntent()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L25",
+      "id": "importbridgeplugin_importbridgeplugin_captureintent",
+      "community": 15,
+      "norm_label": ".captureintent()"
+    },
+    {
+      "label": ".getPendingImport()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L60",
+      "id": "importbridgeplugin_importbridgeplugin_getpendingimport",
+      "community": 0,
+      "norm_label": ".getpendingimport()"
+    },
+    {
+      "label": ".onNewIntent()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L48",
+      "id": "mainactivity_mainactivity_onnewintent",
+      "community": 15,
+      "norm_label": ".onnewintent()"
+    },
+    {
+      "label": ".setupWebChromeClient()",
+      "file_type": "code",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L55",
+      "id": "mainactivity_mainactivity_setupwebchromeclient",
+      "community": 15,
+      "norm_label": ".setupwebchromeclient()"
     }
   ],
   "links": [
@@ -3229,6 +3319,18 @@
       "confidence_score": 1.0,
       "source": "vite_config_ts",
       "target": "vite_config_getappversion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/src/App.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "src_app_tsx",
+      "_tgt": "app_app",
+      "source": "src_app_tsx",
+      "target": "app_app",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4971,6 +5073,18 @@
       "target": "useupdatecheck_useupdatecheck"
     },
     {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/home/martyj6/projects/JGym/src/App.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "useupdatecheck_useupdatecheck",
+      "_tgt": "app_app",
+      "source": "useupdatecheck_useupdatecheck",
+      "target": "app_app"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useTheme.ts",
@@ -6334,9 +6448,9 @@
       "weight": 1.0,
       "_src": "mediabridgeplugin_mediabridgeplugin",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java",
+      "confidence_score": 1.0,
       "source": "mediabridgeplugin_mediabridgeplugin",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java",
-      "confidence_score": 1.0
+      "target": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java"
     },
     {
       "relation": "imports",
@@ -6346,8 +6460,32 @@
       "weight": 1.0,
       "_src": "plugin",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java",
+      "confidence_score": 1.0,
       "source": "plugin",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java",
+      "target": "android_app_src_main_java_com_rltnewside_jgym_mediabridgeplugin_java"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "plugin",
+      "_tgt": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
+      "source": "plugin",
+      "target": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "plugin",
+      "_tgt": "importbridgeplugin_importbridgeplugin",
+      "source": "plugin",
+      "target": "importbridgeplugin_importbridgeplugin",
       "confidence_score": 1.0
     },
     {
@@ -6718,9 +6856,9 @@
       "weight": 1.0,
       "_src": "mediabrowserbridge_mediabrowserbridge",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mediabrowserbridge_java",
+      "confidence_score": 1.0,
       "source": "mediabrowserbridge_mediabrowserbridge",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_mediabrowserbridge_java",
-      "confidence_score": 1.0
+      "target": "android_app_src_main_java_com_rltnewside_jgym_mediabrowserbridge_java"
     },
     {
       "relation": "calls",
@@ -6850,9 +6988,9 @@
       "weight": 1.0,
       "_src": "medianotificationlistener_medianotificationlistener",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java",
+      "confidence_score": 1.0,
       "source": "medianotificationlistener_medianotificationlistener",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java",
-      "confidence_score": 1.0
+      "target": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java"
     },
     {
       "relation": "imports",
@@ -6862,9 +7000,9 @@
       "weight": 1.0,
       "_src": "notificationlistenerservice",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java",
+      "confidence_score": 1.0,
       "source": "notificationlistenerservice",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java",
-      "confidence_score": 1.0
+      "target": "android_app_src_main_java_com_rltnewside_jgym_medianotificationlistener_java"
     },
     {
       "relation": "calls",
@@ -6906,7 +7044,7 @@
       "relation": "extends",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "bridgeactivity",
@@ -6918,7 +7056,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "mainactivity_mainactivity_oncreate",
@@ -6930,24 +7068,72 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
+      "confidence_score": 1.0,
       "source": "mainactivity_mainactivity",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
+      "target": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_src": "mainactivity_mainactivity",
+      "_tgt": "mainactivity_mainactivity_onnewintent",
+      "source": "mainactivity_mainactivity",
+      "target": "mainactivity_mainactivity_onnewintent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_src": "mainactivity_mainactivity",
+      "_tgt": "mainactivity_mainactivity_setupwebchromeclient",
+      "source": "mainactivity_mainactivity",
+      "target": "mainactivity_mainactivity_setupwebchromeclient",
       "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "bridgeactivity",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
+      "confidence_score": 1.0,
       "source": "bridgeactivity",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
+      "target": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "mainactivity_mainactivity_oncreate",
+      "_tgt": "importbridgeplugin_importbridgeplugin_captureintent",
+      "source": "mainactivity_mainactivity_oncreate",
+      "target": "importbridgeplugin_importbridgeplugin_captureintent"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_src": "mainactivity_mainactivity_oncreate",
+      "_tgt": "mainactivity_mainactivity_setupwebchromeclient",
+      "source": "mainactivity_mainactivity_oncreate",
+      "target": "mainactivity_mainactivity_setupwebchromeclient",
       "confidence_score": 1.0
     },
     {
@@ -7105,6 +7291,90 @@
       "confidence_score": 1.0,
       "source": "build_exercise_db_downloadimage",
       "target": "build_exercise_db_main"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/home/martyj6/projects/JGym/src/App.tsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_src": "app_app",
+      "_tgt": "usesharedimport_usesharedimport",
+      "source": "app_app",
+      "target": "usesharedimport_usesharedimport"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "src_hooks_usesharedimport_ts",
+      "_tgt": "usesharedimport_getplugin",
+      "source": "src_hooks_usesharedimport_ts",
+      "target": "usesharedimport_getplugin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "src_hooks_usesharedimport_ts",
+      "_tgt": "usesharedimport_usesharedimport",
+      "source": "src_hooks_usesharedimport_ts",
+      "target": "usesharedimport_usesharedimport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
+      "_tgt": "importbridgeplugin_importbridgeplugin",
+      "source": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
+      "target": "importbridgeplugin_importbridgeplugin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "importbridgeplugin_importbridgeplugin",
+      "_tgt": "importbridgeplugin_importbridgeplugin_captureintent",
+      "source": "importbridgeplugin_importbridgeplugin",
+      "target": "importbridgeplugin_importbridgeplugin_captureintent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_src": "importbridgeplugin_importbridgeplugin",
+      "_tgt": "importbridgeplugin_importbridgeplugin_getpendingimport",
+      "source": "importbridgeplugin_importbridgeplugin",
+      "target": "importbridgeplugin_importbridgeplugin_getpendingimport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_src": "importbridgeplugin_importbridgeplugin_captureintent",
+      "_tgt": "mainactivity_mainactivity_onnewintent",
+      "source": "importbridgeplugin_importbridgeplugin_captureintent",
+      "target": "mainactivity_mainactivity_onnewintent"
     }
   ],
   "hyperedges": []
