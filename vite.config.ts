@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { execSync } from 'child_process'
 
 function getAppVersion(): string {
+  if (process.env.APP_VERSION) return process.env.APP_VERSION.replace(/^v/, '')
   try {
     return execSync('git describe --tags --abbrev=0', { encoding: 'utf8' }).trim().replace(/^v/, '')
   } catch {
