@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 package com.rltnewside.jgym;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,7 +17,10 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(MediaBridgePlugin.class);
+        registerPlugin(ImportBridgePlugin.class);
         super.onCreate(savedInstanceState);
+
+        ImportBridgePlugin.captureIntent(getIntent(), this);
 
         Window window = getWindow();
         window.setStatusBarColor(Color.parseColor("#0d0d0d"));
@@ -38,6 +42,17 @@ public class MainActivity extends BridgeActivity {
             );
         }
 
+        setupWebChromeClient();
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        ImportBridgePlugin.captureIntent(intent, this);
+    }
+
+    private void setupWebChromeClient() {
         this.bridge.getWebView().setWebChromeClient(new WebChromeClient() {
             @Override
             public void onPermissionRequest(final PermissionRequest request) {
