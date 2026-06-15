@@ -96,6 +96,8 @@ jobs:
       - name: Build web app
         if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
         run: npm run build
+        env:
+          APP_VERSION: ${{ steps.version.outputs.version }}
 
       - uses: actions/setup-java@v4
         if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'

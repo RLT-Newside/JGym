@@ -3058,7 +3058,7 @@
       "label": "MainActivity",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L16",
+      "source_location": "L14",
       "community": 15,
       "norm_label": "mainactivity",
       "id": "mainactivity_mainactivity"
@@ -3076,7 +3076,7 @@
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L17",
+      "source_location": "L15",
       "community": 15,
       "norm_label": ".oncreate()",
       "id": "mainactivity_mainactivity_oncreate"
@@ -3221,90 +3221,90 @@
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/App.tsx",
       "source_location": "L29",
-      "id": "app_app",
       "community": 7,
-      "norm_label": "app()"
+      "norm_label": "app()",
+      "id": "app_app"
     },
     {
       "label": "useSharedImport.ts",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
       "source_location": "L1",
-      "id": "src_hooks_usesharedimport_ts",
       "community": 7,
-      "norm_label": "usesharedimport.ts"
+      "norm_label": "usesharedimport.ts",
+      "id": "src_hooks_usesharedimport_ts"
     },
     {
       "label": "getPlugin()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
       "source_location": "L10",
-      "id": "usesharedimport_getplugin",
       "community": 7,
-      "norm_label": "getplugin()"
+      "norm_label": "getplugin()",
+      "id": "usesharedimport_getplugin"
     },
     {
       "label": "useSharedImport()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts",
       "source_location": "L19",
-      "id": "usesharedimport_usesharedimport",
       "community": 7,
-      "norm_label": "usesharedimport()"
+      "norm_label": "usesharedimport()",
+      "id": "usesharedimport_usesharedimport"
     },
     {
       "label": "ImportBridgePlugin.java",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
       "source_location": "L1",
-      "id": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
       "community": 0,
-      "norm_label": "importbridgeplugin.java"
+      "norm_label": "importbridgeplugin.java",
+      "id": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java"
     },
     {
       "label": "ImportBridgePlugin",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
       "source_location": "L18",
-      "id": "importbridgeplugin_importbridgeplugin",
       "community": 0,
-      "norm_label": "importbridgeplugin"
+      "norm_label": "importbridgeplugin",
+      "id": "importbridgeplugin_importbridgeplugin"
     },
     {
       "label": ".captureIntent()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
       "source_location": "L25",
-      "id": "importbridgeplugin_importbridgeplugin_captureintent",
       "community": 15,
-      "norm_label": ".captureintent()"
+      "norm_label": ".captureintent()",
+      "id": "importbridgeplugin_importbridgeplugin_captureintent"
     },
     {
       "label": ".getPendingImport()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java",
       "source_location": "L60",
-      "id": "importbridgeplugin_importbridgeplugin_getpendingimport",
       "community": 0,
-      "norm_label": ".getpendingimport()"
+      "norm_label": ".getpendingimport()",
+      "id": "importbridgeplugin_importbridgeplugin_getpendingimport"
     },
     {
       "label": ".onNewIntent()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L48",
-      "id": "mainactivity_mainactivity_onnewintent",
+      "source_location": "L44",
       "community": 15,
-      "norm_label": ".onnewintent()"
+      "norm_label": ".onnewintent()",
+      "id": "mainactivity_mainactivity_onnewintent"
     },
     {
       "label": ".setupWebChromeClient()",
       "file_type": "code",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
       "source_location": "L55",
-      "id": "mainactivity_mainactivity_setupwebchromeclient",
       "community": 15,
-      "norm_label": ".setupwebchromeclient()"
+      "norm_label": ".setupwebchromeclient()",
+      "id": "mainactivity_mainactivity_setupwebchromeclient"
     }
   ],
   "links": [
@@ -3328,9 +3328,9 @@
       "weight": 1.0,
       "_src": "src_app_tsx",
       "_tgt": "app_app",
+      "confidence_score": 1.0,
       "source": "src_app_tsx",
-      "target": "app_app",
-      "confidence_score": 1.0
+      "target": "app_app"
     },
     {
       "relation": "contains",
@@ -6472,9 +6472,9 @@
       "weight": 1.0,
       "_src": "plugin",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
+      "confidence_score": 1.0,
       "source": "plugin",
-      "target": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
-      "confidence_score": 1.0
+      "target": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java"
     },
     {
       "relation": "extends",
@@ -6484,9 +6484,9 @@
       "weight": 1.0,
       "_src": "plugin",
       "_tgt": "importbridgeplugin_importbridgeplugin",
+      "confidence_score": 1.0,
       "source": "plugin",
-      "target": "importbridgeplugin_importbridgeplugin",
-      "confidence_score": 1.0
+      "target": "importbridgeplugin_importbridgeplugin"
     },
     {
       "relation": "calls",
@@ -7044,7 +7044,7 @@
       "relation": "extends",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L16",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "bridgeactivity",
@@ -7056,7 +7056,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L17",
+      "source_location": "L15",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "mainactivity_mainactivity_oncreate",
@@ -7068,7 +7068,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L16",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
@@ -7080,13 +7080,13 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L48",
+      "source_location": "L44",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "mainactivity_mainactivity_onnewintent",
+      "confidence_score": 1.0,
       "source": "mainactivity_mainactivity",
-      "target": "mainactivity_mainactivity_onnewintent",
-      "confidence_score": 1.0
+      "target": "mainactivity_mainactivity_onnewintent"
     },
     {
       "relation": "method",
@@ -7096,15 +7096,15 @@
       "weight": 1.0,
       "_src": "mainactivity_mainactivity",
       "_tgt": "mainactivity_mainactivity_setupwebchromeclient",
+      "confidence_score": 1.0,
       "source": "mainactivity_mainactivity",
-      "target": "mainactivity_mainactivity_setupwebchromeclient",
-      "confidence_score": 1.0
+      "target": "mainactivity_mainactivity_setupwebchromeclient"
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L14",
+      "source_location": "L12",
       "weight": 1.0,
       "_src": "bridgeactivity",
       "_tgt": "android_app_src_main_java_com_rltnewside_jgym_mainactivity_java",
@@ -7117,7 +7117,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L23",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "mainactivity_mainactivity_oncreate",
       "_tgt": "importbridgeplugin_importbridgeplugin_captureintent",
@@ -7132,9 +7132,9 @@
       "weight": 1.0,
       "_src": "mainactivity_mainactivity_oncreate",
       "_tgt": "mainactivity_mainactivity_setupwebchromeclient",
+      "confidence_score": 1.0,
       "source": "mainactivity_mainactivity_oncreate",
-      "target": "mainactivity_mainactivity_setupwebchromeclient",
-      "confidence_score": 1.0
+      "target": "mainactivity_mainactivity_setupwebchromeclient"
     },
     {
       "relation": "contains",
@@ -7312,9 +7312,9 @@
       "weight": 1.0,
       "_src": "src_hooks_usesharedimport_ts",
       "_tgt": "usesharedimport_getplugin",
+      "confidence_score": 1.0,
       "source": "src_hooks_usesharedimport_ts",
-      "target": "usesharedimport_getplugin",
-      "confidence_score": 1.0
+      "target": "usesharedimport_getplugin"
     },
     {
       "relation": "contains",
@@ -7324,9 +7324,9 @@
       "weight": 1.0,
       "_src": "src_hooks_usesharedimport_ts",
       "_tgt": "usesharedimport_usesharedimport",
+      "confidence_score": 1.0,
       "source": "src_hooks_usesharedimport_ts",
-      "target": "usesharedimport_usesharedimport",
-      "confidence_score": 1.0
+      "target": "usesharedimport_usesharedimport"
     },
     {
       "relation": "contains",
@@ -7336,9 +7336,9 @@
       "weight": 1.0,
       "_src": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
       "_tgt": "importbridgeplugin_importbridgeplugin",
+      "confidence_score": 1.0,
       "source": "android_app_src_main_java_com_rltnewside_jgym_importbridgeplugin_java",
-      "target": "importbridgeplugin_importbridgeplugin",
-      "confidence_score": 1.0
+      "target": "importbridgeplugin_importbridgeplugin"
     },
     {
       "relation": "method",
@@ -7348,9 +7348,9 @@
       "weight": 1.0,
       "_src": "importbridgeplugin_importbridgeplugin",
       "_tgt": "importbridgeplugin_importbridgeplugin_captureintent",
+      "confidence_score": 1.0,
       "source": "importbridgeplugin_importbridgeplugin",
-      "target": "importbridgeplugin_importbridgeplugin_captureintent",
-      "confidence_score": 1.0
+      "target": "importbridgeplugin_importbridgeplugin_captureintent"
     },
     {
       "relation": "method",
@@ -7360,16 +7360,16 @@
       "weight": 1.0,
       "_src": "importbridgeplugin_importbridgeplugin",
       "_tgt": "importbridgeplugin_importbridgeplugin_getpendingimport",
+      "confidence_score": 1.0,
       "source": "importbridgeplugin_importbridgeplugin",
-      "target": "importbridgeplugin_importbridgeplugin_getpendingimport",
-      "confidence_score": 1.0
+      "target": "importbridgeplugin_importbridgeplugin_getpendingimport"
     },
     {
       "relation": "calls",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
-      "source_location": "L52",
+      "source_location": "L48",
       "weight": 1.0,
       "_src": "importbridgeplugin_importbridgeplugin_captureintent",
       "_tgt": "mainactivity_mainactivity_onnewintent",
