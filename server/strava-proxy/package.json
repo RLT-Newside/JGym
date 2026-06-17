@@ -1,0 +1,14 @@
+{
+  "name": "jgym-strava-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stateless Strava OAuth token proxy for JGym",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

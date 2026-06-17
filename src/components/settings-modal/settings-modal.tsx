@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import {
+  Activity,
   BarChart3,
   CalendarDays,
   Check,
@@ -24,6 +25,13 @@ import type { CheckResult } from '../../hooks/useUpdateCheck'
 import type { Exercise } from '../../types'
 import { exportJsonFile } from '../../utils/fileExport'
 import { DEFAULT_REP_RANGES, loadRepRanges, type RepRangeMap, saveRepRanges } from '../../utils/progression'
+import {
+  beginStravaConnect,
+  disconnectStrava,
+  isStravaConfigured,
+  isStravaConnected,
+  stravaAthleteName,
+} from '../../utils/strava'
 import { Button } from '../button/button'
 import { Modal } from '../modal/modal'
 
@@ -117,6 +125,49 @@ function RepRangeSettings() {
         >
           +
         </button>
+      </div>
+    </div>
+  )
+}
+
+function StravaSettings() {
+  const [connected, setConnected] = useState(isStravaConnected)
+
+  if (!isStravaConfigured()) return null
+
+  const athlete = stravaAthleteName()
+
+  return (
+    <div className="space-y-3">
+      <h3 className="text-xs text-white/40 uppercase tracking-wider">Strava</h3>
+      <div className="glass rounded-xl p-4 flex items-center gap-3">
+        <Activity size={16} className="text-[#fc4c02] flex-shrink-0" />
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-medium">{connected ? 'Connected' : 'Connect Strava'}</p>
+          <p className="text-[10px] text-white/30">
+            {connected
+              ? `${athlete ? `${athlete} · ` : ''}Finished sessions can be pushed to Strava`
+              : 'Push finished sessions to Strava as workouts'}
+          </p>
+        </div>
+        {connected ? (
+          <button
+            onClick={() => {
+              disconnectStrava()
+              setConnected(false)
+            }}
+            className="text-[10px] text-white/30 hover:text-red-400 transition-colors"
+          >
+            Disconnect
+          </button>
+        ) : (
+          <button
+            onClick={beginStravaConnect}
+            className="px-3 py-1.5 rounded-lg bg-[#fc4c02] text-white text-xs font-medium press-scale"
+          >
+            Connect
+          </button>
+        )}
       </div>
     </div>
   )
@@ -467,6 +518,9 @@ export function SettingsModal({
             </div>
           </div>
         )}
+
+        {/* Strava integration */}
+        <StravaSettings />
 
         {/* Rep Range Progression */}
         <RepRangeSettings />
