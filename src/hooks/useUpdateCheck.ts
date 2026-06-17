@@ -48,7 +48,14 @@ export function useUpdateCheck() {
     const last = Number(localStorage.getItem(CHECK_KEY) ?? 0)
     if (Date.now() - last < DAY_MS) {
       const cached = localStorage.getItem(CACHE_KEY)
-      if (cached) setUpdate(JSON.parse(cached) as UpdateInfo)
+      if (cached) {
+        const info = JSON.parse(cached) as UpdateInfo
+        if (isNewer(info.version.replace(/^v/, ''), current)) {
+          setUpdate(info)
+        } else {
+          localStorage.removeItem(CACHE_KEY)
+        }
+      }
       return
     }
     localStorage.setItem(CHECK_KEY, String(Date.now()))
