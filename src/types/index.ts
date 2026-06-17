@@ -131,6 +131,8 @@ export interface Exercise {
   notes: string
   createdAt: string
   libraryId?: string
+  description?: string
+  customImages?: string[]
 }
 
 export interface LibraryExercise {
