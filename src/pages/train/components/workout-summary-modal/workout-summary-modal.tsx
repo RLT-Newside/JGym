@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react'
 import { Button } from '../../../../components/button/button'
 import { Modal } from '../../../../components/modal/modal'
 import type { Exercise, SavedPlan, Session } from '../../../../types'
+import { exportImageFile } from '../../../../utils/fileExport'
 import { formatDate, formatTimer } from '../../../../utils/format'
 import { detectPattern, dismissPattern } from '../../../../utils/patternDetection'
 import { calculatePR } from '../../../../utils/pr'
@@ -140,25 +141,7 @@ export function WorkoutSummaryModal({
     const canvas = drawSummaryCard(session, exercises, elapsed, isSupporter)
     const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, 'image/png'))
     if (!blob) return
-    const file = new File([blob], 'workout.png', { type: 'image/png' })
-
-    if (share && navigator.canShare?.({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], title: 'Workout Summary' })
-        return
-      } catch {
-        // fall through to download
-      }
-    }
-
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `workout-${session.date.slice(0, 10)}.png`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    await exportImageFile(blob, `workout-${session.date.slice(0, 10)}.png`, 'Workout Summary', share)
   }
 
   const handleDismissPattern = (exerciseIds: string[]) => {
