@@ -10,7 +10,15 @@ License: GPL-3.0-only
 SourceCode: https://github.com/RLT-Newside/JGym
 IssueTracker: https://github.com/RLT-Newside/JGym/issues
 
-Summary: Minimalist offline gym workout tracker
+AntiFeatures:
+  NonFreeNet:
+    en-US: >-
+      Includes optional, off-by-default integrations with non-free network
+      services: OpenFoodFacts (barcode nutrition lookup) and Strava (workout
+      upload). Neither runs unless you enable it; the core tracker works
+      fully offline. See PRIVACY_POLICY.md.
+
+Summary: Minimalist offline-first gym workout tracker
 
 Description: |-
   JGym is a minimalist, offline-first gym workout tracker.
@@ -19,7 +27,10 @@ Description: |-
   personal record (PR) detection, session history with calendar view,
   exercise library with muscle group filters, and built-in workout plans.
 
-  No internet required. No sign-up. No data leaves your phone.
+  No sign-up, no accounts, no tracking. The core tracker works fully
+  offline and your data stays on your device. Optional integrations
+  (OpenFoodFacts barcode lookup, Strava workout upload) are off by default
+  and only connect when you explicitly choose to use them.
 
 Builds:
   - versionName: '1.0'
