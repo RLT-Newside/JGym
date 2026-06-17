@@ -1,5 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
-import { useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useRef, useState } from 'react'
 import { useExerciseImage } from '../../hooks/useExerciseImage'
 import { useLibraryEntry } from '../../hooks/useLibraryEntry'
 import type { Exercise, LibraryExercise, Session } from '../../types'
@@ -90,20 +91,49 @@ function LibrarySection({ entry }: { entry: LibraryExercise }) {
   const [imgIdx, setImgIdx] = useState(0)
   const { src, error, loading } = useExerciseImage(entry.imageFolder, imgIdx)
   const hasMultiple = entry.imageCount > 1
+  const touchX = useRef<number | null>(null)
+
+  const prev = () => setImgIdx((i) => (i - 1 + entry.imageCount) % entry.imageCount)
+  const next = () => setImgIdx((i) => (i + 1) % entry.imageCount)
 
   return (
     <div className="space-y-3">
-      <div className="bg-white/[0.04] rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center relative">
+      <div
+        className="bg-white/[0.04] rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center relative select-none"
+        onTouchStart={(e) => {
+          touchX.current = e.touches[0].clientX
+        }}
+        onTouchEnd={(e) => {
+          if (touchX.current === null || !hasMultiple) return
+          const delta = e.changedTouches[0].clientX - touchX.current
+          if (Math.abs(delta) > 40) {
+            if (delta < 0) next()
+            else prev()
+          }
+          touchX.current = null
+        }}
+      >
         {loading && <span className="text-[10px] text-white/30">loading…</span>}
         {error && !src && <span className="text-[10px] text-white/30">image unavailable offline</span>}
-        {src && <img src={src} alt={entry.name} className="w-full h-full object-cover" />}
+        {src && <img src={src} alt={entry.name} className="w-full h-full object-cover pointer-events-none" />}
         {hasMultiple && src && (
-          <button
-            onClick={() => setImgIdx((i) => (i + 1) % entry.imageCount)}
-            className="absolute bottom-2 right-2 bg-black/50 text-white/80 text-[10px] px-2 py-1 rounded"
-          >
-            {imgIdx + 1}/{entry.imageCount}
-          </button>
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white/80 p-1 rounded-full"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white/80 p-1 rounded-full"
+            >
+              <ChevronRight size={16} />
+            </button>
+            <span className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/50 text-white/80 text-[10px] px-2 py-1 rounded">
+              {imgIdx + 1}/{entry.imageCount}
+            </span>
+          </>
         )}
       </div>
 
