@@ -85,6 +85,21 @@
   }
 }
 
+@keyframes pr-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @keyframes pr-flash {
   0%,
   100% {
