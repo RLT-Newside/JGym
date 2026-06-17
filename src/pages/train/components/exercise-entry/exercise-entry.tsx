@@ -103,7 +103,7 @@ export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, on
       </div>
 
       <div className="flex items-center gap-2 mb-1 px-0">
-        <span className="w-6 text-center text-[10px] text-white/20">#</span>
+        <span className="w-10 text-center text-[10px] text-white/20">#</span>
         <span className="w-16 text-center text-[10px] text-white/20">Reps</span>
         <span className="w-20 text-center text-[10px] text-white/20">Weight</span>
       </div>
