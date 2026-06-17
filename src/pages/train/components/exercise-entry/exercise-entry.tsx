@@ -12,9 +12,10 @@ interface Props {
   sessions: Session[]
   onChange: (entry: SessionExerciseEntry) => void
   onRemove: () => void
+  onOpenDetail?: () => void
 }
 
-export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, onRemove }: Props) {
+export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, onRemove, onOpenDetail }: Props) {
   const lastSession = getLastSession(exercise.id, sessions)
   const pr = calculatePR(exercise.id, sessions)
 
@@ -59,7 +60,9 @@ export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, on
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 min-w-0">
             <CheckCircle2 size={18} className="text-green-400 flex-shrink-0" />
-            <h3 className="font-heading text-lg truncate">{exercise.name}</h3>
+            <button onClick={onOpenDetail} className="font-heading text-lg truncate text-left hover:text-brand transition-colors">
+              {exercise.name}
+            </button>
           </div>
           <button
             onClick={editExercise}
@@ -76,7 +79,9 @@ export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, on
   return (
     <div className="relative glass rounded-xl p-3">
       <div className="flex items-center justify-between mb-1">
-        <h3 className="font-heading text-lg">{exercise.name}</h3>
+        <button onClick={onOpenDetail} className="font-heading text-lg text-left hover:text-brand transition-colors">
+          {exercise.name}
+        </button>
         <button
           onClick={onRemove}
           className="p-1.5 hover:bg-red-900/30 rounded-lg text-white/30 hover:text-red-400 transition-colors"

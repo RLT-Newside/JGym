@@ -65,6 +65,7 @@ interface Props {
   onPrPopupDone: () => void
   onCancelSession: () => void
   onNavigateToExercises?: () => void
+  onExerciseClick?: (exercise: Exercise) => void
 }
 
 export function TrainView({
@@ -105,6 +106,7 @@ export function TrainView({
   onPrPopupDone,
   onCancelSession,
   onNavigateToExercises,
+  onExerciseClick,
 }: Props) {
   if (!active) {
     return (
@@ -249,6 +251,7 @@ export function TrainView({
             sessions={sessions}
             onChange={(e) => onEntryChange(i, e)}
             onRemove={() => onRemoveEntry(i)}
+            onOpenDetail={onExerciseClick ? () => onExerciseClick(exercise) : undefined}
           />
         )
       })}
