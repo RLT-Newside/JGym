@@ -6,12 +6,12 @@ import type { SetEntry, SetType } from '../../../../types'
 import { getProgressionTip, getRepRange } from '../../../../utils/progression'
 
 const SET_TYPE_CYCLE: SetType[] = ['normal', 'warmup', 'drop', 'failure']
-const SET_TYPE_LABEL: Record<SetType, string> = { normal: '', warmup: 'W', drop: 'D', failure: 'F' }
+const SET_TYPE_LABEL: Record<SetType, string> = { normal: '', warmup: 'Warm', drop: 'Drop', failure: 'Fail' }
 const SET_TYPE_CLASS: Record<SetType, string> = {
-  normal: 'text-white/20',
-  warmup: 'text-sky-400',
-  drop: 'text-orange-400',
-  failure: 'text-red-400',
+  normal: 'w-6 text-white/20',
+  warmup: 'px-1.5 rounded bg-sky-400/15 text-sky-300',
+  drop: 'px-1.5 rounded bg-orange-400/15 text-orange-300',
+  failure: 'px-1.5 rounded bg-red-400/15 text-red-300',
 }
 
 interface Props {
@@ -83,13 +83,17 @@ export function SetRow({ index, set, repRange, onChange, onDelete }: Props) {
 
   const repTip = repRange && set.reps > 0 && currentType !== 'warmup' ? getRepTip(set.reps, repRange) : null
 
+  const isWarmup = currentType === 'warmup'
+
   return (
-    <div className={`${set.done ? 'opacity-50' : ''}`}>
+    <div
+      className={`${set.done ? 'opacity-50' : ''} ${isWarmup ? 'border-l-2 border-sky-400/60 bg-sky-400/[0.05] rounded-r-md pl-1' : ''}`}
+    >
       <div className="flex items-center gap-2 py-1.5">
         <button
           onClick={cycleType}
           title={currentType}
-          className={`w-6 text-center text-[10px] font-bold font-heading ${SET_TYPE_CLASS[currentType]} hover:opacity-80`}
+          className={`text-center text-[10px] font-bold font-heading ${SET_TYPE_CLASS[currentType]} hover:opacity-80`}
         >
           {SET_TYPE_LABEL[currentType] || String(index + 1)}
         </button>
