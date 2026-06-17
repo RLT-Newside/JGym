@@ -33,6 +33,17 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith 
       <div className="space-y-4">
         <MuscleTags exercise={exercise} size="sm" />
 
+        {exercise.customImages && exercise.customImages.length > 0 && (
+          <CustomImageSection images={exercise.customImages} name={exercise.name} />
+        )}
+
+        {exercise.description && (
+          <div>
+            <h3 className="text-xs text-white/40 uppercase tracking-wider mb-2">Description</h3>
+            <p className="text-xs text-white/70 leading-relaxed whitespace-pre-wrap">{exercise.description}</p>
+          </div>
+        )}
+
         {library && <LibrarySection entry={library} />}
 
         <div className="bg-white/[0.04] rounded-xl p-4 text-center">
@@ -112,6 +123,23 @@ function LibrarySection({ entry }: { entry: LibraryExercise }) {
             ))}
           </ol>
         </div>
+      )}
+    </div>
+  )
+}
+
+function CustomImageSection({ images, name }: { images: string[]; name: string }) {
+  const [imgIdx, setImgIdx] = useState(0)
+  return (
+    <div className="bg-white/[0.04] rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center relative">
+      <img src={images[imgIdx]} alt={name} className="w-full h-full object-cover" />
+      {images.length > 1 && (
+        <button
+          onClick={() => setImgIdx((i) => (i + 1) % images.length)}
+          className="absolute bottom-2 right-2 bg-black/50 text-white/80 text-[10px] px-2 py-1 rounded"
+        >
+          {imgIdx + 1}/{images.length}
+        </button>
       )}
     </div>
   )
