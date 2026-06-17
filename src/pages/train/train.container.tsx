@@ -17,6 +17,7 @@ interface Props {
   preSelectedExercise?: Exercise | null
   onClearPreSelected?: () => void
   isSupporter?: boolean
+  onExerciseClick?: (exercise: Exercise) => void
 }
 
 export function TrainContainer({
@@ -29,6 +30,7 @@ export function TrainContainer({
   preSelectedExercise,
   onClearPreSelected,
   isSupporter = false,
+  onExerciseClick,
 }: Props) {
   const { active, elapsed, startSession, updateEntries, finishSession, cancelSession } = useActiveSession()
   const media = useMediaSession(!!active)
@@ -189,6 +191,7 @@ export function TrainContainer({
       onPrPopupDone={handlePrPopupDone}
       onCancelSession={cancelSession}
       onNavigateToExercises={onNavigateToExercises}
+      onExerciseClick={onExerciseClick}
     />
   )
 }

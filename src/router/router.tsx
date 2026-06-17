@@ -113,6 +113,7 @@ export function AppRouter({
           preSelectedExercise={preSelectedExercise}
           onClearPreSelected={onClearPreSelected}
           isSupporter={isSupporter}
+          onExerciseClick={onExerciseClick}
         />
       )}
       {tab === 'history' && (
