@@ -16,6 +16,7 @@ interface Props {
   onNavigateToExercises?: () => void
   preSelectedExercise?: Exercise | null
   onClearPreSelected?: () => void
+  musicPopupDisabled?: boolean
   isSupporter?: boolean
   onExerciseClick?: (exercise: Exercise) => void
 }
@@ -29,6 +30,7 @@ export function TrainContainer({
   onNavigateToExercises,
   preSelectedExercise,
   onClearPreSelected,
+  musicPopupDisabled = false,
   isSupporter = false,
   onExerciseClick,
 }: Props) {
@@ -170,6 +172,7 @@ export function TrainContainer({
       prPopup={prPopup}
       recentSessions={recentSessions}
       media={media}
+      musicPopupDisabled={musicPopupDisabled}
       isSupporter={isSupporter}
       onLabelChange={setLabel}
       onStart={handleStart}

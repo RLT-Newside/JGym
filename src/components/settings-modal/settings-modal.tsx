@@ -144,6 +144,8 @@ interface Props {
   update: { version: string; url: string } | null
   onCheckUpdate: () => Promise<CheckResult>
   checkingUpdate: boolean
+  musicPopupDisabled: boolean
+  onToggleMusicPopup: (disabled: boolean) => void
 }
 
 export function SettingsModal({
@@ -160,6 +162,8 @@ export function SettingsModal({
   update,
   onCheckUpdate,
   checkingUpdate,
+  musicPopupDisabled,
+  onToggleMusicPopup,
 }: Props) {
   const fileRef = useRef<HTMLInputElement>(null)
   const exFileRef = useRef<HTMLInputElement>(null)
@@ -466,6 +470,25 @@ export function SettingsModal({
 
         {/* Rep Range Progression */}
         <RepRangeSettings />
+
+        {/* Music Integration */}
+        <div className="space-y-3">
+          <h3 className="text-xs text-white/40 uppercase tracking-wider">Music</h3>
+          <label className="flex items-center justify-between cursor-pointer">
+            <span className="text-sm text-white/70">Hide SimpMusic permission prompt</span>
+            <button
+              onClick={() => onToggleMusicPopup(!musicPopupDisabled)}
+              className={`w-10 h-6 rounded-full relative transition-colors ${musicPopupDisabled ? 'bg-brand' : 'bg-white/10'}`}
+            >
+              <span
+                className={`block w-4 h-4 rounded-full bg-white absolute top-1 transition-transform ${musicPopupDisabled ? 'translate-x-5' : 'translate-x-1'}`}
+              />
+            </button>
+          </label>
+          <p className="text-[9px] text-white/20">
+            Hides the music permission banner that appears during workouts when SimpMusic access is not granted.
+          </p>
+        </div>
 
         {/* Feedback */}
         <div className="space-y-3">
