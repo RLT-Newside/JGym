@@ -92,4 +92,28 @@ describe('useActiveSession', () => {
     const { result } = renderHook(() => useActiveSession())
     expect(result.current.active?.label).toBe('Restored Session')
   })
+
+  it('stores the plan link when started from a plan day', () => {
+    const { result } = renderHook(() => useActiveSession())
+    act(() => result.current.startSession('PPL – Push', [], { id: 'plan1', nextIndex: 1 }))
+    expect(result.current.active?.planId).toBe('plan1')
+    expect(result.current.active?.planNextIndex).toBe(1)
+  })
+
+  it('persists the plan link so it survives a restart (re-mount)', () => {
+    const { result, unmount } = renderHook(() => useActiveSession())
+    act(() => result.current.startSession('PPL – Push', [], { id: 'plan1', nextIndex: 2 }))
+    unmount()
+    // Simulate an app restart/update: a fresh hook re-reads localStorage.
+    const { result: restored } = renderHook(() => useActiveSession())
+    expect(restored.current.active?.planId).toBe('plan1')
+    expect(restored.current.active?.planNextIndex).toBe(2)
+  })
+
+  it('leaves the plan link undefined for a non-plan session', () => {
+    const { result } = renderHook(() => useActiveSession())
+    act(() => result.current.startSession('Freestyle'))
+    expect(result.current.active?.planId).toBeUndefined()
+    expect(result.current.active?.planNextIndex).toBeUndefined()
+  })
 })
