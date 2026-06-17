@@ -10,9 +10,11 @@ import { useSharedImport } from './hooks/useSharedImport'
 import { useStorage } from './hooks/useStorage'
 import { useTheme } from './hooks/useTheme'
 import { useUpdateCheck } from './hooks/useUpdateCheck'
+import { loadLibrary } from './data/freeExerciseDb'
 import { BottomNav } from './layout/bottom-nav/bottom-nav'
 import { Header } from './layout/header/header'
 import { AppRouter } from './router/router'
+import { relinkLibraryIds } from './utils/relinkImages'
 import {
   type ActivityEntry,
   type Exercise,
@@ -58,6 +60,22 @@ export default function App() {
     const needsMigration = exercises.some((ex) => !ex.primaryMuscles)
     if (needsMigration) {
       setExercises((prev) => prev.map(migrateExercise))
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // One-time forced backfill: link existing exercises to the registry so they
+  // gain dataset images. Previously only newly-added exercises got a libraryId.
+  // Gated by a flag so it runs once per user; bump the key to re-run. JGYM-10.
+  useEffect(() => {
+    if (localStorage.getItem('gym_relink_images_v1')) return
+    let cancelled = false
+    loadLibrary().then((library) => {
+      if (cancelled) return
+      setExercises((prev) => relinkLibraryIds(prev, library, { force: true }).exercises)
+      localStorage.setItem('gym_relink_images_v1', '1')
+    })
+    return () => {
+      cancelled = true
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
