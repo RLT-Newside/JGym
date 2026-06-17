@@ -10,6 +10,7 @@ import {
   Heart,
   KeyRound,
   Merge,
+  MessageSquare,
   RefreshCw,
   Replace,
   Shield,
@@ -27,6 +28,9 @@ import { Button } from '../button/button'
 import { Modal } from '../modal/modal'
 
 declare const __APP_VERSION__: string
+
+// Public JGym issue tracker — anyone can file bugs / feature requests here.
+const FEEDBACK_URL = 'https://jgym.atlassian.net/jira/'
 
 function RepRangeSettings() {
   const [ranges, setRanges] = useState<RepRangeMap[]>(loadRepRanges)
@@ -462,6 +466,23 @@ export function SettingsModal({
 
         {/* Rep Range Progression */}
         <RepRangeSettings />
+
+        {/* Feedback */}
+        <div className="space-y-3">
+          <h3 className="text-xs text-white/40 uppercase tracking-wider">Feedback</h3>
+          <a
+            href={FEEDBACK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.08] text-sm hover:bg-white/[0.1] transition-colors press-scale"
+          >
+            <MessageSquare size={14} /> Report an issue or idea
+            <ExternalLink size={11} className="opacity-50" />
+          </a>
+          <p className="text-[9px] text-white/20">
+            Opens the JGym issue tracker — bugs and feature requests are welcome.
+          </p>
+        </div>
 
         {/* Privacy & Data */}
         <div className="space-y-3">
