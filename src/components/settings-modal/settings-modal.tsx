@@ -123,6 +123,7 @@ const THEMES: { id: Theme; label: string; color: string }[] = [
   { id: 'cyan', label: 'Aqua', color: '#22d3ee' },
   { id: 'purple', label: 'Violet', color: '#a855f7' },
   { id: 'coral', label: 'Coral', color: '#fb7185' },
+  { id: 'green', label: 'Forest', color: '#027554' },
 ]
 
 interface Props {
@@ -439,7 +440,7 @@ export function SettingsModal({
         {isSupporter && (
           <div>
             <h3 className="text-xs text-white/40 uppercase tracking-wider mb-3">Accent Theme</h3>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-5 gap-2">
               {THEMES.map((t) => (
                 <button
                   key={t.id}

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { activateCode, deactivateSupporter, isActivated, prefetchHashes } from '../utils/supporter'
 
-export type Theme = 'yellow' | 'cyan' | 'purple' | 'coral'
+export type Theme = 'yellow' | 'cyan' | 'purple' | 'coral' | 'green'
 
 function readTheme(): Theme {
   return (localStorage.getItem('gym_theme') as Theme) || 'yellow'
