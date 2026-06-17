@@ -1,6 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { Check, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import { useState } from 'react'
 import type { SetEntry, SetType } from '../../../../types'
 import { getProgressionTip, getRepRange } from '../../../../utils/progression'
@@ -61,17 +61,17 @@ export function SetRow({ index, set, repRange, onChange, onDelete }: Props) {
   const handleRepsChange = (val: string) => {
     setRepsText(val)
     const n = parseInt(val, 10)
-    if (!Number.isNaN(n)) onChange({ ...set, reps: n })
+    if (!Number.isNaN(n)) onChange({ ...set, reps: n, done: n > 0 })
   }
 
   const handleRepsBlur = () => {
     const n = parseInt(repsText, 10)
     if (!Number.isNaN(n)) {
       setRepsText(String(n))
-      onChange({ ...set, reps: n })
+      onChange({ ...set, reps: n, done: n > 0 })
     } else {
       setRepsText('')
-      onChange({ ...set, reps: 0 })
+      onChange({ ...set, reps: 0, done: false })
     }
   }
 
@@ -120,15 +120,6 @@ export function SetRow({ index, set, repRange, onChange, onDelete }: Props) {
           className="text-[10px] px-1.5 py-1 bg-white/[0.06] rounded text-white/50 hover:text-white/80 min-w-[32px]"
         >
           {set.unit}
-        </button>
-        <button
-          onClick={() => {
-            if (!set.done && (!set.reps || set.reps < 1)) return
-            onChange({ ...set, done: !set.done })
-          }}
-          className={`p-1.5 rounded ${set.done ? 'bg-brand/20 text-brand' : (!set.reps || set.reps < 1) ? 'bg-white/[0.06] text-white/10 cursor-not-allowed' : 'bg-white/[0.06] text-white/30 hover:text-white/60'}`}
-        >
-          <Check size={14} />
         </button>
         <button onClick={onDelete} className="p-1.5 rounded hover:bg-red-900/30 text-white/20 hover:text-red-400">
           <X size={14} />
