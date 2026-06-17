@@ -25,7 +25,7 @@
   --color-brand: #fb7185;
 }
 [data-theme="green"] {
-  --color-brand: #027554;
+  --color-brand: #4ade80;
 }
 
 .scrollbar-hide::-webkit-scrollbar {

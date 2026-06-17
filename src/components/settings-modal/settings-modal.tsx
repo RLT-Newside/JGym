@@ -123,7 +123,7 @@ const THEMES: { id: Theme; label: string; color: string }[] = [
   { id: 'cyan', label: 'Aqua', color: '#22d3ee' },
   { id: 'purple', label: 'Violet', color: '#a855f7' },
   { id: 'coral', label: 'Coral', color: '#fb7185' },
-  { id: 'green', label: 'Forest', color: '#027554' },
+  { id: 'green', label: 'Neon', color: '#4ade80' },
 ]
 
 interface Props {
