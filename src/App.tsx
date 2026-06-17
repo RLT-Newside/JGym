@@ -5,16 +5,15 @@ import { Modal } from './components/modal/modal'
 import { PrivacyConsent } from './components/privacy-consent/privacy-consent'
 import { SettingsModal } from './components/settings-modal/settings-modal'
 import { UpdateBanner } from './components/update-banner/update-banner'
+import { loadLibrary } from './data/freeExerciseDb'
 import { useBackButton } from './hooks/useBackButton'
 import { useSharedImport } from './hooks/useSharedImport'
 import { useStorage } from './hooks/useStorage'
 import { useTheme } from './hooks/useTheme'
 import { useUpdateCheck } from './hooks/useUpdateCheck'
-import { loadLibrary } from './data/freeExerciseDb'
 import { BottomNav } from './layout/bottom-nav/bottom-nav'
 import { Header } from './layout/header/header'
 import { AppRouter } from './router/router'
-import { relinkLibraryIds } from './utils/relinkImages'
 import {
   type ActivityEntry,
   type Exercise,
@@ -27,6 +26,7 @@ import {
   type WaterEntry,
   type WeightEntry,
 } from './types'
+import { relinkLibraryIds } from './utils/relinkImages'
 
 export default function App() {
   const [privacyAccepted, setPrivacyAccepted] = useState(() => localStorage.getItem('gym_privacy_consent') === 'true')
