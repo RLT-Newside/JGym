@@ -132,6 +132,7 @@ function RepRangeSettings() {
 
 function StravaSettings() {
   const [connected, setConnected] = useState(isStravaConnected)
+  const [consenting, setConsenting] = useState(false)
 
   if (!isStravaConfigured()) return null
 
@@ -162,13 +163,44 @@ function StravaSettings() {
           </button>
         ) : (
           <button
-            onClick={beginStravaConnect}
+            onClick={() => setConsenting((v) => !v)}
             className="px-3 py-1.5 rounded-lg bg-[#fc4c02] text-white text-xs font-medium press-scale"
           >
             Connect
           </button>
         )}
       </div>
+
+      {!connected && consenting && (
+        <div className="glass rounded-xl p-4 space-y-3 border border-[#fc4c02]/20">
+          <p className="text-[11px] text-white/60 leading-relaxed">
+            Connecting opens Strava to sign in and authorize JGym. After that, only the sessions you explicitly tap{' '}
+            <span className="text-white/80">Send to Strava</span> on are uploaded — never automatically.
+          </p>
+          <p className="text-[11px] text-white/60 leading-relaxed">
+            Each upload sends that session's exercises, sets, reps, weights, date and duration to Strava, where it is
+            governed by Strava's own privacy policy. Your login tokens are stored only on this device and removed when
+            you disconnect or use Delete All Data. JGym keeps no copy on any server.
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                setConsenting(false)
+                beginStravaConnect()
+              }}
+              className="flex-1 px-3 py-2 rounded-lg bg-[#fc4c02] text-white text-xs font-medium press-scale"
+            >
+              I understand — continue
+            </button>
+            <button
+              onClick={() => setConsenting(false)}
+              className="px-3 py-2 rounded-lg bg-white/5 text-white/40 text-xs hover:bg-white/10 transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 # Privacy Policy — JGym
 
-**Last Updated:** 2026-06-01
+**Last Updated:** 2026-06-17
 
 ## 1. Who We Are
 
@@ -19,7 +19,7 @@ JGym stores the following data **locally on your device only**:
 - Training plans and preferences
 - App settings (theme, supporter status)
 
-**All data remains on your device.** We do not operate servers that receive or store your data.
+**All data remains on your device.** We do not operate servers that receive or store your fitness data. JGym has no user accounts and performs no tracking. The only outbound network requests are the optional, user-initiated third-party integrations listed in Section 3; if you never use them, JGym sends nothing.
 
 ## 3. Third-Party Services
 
@@ -36,6 +36,13 @@ JGym makes the following optional network requests:
 - **When:** On app startup
 - **What is sent:** No personal data (plain GET requests)
 - **Purpose:** Check for app updates and verify supporter activation codes
+
+### Strava (workout upload)
+- **When:** Only if you connect a Strava account (Settings → Strava) and only when you explicitly tap "Send to Strava" on a finished session. Disabled by default; uploads never happen automatically.
+- **What is sent:** The selected session's exercises, sets, reps, weights, date and duration. No other JGym data (nutrition, weight, water, etc.) is ever sent.
+- **Recipient:** Strava (https://www.strava.com). Uploaded data is then governed by Strava's own privacy policy.
+- **Login tokens:** Strava sign-in uses OAuth. The authorization step passes through a JGym-operated login proxy whose only role is to exchange and refresh Strava tokens; it stores nothing and never receives your workout content (workouts are sent directly from your device to Strava). The resulting access tokens are stored only in your device's local storage.
+- **You can opt out:** Don't connect Strava, or tap Disconnect in Settings → Strava (also cleared by Delete All Data). Disconnecting removes the stored tokens from your device.
 
 ## 4. Data We Do NOT Collect
 
