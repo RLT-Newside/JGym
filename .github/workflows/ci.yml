@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [main]
 
+# Serialize runs per ref. Without this, several main-push runs execute the
+# release job in parallel and all compute the same version (iteration.sprint.
+# <tag-count>) before any tag lands, colliding on `gh release create`. Keep
+# main-push runs queued (no cancel) so a release still lands for the tip;
+# cancel superseded PR runs to save CI.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   check:
     runs-on: ubuntu-latest
