@@ -37,7 +37,6 @@ export function TrainContainer({
   const [finishConfirm, setFinishConfirm] = useState(false)
   const [cancelConfirm, setCancelConfirm] = useState(false)
   const [dayPickerPlan, setDayPickerPlan] = useState<SavedPlan | null>(null)
-  const [pendingPlanAdvance, setPendingPlanAdvance] = useState<{ planId: string; nextIndex: number } | null>(null)
   const [unfinishedWarning, setUnfinishedWarning] = useState<string[]>([])
   const [summarySession, setSummarySession] = useState<Session | null>(null)
   const [summaryElapsed, setSummaryElapsed] = useState(0)
@@ -73,10 +72,12 @@ export function TrainContainer({
           repRange: def?.reps,
         }
       })
-    startSession(`${plan.name} – ${day.label}`, entries)
+    startSession(`${plan.name} – ${day.label}`, entries, {
+      id: plan.id,
+      nextIndex: (dayIndex + 1) % plan.days.length,
+    })
     celebratedRef.current = new Set()
     setDayPickerPlan(null)
-    setPendingPlanAdvance({ planId: plan.id, nextIndex: (dayIndex + 1) % plan.days.length })
   }
 
   const handleAddExercise = (exercise: Exercise) => {
@@ -131,14 +132,16 @@ export function TrainContainer({
       setUnfinishedWarning(problemExercises)
       return
     }
+    // Capture the plan link before finishSession() clears the active session.
+    const planId = active.planId
+    const planNextIndex = active.planNextIndex
     const session = finishSession()
     if (session && session.entries.length > 0) {
       onSessionSave(session)
       setSummarySession(session)
       setSummaryElapsed(elapsed)
-      if (pendingPlanAdvance) {
-        onAdvancePlanDay(pendingPlanAdvance.planId, pendingPlanAdvance.nextIndex)
-        setPendingPlanAdvance(null)
+      if (planId !== undefined && planNextIndex !== undefined) {
+        onAdvancePlanDay(planId, planNextIndex)
       }
     }
   }

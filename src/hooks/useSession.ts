@@ -8,6 +8,11 @@ interface ActiveSession {
   label: string
   startTime: number
   entries: SessionExerciseEntry[]
+  // When the session was started from a saved plan day, remember which plan to
+  // advance and to what index, so finishing advances the plan even if the app
+  // was restarted/updated mid-session (this used to live in volatile state).
+  planId?: string
+  planNextIndex?: number
 }
 
 const ACTIVE_SESSION_KEY = 'gym_active_session'
@@ -45,12 +50,18 @@ export function useActiveSession() {
     }
   }, [active])
 
-  const startSession = (label: string, initialEntries?: SessionExerciseEntry[]) => {
+  const startSession = (
+    label: string,
+    initialEntries?: SessionExerciseEntry[],
+    plan?: { id: string; nextIndex: number },
+  ) => {
     const session: ActiveSession = {
       id: uuid(),
       label,
       startTime: Date.now(),
       entries: initialEntries ?? [],
+      planId: plan?.id,
+      planNextIndex: plan?.nextIndex,
     }
     setActive(session)
     saveActive(session)
