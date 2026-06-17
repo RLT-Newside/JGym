@@ -9,6 +9,7 @@ import { formatDate, formatSetsSummary } from '../../utils/format'
 import { ExerciseEntryComponent } from './components/exercise-entry/exercise-entry'
 import { ExercisePicker } from './components/exercise-picker/exercise-picker'
 import { MediaBar } from './components/media-bar/media-bar'
+import { PRPopup } from './components/pr-popup/pr-popup'
 import { SessionTimer } from './components/session-timer/session-timer'
 import { WorkoutSummaryModal } from './components/workout-summary-modal/workout-summary-modal'
 
@@ -40,6 +41,7 @@ interface Props {
   unfinishedWarning: string[]
   summarySession: Session | null
   summaryElapsed: number
+  prPopup: { name: string; key: number } | null
   recentSessions: Session[]
   media: MediaState
   isSupporter: boolean
@@ -60,6 +62,7 @@ interface Props {
   onDayPickerClose: () => void
   onUnfinishedWarningClose: () => void
   onSummaryClose: () => void
+  onPrPopupDone: () => void
   onCancelSession: () => void
   onNavigateToExercises?: () => void
 }
@@ -78,6 +81,7 @@ export function TrainView({
   unfinishedWarning,
   summarySession,
   summaryElapsed,
+  prPopup,
   recentSessions,
   media,
   isSupporter,
@@ -98,6 +102,7 @@ export function TrainView({
   onDayPickerClose,
   onUnfinishedWarningClose,
   onSummaryClose,
+  onPrPopupDone,
   onCancelSession,
   onNavigateToExercises,
 }: Props) {
@@ -230,6 +235,7 @@ export function TrainView({
 
   return (
     <div className="px-4 py-4 space-y-4 pb-24">
+      <PRPopup pr={prPopup} onDone={onPrPopupDone} />
       <SessionTimer label={active.label} elapsed={elapsed} />
 
       {active.entries.map((entry, i) => {
