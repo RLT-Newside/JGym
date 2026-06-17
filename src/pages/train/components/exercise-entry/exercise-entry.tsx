@@ -60,7 +60,10 @@ export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, on
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 min-w-0">
             <CheckCircle2 size={18} className="text-green-400 flex-shrink-0" />
-            <button onClick={onOpenDetail} className="font-heading text-lg truncate text-left hover:text-brand transition-colors">
+            <button
+              onClick={onOpenDetail}
+              className="font-heading text-lg truncate text-left hover:text-brand transition-colors"
+            >
               {exercise.name}
             </button>
           </div>
