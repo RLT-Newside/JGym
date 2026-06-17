@@ -5,6 +5,7 @@ import { Modal } from './components/modal/modal'
 import { PrivacyConsent } from './components/privacy-consent/privacy-consent'
 import { SettingsModal } from './components/settings-modal/settings-modal'
 import { UpdateBanner } from './components/update-banner/update-banner'
+import { loadLibrary } from './data/freeExerciseDb'
 import { useBackButton } from './hooks/useBackButton'
 import { useSharedImport } from './hooks/useSharedImport'
 import { useStorage } from './hooks/useStorage'
@@ -25,6 +26,7 @@ import {
   type WaterEntry,
   type WeightEntry,
 } from './types'
+import { relinkLibraryIds } from './utils/relinkImages'
 
 export default function App() {
   const [privacyAccepted, setPrivacyAccepted] = useState(() => localStorage.getItem('gym_privacy_consent') === 'true')
@@ -58,6 +60,22 @@ export default function App() {
     const needsMigration = exercises.some((ex) => !ex.primaryMuscles)
     if (needsMigration) {
       setExercises((prev) => prev.map(migrateExercise))
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // One-time forced backfill: link existing exercises to the registry so they
+  // gain dataset images. Previously only newly-added exercises got a libraryId.
+  // Gated by a flag so it runs once per user; bump the key to re-run. JGYM-10.
+  useEffect(() => {
+    if (localStorage.getItem('gym_relink_images_v1')) return
+    let cancelled = false
+    loadLibrary().then((library) => {
+      if (cancelled) return
+      setExercises((prev) => relinkLibraryIds(prev, library, { force: true }).exercises)
+      localStorage.setItem('gym_relink_images_v1', '1')
+    })
+    return () => {
+      cancelled = true
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
