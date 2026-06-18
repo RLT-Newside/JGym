@@ -55,6 +55,7 @@ export default function App() {
     eatBackPerc: 50,
   })
   const [activityEntries, setActivityEntries] = useStorage<ActivityEntry[]>('gym_activity', [])
+  const [musicPopupDisabled, setMusicPopupDisabled] = useStorage<boolean>('gym_music_popup_disabled', false)
 
   useEffect(() => {
     const needsMigration = exercises.some((ex) => !ex.primaryMuscles)
@@ -331,6 +332,7 @@ export default function App() {
         onAddActivity={handleAddActivity}
         onDeleteActivity={handleDeleteActivity}
         onUpdateGoal={handleUpdateGoal}
+        musicPopupDisabled={musicPopupDisabled}
         onExerciseClick={setDetailExercise}
       />
 
@@ -358,6 +360,8 @@ export default function App() {
         update={update}
         onCheckUpdate={checkNow}
         checkingUpdate={checking}
+        musicPopupDisabled={musicPopupDisabled}
+        onToggleMusicPopup={setMusicPopupDisabled}
       />
 
       <Modal open={!!sharedImport} onClose={() => setSharedImport(null)} title="Import Backup">

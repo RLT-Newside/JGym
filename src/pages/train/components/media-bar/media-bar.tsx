@@ -8,10 +8,20 @@ interface Props {
   onCommand: (action: 'play_pause' | 'next' | 'previous') => void
   onRequestPermission: () => void
   hasPermission: boolean
+  hidePrompt?: boolean
 }
 
-export function MediaBar({ title, artist, isPlaying, onCommand, onRequestPermission, hasPermission }: Props) {
+export function MediaBar({
+  title,
+  artist,
+  isPlaying,
+  onCommand,
+  onRequestPermission,
+  hasPermission,
+  hidePrompt,
+}: Props) {
   if (!hasPermission) {
+    if (hidePrompt) return null
     return (
       <div className="flex items-center justify-between px-3 py-2 bg-white/[0.03] border-t border-white/5 text-[11px]">
         <span className="text-white/40">Connect SimpMusic</span>

@@ -44,6 +44,7 @@ interface Props {
   prPopup: { name: string; key: number } | null
   recentSessions: Session[]
   media: MediaState
+  musicPopupDisabled: boolean
   isSupporter: boolean
   onLabelChange: (v: string) => void
   onStart: () => void
@@ -85,6 +86,7 @@ export function TrainView({
   prPopup,
   recentSessions,
   media,
+  musicPopupDisabled,
   isSupporter,
   onLabelChange,
   onStart,
@@ -268,6 +270,7 @@ export function TrainView({
           artist={media.artist}
           isPlaying={media.isPlaying}
           hasPermission={media.hasPermission}
+          hidePrompt={musicPopupDisabled}
           onCommand={media.sendCommand}
           onRequestPermission={media.requestPermission}
         />

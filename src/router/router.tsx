@@ -49,6 +49,7 @@ interface Props {
   onAddActivity: (entry: ActivityEntry) => void
   onDeleteActivity: (id: string) => void
   onUpdateGoal: (goal: NutritionGoal) => void
+  musicPopupDisabled: boolean
   onExerciseClick: (exercise: Exercise) => void
 }
 
@@ -84,6 +85,7 @@ export function AppRouter({
   onAddActivity,
   onDeleteActivity,
   onUpdateGoal,
+  musicPopupDisabled,
   onExerciseClick,
 }: Props) {
   return (
@@ -112,6 +114,7 @@ export function AppRouter({
           onNavigateToExercises={onNavigateToExercises}
           preSelectedExercise={preSelectedExercise}
           onClearPreSelected={onClearPreSelected}
+          musicPopupDisabled={musicPopupDisabled}
           isSupporter={isSupporter}
           onExerciseClick={onExerciseClick}
         />
