@@ -87,7 +87,7 @@ export function SetRow({ index, set, repRange, onChange, onDelete }: Props) {
 
   return (
     <div
-      className={`${set.done ? 'opacity-50' : ''} ${isWarmup ? 'border-l-2 border-sky-400/60 bg-sky-400/[0.05] rounded-r-md pl-1' : ''}`}
+      className={`border-l-2 rounded-r-md pl-1 ${set.done ? 'opacity-50' : ''} ${isWarmup ? 'border-sky-400/60 bg-sky-400/[0.05]' : 'border-transparent'}`}
     >
       <div className="flex items-center gap-2 py-1.5">
         <button
