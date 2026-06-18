@@ -16,6 +16,13 @@ After every change:
 
 Never commit directly to main.
 
+## Pull Request Rebases
+
+Every open PR must stay rebased on `origin/main`. Before merging — and whenever `main` advances — rebase each PR branch:
+- `git fetch origin`
+- For each PR branch: `git checkout <branch>` → `git rebase origin/main` → resolve conflicts → `git push --force-with-lease`
+- Never merge a PR that is behind `origin/main`.
+
 ## Pre-push Checks
 
 Before every `git push`, run these and fix any failures:
