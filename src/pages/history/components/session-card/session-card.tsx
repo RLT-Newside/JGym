@@ -92,12 +92,27 @@ export function SessionCard({ session, sessions, exercises, onDelete }: Props) {
                   {ex?.name ?? <span className="text-white/20 italic font-sans">deleted exercise</span>}
                   {isNewPR && <span className="text-[10px] text-brand font-heading">🏆 PR!</span>}
                 </p>
-                {entry.sets.map((set, j) => (
-                  <p key={j} className="text-xs text-white/40 pl-2">
-                    Set {j + 1}: {set.reps} × {set.weight}
-                    {set.unit}
-                  </p>
-                ))}
+                <table className="w-full text-xs mt-1">
+                  <thead>
+                    <tr className="text-white/20 text-[10px]">
+                      <th className="text-left font-normal py-0.5 pl-2 w-10">Set</th>
+                      <th className="text-right font-normal py-0.5">Reps</th>
+                      <th className="text-right font-normal py-0.5 pr-2">Weight</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {entry.sets.map((set, j) => (
+                      <tr key={j} className="text-white/40">
+                        <td className="py-0.5 pl-2">{j + 1}</td>
+                        <td className="text-right py-0.5">{set.reps}</td>
+                        <td className="text-right py-0.5 pr-2">
+                          {set.weight}
+                          {set.unit}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )
           })}
