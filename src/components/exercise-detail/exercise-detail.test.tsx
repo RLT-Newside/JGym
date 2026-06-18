@@ -1,11 +1,17 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { Exercise } from '../../types'
 import { ExerciseDetail } from './exercise-detail'
 
+const { mockLibraryEntry } = vi.hoisted(() => ({ mockLibraryEntry: vi.fn() }))
+
 vi.mock('../../hooks/useLibraryEntry', () => ({
-  useLibraryEntry: () => null,
+  useLibraryEntry: () => mockLibraryEntry(),
+}))
+
+vi.mock('../../hooks/useExerciseImage', () => ({
+  useExerciseImage: () => ({ src: '/test.jpg', error: false, loading: false }),
 }))
 
 const base: Exercise = {
@@ -26,6 +32,10 @@ const defaultProps = {
 }
 
 describe('ExerciseDetail', () => {
+  beforeEach(() => {
+    mockLibraryEntry.mockReturnValue(null)
+  })
+
   it('displays a custom description when present', () => {
     render(<ExerciseDetail {...defaultProps} exercise={{ ...base, description: 'Keep back straight' }} />)
     expect(screen.getByText('Keep back straight')).toBeInTheDocument()
@@ -55,5 +65,81 @@ describe('ExerciseDetail', () => {
   it('does not render custom images section when absent', () => {
     render(<ExerciseDetail {...defaultProps} exercise={base} />)
     expect(screen.queryByAltText('Test Exercise')).not.toBeInTheDocument()
+  })
+})
+
+describe('ExerciseDetail image navigation', () => {
+  const baseProps = {
+    open: true,
+    onClose: vi.fn(),
+    exercise: { id: '1', name: 'Bench Press', libraryId: 'bench', muscles: [], secondary: [] } as never,
+    sessions: [],
+    onStartWith: vi.fn(),
+  }
+
+  beforeEach(() => {
+    mockLibraryEntry.mockReturnValue({
+      name: 'Bench Press',
+      imageFolder: 'bench',
+      imageCount: 3,
+      equipment: 'barbell',
+      level: 'intermediate',
+      mechanic: 'compound',
+      force: 'push',
+      instructions: ['Step 1'],
+      primaryMuscles: [],
+      secondaryMuscles: [],
+      category: 'strength',
+    })
+  })
+
+  it('renders prev/next arrow buttons when multiple images exist', () => {
+    render(<ExerciseDetail {...baseProps} />)
+    const buttons = screen.getAllByRole('button')
+    const arrowButtons = buttons.filter(
+      (b) => b.querySelector('svg') && b.className.includes('absolute') && b.className.includes('top-1/2'),
+    )
+    expect(arrowButtons).toHaveLength(2)
+  })
+
+  it('renders image counter indicator', () => {
+    render(<ExerciseDetail {...baseProps} />)
+    expect(screen.getByText('1/3')).toBeInTheDocument()
+  })
+
+  it('advances image on next button click', async () => {
+    render(<ExerciseDetail {...baseProps} />)
+    const nextBtn = screen
+      .getAllByRole('button')
+      .find((b) => b.querySelector('svg') && b.className.includes('right-2'))!
+    await userEvent.click(nextBtn)
+    expect(screen.getByText('2/3')).toBeInTheDocument()
+  })
+
+  it('goes back on prev button click', async () => {
+    render(<ExerciseDetail {...baseProps} />)
+    const prevBtn = screen.getAllByRole('button').find((b) => b.querySelector('svg') && b.className.includes('left-2'))!
+    await userEvent.click(prevBtn)
+    expect(screen.getByText('3/3')).toBeInTheDocument()
+  })
+
+  it('advances on swipe left gesture', () => {
+    render(<ExerciseDetail {...baseProps} />)
+    const container = screen.getByText('1/3').parentElement!
+
+    fireEvent.touchStart(container, { touches: [{ clientX: 200 }] })
+    fireEvent.touchEnd(container, { changedTouches: [{ clientX: 100 }] })
+
+    expect(screen.getByText('2/3')).toBeInTheDocument()
+  })
+
+  it('goes back on swipe right gesture', () => {
+    render(<ExerciseDetail {...baseProps} />)
+    const container = screen.getByText('1/3').parentElement!
+
+    fireEvent.touchStart(container, { touches: [{ clientX: 100 }] })
+    fireEvent.touchEnd(container, { changedTouches: [{ clientX: 200 }] })
+
+    expect(screen.getByText('3/3')).toBeInTheDocument()
   })
 })
