@@ -80,6 +80,22 @@ describe('SetRow set-type display', () => {
     expect(screen.getByText('Fail').className).toContain('w-10')
   })
 
+  it('keeps the same horizontal box model for normal and warmup rows so content stays aligned', () => {
+    const { container, rerender } = render(
+      <SetRow index={0} set={{ ...baseSet, reps: 5 }} onChange={vi.fn()} onDelete={vi.fn()} />,
+    )
+    const normalWrapper = container.firstChild as HTMLElement
+    expect(normalWrapper.className).toContain('border-l-2')
+    expect(normalWrapper.className).toContain('pl-1')
+    expect(normalWrapper.className).toContain('border-transparent')
+
+    rerender(<SetRow index={0} set={{ ...baseSet, reps: 5, type: 'warmup' }} onChange={vi.fn()} onDelete={vi.fn()} />)
+    const warmupWrapper = container.firstChild as HTMLElement
+    expect(warmupWrapper.className).toContain('border-l-2')
+    expect(warmupWrapper.className).toContain('pl-1')
+    expect(warmupWrapper.className).not.toContain('border-transparent')
+  })
+
   it('cycles the set type from normal to warmup when the label is clicked', async () => {
     const onChange = vi.fn()
     render(<SetRow index={0} set={{ ...baseSet, reps: 5 }} onChange={onChange} onDelete={vi.fn()} />)
