@@ -63,6 +63,23 @@ describe('SetRow set-type display', () => {
     expect(screen.getByText('Fail')).toBeInTheDocument()
   })
 
+  it('uses the same fixed width for all set type labels', () => {
+    const { rerender } = render(
+      <SetRow index={0} set={{ ...baseSet, reps: 5 }} onChange={vi.fn()} onDelete={vi.fn()} />,
+    )
+    const normalBtn = screen.getByText('1')
+    expect(normalBtn.className).toContain('w-10')
+
+    rerender(<SetRow index={0} set={{ ...baseSet, reps: 5, type: 'warmup' }} onChange={vi.fn()} onDelete={vi.fn()} />)
+    expect(screen.getByText('Warm').className).toContain('w-10')
+
+    rerender(<SetRow index={0} set={{ ...baseSet, reps: 5, type: 'drop' }} onChange={vi.fn()} onDelete={vi.fn()} />)
+    expect(screen.getByText('Drop').className).toContain('w-10')
+
+    rerender(<SetRow index={0} set={{ ...baseSet, reps: 5, type: 'failure' }} onChange={vi.fn()} onDelete={vi.fn()} />)
+    expect(screen.getByText('Fail').className).toContain('w-10')
+  })
+
   it('cycles the set type from normal to warmup when the label is clicked', async () => {
     const onChange = vi.fn()
     render(<SetRow index={0} set={{ ...baseSet, reps: 5 }} onChange={onChange} onDelete={vi.fn()} />)

@@ -8,10 +8,10 @@ import { getProgressionTip, getRepRange } from '../../../../utils/progression'
 const SET_TYPE_CYCLE: SetType[] = ['normal', 'warmup', 'drop', 'failure']
 const SET_TYPE_LABEL: Record<SetType, string> = { normal: '', warmup: 'Warm', drop: 'Drop', failure: 'Fail' }
 const SET_TYPE_CLASS: Record<SetType, string> = {
-  normal: 'w-6 text-white/20',
-  warmup: 'px-1.5 rounded bg-sky-400/15 text-sky-300',
-  drop: 'px-1.5 rounded bg-orange-400/15 text-orange-300',
-  failure: 'px-1.5 rounded bg-red-400/15 text-red-300',
+  normal: 'w-10 text-white/20',
+  warmup: 'w-10 rounded bg-sky-400/15 text-sky-300',
+  drop: 'w-10 rounded bg-orange-400/15 text-orange-300',
+  failure: 'w-10 rounded bg-red-400/15 text-red-300',
 }
 
 interface Props {
