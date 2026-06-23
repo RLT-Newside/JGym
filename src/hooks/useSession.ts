@@ -81,6 +81,7 @@ export function useActiveSession() {
       date: new Date(active.startTime).toISOString(),
       label: active.label,
       entries: active.entries.filter((e) => e.sets.length > 0),
+      durationSeconds: elapsed,
     }
     setActive(null)
     saveActive(null)

@@ -1,9 +1,9 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { ChevronDown, ChevronUp, Trash2 } from 'lucide-react'
+import { ChevronDown, ChevronUp, Clock, Trash2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { Exercise, Session } from '../../../../types'
-import { formatDate } from '../../../../utils/format'
+import { formatDate, formatTimer } from '../../../../utils/format'
 import { calculatePR } from '../../../../utils/pr'
 
 interface Props {
@@ -11,6 +11,7 @@ interface Props {
   sessions: Session[]
   exercises: Exercise[]
   onDelete: (id: string) => void
+  onEditDuration: (id: string) => void
 }
 
 function totalVolume(session: Session): number {
@@ -21,7 +22,7 @@ function totalSets(session: Session): number {
   return session.entries.reduce((sum, e) => sum + e.sets.length, 0)
 }
 
-export function SessionCard({ session, sessions, exercises, onDelete }: Props) {
+export function SessionCard({ session, sessions, exercises, onDelete, onEditDuration }: Props) {
   const [expanded, setExpanded] = useState(false)
 
   const vol = totalVolume(session)
@@ -60,6 +61,9 @@ export function SessionCard({ session, sessions, exercises, onDelete }: Props) {
           </div>
           <p className="text-xs text-white/40 mt-0.5">
             {vol.toLocaleString()} {unit} · {sets} sets
+            {session.durationSeconds != null && session.durationSeconds > 0 && (
+              <span> · {formatTimer(session.durationSeconds)}</span>
+            )}
             {newPRExerciseIds.size > 0 && <span className="text-brand"> · 🏆 {newPRExerciseIds.size} PR</span>}
           </p>
           <div className="mt-1 space-y-0.5">
@@ -102,6 +106,12 @@ export function SessionCard({ session, sessions, exercises, onDelete }: Props) {
             )
           })}
           <div className="flex gap-2 pt-2">
+            <button
+              onClick={() => onEditDuration(session.id)}
+              className="flex items-center gap-1 text-xs text-white/40 hover:text-white/60 px-2 py-1"
+            >
+              <Clock size={12} /> Edit Duration
+            </button>
             <button
               onClick={() => onDelete(session.id)}
               className="flex items-center gap-1 text-xs text-red-400/60 hover:text-red-400 px-2 py-1"

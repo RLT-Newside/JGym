@@ -7,11 +7,13 @@ interface Props {
   sessions: Session[]
   exercises: Exercise[]
   onDeleteSession: (id: string) => void
+  onUpdateSession: (session: Session) => void
 }
 
-export function HistoryContainer({ sessions, exercises, onDeleteSession }: Props) {
+export function HistoryContainer({ sessions, exercises, onDeleteSession, onUpdateSession }: Props) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
   const [deleteId, setDeleteId] = useState<string | null>(null)
+  const [editDurationId, setEditDurationId] = useState<string | null>(null)
 
   const sorted = [...sessions].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
@@ -19,12 +21,19 @@ export function HistoryContainer({ sessions, exercises, onDeleteSession }: Props
     ? sorted.filter((s) => new Date(s.date).toISOString().split('T')[0] === selectedDate)
     : sorted
 
+  const handleDurationSave = (sessionId: string, durationSeconds: number) => {
+    const session = sessions.find((s) => s.id === sessionId)
+    if (session) onUpdateSession({ ...session, durationSeconds })
+    setEditDurationId(null)
+  }
+
   return (
     <HistoryView
       sessions={sessions}
       exercises={exercises}
       selectedDate={selectedDate}
       deleteId={deleteId}
+      editDurationId={editDurationId}
       displayed={displayed}
       onSelectDate={setSelectedDate}
       onClearDate={() => setSelectedDate(null)}
@@ -33,6 +42,9 @@ export function HistoryContainer({ sessions, exercises, onDeleteSession }: Props
       onDeleteConfirm={() => {
         if (deleteId) onDeleteSession(deleteId)
       }}
+      onEditDuration={setEditDurationId}
+      onEditDurationCancel={() => setEditDurationId(null)}
+      onDurationSave={handleDurationSave}
     />
   )
 }
