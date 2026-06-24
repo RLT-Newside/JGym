@@ -1,6 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { Download, Dumbbell, Share2 } from 'lucide-react'
+import { Activity, Download, Dumbbell, Share2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Button } from '../../../../components/button/button'
 import { Modal } from '../../../../components/modal/modal'
@@ -9,6 +9,7 @@ import { exportImageFile } from '../../../../utils/fileExport'
 import { formatDate, formatTimer } from '../../../../utils/format'
 import { detectPattern, dismissPattern } from '../../../../utils/patternDetection'
 import { calculatePR } from '../../../../utils/pr'
+import { isStravaConnected, uploadSession } from '../../../../utils/strava'
 import { PRConfetti } from '../pr-confetti/pr-confetti'
 
 interface Props {
@@ -106,6 +107,7 @@ export function WorkoutSummaryModal({
   isSupporter = false,
 }: Props) {
   const [patternDismissed, setPatternDismissed] = useState(false)
+  const [stravaStatus, setStravaStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
 
   const { newPRExerciseIds, confettiTrigger } = useMemo(() => {
     if (!session) return { newPRExerciseIds: new Set<string>(), confettiTrigger: 0 }
@@ -142,6 +144,17 @@ export function WorkoutSummaryModal({
     const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, 'image/png'))
     if (!blob) return
     await exportImageFile(blob, `workout-${session.date.slice(0, 10)}.png`, 'Workout Summary', share)
+  }
+
+  const handleSendToStrava = async () => {
+    if (!session) return
+    setStravaStatus('sending')
+    try {
+      await uploadSession(session, exercises, elapsed)
+      setStravaStatus('done')
+    } catch {
+      setStravaStatus('error')
+    }
   }
 
   const handleDismissPattern = (exerciseIds: string[]) => {
@@ -242,6 +255,24 @@ export function WorkoutSummaryModal({
             <Download size={14} /> Save PNG
           </Button>
         </div>
+
+        {isStravaConnected() && (
+          <Button
+            variant="secondary"
+            onClick={handleSendToStrava}
+            disabled={stravaStatus === 'sending' || stravaStatus === 'done'}
+            className="w-full flex items-center justify-center gap-2"
+          >
+            <Activity size={14} className="text-[#fc4c02]" />
+            {stravaStatus === 'sending'
+              ? 'Sending…'
+              : stravaStatus === 'done'
+                ? 'Sent to Strava ✓'
+                : stravaStatus === 'error'
+                  ? 'Failed — retry'
+                  : 'Send to Strava'}
+          </Button>
+        )}
 
         <Button onClick={onClose} className="w-full">
           Done

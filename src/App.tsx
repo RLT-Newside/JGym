@@ -14,6 +14,7 @@ import { useUpdateCheck } from './hooks/useUpdateCheck'
 import { BottomNav } from './layout/bottom-nav/bottom-nav'
 import { Header } from './layout/header/header'
 import { AppRouter } from './router/router'
+import { exchangeStravaCode } from './utils/strava'
 import {
   type ActivityEntry,
   type Exercise,
@@ -56,6 +57,17 @@ export default function App() {
   })
   const [activityEntries, setActivityEntries] = useStorage<ActivityEntry[]>('gym_activity', [])
   const [musicPopupDisabled, setMusicPopupDisabled] = useStorage<boolean>('gym_music_popup_disabled', false)
+
+  // Capture the Strava OAuth redirect on web: exchange the code, then clean
+  // the URL. Native uses a deep link instead (see docs/strava-integration.md).
+  useEffect(() => {
+    if (!window.location.pathname.endsWith('/strava/callback')) return
+    const code = new URLSearchParams(window.location.search).get('code')
+    if (!code) return
+    exchangeStravaCode(code)
+      .catch(() => {})
+      .finally(() => window.history.replaceState({}, '', `${window.location.origin}/`))
+  }, [])
 
   useEffect(() => {
     const needsMigration = exercises.some((ex) => !ex.primaryMuscles)

@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import {
+  Activity,
   BarChart3,
   CalendarDays,
   Check,
@@ -24,6 +25,13 @@ import type { CheckResult } from '../../hooks/useUpdateCheck'
 import type { Exercise } from '../../types'
 import { exportJsonFile } from '../../utils/fileExport'
 import { DEFAULT_REP_RANGES, loadRepRanges, type RepRangeMap, saveRepRanges } from '../../utils/progression'
+import {
+  beginStravaConnect,
+  disconnectStrava,
+  isStravaConfigured,
+  isStravaConnected,
+  stravaAthleteName,
+} from '../../utils/strava'
 import { Button } from '../button/button'
 import { Modal } from '../modal/modal'
 
@@ -118,6 +126,81 @@ function RepRangeSettings() {
           +
         </button>
       </div>
+    </div>
+  )
+}
+
+function StravaSettings() {
+  const [connected, setConnected] = useState(isStravaConnected)
+  const [consenting, setConsenting] = useState(false)
+
+  if (!isStravaConfigured()) return null
+
+  const athlete = stravaAthleteName()
+
+  return (
+    <div className="space-y-3">
+      <h3 className="text-xs text-white/40 uppercase tracking-wider">Strava</h3>
+      <div className="glass rounded-xl p-4 flex items-center gap-3">
+        <Activity size={16} className="text-[#fc4c02] flex-shrink-0" />
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-medium">{connected ? 'Connected' : 'Connect Strava'}</p>
+          <p className="text-[10px] text-white/30">
+            {connected
+              ? `${athlete ? `${athlete} · ` : ''}Finished sessions can be pushed to Strava`
+              : 'Push finished sessions to Strava as workouts'}
+          </p>
+        </div>
+        {connected ? (
+          <button
+            onClick={() => {
+              disconnectStrava()
+              setConnected(false)
+            }}
+            className="text-[10px] text-white/30 hover:text-red-400 transition-colors"
+          >
+            Disconnect
+          </button>
+        ) : (
+          <button
+            onClick={() => setConsenting((v) => !v)}
+            className="px-3 py-1.5 rounded-lg bg-[#fc4c02] text-white text-xs font-medium press-scale"
+          >
+            Connect
+          </button>
+        )}
+      </div>
+
+      {!connected && consenting && (
+        <div className="glass rounded-xl p-4 space-y-3 border border-[#fc4c02]/20">
+          <p className="text-[11px] text-white/60 leading-relaxed">
+            Connecting opens Strava to sign in and authorize JGym. After that, only the sessions you explicitly tap{' '}
+            <span className="text-white/80">Send to Strava</span> on are uploaded — never automatically.
+          </p>
+          <p className="text-[11px] text-white/60 leading-relaxed">
+            Each upload sends that session's exercises, sets, reps, weights, date and duration to Strava, where it is
+            governed by Strava's own privacy policy. Your login tokens are stored only on this device and removed when
+            you disconnect or use Delete All Data. JGym keeps no copy on any server.
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                setConsenting(false)
+                beginStravaConnect()
+              }}
+              className="flex-1 px-3 py-2 rounded-lg bg-[#fc4c02] text-white text-xs font-medium press-scale"
+            >
+              I understand — continue
+            </button>
+            <button
+              onClick={() => setConsenting(false)}
+              className="px-3 py-2 rounded-lg bg-white/5 text-white/40 text-xs hover:bg-white/10 transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -467,6 +550,9 @@ export function SettingsModal({
             </div>
           </div>
         )}
+
+        {/* Strava integration */}
+        <StravaSettings />
 
         {/* Rep Range Progression */}
         <RepRangeSettings />
