@@ -138,7 +138,7 @@ export function WorkoutSummaryModal({
   const unit = session.entries[0]?.sets[0]?.unit ?? 'kg'
 
   const handleExport = async (share: boolean) => {
-    const canvas = drawSummaryCard(session, exercises, elapsed, isSupporter)
+    const canvas = drawSummaryCard(session, exercises, session.durationSeconds ?? elapsed, isSupporter)
     const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, 'image/png'))
     if (!blob) return
     await exportImageFile(blob, `workout-${session.date.slice(0, 10)}.png`, 'Workout Summary', share)
@@ -162,7 +162,7 @@ export function WorkoutSummaryModal({
         <div className="bg-white/[0.04] rounded-xl p-4 border-l-2 border-brand">
           <p className="font-heading text-2xl">{session.label || formatDate(session.date)}</p>
           <p className="text-xs text-white/40 mt-0.5">
-            {formatDate(session.date)} · {formatTimer(elapsed)}
+            {formatDate(session.date)} · {formatTimer(session.durationSeconds ?? elapsed)}
           </p>
           <p className="text-sm text-white/50 mt-1">
             Volume:{' '}

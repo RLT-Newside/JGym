@@ -33,6 +33,7 @@ interface Props {
   onDeleteExercise: (id: string) => void
   onSessionSave: (session: Session) => void
   onDeleteSession: (id: string) => void
+  onUpdateSession: (session: Session) => void
   onStartWith: (exercise: Exercise) => void
   onAdvancePlanDay: (planId: string, nextIndex: number) => void
   onNavigateToExercises: () => void
@@ -69,6 +70,7 @@ export function AppRouter({
   onDeleteExercise,
   onSessionSave,
   onDeleteSession,
+  onUpdateSession,
   onStartWith,
   onAdvancePlanDay,
   onNavigateToExercises,
@@ -120,7 +122,12 @@ export function AppRouter({
         />
       )}
       {tab === 'history' && (
-        <HistoryContainer sessions={sessions} exercises={exercises} onDeleteSession={onDeleteSession} />
+        <HistoryContainer
+          sessions={sessions}
+          exercises={exercises}
+          onDeleteSession={onDeleteSession}
+          onUpdateSession={onUpdateSession}
+        />
       )}
       {tab === 'nutrition' && (
         <NutritionContainer

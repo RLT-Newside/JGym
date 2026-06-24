@@ -140,6 +140,11 @@ export default function App() {
     [setSessions],
   )
 
+  const handleUpdateSession = useCallback(
+    (session: Session) => setSessions((prev) => prev.map((s) => (s.id === session.id ? session : s))),
+    [setSessions],
+  )
+
   const handleStartWith = useCallback((exercise: Exercise) => {
     setPreSelectedExercise(exercise)
     setTab('train')
@@ -316,6 +321,7 @@ export default function App() {
         onDeleteExercise={handleDeleteExercise}
         onSessionSave={handleSessionSave}
         onDeleteSession={handleDeleteSession}
+        onUpdateSession={handleUpdateSession}
         onStartWith={handleStartWith}
         onAdvancePlanDay={handleAdvancePlanDay}
         onNavigateToExercises={() => setTab('exercises')}

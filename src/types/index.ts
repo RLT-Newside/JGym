@@ -200,6 +200,7 @@ export interface Session {
   date: string
   label: string
   entries: SessionExerciseEntry[]
+  durationSeconds?: number
 }
 
 export type Tab = 'dashboard' | 'exercises' | 'train' | 'history' | 'nutrition'
