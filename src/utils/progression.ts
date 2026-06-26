@@ -41,6 +41,33 @@ export function getRepRange(targetReps: number, ranges?: RepRangeMap[]): { min: 
   return null
 }
 
+export function validateRepRangeEntry(target: number, min: number, max: number): string | null {
+  if (!Number.isInteger(target) || !Number.isInteger(min) || !Number.isInteger(max))
+    return 'Values must be whole numbers'
+  if (target < 1 || min < 1 || max < 1) return 'Values must be at least 1'
+  if (target > 100 || min > 100 || max > 100) return 'Values must be 100 or less'
+  if (min > max) return 'Min cannot exceed max'
+  return null
+}
+
+const VALID_REP_KEYWORDS = ['max', 'amrap']
+
+export function isValidRepString(value: string): boolean {
+  const trimmed = value.trim().toLowerCase()
+  if (!trimmed) return false
+  if (VALID_REP_KEYWORDS.includes(trimmed)) return true
+  const match = trimmed.match(/^(\d+)(?:[–-](\d+))?$/)
+  if (!match) return false
+  const first = parseInt(match[1], 10)
+  if (first < 1 || first > 100) return false
+  if (match[2]) {
+    const second = parseInt(match[2], 10)
+    if (second < 1 || second > 100) return false
+    if (first > second) return false
+  }
+  return true
+}
+
 export function getProgressionTip(
   reps: number,
   range: { min: number; max: number },
