@@ -23,7 +23,13 @@ import type { Theme } from '../../hooks/useTheme'
 import type { CheckResult } from '../../hooks/useUpdateCheck'
 import type { Exercise } from '../../types'
 import { exportJsonFile } from '../../utils/fileExport'
-import { DEFAULT_REP_RANGES, loadRepRanges, type RepRangeMap, saveRepRanges } from '../../utils/progression'
+import {
+  DEFAULT_REP_RANGES,
+  loadRepRanges,
+  type RepRangeMap,
+  saveRepRanges,
+  validateRepRangeEntry,
+} from '../../utils/progression'
 import { Button } from '../button/button'
 import { Modal } from '../modal/modal'
 
@@ -37,6 +43,7 @@ function RepRangeSettings() {
   const [newTarget, setNewTarget] = useState('')
   const [newMin, setNewMin] = useState('')
   const [newMax, setNewMax] = useState('')
+  const [error, setError] = useState('')
 
   const update = (updated: RepRangeMap[]) => {
     const sorted = [...updated].sort((a, b) => a.target - b.target)
@@ -50,7 +57,16 @@ function RepRangeSettings() {
     const t = parseInt(newTarget, 10)
     const mn = parseInt(newMin, 10)
     const mx = parseInt(newMax, 10)
-    if (!t || !mn || !mx || mn > mx || t < 1) return
+    if (Number.isNaN(t) || Number.isNaN(mn) || Number.isNaN(mx)) {
+      setError('Fill in all fields')
+      return
+    }
+    const msg = validateRepRangeEntry(t, mn, mx)
+    if (msg) {
+      setError(msg)
+      return
+    }
+    setError('')
     update([...ranges.filter((r) => r.target !== t), { target: t, min: mn, max: mx }])
     setNewTarget('')
     setNewMin('')
@@ -118,6 +134,7 @@ function RepRangeSettings() {
           +
         </button>
       </div>
+      {error && <p className="text-[9px] text-red-400/80">{error}</p>}
     </div>
   )
 }
