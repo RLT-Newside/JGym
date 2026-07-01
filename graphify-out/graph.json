@@ -61,7 +61,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "app_app",
       "community": 0,
       "norm_label": "app()"
@@ -243,7 +243,7 @@
       "source_file": "src/utils/openFoodFacts.ts",
       "source_location": "L1",
       "id": "src_utils_openfoodfacts_ts",
-      "community": 11,
+      "community": 12,
       "norm_label": "openfoodfacts.ts"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "src/utils/openFoodFacts.ts",
       "source_location": "L15",
       "id": "openfoodfacts_lookupbarcode",
-      "community": 11,
+      "community": 12,
       "norm_label": "lookupbarcode()"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "src/utils/openFoodFacts.ts",
       "source_location": "L59",
       "id": "openfoodfacts_parseservingsize",
-      "community": 11,
+      "community": 12,
       "norm_label": "parseservingsize()"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "src/utils/openFoodFacts.ts",
       "source_location": "L67",
       "id": "openfoodfacts_scalemacros",
-      "community": 11,
+      "community": 12,
       "norm_label": "scalemacros()"
     },
     {
@@ -493,7 +493,7 @@
       "label": "loadRepRanges()",
       "file_type": "code",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "progression_loadrepranges",
       "community": 6,
       "norm_label": "loadrepranges()"
@@ -502,7 +502,7 @@
       "label": "saveRepRanges()",
       "file_type": "code",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "progression_saverepranges",
       "community": 6,
       "norm_label": "saverepranges()"
@@ -511,7 +511,7 @@
       "label": "getRepRange()",
       "file_type": "code",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "progression_getreprange",
       "community": 6,
       "norm_label": "getreprange()"
@@ -520,7 +520,7 @@
       "label": "validateRepRangeEntry()",
       "file_type": "code",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L44",
+      "source_location": "L45",
       "id": "progression_validatereprangeentry",
       "community": 6,
       "norm_label": "validatereprangeentry()"
@@ -529,7 +529,7 @@
       "label": "isValidRepString()",
       "file_type": "code",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L55",
+      "source_location": "L56",
       "id": "progression_isvalidrepstring",
       "community": 5,
       "norm_label": "isvalidrepstring()"
@@ -538,7 +538,7 @@
       "label": "getProgressionTip()",
       "file_type": "code",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L71",
+      "source_location": "L72",
       "id": "progression_getprogressiontip",
       "community": 6,
       "norm_label": "getprogressiontip()"
@@ -628,7 +628,7 @@
       "label": "clusterKey()",
       "file_type": "code",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "patterndetection_clusterkey",
       "community": 18,
       "norm_label": "clusterkey()"
@@ -637,7 +637,7 @@
       "label": "getDismissed()",
       "file_type": "code",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L12",
+      "source_location": "L13",
       "id": "patterndetection_getdismissed",
       "community": 18,
       "norm_label": "getdismissed()"
@@ -646,7 +646,7 @@
       "label": "dismissPattern()",
       "file_type": "code",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "patterndetection_dismisspattern",
       "community": 18,
       "norm_label": "dismisspattern()"
@@ -655,7 +655,7 @@
       "label": "detectPattern()",
       "file_type": "code",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "patterndetection_detectpattern",
       "community": 18,
       "norm_label": "detectpattern()"
@@ -702,7 +702,7 @@
       "source_file": "src/utils/pr.ts",
       "source_location": "L1",
       "id": "src_utils_pr_ts",
-      "community": 12,
+      "community": 11,
       "norm_label": "pr.ts"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "src/utils/pr.ts",
       "source_location": "L10",
       "id": "pr_calculatepr",
-      "community": 12,
+      "community": 11,
       "norm_label": "calculatepr()"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "src/utils/pr.ts",
       "source_location": "L27",
       "id": "pr_formatpr",
-      "community": 12,
+      "community": 11,
       "norm_label": "formatpr()"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "src/utils/pr.ts",
       "source_location": "L32",
       "id": "pr_getlastsession",
-      "community": 12,
+      "community": 11,
       "norm_label": "getlastsession()"
     },
     {
@@ -738,7 +738,7 @@
       "source_file": "src/utils/pr.ts",
       "source_location": "L42",
       "id": "pr_getexercisefrequency",
-      "community": 12,
+      "community": 11,
       "norm_label": "getexercisefrequency()"
     },
     {
@@ -747,7 +747,7 @@
       "source_file": "src/utils/pr.ts",
       "source_location": "L57",
       "id": "pr_sortexercisesbyfrequency",
-      "community": 12,
+      "community": 11,
       "norm_label": "sortexercisesbyfrequency()"
     },
     {
@@ -772,7 +772,7 @@
       "label": "sha256()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "id": "supporter_sha256",
       "community": 8,
       "norm_label": "sha256()"
@@ -781,7 +781,7 @@
       "label": "fetchCodeHashes()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L15",
+      "source_location": "L17",
       "id": "supporter_fetchcodehashes",
       "community": 8,
       "norm_label": "fetchcodehashes()"
@@ -790,7 +790,7 @@
       "label": "verifyCode()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L38",
+      "source_location": "L40",
       "id": "supporter_verifycode",
       "community": 8,
       "norm_label": "verifycode()"
@@ -799,7 +799,7 @@
       "label": "getSavedHash()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L48",
+      "source_location": "L50",
       "id": "supporter_getsavedhash",
       "community": 8,
       "norm_label": "getsavedhash()"
@@ -808,7 +808,7 @@
       "label": "activateCode()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L52",
+      "source_location": "L54",
       "id": "supporter_activatecode",
       "community": 8,
       "norm_label": "activatecode()"
@@ -817,7 +817,7 @@
       "label": "deactivateSupporter()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L64",
+      "source_location": "L66",
       "id": "supporter_deactivatesupporter",
       "community": 8,
       "norm_label": "deactivatesupporter()"
@@ -826,7 +826,7 @@
       "label": "isActivated()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L69",
+      "source_location": "L71",
       "id": "supporter_isactivated",
       "community": 8,
       "norm_label": "isactivated()"
@@ -835,7 +835,7 @@
       "label": "prefetchHashes()",
       "file_type": "code",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L73",
+      "source_location": "L75",
       "id": "supporter_prefetchhashes",
       "community": 8,
       "norm_label": "prefetchhashes()"
@@ -850,12 +850,21 @@
       "norm_label": "wikiplans.ts"
     },
     {
+      "label": "storage.ts",
+      "file_type": "code",
+      "source_file": "src/data/storage.ts",
+      "source_location": "L1",
+      "id": "src_data_storage_ts",
+      "community": 79,
+      "norm_label": "storage.ts"
+    },
+    {
       "label": "muscleSlugMap.ts",
       "file_type": "code",
       "source_file": "src/data/muscleSlugMap.ts",
       "source_location": "L1",
       "id": "src_data_muscleslugmap_ts",
-      "community": 79,
+      "community": 80,
       "norm_label": "muscleslugmap.ts"
     },
     {
@@ -864,7 +873,7 @@
       "source_file": "src/data/musclePaths.ts",
       "source_location": "L1",
       "id": "src_data_musclepaths_ts",
-      "community": 80,
+      "community": 81,
       "norm_label": "musclepaths.ts"
     },
     {
@@ -873,7 +882,7 @@
       "source_file": "src/data/wikiExercises.ts",
       "source_location": "L1",
       "id": "src_data_wikiexercises_ts",
-      "community": 81,
+      "community": 82,
       "norm_label": "wikiexercises.ts"
     },
     {
@@ -900,7 +909,7 @@
       "source_file": "src/data/freeExerciseDb/bundledFolders.ts",
       "source_location": "L1",
       "id": "src_data_freeexercisedb_bundledfolders_ts",
-      "community": 82,
+      "community": 83,
       "norm_label": "bundledfolders.ts"
     },
     {
@@ -954,7 +963,7 @@
       "source_file": "src/components/button/button.test.tsx",
       "source_location": "L1",
       "id": "src_components_button_button_test_tsx",
-      "community": 83,
+      "community": 84,
       "norm_label": "button.test.tsx"
     },
     {
@@ -1080,7 +1089,7 @@
       "source_file": "src/components/confirm-dialog/confirm-dialog.test.tsx",
       "source_location": "L1",
       "id": "src_components_confirm_dialog_confirm_dialog_test_tsx",
-      "community": 84,
+      "community": 85,
       "norm_label": "confirm-dialog.test.tsx"
     },
     {
@@ -1170,7 +1179,7 @@
       "source_file": "src/components/exercise-detail/exercise-detail.test.tsx",
       "source_location": "L1",
       "id": "src_components_exercise_detail_exercise_detail_test_tsx",
-      "community": 85,
+      "community": 86,
       "norm_label": "exercise-detail.test.tsx"
     },
     {
@@ -1350,7 +1359,7 @@
       "source_file": "src/components/music/music.tsx",
       "source_location": "L1",
       "id": "src_components_music_music_tsx",
-      "community": 86,
+      "community": 87,
       "norm_label": "music.tsx"
     },
     {
@@ -1395,8 +1404,17 @@
       "source_file": "src/components/modal/modal.test.tsx",
       "source_location": "L1",
       "id": "src_components_modal_modal_test_tsx",
-      "community": 87,
+      "community": 3,
       "norm_label": "modal.test.tsx"
+    },
+    {
+      "label": "get()",
+      "file_type": "code",
+      "source_file": "src/components/modal/modal.test.tsx",
+      "source_location": "L58",
+      "id": "modal_test_get",
+      "community": 3,
+      "norm_label": "get()"
     },
     {
       "label": "modal.tsx",
@@ -1690,7 +1708,7 @@
       "label": "currentVersion()",
       "file_type": "code",
       "source_file": "src/hooks/useUpdateCheck.ts",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "useupdatecheck_currentversion",
       "community": 0,
       "norm_label": "currentversion()"
@@ -1699,7 +1717,7 @@
       "label": "fetchLatest()",
       "file_type": "code",
       "source_file": "src/hooks/useUpdateCheck.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "useupdatecheck_fetchlatest",
       "community": 0,
       "norm_label": "fetchlatest()"
@@ -1708,7 +1726,7 @@
       "label": "useUpdateCheck()",
       "file_type": "code",
       "source_file": "src/hooks/useUpdateCheck.ts",
-      "source_location": "L38",
+      "source_location": "L39",
       "id": "useupdatecheck_useupdatecheck",
       "community": 0,
       "norm_label": "useupdatecheck()"
@@ -1726,7 +1744,7 @@
       "label": "readTheme()",
       "file_type": "code",
       "source_file": "src/hooks/useTheme.ts",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "usetheme_readtheme",
       "community": 0,
       "norm_label": "readtheme()"
@@ -1735,7 +1753,7 @@
       "label": "useTheme()",
       "file_type": "code",
       "source_file": "src/hooks/useTheme.ts",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "usetheme_usetheme",
       "community": 0,
       "norm_label": "usetheme()"
@@ -1897,7 +1915,7 @@
       "label": "loadActive()",
       "file_type": "code",
       "source_file": "src/hooks/useSession.ts",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "usesession_loadactive",
       "community": 10,
       "norm_label": "loadactive()"
@@ -1906,7 +1924,7 @@
       "label": "saveActive()",
       "file_type": "code",
       "source_file": "src/hooks/useSession.ts",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "usesession_saveactive",
       "community": 10,
       "norm_label": "saveactive()"
@@ -1915,7 +1933,7 @@
       "label": "useActiveSession()",
       "file_type": "code",
       "source_file": "src/hooks/useSession.ts",
-      "source_location": "L37",
+      "source_location": "L38",
       "id": "usesession_useactivesession",
       "community": 10,
       "norm_label": "useactivesession()"
@@ -2124,7 +2142,7 @@
       "source_file": "src/pages/train/components/exercise-entry/exercise-entry.tsx",
       "source_location": "L1",
       "id": "src_pages_train_components_exercise_entry_exercise_entry_tsx",
-      "community": 12,
+      "community": 11,
       "norm_label": "exercise-entry.tsx"
     },
     {
@@ -2133,7 +2151,7 @@
       "source_file": "src/pages/train/components/exercise-entry/exercise-entry.tsx",
       "source_location": "L18",
       "id": "exercise_entry_exerciseentrycomponent",
-      "community": 12,
+      "community": 11,
       "norm_label": "exerciseentrycomponent()"
     },
     {
@@ -2943,7 +2961,7 @@
       "source_file": "src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L1",
       "id": "src_pages_nutrition_components_food_entry_form_food_entry_form_tsx",
-      "community": 11,
+      "community": 12,
       "norm_label": "food-entry-form.tsx"
     },
     {
@@ -2952,7 +2970,7 @@
       "source_file": "src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L40",
       "id": "food_entry_form_handlesave",
-      "community": 11,
+      "community": 12,
       "norm_label": "handlesave()"
     },
     {
@@ -2961,7 +2979,7 @@
       "source_file": "src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L57",
       "id": "food_entry_form_handlebarcodescan",
-      "community": 11,
+      "community": 12,
       "norm_label": "handlebarcodescan()"
     },
     {
@@ -2970,7 +2988,7 @@
       "source_file": "src/pages/nutrition/components/food-entry-form/food-entry-form.tsx",
       "source_location": "L96",
       "id": "food_entry_form_handleportionchange",
-      "community": 11,
+      "community": 12,
       "norm_label": "handleportionchange()"
     },
     {
@@ -3693,7 +3711,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "src_app_tsx",
       "_tgt": "app_app",
@@ -3708,8 +3726,8 @@
       "source_file": "src/App.tsx",
       "source_location": "L31",
       "weight": 1.0,
-      "_src": "useupdatecheck_useupdatecheck",
-      "_tgt": "app_app",
+      "_src": "app_app",
+      "_tgt": "useupdatecheck_useupdatecheck",
       "source": "app_app",
       "target": "useupdatecheck_useupdatecheck"
     },
@@ -4122,6 +4140,18 @@
       "target": "namealias_getlibraryidforname"
     },
     {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/utils/relinkImages.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "relinkimages_resolvelibraryid",
+      "_tgt": "modal_test_get",
+      "source": "relinkimages_resolvelibraryid",
+      "target": "modal_test_get"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/fileExport.test.ts",
@@ -4152,8 +4182,8 @@
       "source_file": "src/pages/exercises/components/exercise-form/exercise-form.tsx",
       "source_location": "L56",
       "weight": 1.0,
-      "_src": "exercise_form_handleaddimages",
-      "_tgt": "imageresize_resizeimagefile",
+      "_src": "imageresize_resizeimagefile",
+      "_tgt": "exercise_form_handleaddimages",
       "source": "imageresize_resizeimagefile",
       "target": "exercise_form_handleaddimages"
     },
@@ -4387,6 +4417,18 @@
     },
     {
       "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/utils/nutrition.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_src": "nutrition_getaveragedailyintake",
+      "_tgt": "modal_test_get",
+      "source": "nutrition_getaveragedailyintake",
+      "target": "modal_test_get"
+    },
+    {
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/nutrition.ts",
       "source_location": "L87",
@@ -4410,10 +4452,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/utils/nutrition.ts",
+      "source_location": "L144",
+      "weight": 1.0,
+      "_src": "nutrition_estimatetdee",
+      "_tgt": "modal_test_get",
+      "source": "nutrition_estimatetdee",
+      "target": "modal_test_get"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0,
       "_src": "src_utils_progression_ts",
       "_tgt": "progression_loadrepranges",
@@ -4425,7 +4479,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_src": "src_utils_progression_ts",
       "_tgt": "progression_saverepranges",
@@ -4437,7 +4491,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "src_utils_progression_ts",
       "_tgt": "progression_getreprange",
@@ -4449,7 +4503,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "_src": "src_utils_progression_ts",
       "_tgt": "progression_validatereprangeentry",
@@ -4461,7 +4515,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0,
       "_src": "src_utils_progression_ts",
       "_tgt": "progression_isvalidrepstring",
@@ -4473,7 +4527,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L71",
+      "source_location": "L72",
       "weight": 1.0,
       "_src": "src_utils_progression_ts",
       "_tgt": "progression_getprogressiontip",
@@ -4485,7 +4539,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/progression.ts",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "_src": "progression_getreprange",
       "_tgt": "progression_loadrepranges",
@@ -4512,8 +4566,8 @@
       "source_file": "src/pages/exercises/components/wiki/saved-plan-detail/saved-plan-detail.tsx",
       "source_location": "L139",
       "weight": 1.0,
-      "_src": "saved_plan_detail_handlesavesetconfig",
-      "_tgt": "progression_isvalidrepstring",
+      "_src": "progression_isvalidrepstring",
+      "_tgt": "saved_plan_detail_handlesavesetconfig",
       "source": "progression_isvalidrepstring",
       "target": "saved_plan_detail_handlesavesetconfig"
     },
@@ -4617,7 +4671,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_src": "src_utils_patterndetection_ts",
       "_tgt": "patterndetection_clusterkey",
@@ -4629,7 +4683,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_src": "src_utils_patterndetection_ts",
       "_tgt": "patterndetection_getdismissed",
@@ -4641,7 +4695,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0,
       "_src": "src_utils_patterndetection_ts",
       "_tgt": "patterndetection_dismisspattern",
@@ -4653,7 +4707,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_src": "src_utils_patterndetection_ts",
       "_tgt": "patterndetection_detectpattern",
@@ -4665,33 +4719,33 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/patternDetection.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "patterndetection_dismisspattern",
+      "_tgt": "patterndetection_clusterkey",
+      "source": "patterndetection_clusterkey",
+      "target": "patterndetection_dismisspattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/patternDetection.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_src": "patterndetection_detectpattern",
+      "_tgt": "patterndetection_clusterkey",
+      "source": "patterndetection_clusterkey",
+      "target": "patterndetection_detectpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/patternDetection.ts",
       "source_location": "L23",
       "weight": 1.0,
       "_src": "patterndetection_dismisspattern",
-      "_tgt": "patterndetection_clusterkey",
-      "source": "patterndetection_clusterkey",
-      "target": "patterndetection_dismisspattern",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_src": "patterndetection_detectpattern",
-      "_tgt": "patterndetection_clusterkey",
-      "source": "patterndetection_clusterkey",
-      "target": "patterndetection_detectpattern",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_src": "patterndetection_dismisspattern",
       "_tgt": "patterndetection_getdismissed",
       "source": "patterndetection_getdismissed",
       "target": "patterndetection_dismisspattern",
@@ -4701,13 +4755,25 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/patternDetection.ts",
-      "source_location": "L67",
+      "source_location": "L68",
       "weight": 1.0,
       "_src": "patterndetection_detectpattern",
       "_tgt": "patterndetection_getdismissed",
       "source": "patterndetection_getdismissed",
       "target": "patterndetection_detectpattern",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/utils/patternDetection.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_src": "patterndetection_detectpattern",
+      "_tgt": "modal_test_get",
+      "source": "patterndetection_detectpattern",
+      "target": "modal_test_get"
     },
     {
       "relation": "contains",
@@ -4842,10 +4908,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/utils/pr.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_src": "pr_getexercisefrequency",
+      "_tgt": "modal_test_get",
+      "source": "pr_getexercisefrequency",
+      "target": "modal_test_get"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_sha256",
@@ -4857,7 +4935,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_fetchcodehashes",
@@ -4869,7 +4947,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L38",
+      "source_location": "L40",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_verifycode",
@@ -4881,7 +4959,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_getsavedhash",
@@ -4893,7 +4971,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L52",
+      "source_location": "L54",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_activatecode",
@@ -4905,7 +4983,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L64",
+      "source_location": "L66",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_deactivatesupporter",
@@ -4917,7 +4995,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_isactivated",
@@ -4929,7 +5007,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L73",
+      "source_location": "L75",
       "weight": 1.0,
       "_src": "src_utils_supporter_ts",
       "_tgt": "supporter_prefetchhashes",
@@ -4941,7 +5019,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0,
       "_src": "supporter_verifycode",
       "_tgt": "supporter_sha256",
@@ -4953,7 +5031,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L54",
+      "source_location": "L56",
       "weight": 1.0,
       "_src": "supporter_activatecode",
       "_tgt": "supporter_sha256",
@@ -4965,7 +5043,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0,
       "_src": "supporter_verifycode",
       "_tgt": "supporter_fetchcodehashes",
@@ -4977,7 +5055,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0,
       "_src": "supporter_prefetchhashes",
       "_tgt": "supporter_fetchcodehashes",
@@ -4989,7 +5067,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/supporter.ts",
-      "source_location": "L55",
+      "source_location": "L57",
       "weight": 1.0,
       "_src": "supporter_activatecode",
       "_tgt": "supporter_verifycode",
@@ -5468,6 +5546,42 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/modal/modal.test.tsx",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_src": "src_components_modal_modal_test_tsx",
+      "_tgt": "modal_test_get",
+      "source": "src_components_modal_modal_test_tsx",
+      "target": "modal_test_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/exercises/components/wiki/wiki.tsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_src": "wiki_handleimportplan",
+      "_tgt": "modal_test_get",
+      "source": "modal_test_get",
+      "target": "wiki_handleimportplan"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "android/app/src/main/java/com/rltnewside/jgym/MediaBrowserBridge.java",
+      "source_location": "L318",
+      "weight": 1.0,
+      "_src": "mediabrowserbridge_mediabrowserbridge_discoverbrowserservice",
+      "_tgt": "modal_test_get",
+      "source": "modal_test_get",
+      "target": "mediabrowserbridge_mediabrowserbridge_discoverbrowserservice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/modal/modal.tsx",
       "source_location": "L14",
       "weight": 1.0,
@@ -5793,7 +5907,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useUpdateCheck.ts",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_src": "src_hooks_useupdatecheck_ts",
       "_tgt": "useupdatecheck_currentversion",
@@ -5805,7 +5919,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useUpdateCheck.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_src": "src_hooks_useupdatecheck_ts",
       "_tgt": "useupdatecheck_fetchlatest",
@@ -5817,7 +5931,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useUpdateCheck.ts",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0,
       "_src": "src_hooks_useupdatecheck_ts",
       "_tgt": "useupdatecheck_useupdatecheck",
@@ -5829,7 +5943,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useTheme.ts",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_src": "src_hooks_usetheme_ts",
       "_tgt": "usetheme_readtheme",
@@ -5841,7 +5955,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useTheme.ts",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_src": "src_hooks_usetheme_ts",
       "_tgt": "usetheme_usetheme",
@@ -5997,7 +6111,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useSession.ts",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "src_hooks_usesession_ts",
       "_tgt": "usesession_loadactive",
@@ -6009,7 +6123,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useSession.ts",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_src": "src_hooks_usesession_ts",
       "_tgt": "usesession_saveactive",
@@ -6021,7 +6135,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/hooks/useSession.ts",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_src": "src_hooks_usesession_ts",
       "_tgt": "usesession_useactivesession",
@@ -7464,8 +7578,8 @@
       "source_file": "android/app/src/main/java/com/rltnewside/jgym/MainActivity.java",
       "source_location": "L21",
       "weight": 1.0,
-      "_src": "mainactivity_mainactivity_oncreate",
-      "_tgt": "importbridgeplugin_importbridgeplugin_captureintent",
+      "_src": "importbridgeplugin_importbridgeplugin_captureintent",
+      "_tgt": "mainactivity_mainactivity_oncreate",
       "source": "importbridgeplugin_importbridgeplugin_captureintent",
       "target": "mainactivity_mainactivity_oncreate"
     },

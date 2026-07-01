@@ -1,12 +1,12 @@
 # Graph Report - JGym  (2026-07-01)
 
 ## Corpus Check
-- 137 files · ~308,159 words
+- 138 files · ~308,592 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 408 nodes · 363 edges · 26 communities detected
-- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 36 edges (avg confidence: 0.8)
+- 410 nodes · 371 edges · 26 communities detected
+- Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 43 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -40,18 +40,18 @@
 ## God Nodes (most connected - your core abstractions)
 1. `MediaBridgePlugin` - 19 edges
 2. `MediaBrowserBridge` - 17 edges
-3. `MediaNotificationListener` - 7 edges
-4. `App()` - 6 edges
-5. `getDateStr()` - 6 edges
-6. `drawSummaryCard()` - 5 edges
-7. `exportJsonFile()` - 4 edges
-8. `getDaysAgo()` - 4 edges
-9. `verifyCode()` - 4 edges
-10. `ErrorBoundary` - 4 edges
+3. `get()` - 8 edges
+4. `MediaNotificationListener` - 7 edges
+5. `App()` - 6 edges
+6. `getDateStr()` - 6 edges
+7. `drawSummaryCard()` - 5 edges
+8. `exportJsonFile()` - 4 edges
+9. `getDaysAgo()` - 4 edges
+10. `detectPattern()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `useUpdateCheck()` --calls--> `App()`  [INFERRED]
-  src/hooks/useUpdateCheck.ts → src/App.tsx
+- `App()` --calls--> `useUpdateCheck()`  [INFERRED]
+  src/App.tsx → src/hooks/useUpdateCheck.ts
 - `App()` --calls--> `useTheme()`  [INFERRED]
   src/App.tsx → src/hooks/useTheme.ts
 - `App()` --calls--> `useStorage()`  [INFERRED]
@@ -76,8 +76,8 @@ Cohesion: 0.14
 Nodes (3): ImportBridgePlugin, MediaBridgePlugin, Plugin
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
-Nodes (12): ActivityEntryForm(), addWater(), handleCustomWater(), nextDay(), prevDay(), estimateTDEE(), getAverageDailyIntake(), getDateStr() (+4 more)
+Cohesion: 0.14
+Nodes (13): ActivityEntryForm(), addWater(), handleCustomWater(), nextDay(), prevDay(), get(), estimateTDEE(), getAverageDailyIntake() (+5 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.12
@@ -108,12 +108,12 @@ Cohesion: 0.22
 Nodes (3): TrainContainer(), useMediaSession(), useActiveSession()
 
 ### Community 11 - "Community 11"
-Cohesion: 0.36
-Nodes (5): handleBarcodeScan(), handlePortionChange(), lookupBarcode(), parseServingSize(), scaleMacros()
-
-### Community 12 - "Community 12"
 Cohesion: 0.32
 Nodes (5): ExerciseEntryComponent(), calculatePR(), getExerciseFrequency(), getLastSession(), sortExercisesByFrequency()
+
+### Community 12 - "Community 12"
+Cohesion: 0.36
+Nodes (5): handleBarcodeScan(), handlePortionChange(), lookupBarcode(), parseServingSize(), scaleMacros()
 
 ### Community 13 - "Community 13"
 Cohesion: 0.32
@@ -198,17 +198,17 @@ Nodes (1): ExampleUnitTest
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ImportBridgePlugin` connect `Community 2` to `Community 17`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `get()` connect `Community 3` to `Community 1`, `Community 18`, `Community 11`, `Community 4`?**
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+- **Why does `handleImportPlan()` connect `Community 1` to `Community 3`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Are the 7 inferred relationships involving `get()` (e.g. with `resolveLibraryId()` and `getAverageDailyIntake()`) actually correct?**
+  _`get()` has 7 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 5 inferred relationships involving `App()` (e.g. with `useUpdateCheck()` and `useTheme()`) actually correct?**
   _`App()` has 5 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 3 inferred relationships involving `getDateStr()` (e.g. with `ActivityEntryForm()` and `prevDay()`) actually correct?**
-  _`getDateStr()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.09 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.14 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.12 - nodes in this community are weakly interconnected._
