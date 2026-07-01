@@ -1,8 +1,10 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
+import { STORAGE_KEYS } from '../data/storage'
+
 const CODES_URL = 'https://raw.githubusercontent.com/RLT-Newside/JGym/main/supporter-hashes.json'
 const FRIEND_HASH = 'ffe43f490f1e4894cdd2d101fdf19c2c43ccfb5ed2a955d889df1c2f2ccb8a44'
-const CACHE_KEY = 'gym_supporter_hashes'
-const HASH_KEY = 'gym_supporter_hash'
+const CACHE_KEY = STORAGE_KEYS.supporterHashes
+const HASH_KEY = STORAGE_KEYS.supporterHash
 
 async function sha256(text: string): Promise<string> {
   const data = new TextEncoder().encode(text)
@@ -55,7 +57,7 @@ export async function activateCode(code: string): Promise<boolean> {
   const valid = await verifyCode(normalized)
   if (valid) {
     localStorage.setItem(HASH_KEY, hash)
-    localStorage.setItem('gym_supporter', 'true')
+    localStorage.setItem(STORAGE_KEYS.supporter, 'true')
     return true
   }
   return false
@@ -63,7 +65,7 @@ export async function activateCode(code: string): Promise<boolean> {
 
 export function deactivateSupporter() {
   localStorage.removeItem(HASH_KEY)
-  localStorage.setItem('gym_supporter', 'false')
+  localStorage.setItem(STORAGE_KEYS.supporter, 'false')
 }
 
 export function isActivated(): boolean {

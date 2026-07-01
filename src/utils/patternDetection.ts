@@ -1,7 +1,8 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
+import { STORAGE_KEYS } from '../data/storage'
 import type { Exercise, SavedPlan, Session } from '../types'
 
-const DISMISSED_KEY = 'gym_pattern_dismissed'
+const DISMISSED_KEY = STORAGE_KEYS.patternDismissed
 const MIN_OCCURRENCES = 3
 const LOOKBACK_DAYS = 60
 

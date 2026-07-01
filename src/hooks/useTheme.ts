@@ -1,11 +1,12 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useEffect, useState } from 'react'
+import { STORAGE_KEYS } from '../data/storage'
 import { activateCode, deactivateSupporter, isActivated, prefetchHashes } from '../utils/supporter'
 
 export type Theme = 'yellow' | 'cyan' | 'purple' | 'coral' | 'green'
 
 function readTheme(): Theme {
-  return (localStorage.getItem('gym_theme') as Theme) || 'yellow'
+  return (localStorage.getItem(STORAGE_KEYS.theme) as Theme) || 'yellow'
 }
 
 export function useTheme() {
@@ -23,7 +24,7 @@ export function useTheme() {
   }, [theme])
 
   const setTheme = (t: Theme) => {
-    localStorage.setItem('gym_theme', t)
+    localStorage.setItem(STORAGE_KEYS.theme, t)
     setThemeState(t)
   }
 
