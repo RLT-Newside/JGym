@@ -8,6 +8,7 @@
 
 :root {
   --color-brand: #f5e642;
+  --color-brand-rgb: 245, 230, 66;
   --glass-bg: rgba(255, 255, 255, 0.04);
   --glass-bg-hover: rgba(255, 255, 255, 0.07);
   --glass-bg-elevated: rgba(255, 255, 255, 0.06);
@@ -17,15 +18,30 @@
 
 [data-theme="cyan"] {
   --color-brand: #22d3ee;
+  --color-brand-rgb: 34, 211, 238;
 }
 [data-theme="purple"] {
   --color-brand: #a855f7;
+  --color-brand-rgb: 168, 85, 247;
 }
 [data-theme="coral"] {
   --color-brand: #fb7185;
+  --color-brand-rgb: 251, 113, 133;
 }
 [data-theme="green"] {
   --color-brand: #4ade80;
+  --color-brand-rgb: 74, 222, 128;
+}
+
+/* Shared component classes — mirror the most-repeated Tailwind combos. */
+.field {
+  @apply w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm focus:border-brand/40 focus:bg-white/[0.06] focus:outline-none;
+}
+.label-caption {
+  @apply text-xs text-white/40 uppercase tracking-wider;
+}
+.section-head {
+  @apply text-xs text-white/40 uppercase tracking-wider mb-3;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
