@@ -1,5 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useCallback, useEffect, useState } from 'react'
+import { ErrorBoundary } from './components/error-boundary/error-boundary'
 import { ExerciseDetail } from './components/exercise-detail/exercise-detail'
 import { Modal } from './components/modal/modal'
 import { PrivacyConsent } from './components/privacy-consent/privacy-consent'
@@ -305,42 +306,44 @@ export default function App() {
       {update && <UpdateBanner version={update.version} url={update.url} />}
       <Header onSettingsClick={() => setSettingsOpen(true)} />
 
-      <AppRouter
-        tab={tab}
-        exercises={exercises}
-        sessions={sessions}
-        savedPlans={savedPlans}
-        foodEntries={foodEntries}
-        waterEntries={waterEntries}
-        weightEntries={weightEntries}
-        activityEntries={activityEntries}
-        nutritionGoal={nutritionGoal}
-        isSupporter={isSupporter}
-        preSelectedExercise={preSelectedExercise}
-        onSaveExercise={handleSaveExercise}
-        onDeleteExercise={handleDeleteExercise}
-        onSessionSave={handleSessionSave}
-        onDeleteSession={handleDeleteSession}
-        onUpdateSession={handleUpdateSession}
-        onStartWith={handleStartWith}
-        onAdvancePlanDay={handleAdvancePlanDay}
-        onNavigateToExercises={() => setTab('exercises')}
-        onClearPreSelected={() => setPreSelectedExercise(null)}
-        onSavePlan={handleSavePlan}
-        onUpdatePlan={handleUpdatePlan}
-        onDeletePlan={handleDeletePlan}
-        onAddFood={handleAddFood}
-        onDeleteFood={handleDeleteFood}
-        onAddWater={handleAddWater}
-        onDeleteWater={handleDeleteWater}
-        onAddWeight={handleAddWeight}
-        onDeleteWeight={handleDeleteWeight}
-        onAddActivity={handleAddActivity}
-        onDeleteActivity={handleDeleteActivity}
-        onUpdateGoal={handleUpdateGoal}
-        musicPopupDisabled={musicPopupDisabled}
-        onExerciseClick={setDetailExercise}
-      />
+      <ErrorBoundary>
+        <AppRouter
+          tab={tab}
+          exercises={exercises}
+          sessions={sessions}
+          savedPlans={savedPlans}
+          foodEntries={foodEntries}
+          waterEntries={waterEntries}
+          weightEntries={weightEntries}
+          activityEntries={activityEntries}
+          nutritionGoal={nutritionGoal}
+          isSupporter={isSupporter}
+          preSelectedExercise={preSelectedExercise}
+          onSaveExercise={handleSaveExercise}
+          onDeleteExercise={handleDeleteExercise}
+          onSessionSave={handleSessionSave}
+          onDeleteSession={handleDeleteSession}
+          onUpdateSession={handleUpdateSession}
+          onStartWith={handleStartWith}
+          onAdvancePlanDay={handleAdvancePlanDay}
+          onNavigateToExercises={() => setTab('exercises')}
+          onClearPreSelected={() => setPreSelectedExercise(null)}
+          onSavePlan={handleSavePlan}
+          onUpdatePlan={handleUpdatePlan}
+          onDeletePlan={handleDeletePlan}
+          onAddFood={handleAddFood}
+          onDeleteFood={handleDeleteFood}
+          onAddWater={handleAddWater}
+          onDeleteWater={handleDeleteWater}
+          onAddWeight={handleAddWeight}
+          onDeleteWeight={handleDeleteWeight}
+          onAddActivity={handleAddActivity}
+          onDeleteActivity={handleDeleteActivity}
+          onUpdateGoal={handleUpdateGoal}
+          musicPopupDisabled={musicPopupDisabled}
+          onExerciseClick={setDetailExercise}
+        />
+      </ErrorBoundary>
 
       <BottomNav active={tab} onChange={setTab} />
 
