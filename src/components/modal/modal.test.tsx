@@ -76,9 +76,7 @@ describe('Modal', () => {
           <button>Action</button>
         </Modal>,
       )
-      const preventScrollCalls = focusSpy.mock.calls.filter(
-        (args: [FocusOptions?]) => args[0]?.preventScroll === true,
-      )
+      const preventScrollCalls = focusSpy.mock.calls.filter((args: [FocusOptions?]) => args[0]?.preventScroll === true)
       expect(preventScrollCalls.length).toBeGreaterThan(0)
     })
 
