@@ -13,6 +13,7 @@ import {
   SkipForward,
 } from 'lucide-react'
 import { useCallback, useState } from 'react'
+import { GlassCard } from '../../../../components/glass-card/glass-card'
 import { BrowseView } from '../../../../components/music/browse-view'
 import { NowPlaying } from '../../../../components/music/now-playing'
 import { QueueView } from '../../../../components/music/queue-view'
@@ -40,7 +41,7 @@ export function MusicCard() {
 
   if (!media.hasPermission) {
     return (
-      <div className="glass rounded-xl p-4">
+      <GlassCard>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center">
             <Music size={20} className="text-brand/50" />
@@ -88,7 +89,7 @@ export function MusicCard() {
             </div>
           </div>
         )}
-      </div>
+      </GlassCard>
     )
   }
 

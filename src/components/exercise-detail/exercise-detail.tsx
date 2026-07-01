@@ -9,6 +9,7 @@ import { calculatePR, formatPR } from '../../utils/pr'
 import { Button } from '../button/button'
 import { Modal } from '../modal/modal'
 import { MuscleTags } from '../muscle-tags/muscle-tags'
+import { SectionHeader } from '../section-header/section-header'
 import { ProgressionChart } from './progression-chart'
 
 interface Props {
@@ -40,7 +41,7 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith 
 
         {exercise.description && (
           <div>
-            <h3 className="text-xs text-white/40 uppercase tracking-wider mb-2">Description</h3>
+            <SectionHeader className="mb-2">Description</SectionHeader>
             <p className="text-xs text-white/70 leading-relaxed whitespace-pre-wrap">{exercise.description}</p>
           </div>
         )}
