@@ -14,6 +14,11 @@ interface Props {
 export function Modal({ open, onClose, title, children }: Props) {
   const titleId = useId()
   const panelRef = useRef<HTMLDivElement>(null)
+  // Keep a stable ref so the effect doesn't re-run when the parent passes a new
+  // onClose arrow on every render — that was causing the modal to re-focus (and
+  // scroll back to the top) whenever any parent state changed while open.
+  const onCloseRef = useRef(onClose)
+  onCloseRef.current = onClose
 
   // Android hardware back closes the modal.
   useBackHandler(() => {
@@ -37,14 +42,16 @@ export function Modal({ open, onClose, title, children }: Props) {
     }
 
     // Move focus into the dialog unless a field already claimed it (autoFocus).
+    // preventScroll stops the browser from jumping the page/modal to the focused
+    // element — the fix for JGYM-23 (scroll-to-top on "Check for updates" click).
     if (!panelRef.current?.contains(document.activeElement)) {
-      focusables()[0]?.focus()
+      focusables()[0]?.focus({ preventScroll: true })
     }
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault()
-        onClose()
+        onCloseRef.current()
         return
       }
       if (e.key !== 'Tab') return
@@ -67,7 +74,7 @@ export function Modal({ open, onClose, title, children }: Props) {
       document.body.style.overflow = ''
       previouslyFocused?.focus?.()
     }
-  }, [open, onClose])
+  }, [open])
 
   if (!open) return null
 
