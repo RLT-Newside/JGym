@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { BodyMap } from '../../../../components/body-map/body-map'
 import { Button } from '../../../../components/button/button'
+import { FormField } from '../../../../components/form-field/form-field'
 import { Modal } from '../../../../components/modal/modal'
 import type { Exercise, MuscleGroup } from '../../../../types'
 import { resizeImageFile } from '../../../../utils/imageResize'
@@ -85,20 +86,17 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
   return (
     <Modal open={open} onClose={onClose} title={exercise ? 'Edit Exercise' : 'Add Exercise'}>
       <div className="space-y-4">
-        <div>
-          <label className="text-xs text-white/40 uppercase tracking-wider block mb-1">Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="e.g. Bench Press"
-            className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-brand/40 focus:bg-white/[0.06]"
-            autoFocus
-          />
-        </div>
+        <FormField
+          label="Name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="e.g. Bench Press"
+          autoFocus
+        />
 
         <div>
-          <label className="text-xs text-white/40 uppercase tracking-wider block mb-2">Muscle Groups</label>
+          <label className="label-caption block mb-2">Muscle Groups</label>
           <div className="flex gap-2 mb-3">
             <button
               onClick={() => setSelectionMode('primary')}
@@ -129,19 +127,17 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
           />
         </div>
 
-        <div>
-          <label className="text-xs text-white/40 uppercase tracking-wider block mb-1">Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="How to perform this exercise..."
-            rows={3}
-            className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm resize-none focus:outline-none focus:border-brand/40 focus:bg-white/[0.06]"
-          />
-        </div>
+        <FormField
+          label="Description"
+          multiline
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="How to perform this exercise..."
+          rows={3}
+        />
 
         <div>
-          <label className="text-xs text-white/40 uppercase tracking-wider block mb-2">Images</label>
+          <label className="label-caption block mb-2">Images</label>
           {customImages.length > 0 && (
             <div className="flex gap-2 flex-wrap mb-2">
               {customImages.map((src, i) => (
@@ -178,16 +174,14 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
           </button>
         </div>
 
-        <div>
-          <label className="text-xs text-white/40 uppercase tracking-wider block mb-1">Notes</label>
-          <textarea
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="Optional notes..."
-            rows={2}
-            className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm resize-none focus:outline-none focus:border-brand/40 focus:bg-white/[0.06]"
-          />
-        </div>
+        <FormField
+          label="Notes"
+          multiline
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          placeholder="Optional notes..."
+          rows={2}
+        />
 
         <div className="flex gap-3 justify-end pt-2">
           <Button variant="secondary" onClick={onClose}>

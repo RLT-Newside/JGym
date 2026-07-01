@@ -4,6 +4,7 @@ import { AlertCircle, Loader, ScanLine } from 'lucide-react'
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Button } from '../../../../components/button/button'
+import { FormField } from '../../../../components/form-field/form-field'
 import { Modal } from '../../../../components/modal/modal'
 import type { FoodEntry, MealType } from '../../../../types'
 import { getDateStr, MEAL_LABELS } from '../../../../utils/nutrition'
@@ -199,19 +200,14 @@ export function FoodEntryForm({ open, onClose, onSave, entry, defaultMeal = 'lun
             </div>
           )}
 
-          <div>
-            <label className="text-xs text-white/40 uppercase tracking-wider block mb-1">
-              {isDrink ? 'Drink Name' : 'Food Name'}
-            </label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={isDrink ? 'e.g. Coca-Cola, Orange juice' : 'e.g. Chicken breast, Rice, Banana'}
-              className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-brand/40 focus:bg-white/[0.06]"
-              autoFocus={!product}
-            />
-          </div>
+          <FormField
+            label={isDrink ? 'Drink Name' : 'Food Name'}
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={isDrink ? 'e.g. Coca-Cola, Orange juice' : 'e.g. Chicken breast, Rice, Banana'}
+            autoFocus={!product}
+          />
 
           <div>
             <label className="text-xs text-white/40 uppercase tracking-wider block mb-2">Meal</label>
@@ -233,19 +229,16 @@ export function FoodEntryForm({ open, onClose, onSave, entry, defaultMeal = 'lun
             </div>
           </div>
 
-          <div>
-            <label className="text-xs text-white/40 uppercase tracking-wider block mb-1">Calories (kcal)</label>
-            <input
-              type="number"
-              min="0"
-              max="50000"
-              value={calories}
-              onChange={(e) => setCalories(e.target.value)}
-              placeholder="e.g. 350"
-              className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-brand/40 focus:bg-white/[0.06]"
-              inputMode="numeric"
-            />
-          </div>
+          <FormField
+            label="Calories (kcal)"
+            type="number"
+            min="0"
+            max="50000"
+            value={calories}
+            onChange={(e) => setCalories(e.target.value)}
+            placeholder="e.g. 350"
+            inputMode="numeric"
+          />
 
           <div>
             <label className="text-xs text-white/40 uppercase tracking-wider block mb-2">Macros (optional)</label>
@@ -289,15 +282,13 @@ export function FoodEntryForm({ open, onClose, onSave, entry, defaultMeal = 'lun
             </div>
           </div>
 
-          <div>
-            <label className="text-xs text-white/40 uppercase tracking-wider block mb-1">Date</label>
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-brand/40 focus:bg-white/[0.06] [color-scheme:dark]"
-            />
-          </div>
+          <FormField
+            label="Date"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="[color-scheme:dark]"
+          />
 
           <div className="flex gap-3 justify-end pt-2">
             <Button variant="secondary" onClick={onClose}>

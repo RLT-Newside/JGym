@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import type { Session } from '../../types'
 import { formatDate } from '../../utils/format'
+import { SectionHeader } from '../section-header/section-header'
 
 interface Props {
   exerciseId: string
@@ -39,7 +40,7 @@ export function ProgressionChart({ exerciseId, sessions }: Props) {
 
   return (
     <div>
-      <h3 className="text-xs text-white/40 uppercase tracking-wider mb-2">Progression</h3>
+      <SectionHeader className="mb-2">Progression</SectionHeader>
       <div className="bg-white/[0.04] rounded-xl p-3">
         <svg width="100%" viewBox={`0 0 ${W} ${H}`} className="overflow-visible">
           {yLabels.map((v) => (
