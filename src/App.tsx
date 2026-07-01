@@ -27,6 +27,7 @@ import {
   type WaterEntry,
   type WeightEntry,
 } from './types'
+import { mergeBackup } from './utils/backup'
 import { relinkLibraryIds } from './utils/relinkImages'
 
 export default function App() {
@@ -153,43 +154,9 @@ export default function App() {
 
   const handleImport = useCallback(
     (data: Record<string, unknown>, mode: 'merge' | 'replace') => {
-      if (mode === 'replace') {
-        const gymKeys = []
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i)
-          if (key?.startsWith('gym_')) gymKeys.push(key)
-        }
-        gymKeys.forEach((k) => localStorage.removeItem(k))
-      }
-
-      for (const [key, value] of Object.entries(data)) {
-        if (!key.startsWith('gym_')) continue
-        if (mode === 'merge' && (key === 'gym_exercises' || key === 'gym_sessions')) {
-          const existing = (() => {
-            try {
-              return JSON.parse(localStorage.getItem(key) ?? '[]')
-            } catch {
-              return []
-            }
-          })()
-          const incoming = value as unknown[]
-          const existingIds = new Set(existing.map((e: { id: string }) => e.id))
-          const merged = [...existing, ...incoming.filter((e: unknown) => !existingIds.has((e as { id: string }).id))]
-          localStorage.setItem(key, JSON.stringify(merged))
-        } else {
-          localStorage.setItem(key, JSON.stringify(value))
-        }
-      }
-
-      try {
-        const ex = JSON.parse(localStorage.getItem('gym_exercises') ?? '[]')
-        const sess = JSON.parse(localStorage.getItem('gym_sessions') ?? '[]')
-        setExercises(Array.isArray(ex) ? ex : [])
-        setSessions(Array.isArray(sess) ? sess : [])
-      } catch {
-        setExercises([])
-        setSessions([])
-      }
+      const { exercises: ex, sessions: sess } = mergeBackup(data, mode)
+      setExercises(ex as Exercise[])
+      setSessions(sess as Session[])
     },
     [setExercises, setSessions],
   )
