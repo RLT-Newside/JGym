@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
-import type { Exercise, Session } from '../../types'
+import { renderWithAppData } from '../../test/render-with-app-data'
+import type { Exercise } from '../../types'
 import { ExerciseList } from './exercises.container'
 
 const makeExercise = (id: string, name: string, muscles: string[] = []): Exercise => ({
@@ -14,34 +15,22 @@ const makeExercise = (id: string, name: string, muscles: string[] = []): Exercis
   createdAt: new Date().toISOString(),
 })
 
-const defaultProps = {
-  exercises: [],
-  sessions: [] as Session[],
-  savedPlans: [],
-  onSave: vi.fn(),
-  onDelete: vi.fn(),
-  onStartWith: vi.fn(),
-  onSavePlan: vi.fn(),
-  onUpdatePlan: vi.fn(),
-  onDeletePlan: vi.fn(),
-}
-
 describe('ExerciseList container', () => {
   it('shows empty state when no exercises', () => {
-    render(<ExerciseList {...defaultProps} />)
+    renderWithAppData(<ExerciseList />)
     expect(screen.getByText(/No exercises yet/)).toBeInTheDocument()
   })
 
   it('renders exercise names', () => {
     const exercises = [makeExercise('ex1', 'Bench Press'), makeExercise('ex2', 'Squat')]
-    render(<ExerciseList {...defaultProps} exercises={exercises} />)
+    renderWithAppData(<ExerciseList />, { exercises })
     expect(screen.getByText('Bench Press')).toBeInTheDocument()
     expect(screen.getByText('Squat')).toBeInTheDocument()
   })
 
   it('filters by search term', async () => {
     const exercises = [makeExercise('ex1', 'Bench Press'), makeExercise('ex2', 'Squat')]
-    render(<ExerciseList {...defaultProps} exercises={exercises} />)
+    renderWithAppData(<ExerciseList />, { exercises })
     await userEvent.type(screen.getByPlaceholderText('Search exercises...'), 'bench')
     expect(screen.getByText('Bench Press')).toBeInTheDocument()
     expect(screen.queryByText('Squat')).not.toBeInTheDocument()
@@ -49,22 +38,22 @@ describe('ExerciseList container', () => {
 
   it('shows no matches message when search has no results', async () => {
     const exercises = [makeExercise('ex1', 'Bench Press')]
-    render(<ExerciseList {...defaultProps} exercises={exercises} />)
+    renderWithAppData(<ExerciseList />, { exercises })
     await userEvent.type(screen.getByPlaceholderText('Search exercises...'), 'zzzzz')
     expect(screen.getByText('No matches.')).toBeInTheDocument()
   })
 
   it('switches to wiki tab when Wiki & Plans clicked', async () => {
-    render(<ExerciseList {...defaultProps} />)
+    renderWithAppData(<ExerciseList />)
     await userEvent.click(screen.getByText('Wiki & Plans'))
     // Wiki component should render — check for something unique to wiki view
     expect(screen.queryByText('Search exercises...')).not.toBeInTheDocument()
   })
 
   it('calls onDelete when delete confirmed', async () => {
-    const onDelete = vi.fn()
+    const deleteExercise = vi.fn()
     const exercises = [makeExercise('ex1', 'Bench Press')]
-    render(<ExerciseList {...defaultProps} exercises={exercises} onDelete={onDelete} />)
+    renderWithAppData(<ExerciseList />, { exercises, deleteExercise })
     // Row has: name button, pencil button, trash button — trash is last in row
     const allBtns = screen.getAllByRole('button')
     // Trash button has hover:bg-red-900/30 class
@@ -76,6 +65,6 @@ describe('ExerciseList container', () => {
     // Click the "Delete" confirm button
     const deleteBtns = screen.getAllByText('Delete')
     await userEvent.click(deleteBtns[deleteBtns.length - 1])
-    expect(onDelete).toHaveBeenCalledWith('ex1')
+    expect(deleteExercise).toHaveBeenCalledWith('ex1')
   })
 })

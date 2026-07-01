@@ -1,44 +1,28 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import { useState } from 'react'
-import type { ActivityEntry, FoodEntry, NutritionGoal, WaterEntry, WeightEntry } from '../../types'
+import { useAppData } from '../../context/app-data'
 import { NutritionView } from './nutrition.view'
-
-interface Props {
-  foodEntries: FoodEntry[]
-  waterEntries: WaterEntry[]
-  weightEntries: WeightEntry[]
-  activityEntries: ActivityEntry[]
-  goal: NutritionGoal
-  onAddFood: (entry: FoodEntry) => void
-  onDeleteFood: (id: string) => void
-  onAddWater: (entry: WaterEntry) => void
-  onDeleteWater: (id: string) => void
-  onAddWeight: (entry: WeightEntry) => void
-  onDeleteWeight: (id: string) => void
-  onAddActivity: (entry: ActivityEntry) => void
-  onDeleteActivity: (id: string) => void
-  onUpdateGoal: (goal: NutritionGoal) => void
-}
 
 type SubTab = 'log' | 'weight' | 'insights' | 'tips'
 
-export function NutritionContainer({
-  foodEntries,
-  waterEntries,
-  weightEntries,
-  activityEntries,
-  goal,
-  onAddFood,
-  onDeleteFood,
-  onAddWater,
-  onDeleteWater,
-  onAddWeight,
-  onDeleteWeight,
-  onAddActivity,
-  onDeleteActivity,
-  onUpdateGoal,
-}: Props) {
+export function NutritionContainer() {
+  const {
+    foodEntries,
+    waterEntries,
+    weightEntries,
+    activityEntries,
+    nutritionGoal: goal,
+    addFood: onAddFood,
+    deleteFood: onDeleteFood,
+    addWater: onAddWater,
+    deleteWater: onDeleteWater,
+    addWeight: onAddWeight,
+    deleteWeight: onDeleteWeight,
+    addActivity: onAddActivity,
+    deleteActivity: onDeleteActivity,
+    updateGoal: onUpdateGoal,
+  } = useAppData()
   const [subTab, setSubTab] = useState<SubTab>('log')
   const [goalOpen, setGoalOpen] = useState(false)
 

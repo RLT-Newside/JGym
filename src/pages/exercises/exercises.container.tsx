@@ -1,36 +1,26 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import { useMemo, useState } from 'react'
+import { useAppData } from '../../context/app-data'
 import { useBackHandler } from '../../hooks/useBackButton'
-import type { Exercise, MuscleGroup, SavedPlan, Session } from '../../types'
+import type { Exercise, MuscleGroup } from '../../types'
 import { calculatePR } from '../../utils/pr'
 import { ExercisesView } from './exercises.view'
 
-interface Props {
-  exercises: Exercise[]
-  sessions: Session[]
-  savedPlans: SavedPlan[]
-  onSave: (exercise: Exercise) => void
-  onDelete: (id: string) => void
-  onStartWith: (exercise: Exercise) => void
-  onSavePlan: (plan: SavedPlan) => void
-  onUpdatePlan: (plan: SavedPlan) => void
-  onDeletePlan: (id: string) => void
-}
-
 type SubTab = 'mine' | 'wiki'
 
-export function ExerciseList({
-  exercises,
-  sessions,
-  savedPlans,
-  onSave,
-  onDelete,
-  onStartWith,
-  onSavePlan,
-  onUpdatePlan,
-  onDeletePlan,
-}: Props) {
+export function ExerciseList() {
+  const {
+    exercises,
+    sessions,
+    savedPlans,
+    saveExercise: onSave,
+    deleteExercise: onDelete,
+    startWith: onStartWith,
+    savePlan: onSavePlan,
+    updatePlan: onUpdatePlan,
+    deletePlan: onDeletePlan,
+  } = useAppData()
   const [subTab, setSubTab] = useState<SubTab>('mine')
   const [search, setSearch] = useState('')
   const [filterGroups, setFilterGroups] = useState<MuscleGroup[]>([])

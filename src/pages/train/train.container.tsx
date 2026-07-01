@@ -1,39 +1,27 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import { useCallback, useRef, useState } from 'react'
+import { useAppData } from '../../context/app-data'
 import { useMediaSession } from '../../hooks/useMediaSession'
 import { useActiveSession } from '../../hooks/useSession'
 import type { Exercise, SavedPlan, Session, SessionExerciseEntry, SetEntry } from '../../types'
 import { calculatePR } from '../../utils/pr'
 import { TrainView } from './train.view'
 
-interface Props {
-  exercises: Exercise[]
-  sessions: Session[]
-  savedPlans: SavedPlan[]
-  onSessionSave: (session: Session) => void
-  onAdvancePlanDay: (planId: string, nextIndex: number) => void
-  onNavigateToExercises?: () => void
-  preSelectedExercise?: Exercise | null
-  onClearPreSelected?: () => void
-  musicPopupDisabled?: boolean
-  isSupporter?: boolean
-  onExerciseClick?: (exercise: Exercise) => void
-}
-
-export function TrainContainer({
-  exercises,
-  sessions,
-  savedPlans,
-  onSessionSave,
-  onAdvancePlanDay,
-  onNavigateToExercises,
-  preSelectedExercise,
-  onClearPreSelected,
-  musicPopupDisabled = false,
-  isSupporter = false,
-  onExerciseClick,
-}: Props) {
+export function TrainContainer() {
+  const {
+    exercises,
+    sessions,
+    savedPlans,
+    sessionSave: onSessionSave,
+    advancePlanDay: onAdvancePlanDay,
+    navigateToExercises: onNavigateToExercises,
+    preSelectedExercise,
+    clearPreSelected: onClearPreSelected,
+    musicPopupDisabled,
+    isSupporter,
+    exerciseClick: onExerciseClick,
+  } = useAppData()
   const { active, elapsed, startSession, updateEntries, finishSession, cancelSession } = useActiveSession()
   const media = useMediaSession(!!active)
   const [label, setLabel] = useState('')

@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
-import type { Exercise, Session } from '../../types'
+import { describe, expect, it } from 'vitest'
+import { renderWithAppData } from '../../test/render-with-app-data'
+import type { Exercise, SavedPlan, Session } from '../../types'
 import { TrainContainer } from './train.container'
 
 const makeExercise = (id: string, name: string): Exercise => ({
@@ -14,31 +15,19 @@ const makeExercise = (id: string, name: string): Exercise => ({
   createdAt: new Date().toISOString(),
 })
 
-const defaultProps = {
-  exercises: [] as Exercise[],
-  sessions: [] as Session[],
-  savedPlans: [],
-  onSessionSave: vi.fn(),
-  onAdvancePlanDay: vi.fn(),
-  onNavigateToExercises: vi.fn(),
-  preSelectedExercise: null,
-  onClearPreSelected: vi.fn(),
-  isSupporter: false,
-}
-
 describe('TrainContainer', () => {
   it('renders Start Training button when no active session', () => {
-    render(<TrainContainer {...defaultProps} />)
+    renderWithAppData(<TrainContainer />)
     expect(screen.getByText('Start Training')).toBeInTheDocument()
   })
 
   it('shows session label input when idle', () => {
-    render(<TrainContainer {...defaultProps} />)
+    renderWithAppData(<TrainContainer />)
     expect(screen.getByPlaceholderText(/Session label/)).toBeInTheDocument()
   })
 
   it('starts session when Start Training clicked', async () => {
-    render(<TrainContainer {...defaultProps} />)
+    renderWithAppData(<TrainContainer />)
     await userEvent.type(screen.getByPlaceholderText(/Session label/), 'Push Day')
     await userEvent.click(screen.getByText('Start Training'))
     expect(screen.getByText('Push Day')).toBeInTheDocument()
@@ -46,14 +35,14 @@ describe('TrainContainer', () => {
   })
 
   it('shows Finish Session and Cancel buttons when session active', async () => {
-    render(<TrainContainer {...defaultProps} />)
+    renderWithAppData(<TrainContainer />)
     await userEvent.click(screen.getByText('Start Training'))
     expect(screen.getByText('Finish Session')).toBeInTheDocument()
     expect(screen.getByText('Cancel')).toBeInTheDocument()
   })
 
   it('shows cancel confirm dialog when Cancel clicked', async () => {
-    render(<TrainContainer {...defaultProps} />)
+    renderWithAppData(<TrainContainer />)
     await userEvent.click(screen.getByText('Start Training'))
     await userEvent.click(screen.getByText('Cancel'))
     expect(screen.getByText('Cancel Session')).toBeInTheDocument()
@@ -61,7 +50,7 @@ describe('TrainContainer', () => {
   })
 
   it('cancels session when confirm dialog confirmed', async () => {
-    render(<TrainContainer {...defaultProps} />)
+    renderWithAppData(<TrainContainer />)
     await userEvent.click(screen.getByText('Start Training'))
     await userEvent.click(screen.getByText('Cancel'))
     await userEvent.click(screen.getByText('Discard'))
@@ -69,7 +58,7 @@ describe('TrainContainer', () => {
   })
 
   it('shows saved plans when plans exist', () => {
-    const plans = [
+    const savedPlans: SavedPlan[] = [
       {
         id: 'p1',
         name: 'Push/Pull/Legs',
@@ -78,7 +67,7 @@ describe('TrainContainer', () => {
         days: [{ label: 'Push Day', focus: 'Chest', exerciseIds: [], defaults: [] }],
       },
     ]
-    render(<TrainContainer {...defaultProps} savedPlans={plans} />)
+    renderWithAppData(<TrainContainer />, { savedPlans })
     expect(screen.getByText('Push/Pull/Legs')).toBeInTheDocument()
   })
 
@@ -93,14 +82,14 @@ describe('TrainContainer', () => {
         entries: [],
       },
     ]
-    render(<TrainContainer {...defaultProps} sessions={sessions} />)
+    renderWithAppData(<TrainContainer />, { sessions })
     expect(screen.getByText('Leg Day')).toBeInTheDocument()
   })
 
   it('pre-fills exercise when preSelectedExercise is set', async () => {
     const exercise = makeExercise('ex1', 'Squat')
     // Pass exercise in exercises list so ExerciseEntryComponent can resolve the name
-    render(<TrainContainer {...defaultProps} exercises={[exercise]} preSelectedExercise={exercise} />)
+    renderWithAppData(<TrainContainer />, { exercises: [exercise], preSelectedExercise: exercise })
     await userEvent.click(screen.getByText('Start Training'))
     expect(screen.getByText('Squat')).toBeInTheDocument()
   })
