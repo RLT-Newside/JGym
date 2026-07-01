@@ -48,7 +48,9 @@
   padding-top: env(safe-area-inset-top);
 }
 .safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
+  /* Clear the home indicator without lifting the nav too far on devices that
+     report a large inset — cap the added padding. */
+  padding-bottom: min(env(safe-area-inset-bottom), 8px);
 }
 
 .scrollbar-hide::-webkit-scrollbar {
