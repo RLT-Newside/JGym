@@ -1,4 +1,5 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
+import { useMemo } from 'react'
 import type { Session } from '../../types'
 import { formatDate } from '../../utils/format'
 import { SectionHeader } from '../section-header/section-header'
@@ -9,14 +10,19 @@ interface Props {
 }
 
 export function ProgressionChart({ exerciseId, sessions }: Props) {
-  const points = [...sessions]
-    .filter((s) => s.entries.some((e) => e.exerciseId === exerciseId))
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    .map((s) => {
-      const entry = s.entries.find((e) => e.exerciseId === exerciseId)!
-      const maxWeight = Math.max(...entry.sets.map((set) => set.weight))
-      return { date: s.date, weight: maxWeight, unit: entry.sets[0]?.unit ?? 'kg' }
-    })
+  // Filter + sort + reduce over every session runs on each render otherwise.
+  const points = useMemo(
+    () =>
+      [...sessions]
+        .filter((s) => s.entries.some((e) => e.exerciseId === exerciseId))
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+        .map((s) => {
+          const entry = s.entries.find((e) => e.exerciseId === exerciseId)!
+          const maxWeight = Math.max(...entry.sets.map((set) => set.weight))
+          return { date: s.date, weight: maxWeight, unit: entry.sets[0]?.unit ?? 'kg' }
+        }),
+    [exerciseId, sessions],
+  )
 
   if (points.length < 2) return null
 
