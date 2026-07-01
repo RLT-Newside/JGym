@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useEffect, useRef, useState } from 'react'
 import { v4 as uuid } from 'uuid'
+import { STORAGE_KEYS } from '../data/storage'
 import type { Session, SessionExerciseEntry } from '../types'
 
 interface ActiveSession {
@@ -15,7 +16,7 @@ interface ActiveSession {
   planNextIndex?: number
 }
 
-const ACTIVE_SESSION_KEY = 'gym_active_session'
+const ACTIVE_SESSION_KEY = STORAGE_KEYS.activeSession
 
 function loadActive(): ActiveSession | null {
   try {

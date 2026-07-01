@@ -1,4 +1,5 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
+import { STORAGE_KEYS } from '../data/storage'
 
 export interface RepRangeMap {
   target: number
@@ -13,7 +14,7 @@ export const DEFAULT_REP_RANGES: RepRangeMap[] = [
   { target: 15, min: 12, max: 15 },
 ]
 
-const STORAGE_KEY = 'gym_rep_ranges'
+const STORAGE_KEY = STORAGE_KEYS.repRanges
 
 export function loadRepRanges(): RepRangeMap[] {
   try {

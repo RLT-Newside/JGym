@@ -7,6 +7,7 @@ import { PrivacyConsent } from './components/privacy-consent/privacy-consent'
 import { SettingsModal } from './components/settings-modal/settings-modal'
 import { UpdateBanner } from './components/update-banner/update-banner'
 import { loadLibrary } from './data/freeExerciseDb'
+import { STORAGE_KEYS } from './data/storage'
 import { useBackButton } from './hooks/useBackButton'
 import { useSharedImport } from './hooks/useSharedImport'
 import { useStorage } from './hooks/useStorage'
@@ -30,23 +31,25 @@ import {
 import { relinkLibraryIds } from './utils/relinkImages'
 
 export default function App() {
-  const [privacyAccepted, setPrivacyAccepted] = useState(() => localStorage.getItem('gym_privacy_consent') === 'true')
+  const [privacyAccepted, setPrivacyAccepted] = useState(
+    () => localStorage.getItem(STORAGE_KEYS.privacyConsent) === 'true',
+  )
   const { update, checkNow, checking } = useUpdateCheck()
   const { theme, setTheme, isSupporter, tryActivate, revoke } = useTheme()
   const [tab, setTab] = useState<Tab>(() => {
     try {
-      return localStorage.getItem('gym_active_session') ? 'train' : 'dashboard'
+      return localStorage.getItem(STORAGE_KEYS.activeSession) ? 'train' : 'dashboard'
     } catch {
       return 'dashboard'
     }
   })
-  const [exercises, setExercises] = useStorage<Exercise[]>('gym_exercises', [])
-  const [sessions, setSessions] = useStorage<Session[]>('gym_sessions', [])
-  const [savedPlans, setSavedPlans] = useStorage<SavedPlan[]>('gym_plans', [])
-  const [foodEntries, setFoodEntries] = useStorage<FoodEntry[]>('gym_food', [])
-  const [waterEntries, setWaterEntries] = useStorage<WaterEntry[]>('gym_water', [])
-  const [weightEntries, setWeightEntries] = useStorage<WeightEntry[]>('gym_weight', [])
-  const [nutritionGoal, setNutritionGoal] = useStorage<NutritionGoal>('gym_nutrition_goal', {
+  const [exercises, setExercises] = useStorage<Exercise[]>(STORAGE_KEYS.exercises, [])
+  const [sessions, setSessions] = useStorage<Session[]>(STORAGE_KEYS.sessions, [])
+  const [savedPlans, setSavedPlans] = useStorage<SavedPlan[]>(STORAGE_KEYS.plans, [])
+  const [foodEntries, setFoodEntries] = useStorage<FoodEntry[]>(STORAGE_KEYS.food, [])
+  const [waterEntries, setWaterEntries] = useStorage<WaterEntry[]>(STORAGE_KEYS.water, [])
+  const [weightEntries, setWeightEntries] = useStorage<WeightEntry[]>(STORAGE_KEYS.weight, [])
+  const [nutritionGoal, setNutritionGoal] = useStorage<NutritionGoal>(STORAGE_KEYS.nutritionGoal, {
     dailyCalories: 2300,
     dailyProtein: 150,
     dailyCarbs: 250,
@@ -55,8 +58,8 @@ export default function App() {
     goalType: 'maintain',
     eatBackPerc: 50,
   })
-  const [activityEntries, setActivityEntries] = useStorage<ActivityEntry[]>('gym_activity', [])
-  const [musicPopupDisabled, setMusicPopupDisabled] = useStorage<boolean>('gym_music_popup_disabled', false)
+  const [activityEntries, setActivityEntries] = useStorage<ActivityEntry[]>(STORAGE_KEYS.activity, [])
+  const [musicPopupDisabled, setMusicPopupDisabled] = useStorage<boolean>(STORAGE_KEYS.musicPopupDisabled, false)
 
   useEffect(() => {
     const needsMigration = exercises.some((ex) => !ex.primaryMuscles)
@@ -69,12 +72,12 @@ export default function App() {
   // gain dataset images. Previously only newly-added exercises got a libraryId.
   // Gated by a flag so it runs once per user; bump the key to re-run. JGYM-10.
   useEffect(() => {
-    if (localStorage.getItem('gym_relink_images_v1')) return
+    if (localStorage.getItem(STORAGE_KEYS.relinkImagesV1)) return
     let cancelled = false
     loadLibrary().then((library) => {
       if (cancelled) return
       setExercises((prev) => relinkLibraryIds(prev, library, { force: true }).exercises)
-      localStorage.setItem('gym_relink_images_v1', '1')
+      localStorage.setItem(STORAGE_KEYS.relinkImagesV1, '1')
     })
     return () => {
       cancelled = true
@@ -294,7 +297,7 @@ export default function App() {
     return (
       <PrivacyConsent
         onAccept={() => {
-          localStorage.setItem('gym_privacy_consent', 'true')
+          localStorage.setItem(STORAGE_KEYS.privacyConsent, 'true')
           setPrivacyAccepted(true)
         }}
       />
