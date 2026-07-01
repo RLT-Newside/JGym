@@ -7,6 +7,7 @@ import { Modal } from '../../../../../components/modal/modal'
 import { MuscleTags } from '../../../../../components/muscle-tags/muscle-tags'
 import { SearchBar } from '../../../../../components/search-bar/search-bar'
 import type { Exercise, MuscleGroup, SavedPlan, SavedPlanDay } from '../../../../../types'
+import { isValidRepString } from '../../../../../utils/progression'
 
 interface Props {
   plan: SavedPlan
@@ -27,6 +28,7 @@ export function SavedPlanDetail({ plan, exercises, onBack, onUpdatePlan }: Props
   const [editingDay, setEditingDay] = useState<number | null>(null)
   const [dayLabel, setDayLabel] = useState('')
   const [dayFocus, setDayFocus] = useState('')
+  const [repsError, setRepsError] = useState(false)
 
   const getExercise = (id: string) => exercises.find((e) => e.id === id)
 
@@ -134,6 +136,11 @@ export function SavedPlanDetail({ plan, exercises, onBack, onUpdatePlan }: Props
 
   const handleSaveSetConfig = () => {
     if (!editingSets) return
+    if (!isValidRepString(editReps)) {
+      setRepsError(true)
+      return
+    }
+    setRepsError(false)
     const { dayIndex, exIndex } = editingSets
     const newDays = [...plan.days]
     const day = { ...newDays[dayIndex] }
@@ -480,12 +487,18 @@ export function SavedPlanDetail({ plan, exercises, onBack, onUpdatePlan }: Props
                 <input
                   type="text"
                   value={editReps}
-                  onChange={(e) => setEditReps(e.target.value)}
+                  onChange={(e) => {
+                    setEditReps(e.target.value)
+                    setRepsError(false)
+                  }}
                   placeholder="e.g. 8-12, 5, max"
-                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-brand/40 focus:bg-white/[0.06]"
+                  className={`w-full bg-white/[0.03] border rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-brand/40 focus:bg-white/[0.06] ${repsError ? 'border-red-400/60' : 'border-white/[0.08]'}`}
                 />
               </div>
             </div>
+            {repsError && (
+              <p className="text-[10px] text-red-400/80">Enter a number (e.g. 5), range (e.g. 8-12), or "max"</p>
+            )}
             <Button onClick={handleSaveSetConfig} className="w-full">
               Save
             </Button>
