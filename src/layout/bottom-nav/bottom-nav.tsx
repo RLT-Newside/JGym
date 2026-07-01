@@ -26,7 +26,7 @@ export function BottomNav({ active, onChange }: Props) {
             <button
               key={id}
               onClick={() => onChange(id)}
-              className={`flex flex-col items-center py-2.5 px-2 min-w-0 flex-1 transition-all press-scale ${
+              className={`relative flex flex-col items-center py-2.5 px-2 min-w-0 flex-1 transition-all press-scale ${
                 isTrain ? (isActive ? 'text-black' : 'text-brand') : isActive ? 'text-brand' : 'text-white/35'
               }`}
             >
