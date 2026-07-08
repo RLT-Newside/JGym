@@ -25,6 +25,7 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
   const [notes, setNotes] = useState(exercise?.notes ?? '')
   const [description, setDescription] = useState(exercise?.description ?? '')
   const [customImages, setCustomImages] = useState<string[]>(exercise?.customImages ?? [])
+  const [defaultWarmup, setDefaultWarmup] = useState(exercise?.defaultWarmup ?? false)
   const [selectionMode, setSelectionMode] = useState<'primary' | 'secondary'>('primary')
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -79,6 +80,7 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
       libraryId: exercise?.libraryId,
       description: description.trim() || undefined,
       customImages: customImages.length > 0 ? customImages : undefined,
+      defaultWarmup: defaultWarmup || undefined,
     })
     onClose()
   }
@@ -135,6 +137,30 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
           placeholder="How to perform this exercise..."
           rows={3}
         />
+
+        <div>
+          <label className="label-caption block mb-2">Default warmup set</label>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setDefaultWarmup(false)}
+              className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
+                !defaultWarmup ? 'bg-white/[0.12] text-white/70' : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
+              }`}
+            >
+              No warmup
+            </button>
+            <button
+              type="button"
+              onClick={() => setDefaultWarmup(true)}
+              className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
+                defaultWarmup ? 'bg-sky-400/20 text-sky-400' : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
+              }`}
+            >
+              With warmup
+            </button>
+          </div>
+        </div>
 
         <div>
           <label className="label-caption block mb-2">Images</label>

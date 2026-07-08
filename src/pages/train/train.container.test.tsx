@@ -107,4 +107,13 @@ describe('TrainContainer', () => {
     expect(screen.getByText('Lunge')).toBeInTheDocument()
     expect(screen.queryByText('Squat')).not.toBeInTheDocument()
   })
+
+  it('adds a warmup set when adding an exercise with defaultWarmup: true', async () => {
+    const exercise: Exercise = { ...makeExercise('ex-wu', 'Bench Press'), defaultWarmup: true }
+    renderWithAppData(<TrainContainer />, { exercises: [exercise] })
+    await userEvent.click(screen.getByText('Start Training'))
+    await userEvent.click(screen.getByText('Add Exercise'))
+    await userEvent.click(screen.getByText('Bench Press'))
+    expect(screen.getByText('Warm')).toBeInTheDocument()
+  })
 })
