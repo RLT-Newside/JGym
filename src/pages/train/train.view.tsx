@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import { Calendar, ChevronRight, Play, Plus } from 'lucide-react'
+import { useState } from 'react'
 import { Button } from '../../components/button/button'
 import { ConfirmDialog } from '../../components/confirm-dialog/confirm-dialog'
 import { Modal } from '../../components/modal/modal'
@@ -50,6 +51,7 @@ interface Props {
   onStart: () => void
   onStartFromPlanDay: (plan: SavedPlan, dayIndex: number) => void
   onAddExercise: (exercise: Exercise) => void
+  onReplaceExercise: (index: number, replacement: Exercise) => void
   onEntryChange: (index: number, entry: SessionExerciseEntry) => void
   onRemoveEntry: (index: number) => void
   onFinish: () => void
@@ -92,6 +94,7 @@ export function TrainView({
   onStart,
   onStartFromPlanDay,
   onAddExercise,
+  onReplaceExercise,
   onEntryChange,
   onRemoveEntry,
   onFinish,
@@ -110,6 +113,20 @@ export function TrainView({
   onNavigateToExercises,
   onExerciseClick,
 }: Props) {
+  const [replaceIndex, setReplaceIndex] = useState<number | null>(null)
+
+  const replaceTarget =
+    replaceIndex !== null ? exercises.find((e) => e.id === active?.entries[replaceIndex]?.exerciseId) : null
+  const exercisesForReplace = replaceTarget
+    ? [...exercises]
+        .filter((e) => e.id !== replaceTarget.id)
+        .sort(
+          (a, b) =>
+            b.primaryMuscles.filter((m) => replaceTarget.primaryMuscles.includes(m)).length -
+            a.primaryMuscles.filter((m) => replaceTarget.primaryMuscles.includes(m)).length,
+        )
+    : []
+
   if (!active) {
     return (
       <>
@@ -254,6 +271,7 @@ export function TrainView({
             onChange={(e) => onEntryChange(i, e)}
             onRemove={() => onRemoveEntry(i)}
             onOpenDetail={onExerciseClick ? () => onExerciseClick(exercise) : undefined}
+            onReplace={() => setReplaceIndex(i)}
           />
         )
       })}
@@ -263,6 +281,17 @@ export function TrainView({
       </Button>
 
       <ExercisePicker open={pickerOpen} onClose={onPickerClose} exercises={exercises} onSelect={onAddExercise} />
+
+      <ExercisePicker
+        open={replaceIndex !== null}
+        title="Replace Exercise"
+        exercises={exercisesForReplace}
+        onClose={() => setReplaceIndex(null)}
+        onSelect={(ex) => {
+          if (replaceIndex !== null) onReplaceExercise(replaceIndex, ex)
+          setReplaceIndex(null)
+        }}
+      />
 
       <div className="fixed bottom-16 left-0 right-0 glass-nav border-t">
         <MediaBar

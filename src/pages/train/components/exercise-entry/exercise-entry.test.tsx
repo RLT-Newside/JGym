@@ -51,4 +51,41 @@ describe('ExerciseEntryComponent', () => {
     await userEvent.click(screen.getByText('Barbell Squat'))
     expect(onOpenDetail).toHaveBeenCalledOnce()
   })
+
+  it('shows the replace button when onReplace is provided', () => {
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onReplace={vi.fn()}
+      />,
+    )
+    expect(screen.getByTitle('Replace exercise')).toBeInTheDocument()
+  })
+
+  it('calls onReplace when the replace button is clicked', async () => {
+    const onReplace = vi.fn()
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onReplace={onReplace}
+      />,
+    )
+    await userEvent.click(screen.getByTitle('Replace exercise'))
+    expect(onReplace).toHaveBeenCalledOnce()
+  })
+
+  it('does not show the replace button when onReplace is not provided', () => {
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={vi.fn()} onRemove={vi.fn()} />,
+    )
+    expect(screen.queryByTitle('Replace exercise')).not.toBeInTheDocument()
+  })
 })

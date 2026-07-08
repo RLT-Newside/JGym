@@ -1,6 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { Check, CheckCircle2, Pencil, Plus, Trash2 } from 'lucide-react'
+import { ArrowLeftRight, Check, CheckCircle2, Pencil, Plus, Trash2 } from 'lucide-react'
 import type { Exercise, Session, SessionExerciseEntry, SetEntry } from '../../../../types'
 import { formatSetsSummary } from '../../../../utils/format'
 import { calculatePR, formatPR, getLastSession } from '../../../../utils/pr'
@@ -13,9 +13,18 @@ interface Props {
   onChange: (entry: SessionExerciseEntry) => void
   onRemove: () => void
   onOpenDetail?: () => void
+  onReplace?: () => void
 }
 
-export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, onRemove, onOpenDetail }: Props) {
+export function ExerciseEntryComponent({
+  exercise,
+  entry,
+  sessions,
+  onChange,
+  onRemove,
+  onOpenDetail,
+  onReplace,
+}: Props) {
   const lastSession = getLastSession(exercise.id, sessions)
   const pr = calculatePR(exercise.id, sessions)
 
@@ -85,12 +94,23 @@ export function ExerciseEntryComponent({ exercise, entry, sessions, onChange, on
         <button onClick={onOpenDetail} className="font-heading text-lg text-left hover:text-brand transition-colors">
           {exercise.name}
         </button>
-        <button
-          onClick={onRemove}
-          className="p-1.5 hover:bg-red-900/30 rounded-lg text-white/30 hover:text-red-400 transition-colors"
-        >
-          <Trash2 size={14} />
-        </button>
+        <div className="flex items-center gap-1">
+          {onReplace && (
+            <button
+              onClick={onReplace}
+              title="Replace exercise"
+              className="p-1.5 hover:bg-white/10 rounded-lg text-white/30 hover:text-white/60 transition-colors"
+            >
+              <ArrowLeftRight size={14} />
+            </button>
+          )}
+          <button
+            onClick={onRemove}
+            className="p-1.5 hover:bg-red-900/30 rounded-lg text-white/30 hover:text-red-400 transition-colors"
+          >
+            <Trash2 size={14} />
+          </button>
+        </div>
       </div>
       <div className="flex items-center gap-3 mb-2">
         {pr && <p className="text-[10px] text-brand/60">PR: {formatPR(pr)}</p>}

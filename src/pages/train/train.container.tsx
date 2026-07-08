@@ -109,6 +109,13 @@ export function TrainContainer() {
     setPrPopup({ name, key: Date.now() })
   }
 
+  const handleReplaceExercise = (index: number, replacement: Exercise) => {
+    if (!active) return
+    const entries = [...active.entries]
+    entries[index] = { ...entries[index], exerciseId: replacement.id }
+    updateEntries(entries)
+  }
+
   const handleRemoveEntry = (index: number) => {
     if (!active) return
     updateEntries(active.entries.filter((_, i) => i !== index))
@@ -166,6 +173,7 @@ export function TrainContainer() {
       onStart={handleStart}
       onStartFromPlanDay={handleStartFromPlanDay}
       onAddExercise={handleAddExercise}
+      onReplaceExercise={handleReplaceExercise}
       onEntryChange={handleEntryChange}
       onRemoveEntry={handleRemoveEntry}
       onFinish={handleFinish}
