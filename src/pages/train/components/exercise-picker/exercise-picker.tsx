@@ -69,9 +69,10 @@ interface Props {
   onClose: () => void
   exercises: Exercise[]
   onSelect: (exercise: Exercise) => void
+  title?: string
 }
 
-export function ExercisePicker({ open, onClose, exercises, onSelect }: Props) {
+export function ExercisePicker({ open, onClose, exercises, onSelect, title = 'Add Exercise' }: Props) {
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedEquipment, setSelectedEquipment] = useState<string | null>(null)
@@ -124,7 +125,7 @@ export function ExercisePicker({ open, onClose, exercises, onSelect }: Props) {
   }
 
   return (
-    <Modal open={open} onClose={handleClose} title="Add Exercise">
+    <Modal open={open} onClose={handleClose} title={title}>
       <div className="space-y-3">
         <SearchBar value={search} onChange={setSearch} placeholder="Search exercises..." />
         <div className="flex gap-1.5 flex-wrap">

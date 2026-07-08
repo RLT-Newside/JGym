@@ -93,4 +93,18 @@ describe('TrainContainer', () => {
     await userEvent.click(screen.getByText('Start Training'))
     expect(screen.getByText('Squat')).toBeInTheDocument()
   })
+
+  it('replaces an exercise in the session via the replace picker', async () => {
+    const squat = makeExercise('ex1', 'Squat')
+    const lunge = makeExercise('ex2', 'Lunge')
+    renderWithAppData(<TrainContainer />, { exercises: [squat, lunge], preSelectedExercise: squat })
+    await userEvent.click(screen.getByText('Start Training'))
+    // Squat is in session; open replace picker and pick Lunge
+    await userEvent.click(screen.getByTitle('Replace exercise'))
+    expect(screen.getByText('Replace Exercise')).toBeInTheDocument()
+    await userEvent.click(screen.getByText('Lunge'))
+    // After replacement, Lunge should be visible and Squat gone
+    expect(screen.getByText('Lunge')).toBeInTheDocument()
+    expect(screen.queryByText('Squat')).not.toBeInTheDocument()
+  })
 })
