@@ -56,13 +56,18 @@ export function TrainContainer() {
     const entries: SessionExerciseEntry[] = day.exerciseIds
       .filter((id) => exercises.some((e) => e.id === id))
       .map((id) => {
+        const ex = exercises.find((e) => e.id === id)!
         const def = day.defaults.find((d) => d.exerciseId === id)
         const numSets = def?.sets ?? 3
-        return {
-          exerciseId: id,
-          sets: Array.from({ length: numSets }, () => ({ reps: 0, weight: 0, unit: 'kg' as const })),
-          repRange: def?.reps,
-        }
+        const workingSets: SetEntry[] = Array.from({ length: numSets }, () => ({
+          reps: 0,
+          weight: 0,
+          unit: 'kg' as const,
+        }))
+        const sets: SetEntry[] = ex.defaultWarmup
+          ? [{ reps: 0, weight: 0, unit: 'kg' as const, type: 'warmup' as const }, ...workingSets]
+          : workingSets
+        return { exerciseId: id, sets, repRange: def?.reps }
       })
     startSession(`${plan.name} – ${day.label}`, entries, {
       id: plan.id,
@@ -76,10 +81,10 @@ export function TrainContainer() {
     if (!active) return
     const exists = active.entries.some((e) => e.exerciseId === exercise.id)
     if (exists) return
-    const entry: SessionExerciseEntry = {
-      exerciseId: exercise.id,
-      sets: [{ reps: 0, weight: 0, unit: 'kg' }],
-    }
+    const sets: SetEntry[] = []
+    if (exercise.defaultWarmup) sets.push({ reps: 0, weight: 0, unit: 'kg', type: 'warmup' })
+    sets.push({ reps: 0, weight: 0, unit: 'kg' })
+    const entry: SessionExerciseEntry = { exerciseId: exercise.id, sets }
     updateEntries([...active.entries, entry])
   }
 

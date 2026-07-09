@@ -133,6 +133,7 @@ export interface Exercise {
   libraryId?: string
   description?: string
   customImages?: string[]
+  defaultWarmup?: boolean
 }
 
 export interface LibraryExercise {
