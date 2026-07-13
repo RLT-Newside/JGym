@@ -1,6 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { ArrowLeftRight, Check, CheckCircle2, Pencil, Plus, Trash2 } from 'lucide-react'
+import { ArrowLeftRight, Check, CheckCircle2, ChevronDown, ChevronUp, Pencil, Plus, Trash2 } from 'lucide-react'
 import type { Exercise, Session, SessionExerciseEntry, SetEntry } from '../../../../types'
 import { formatSetsSummary } from '../../../../utils/format'
 import { calculatePR, formatPR, getLastSession } from '../../../../utils/pr'
@@ -14,6 +14,8 @@ interface Props {
   onRemove: () => void
   onOpenDetail?: () => void
   onReplace?: () => void
+  onMoveUp?: () => void
+  onMoveDown?: () => void
 }
 
 export function ExerciseEntryComponent({
@@ -24,6 +26,8 @@ export function ExerciseEntryComponent({
   onRemove,
   onOpenDetail,
   onReplace,
+  onMoveUp,
+  onMoveDown,
 }: Props) {
   const lastSession = getLastSession(exercise.id, sessions)
   const pr = calculatePR(exercise.id, sessions)
@@ -95,6 +99,26 @@ export function ExerciseEntryComponent({
           {exercise.name}
         </button>
         <div className="flex items-center gap-1">
+          {(onMoveUp || onMoveDown) && (
+            <div className="flex flex-col">
+              <button
+                onClick={onMoveUp}
+                disabled={!onMoveUp}
+                title="Move exercise up"
+                className="p-1 hover:bg-white/10 rounded text-white/30 hover:text-white/60 disabled:opacity-20 disabled:cursor-default transition-colors"
+              >
+                <ChevronUp size={12} />
+              </button>
+              <button
+                onClick={onMoveDown}
+                disabled={!onMoveDown}
+                title="Move exercise down"
+                className="p-1 hover:bg-white/10 rounded text-white/30 hover:text-white/60 disabled:opacity-20 disabled:cursor-default transition-colors"
+              >
+                <ChevronDown size={12} />
+              </button>
+            </div>
+          )}
           {onReplace && (
             <button
               onClick={onReplace}
