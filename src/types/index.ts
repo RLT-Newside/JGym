@@ -134,6 +134,7 @@ export interface Exercise {
   description?: string
   customImages?: string[]
   defaultWarmup?: boolean
+  progressResetAt?: string
 }
 
 export interface LibraryExercise {

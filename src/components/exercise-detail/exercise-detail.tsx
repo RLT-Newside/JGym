@@ -1,5 +1,5 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { useExerciseImage } from '../../hooks/useExerciseImage'
 import { useLibraryEntry } from '../../hooks/useLibraryEntry'
@@ -7,6 +7,7 @@ import type { Exercise, LibraryExercise, Session } from '../../types'
 import { formatDate, formatSetsSummary } from '../../utils/format'
 import { calculatePR, formatPR } from '../../utils/pr'
 import { Button } from '../button/button'
+import { ConfirmDialog } from '../confirm-dialog/confirm-dialog'
 import { Modal } from '../modal/modal'
 import { MuscleTags } from '../muscle-tags/muscle-tags'
 import { SectionHeader } from '../section-header/section-header'
@@ -18,9 +19,11 @@ interface Props {
   exercise: Exercise | null
   sessions: Session[]
   onStartWith: (exercise: Exercise) => void
+  onResetProgress?: (exercise: Exercise) => void
 }
 
-export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith }: Props) {
+export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith, onResetProgress }: Props) {
+  const [resetConfirm, setResetConfirm] = useState(false)
   const library = useLibraryEntry(exercise?.libraryId)
   if (!exercise) return null
 
@@ -74,6 +77,15 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith 
           </div>
         )}
 
+        {onResetProgress && (
+          <button
+            onClick={() => setResetConfirm(true)}
+            className="w-full flex items-center justify-center gap-2 text-sm text-white/40 hover:text-white/60 py-2 transition-colors"
+          >
+            <RotateCcw size={14} /> Reset progress
+          </button>
+        )}
+
         <Button
           onClick={() => {
             onStartWith(exercise)
@@ -84,6 +96,19 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith 
           Start with this exercise
         </Button>
       </div>
+
+      <ConfirmDialog
+        open={resetConfirm}
+        onClose={() => setResetConfirm(false)}
+        onConfirm={() => {
+          onResetProgress?.(exercise)
+          setResetConfirm(false)
+        }}
+        title="Reset Progress"
+        message="Your all-time PR is preserved, but the 'Last session' starting weight will be cleared so your next session starts fresh from 0."
+        confirmLabel="Reset"
+        danger
+      />
     </Modal>
   )
 }

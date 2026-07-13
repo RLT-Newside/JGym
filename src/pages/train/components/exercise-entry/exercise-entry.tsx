@@ -25,7 +25,7 @@ export function ExerciseEntryComponent({
   onOpenDetail,
   onReplace,
 }: Props) {
-  const lastSession = getLastSession(exercise.id, sessions)
+  const lastSession = getLastSession(exercise.id, sessions, exercise.progressResetAt)
   const pr = calculatePR(exercise.id, sessions)
 
   const addSet = (type?: 'warmup') => {

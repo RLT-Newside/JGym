@@ -28,6 +28,7 @@ export function AppShell() {
     importBackup,
     exercises,
     importExercises,
+    saveExercise,
     theme,
     setTheme,
     isSupporter,
@@ -82,6 +83,7 @@ export function AppShell() {
         exercise={detailExercise}
         sessions={sessions}
         onStartWith={startWith}
+        onResetProgress={(ex) => saveExercise({ ...ex, progressResetAt: new Date().toISOString() })}
       />
 
       <SettingsModal

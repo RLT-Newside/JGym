@@ -96,6 +96,32 @@ describe('getLastSession', () => {
     expect(result?.date).toBe('2024-01-03')
     expect(result?.sets[0].weight).toBe(60)
   })
+
+  it('ignores sessions on or before progressResetAt', () => {
+    const sessions = [
+      makeSession('s1', '2024-01-01', 'ex1', [{ reps: 5, weight: 50 }]),
+      makeSession('s2', '2024-01-03', 'ex1', [{ reps: 8, weight: 60 }]),
+    ]
+    // Reset date is after both sessions — should return null
+    const result = getLastSession('ex1', sessions, '2024-01-04T00:00:00.000Z')
+    expect(result).toBeNull()
+  })
+
+  it('returns sessions strictly after progressResetAt', () => {
+    const sessions = [
+      makeSession('s1', '2024-01-01', 'ex1', [{ reps: 5, weight: 50 }]),
+      makeSession('s2', '2024-01-05', 'ex1', [{ reps: 8, weight: 60 }]),
+    ]
+    // Reset date is between s1 and s2 — only s2 qualifies
+    const result = getLastSession('ex1', sessions, '2024-01-03T00:00:00.000Z')
+    expect(result?.date).toBe('2024-01-05')
+    expect(result?.sets[0].weight).toBe(60)
+  })
+
+  it('behaves normally when progressResetAt is undefined', () => {
+    const sessions = [makeSession('s1', '2024-01-01', 'ex1', [{ reps: 5, weight: 50 }])]
+    expect(getLastSession('ex1', sessions, undefined)?.sets[0].weight).toBe(50)
+  })
 })
 
 describe('getExerciseFrequency', () => {
