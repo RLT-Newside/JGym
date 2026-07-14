@@ -66,6 +66,25 @@ describe('ExerciseDetail', () => {
     render(<ExerciseDetail {...defaultProps} exercise={base} />)
     expect(screen.queryByAltText('Test Exercise')).not.toBeInTheDocument()
   })
+
+  it('shows reset progress button when onResetProgress is provided', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} onResetProgress={vi.fn()} />)
+    expect(screen.getByText('Reset progress')).toBeInTheDocument()
+  })
+
+  it('does not show reset progress button when onResetProgress is not provided', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} />)
+    expect(screen.queryByText('Reset progress')).not.toBeInTheDocument()
+  })
+
+  it('calls onResetProgress when confirmed through dialog', async () => {
+    const onResetProgress = vi.fn()
+    render(<ExerciseDetail {...defaultProps} exercise={base} onResetProgress={onResetProgress} />)
+    await userEvent.click(screen.getByText('Reset progress'))
+    expect(screen.getByText('Reset Progress')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: 'Reset' }))
+    expect(onResetProgress).toHaveBeenCalledWith(base)
+  })
 })
 
 describe('ExerciseDetail image navigation', () => {

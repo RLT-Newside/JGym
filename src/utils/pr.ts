@@ -29,9 +29,15 @@ export function formatPR(pr: PR | null): string {
   return `${pr.reps} × ${pr.weight}${pr.unit}`
 }
 
-export function getLastSession(exerciseId: string, sessions: Session[]): { date: string; sets: SetEntry[] } | null {
+export function getLastSession(
+  exerciseId: string,
+  sessions: Session[],
+  progressResetAt?: string,
+): { date: string; sets: SetEntry[] } | null {
+  const resetTime = progressResetAt ? new Date(progressResetAt).getTime() : 0
   const sorted = [...sessions].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   for (const session of sorted) {
+    if (resetTime > 0 && new Date(session.date).getTime() <= resetTime) continue
     const entry = session.entries.find((e) => e.exerciseId === exerciseId)
     if (entry) return { date: session.date, sets: entry.sets }
   }

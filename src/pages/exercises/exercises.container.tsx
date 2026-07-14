@@ -21,6 +21,10 @@ export function ExerciseList() {
     updatePlan: onUpdatePlan,
     deletePlan: onDeletePlan,
   } = useAppData()
+
+  const handleResetProgress = (exercise: Exercise) => {
+    onSave({ ...exercise, progressResetAt: new Date().toISOString() })
+  }
   const [subTab, setSubTab] = useState<SubTab>('mine')
   const [search, setSearch] = useState('')
   const [filterGroups, setFilterGroups] = useState<MuscleGroup[]>([])
@@ -84,6 +88,7 @@ export function ExerciseList() {
       onSave={onSave}
       onDelete={onDelete}
       onStartWith={onStartWith}
+      onResetProgress={handleResetProgress}
       onSavePlan={onSavePlan}
       onUpdatePlan={onUpdatePlan}
       onDeletePlan={onDeletePlan}

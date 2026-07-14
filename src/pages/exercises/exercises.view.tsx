@@ -40,6 +40,7 @@ interface Props {
   onSave: (exercise: Exercise) => void
   onDelete: (id: string) => void
   onStartWith: (exercise: Exercise) => void
+  onResetProgress: (exercise: Exercise) => void
   onSavePlan: (plan: SavedPlan) => void
   onUpdatePlan: (plan: SavedPlan) => void
   onDeletePlan: (id: string) => void
@@ -71,6 +72,7 @@ export function ExercisesView({
   onSave,
   onDelete,
   onStartWith,
+  onResetProgress,
   onSavePlan,
   onUpdatePlan,
   onDeletePlan,
@@ -170,6 +172,7 @@ export function ExercisesView({
             exercise={detailExercise}
             sessions={sessions}
             onStartWith={onStartWith}
+            onResetProgress={onResetProgress}
           />
 
           <ConfirmDialog
