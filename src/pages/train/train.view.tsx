@@ -54,6 +54,7 @@ interface Props {
   onReplaceExercise: (index: number, replacement: Exercise) => void
   onEntryChange: (index: number, entry: SessionExerciseEntry) => void
   onRemoveEntry: (index: number) => void
+  onMoveEntry: (index: number, direction: 'up' | 'down') => void
   onFinish: () => void
   onPickerOpen: () => void
   onPickerClose: () => void
@@ -97,6 +98,7 @@ export function TrainView({
   onReplaceExercise,
   onEntryChange,
   onRemoveEntry,
+  onMoveEntry,
   onFinish,
   onPickerOpen,
   onPickerClose,
@@ -272,6 +274,8 @@ export function TrainView({
             onRemove={() => onRemoveEntry(i)}
             onOpenDetail={onExerciseClick ? () => onExerciseClick(exercise) : undefined}
             onReplace={() => setReplaceIndex(i)}
+            onMoveUp={i > 0 ? () => onMoveEntry(i, 'up') : undefined}
+            onMoveDown={i < active.entries.length - 1 ? () => onMoveEntry(i, 'down') : undefined}
           />
         )
       })}

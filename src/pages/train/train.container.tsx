@@ -114,6 +114,15 @@ export function TrainContainer() {
     setPrPopup({ name, key: Date.now() })
   }
 
+  const handleMoveEntry = (index: number, direction: 'up' | 'down') => {
+    if (!active) return
+    const entries = [...active.entries]
+    const swapWith = direction === 'up' ? index - 1 : index + 1
+    if (swapWith < 0 || swapWith >= entries.length) return
+    ;[entries[index], entries[swapWith]] = [entries[swapWith], entries[index]]
+    updateEntries(entries)
+  }
+
   const handleReplaceExercise = (index: number, replacement: Exercise) => {
     if (!active) return
     const entries = [...active.entries]
@@ -181,6 +190,7 @@ export function TrainContainer() {
       onReplaceExercise={handleReplaceExercise}
       onEntryChange={handleEntryChange}
       onRemoveEntry={handleRemoveEntry}
+      onMoveEntry={handleMoveEntry}
       onFinish={handleFinish}
       onPickerOpen={() => setPickerOpen(true)}
       onPickerClose={() => setPickerOpen(false)}

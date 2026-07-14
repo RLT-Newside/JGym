@@ -88,4 +88,60 @@ describe('ExerciseEntryComponent', () => {
     )
     expect(screen.queryByTitle('Replace exercise')).not.toBeInTheDocument()
   })
+
+  it('shows move up and down buttons when both handlers are provided', () => {
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onMoveUp={vi.fn()}
+        onMoveDown={vi.fn()}
+      />,
+    )
+    expect(screen.getByTitle('Move exercise up')).toBeInTheDocument()
+    expect(screen.getByTitle('Move exercise down')).toBeInTheDocument()
+  })
+
+  it('calls onMoveUp when move up button is clicked', async () => {
+    const onMoveUp = vi.fn()
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onMoveUp={onMoveUp}
+        onMoveDown={vi.fn()}
+      />,
+    )
+    await userEvent.click(screen.getByTitle('Move exercise up'))
+    expect(onMoveUp).toHaveBeenCalledOnce()
+  })
+
+  it('disables move up button when onMoveUp is not provided', () => {
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onMoveDown={vi.fn()}
+      />,
+    )
+    const upBtn = screen.getByTitle('Move exercise up')
+    expect(upBtn).toBeDisabled()
+  })
+
+  it('does not show move buttons when neither handler is provided', () => {
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={vi.fn()} onRemove={vi.fn()} />,
+    )
+    expect(screen.queryByTitle('Move exercise up')).not.toBeInTheDocument()
+    expect(screen.queryByTitle('Move exercise down')).not.toBeInTheDocument()
+  })
 })

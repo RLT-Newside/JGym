@@ -108,6 +108,25 @@ describe('TrainContainer', () => {
     expect(screen.queryByText('Squat')).not.toBeInTheDocument()
   })
 
+  it('reorders exercises via move up button', async () => {
+    const squat = makeExercise('ex1', 'Squat')
+    const lunge = makeExercise('ex2', 'Lunge')
+    renderWithAppData(<TrainContainer />, { exercises: [squat, lunge], preSelectedExercise: squat })
+    await userEvent.click(screen.getByText('Start Training'))
+    // Add lunge as second exercise
+    await userEvent.click(screen.getByText('Add Exercise'))
+    await userEvent.click(screen.getByText('Lunge'))
+    // Lunge is second — its "move up" button should be enabled
+    const upButtons = screen.getAllByTitle('Move exercise up')
+    // Second entry's up button (index 1) should be enabled
+    const lungeUpBtn = upButtons[1]
+    expect(lungeUpBtn).not.toBeDisabled()
+    await userEvent.click(lungeUpBtn)
+    // After moving up, Lunge should appear before Squat in the DOM
+    const names = screen.getAllByRole('button', { name: /Squat|Lunge/ })
+    expect(names[0].textContent).toBe('Lunge')
+  })
+
   it('adds a warmup set when adding an exercise with defaultWarmup: true', async () => {
     const exercise: Exercise = { ...makeExercise('ex-wu', 'Bench Press'), defaultWarmup: true }
     renderWithAppData(<TrainContainer />, { exercises: [exercise] })
