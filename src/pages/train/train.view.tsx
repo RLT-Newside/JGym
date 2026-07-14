@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Button } from '../../components/button/button'
 import { ConfirmDialog } from '../../components/confirm-dialog/confirm-dialog'
 import { Modal } from '../../components/modal/modal'
+import { useKeyboardVisible } from '../../hooks/useKeyboardVisible'
 import type { Exercise, SavedPlan, Session, SessionExerciseEntry } from '../../types'
 import { formatDate, formatSetsSummary } from '../../utils/format'
 import { ExerciseEntryComponent } from './components/exercise-entry/exercise-entry'
@@ -116,6 +117,7 @@ export function TrainView({
   onExerciseClick,
 }: Props) {
   const [replaceIndex, setReplaceIndex] = useState<number | null>(null)
+  const keyboardVisible = useKeyboardVisible()
 
   const replaceTarget =
     replaceIndex !== null ? exercises.find((e) => e.id === active?.entries[replaceIndex]?.exerciseId) : null
@@ -297,25 +299,27 @@ export function TrainView({
         }}
       />
 
-      <div className="fixed bottom-16 left-0 right-0 glass-nav border-t">
-        <MediaBar
-          title={media.title}
-          artist={media.artist}
-          isPlaying={media.isPlaying}
-          hasPermission={media.hasPermission}
-          hidePrompt={musicPopupDisabled}
-          onCommand={media.sendCommand}
-          onRequestPermission={media.requestPermission}
-        />
-        <div className="px-4 py-3 flex gap-3">
-          <Button variant="danger" onClick={onCancelConfirmOpen} className="flex-1">
-            Cancel
-          </Button>
-          <Button onClick={onFinishConfirmOpen} className="flex-1">
-            Finish Session
-          </Button>
+      {!keyboardVisible && (
+        <div className="fixed bottom-16 left-0 right-0 glass-nav border-t">
+          <MediaBar
+            title={media.title}
+            artist={media.artist}
+            isPlaying={media.isPlaying}
+            hasPermission={media.hasPermission}
+            hidePrompt={musicPopupDisabled}
+            onCommand={media.sendCommand}
+            onRequestPermission={media.requestPermission}
+          />
+          <div className="px-4 py-3 flex gap-3">
+            <Button variant="danger" onClick={onCancelConfirmOpen} className="flex-1">
+              Cancel
+            </Button>
+            <Button onClick={onFinishConfirmOpen} className="flex-1">
+              Finish Session
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
 
       <ConfirmDialog
         open={finishConfirm}
