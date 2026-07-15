@@ -144,4 +144,61 @@ describe('ExerciseEntryComponent', () => {
     expect(screen.queryByTitle('Move exercise up')).not.toBeInTheDocument()
     expect(screen.queryByTitle('Move exercise down')).not.toBeInTheDocument()
   })
+
+  it('shows warmup default prompt after adding a warmup set when onUpdateExercise is provided', async () => {
+    const onUpdateExercise = vi.fn()
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onUpdateExercise={onUpdateExercise}
+      />,
+    )
+    await userEvent.click(screen.getByText('Warmup'))
+    expect(screen.getByText('Default Warmup')).toBeInTheDocument()
+  })
+
+  it('calls onUpdateExercise with defaultWarmup: true when user confirms prompt', async () => {
+    const onUpdateExercise = vi.fn()
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onUpdateExercise={onUpdateExercise}
+      />,
+    )
+    await userEvent.click(screen.getByText('Warmup'))
+    await userEvent.click(screen.getByRole('button', { name: 'Make default' }))
+    expect(onUpdateExercise).toHaveBeenCalledWith({ ...exercise, defaultWarmup: true })
+  })
+
+  it('does not show warmup default prompt when exercise already has defaultWarmup: true', async () => {
+    const onUpdateExercise = vi.fn()
+    render(
+      <ExerciseEntryComponent
+        exercise={{ ...exercise, defaultWarmup: true }}
+        entry={entry}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+        onUpdateExercise={onUpdateExercise}
+      />,
+    )
+    await userEvent.click(screen.getByText('Warmup'))
+    expect(screen.queryByText('Default Warmup')).not.toBeInTheDocument()
+  })
+
+  it('does not show warmup default prompt when onUpdateExercise is not provided', async () => {
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={vi.fn()} onRemove={vi.fn()} />,
+    )
+    await userEvent.click(screen.getByText('Warmup'))
+    expect(screen.queryByText('Default Warmup')).not.toBeInTheDocument()
+  })
 })

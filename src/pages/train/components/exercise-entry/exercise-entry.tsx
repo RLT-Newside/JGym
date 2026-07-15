@@ -1,6 +1,8 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import { ArrowLeftRight, Check, CheckCircle2, ChevronDown, ChevronUp, Pencil, Plus, Trash2 } from 'lucide-react'
+import { useState } from 'react'
+import { ConfirmDialog } from '../../../../components/confirm-dialog/confirm-dialog'
 import type { Exercise, Session, SessionExerciseEntry, SetEntry } from '../../../../types'
 import { formatSetsSummary } from '../../../../utils/format'
 import { calculatePR, formatPR, getLastSession } from '../../../../utils/pr'
@@ -16,6 +18,7 @@ interface Props {
   onReplace?: () => void
   onMoveUp?: () => void
   onMoveDown?: () => void
+  onUpdateExercise?: (exercise: Exercise) => void
 }
 
 export function ExerciseEntryComponent({
@@ -28,7 +31,9 @@ export function ExerciseEntryComponent({
   onReplace,
   onMoveUp,
   onMoveDown,
+  onUpdateExercise,
 }: Props) {
+  const [warmupDefaultPrompt, setWarmupDefaultPrompt] = useState(false)
   const lastSession = getLastSession(exercise.id, sessions, exercise.progressResetAt)
   const pr = calculatePR(exercise.id, sessions)
 
@@ -43,6 +48,9 @@ export function ExerciseEntryComponent({
       const sets = [...entry.sets]
       sets.splice(insertAt, 0, newSet)
       onChange({ ...entry, sets })
+      if (!exercise.defaultWarmup && onUpdateExercise) {
+        setWarmupDefaultPrompt(true)
+      }
     } else {
       onChange({ ...entry, sets: [...entry.sets, newSet] })
     }
@@ -183,6 +191,15 @@ export function ExerciseEntryComponent({
           <Check size={12} /> Finish Exercise
         </button>
       </div>
+
+      <ConfirmDialog
+        open={warmupDefaultPrompt}
+        onClose={() => setWarmupDefaultPrompt(false)}
+        onConfirm={() => onUpdateExercise?.({ ...exercise, defaultWarmup: true })}
+        title="Default Warmup"
+        message="Always start this exercise with a warmup set by default?"
+        confirmLabel="Make default"
+      />
     </div>
   )
 }

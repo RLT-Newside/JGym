@@ -71,6 +71,7 @@ interface Props {
   onCancelSession: () => void
   onNavigateToExercises?: () => void
   onExerciseClick?: (exercise: Exercise) => void
+  onUpdateExercise?: (exercise: Exercise) => void
 }
 
 export function TrainView({
@@ -115,6 +116,7 @@ export function TrainView({
   onCancelSession,
   onNavigateToExercises,
   onExerciseClick,
+  onUpdateExercise,
 }: Props) {
   const [replaceIndex, setReplaceIndex] = useState<number | null>(null)
   const keyboardVisible = useKeyboardVisible()
@@ -278,6 +280,7 @@ export function TrainView({
             onReplace={() => setReplaceIndex(i)}
             onMoveUp={i > 0 ? () => onMoveEntry(i, 'up') : undefined}
             onMoveDown={i < active.entries.length - 1 ? () => onMoveEntry(i, 'down') : undefined}
+            onUpdateExercise={onUpdateExercise}
           />
         )
       })}

@@ -21,6 +21,7 @@ export function TrainContainer() {
     musicPopupDisabled,
     isSupporter,
     exerciseClick: onExerciseClick,
+    saveExercise,
   } = useAppData()
   const { active, elapsed, startSession, updateEntries, finishSession, cancelSession } = useActiveSession()
   const media = useMediaSession(!!active)
@@ -206,6 +207,7 @@ export function TrainContainer() {
       onCancelSession={cancelSession}
       onNavigateToExercises={onNavigateToExercises}
       onExerciseClick={onExerciseClick}
+      onUpdateExercise={saveExercise}
     />
   )
 }
