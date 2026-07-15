@@ -1,5 +1,5 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Pencil, RotateCcw } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { useExerciseImage } from '../../hooks/useExerciseImage'
 import { useLibraryEntry } from '../../hooks/useLibraryEntry'
@@ -19,10 +19,11 @@ interface Props {
   exercise: Exercise | null
   sessions: Session[]
   onStartWith: (exercise: Exercise) => void
+  onEdit?: (exercise: Exercise) => void
   onResetProgress?: (exercise: Exercise) => void
 }
 
-export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith, onResetProgress }: Props) {
+export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith, onEdit, onResetProgress }: Props) {
   const [resetConfirm, setResetConfirm] = useState(false)
   const library = useLibraryEntry(exercise?.libraryId)
   if (!exercise) return null
@@ -86,15 +87,29 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith,
           </button>
         )}
 
-        <Button
-          onClick={() => {
-            onStartWith(exercise)
-            onClose()
-          }}
-          className="w-full"
-        >
-          Start with this exercise
-        </Button>
+        <div className="flex gap-2">
+          {onEdit && (
+            <Button
+              variant="secondary"
+              onClick={() => {
+                onEdit(exercise)
+                onClose()
+              }}
+              className="flex items-center gap-1.5"
+            >
+              <Pencil size={14} /> Edit
+            </Button>
+          )}
+          <Button
+            onClick={() => {
+              onStartWith(exercise)
+              onClose()
+            }}
+            className="flex-1"
+          >
+            Start with this exercise
+          </Button>
+        </div>
       </div>
 
       <ConfirmDialog

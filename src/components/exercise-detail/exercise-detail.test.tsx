@@ -67,6 +67,25 @@ describe('ExerciseDetail', () => {
     expect(screen.queryByAltText('Test Exercise')).not.toBeInTheDocument()
   })
 
+  it('shows edit button when onEdit is provided', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} onEdit={vi.fn()} />)
+    expect(screen.getByRole('button', { name: /edit/i })).toBeInTheDocument()
+  })
+
+  it('does not show edit button when onEdit is not provided', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} />)
+    expect(screen.queryByRole('button', { name: /edit/i })).not.toBeInTheDocument()
+  })
+
+  it('calls onEdit and onClose when edit button is clicked', async () => {
+    const onEdit = vi.fn()
+    const onClose = vi.fn()
+    render(<ExerciseDetail {...defaultProps} exercise={base} onEdit={onEdit} onClose={onClose} />)
+    await userEvent.click(screen.getByRole('button', { name: /edit/i }))
+    expect(onEdit).toHaveBeenCalledWith(base)
+    expect(onClose).toHaveBeenCalled()
+  })
+
   it('shows reset progress button when onResetProgress is provided', () => {
     render(<ExerciseDetail {...defaultProps} exercise={base} onResetProgress={vi.fn()} />)
     expect(screen.getByText('Reset progress')).toBeInTheDocument()
