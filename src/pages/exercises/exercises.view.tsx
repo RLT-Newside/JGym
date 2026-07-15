@@ -172,6 +172,10 @@ export function ExercisesView({
             exercise={detailExercise}
             sessions={sessions}
             onStartWith={onStartWith}
+            onEdit={(ex) => {
+              onDetailClose()
+              onEdit(ex)
+            }}
             onResetProgress={onResetProgress}
           />
 
