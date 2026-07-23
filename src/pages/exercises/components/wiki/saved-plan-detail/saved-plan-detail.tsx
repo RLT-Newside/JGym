@@ -59,6 +59,20 @@ export function SavedPlanDetail({ plan, exercises, onBack, onUpdatePlan }: Props
     onUpdatePlan({ ...plan, days: newDays, currentDayIndex: newCurrentDay })
   }
 
+  const handleMoveDay = (dayIndex: number, direction: -1 | 1) => {
+    const targetIndex = dayIndex + direction
+    if (targetIndex < 0 || targetIndex >= plan.days.length) return
+    const newDays = [...plan.days]
+    ;[newDays[dayIndex], newDays[targetIndex]] = [newDays[targetIndex], newDays[dayIndex]]
+    const newCurrentDay =
+      plan.currentDayIndex === dayIndex
+        ? targetIndex
+        : plan.currentDayIndex === targetIndex
+          ? dayIndex
+          : plan.currentDayIndex
+    onUpdatePlan({ ...plan, days: newDays, currentDayIndex: newCurrentDay })
+  }
+
   const handleOpenDayEdit = (dayIndex: number) => {
     setDayLabel(plan.days[dayIndex].label)
     setDayFocus(plan.days[dayIndex].focus)
@@ -265,6 +279,26 @@ export function SavedPlanDetail({ plan, exercises, onBack, onUpdatePlan }: Props
                 <p className="text-sm font-medium">{day.label}</p>
                 {day.focus && <p className="text-[10px] text-white/30">{day.focus}</p>}
               </div>
+              {plan.days.length > 1 && (
+                <div className="flex flex-col gap-0.5">
+                  <button
+                    onClick={() => handleMoveDay(di, -1)}
+                    disabled={di === 0}
+                    className="text-white/15 hover:text-white/40 disabled:opacity-20 text-[8px]"
+                    title="Move day up"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    onClick={() => handleMoveDay(di, 1)}
+                    disabled={di === plan.days.length - 1}
+                    className="text-white/15 hover:text-white/40 disabled:opacity-20 text-[8px]"
+                    title="Move day down"
+                  >
+                    ▼
+                  </button>
+                </div>
+              )}
               <button
                 onClick={() => handleOpenDayEdit(di)}
                 className="p-1.5 hover:bg-white/10 rounded opacity-40 hover:opacity-100 transition-opacity"

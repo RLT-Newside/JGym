@@ -229,13 +229,14 @@ export function Wiki({ exercises, savedPlans, onAddExercise, onSavePlan, onUpdat
         days: plan.days.map((day) => ({
           label: day.label,
           focus: day.focus,
-          exercises: day.defaults
-            .map((def) => {
-              const ex = exercises.find((e) => e.id === def.exerciseId)
+          exercises: day.exerciseIds
+            .map((exId) => {
+              const ex = exercises.find((e) => e.id === exId)
+              const def = day.defaults.find((d) => d.exerciseId === exId)
               return {
                 name: ex?.name ?? 'Unknown',
-                sets: def.sets,
-                reps: def.reps,
+                sets: def?.sets ?? 3,
+                reps: def?.reps ?? '8-12',
               }
             })
             .filter((e) => e.name !== 'Unknown'),
