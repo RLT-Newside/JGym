@@ -105,7 +105,8 @@ export function TrainContainer() {
       null,
     )
     if (!best || best.weight <= 0 || best.reps <= 0) return
-    const prBefore = calculatePR(entry.exerciseId, sessions)
+    const ex = exercises.find((e) => e.id === entry.exerciseId)
+    const prBefore = calculatePR(entry.exerciseId, sessions, ex?.progressResetAt)
     if (!prBefore) return
     const beats = best.weight > prBefore.weight || (best.weight === prBefore.weight && best.reps > prBefore.reps)
     if (!beats) return

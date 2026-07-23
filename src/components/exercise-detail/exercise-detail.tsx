@@ -28,89 +28,94 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith,
   const library = useLibraryEntry(exercise?.libraryId)
   if (!exercise) return null
 
-  const pr = calculatePR(exercise.id, sessions)
+  const pr = calculatePR(exercise.id, sessions, exercise.progressResetAt)
   const recentSessions = [...sessions]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .filter((s) => s.entries.some((e) => e.exerciseId === exercise.id))
     .slice(0, 5)
 
   return (
-    <Modal open={open} onClose={onClose} title={exercise.name}>
-      <div className="space-y-4">
-        <MuscleTags exercise={exercise} size="sm" />
+    <>
+      <Modal open={open} onClose={onClose} title={exercise.name}>
+        <div className="space-y-4">
+          <MuscleTags exercise={exercise} size="sm" />
 
-        {exercise.customImages && exercise.customImages.length > 0 && (
-          <CustomImageSection images={exercise.customImages} name={exercise.name} />
-        )}
+          {exercise.customImages && exercise.customImages.length > 0 && (
+            <CustomImageSection images={exercise.customImages} name={exercise.name} />
+          )}
 
-        {exercise.description && (
-          <div>
-            <SectionHeader className="mb-2">Description</SectionHeader>
-            <p className="text-xs text-white/70 leading-relaxed whitespace-pre-wrap">{exercise.description}</p>
-          </div>
-        )}
-
-        {library && <LibrarySection entry={library} />}
-
-        <div className="bg-white/[0.04] rounded-xl p-4 text-center">
-          <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Personal Record</p>
-          <p className="font-heading text-3xl text-brand">{formatPR(pr)}</p>
-        </div>
-
-        <ProgressionChart exerciseId={exercise.id} sessions={sessions} />
-
-        {recentSessions.length > 0 && (
-          <div>
-            <h3 className="text-xs text-white/40 uppercase tracking-wider mb-2">Recent Sessions</h3>
-            <div className="space-y-2">
-              {recentSessions.map((session) => {
-                const entry = session.entries.find((e) => e.exerciseId === exercise.id)!
-                return (
-                  <div key={session.id} className="flex items-center justify-between bg-white/[0.04] rounded px-3 py-2">
-                    <span className="text-xs text-white/50">{formatDate(session.date)}</span>
-                    <span className="text-xs">
-                      {entry.sets.length} sets: {formatSetsSummary(entry.sets)}
-                    </span>
-                  </div>
-                )
-              })}
+          {exercise.description && (
+            <div>
+              <SectionHeader className="mb-2">Description</SectionHeader>
+              <p className="text-xs text-white/70 leading-relaxed whitespace-pre-wrap">{exercise.description}</p>
             </div>
+          )}
+
+          {library && <LibrarySection entry={library} />}
+
+          <div className="bg-white/[0.04] rounded-xl p-4 text-center">
+            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Personal Record</p>
+            <p className="font-heading text-3xl text-brand">{formatPR(pr)}</p>
           </div>
-        )}
 
-        {onResetProgress && (
-          <button
-            onClick={() => setResetConfirm(true)}
-            className="w-full flex items-center justify-center gap-2 text-sm text-white/40 hover:text-white/60 py-2 transition-colors"
-          >
-            <RotateCcw size={14} /> Reset progress
-          </button>
-        )}
+          <ProgressionChart exerciseId={exercise.id} sessions={sessions} />
 
-        <div className="flex gap-2">
-          {onEdit && (
+          {recentSessions.length > 0 && (
+            <div>
+              <h3 className="text-xs text-white/40 uppercase tracking-wider mb-2">Recent Sessions</h3>
+              <div className="space-y-2">
+                {recentSessions.map((session) => {
+                  const entry = session.entries.find((e) => e.exerciseId === exercise.id)!
+                  return (
+                    <div
+                      key={session.id}
+                      className="flex items-center justify-between bg-white/[0.04] rounded px-3 py-2"
+                    >
+                      <span className="text-xs text-white/50">{formatDate(session.date)}</span>
+                      <span className="text-xs">
+                        {entry.sets.length} sets: {formatSetsSummary(entry.sets)}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
+          {onResetProgress && (
+            <button
+              onClick={() => setResetConfirm(true)}
+              className="w-full flex items-center justify-center gap-2 text-sm text-white/40 hover:text-white/60 py-2 transition-colors"
+            >
+              <RotateCcw size={14} /> Reset progress
+            </button>
+          )}
+
+          <div className="flex gap-2">
+            {onEdit && (
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  onEdit(exercise)
+                  onClose()
+                }}
+                className="flex items-center gap-1.5"
+              >
+                <Pencil size={14} /> Edit
+              </Button>
+            )}
             <Button
-              variant="secondary"
               onClick={() => {
-                onEdit(exercise)
+                onStartWith(exercise)
                 onClose()
               }}
-              className="flex items-center gap-1.5"
+              className="flex-1"
             >
-              <Pencil size={14} /> Edit
+              Start with this exercise
             </Button>
-          )}
-          <Button
-            onClick={() => {
-              onStartWith(exercise)
-              onClose()
-            }}
-            className="flex-1"
-          >
-            Start with this exercise
-          </Button>
+          </div>
         </div>
-      </div>
+      </Modal>
 
       <ConfirmDialog
         open={resetConfirm}
@@ -120,11 +125,11 @@ export function ExerciseDetail({ open, onClose, exercise, sessions, onStartWith,
           setResetConfirm(false)
         }}
         title="Reset Progress"
-        message="Your all-time PR is preserved, but the 'Last session' starting weight will be cleared so your next session starts fresh from 0."
+        message="This will reset your PR and 'Last session' weight for this exercise. Your next session starts fresh from 0."
         confirmLabel="Reset"
         danger
       />
-    </Modal>
+    </>
   )
 }
 

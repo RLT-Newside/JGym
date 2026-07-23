@@ -30,7 +30,7 @@ export function ExerciseEntryComponent({
   onMoveDown,
 }: Props) {
   const lastSession = getLastSession(exercise.id, sessions, exercise.progressResetAt)
-  const pr = calculatePR(exercise.id, sessions)
+  const pr = calculatePR(exercise.id, sessions, exercise.progressResetAt)
 
   const addSet = (type?: 'warmup') => {
     const lastSet = entry.sets[entry.sets.length - 1]

@@ -43,7 +43,7 @@ export function ExerciseList() {
 
   const prMap = useMemo(() => {
     const map = new Map<string, ReturnType<typeof calculatePR>>()
-    for (const ex of exercises) map.set(ex.id, calculatePR(ex.id, sessions))
+    for (const ex of exercises) map.set(ex.id, calculatePR(ex.id, sessions, ex.progressResetAt))
     return map
   }, [exercises, sessions])
 

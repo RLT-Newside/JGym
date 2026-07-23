@@ -7,10 +7,12 @@ export interface PR {
   unit: 'kg' | 'lbs'
 }
 
-export function calculatePR(exerciseId: string, sessions: Session[]): PR | null {
+export function calculatePR(exerciseId: string, sessions: Session[], progressResetAt?: string): PR | null {
+  const resetTime = progressResetAt ? new Date(progressResetAt).getTime() : 0
   let best: PR | null = null
 
   for (const session of sessions) {
+    if (resetTime > 0 && new Date(session.date).getTime() <= resetTime) continue
     for (const entry of session.entries) {
       if (entry.exerciseId !== exerciseId) continue
       for (const set of entry.sets) {

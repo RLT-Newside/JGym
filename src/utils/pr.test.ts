@@ -67,6 +67,29 @@ describe('calculatePR', () => {
     ]
     expect(calculatePR('ex1', sessions)).toEqual({ weight: 80, reps: 8, unit: 'kg' })
   })
+
+  it('ignores sessions on or before progressResetAt', () => {
+    const sessions = [
+      makeSession('s1', '2024-01-01', 'ex1', [{ reps: 10, weight: 100 }]),
+      makeSession('s2', '2024-01-03', 'ex1', [{ reps: 8, weight: 80 }]),
+    ]
+    const result = calculatePR('ex1', sessions, '2024-01-04T00:00:00.000Z')
+    expect(result).toBeNull()
+  })
+
+  it('only counts sessions strictly after progressResetAt for PR', () => {
+    const sessions = [
+      makeSession('s1', '2024-01-01', 'ex1', [{ reps: 10, weight: 100 }]),
+      makeSession('s2', '2024-01-05', 'ex1', [{ reps: 8, weight: 60 }]),
+    ]
+    const result = calculatePR('ex1', sessions, '2024-01-03T00:00:00.000Z')
+    expect(result).toEqual({ weight: 60, reps: 8, unit: 'kg' })
+  })
+
+  it('behaves normally when progressResetAt is undefined', () => {
+    const sessions = [makeSession('s1', '2024-01-01', 'ex1', [{ reps: 10, weight: 100 }])]
+    expect(calculatePR('ex1', sessions, undefined)).toEqual({ weight: 100, reps: 10, unit: 'kg' })
+  })
 })
 
 describe('formatPR', () => {

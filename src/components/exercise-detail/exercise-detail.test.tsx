@@ -104,6 +104,31 @@ describe('ExerciseDetail', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Reset' }))
     expect(onResetProgress).toHaveBeenCalledWith(base)
   })
+
+  it('shows updated reset message indicating PR will also be cleared', async () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} onResetProgress={vi.fn()} />)
+    await userEvent.click(screen.getByText('Reset progress'))
+    expect(screen.getByText(/reset your PR/i)).toBeInTheDocument()
+  })
+
+  it('shows PR as dash when progressResetAt excludes all sessions', () => {
+    const sessions = [
+      {
+        id: 's1',
+        date: '2024-01-01',
+        label: '',
+        entries: [{ exerciseId: 'ex1', sets: [{ reps: 10, weight: 100, unit: 'kg' as const }] }],
+      },
+    ]
+    render(
+      <ExerciseDetail
+        {...defaultProps}
+        exercise={{ ...base, progressResetAt: '2024-01-02T00:00:00.000Z' }}
+        sessions={sessions}
+      />,
+    )
+    expect(screen.getByText('—')).toBeInTheDocument()
+  })
 })
 
 describe('ExerciseDetail image navigation', () => {
