@@ -23,6 +23,20 @@ function makeVisualViewport(height: number) {
   }
 }
 
+function makeFocusEvent(type: string, target: EventTarget, relatedTarget: EventTarget | null = null) {
+  const event = new FocusEvent(type, { bubbles: true, cancelable: true, relatedTarget: relatedTarget as EventTarget })
+  Object.defineProperty(event, 'target', { get: () => target, configurable: true })
+  return event
+}
+
+function fireFocusIn(target: EventTarget, relatedTarget: EventTarget | null = null) {
+  document.dispatchEvent(makeFocusEvent('focusin', target, relatedTarget))
+}
+
+function fireFocusOut(target: EventTarget, relatedTarget: EventTarget | null = null) {
+  document.dispatchEvent(makeFocusEvent('focusout', target, relatedTarget))
+}
+
 describe('useKeyboardVisible', () => {
   let originalVV: VisualViewport | null
   let vv: ReturnType<typeof makeVisualViewport>
@@ -76,5 +90,97 @@ describe('useKeyboardVisible', () => {
     const { unmount } = renderHook(() => useKeyboardVisible())
     unmount()
     expect(vv.removeEventListener).toHaveBeenCalledWith('resize', expect.any(Function))
+  })
+
+  describe('field focus detection', () => {
+    beforeEach(() => {
+      vv = makeVisualViewport(800)
+      Object.defineProperty(window, 'visualViewport', { value: vv, configurable: true })
+    })
+
+    it('returns true when a text input receives focus', () => {
+      const { result } = renderHook(() => useKeyboardVisible())
+      expect(result.current).toBe(false)
+
+      const input = document.createElement('input')
+      input.type = 'text'
+      act(() => {
+        fireFocusIn(input)
+      })
+      expect(result.current).toBe(true)
+    })
+
+    it('returns true when a numeric input receives focus', () => {
+      const { result } = renderHook(() => useKeyboardVisible())
+      const input = document.createElement('input')
+      input.type = 'number'
+      act(() => {
+        fireFocusIn(input)
+      })
+      expect(result.current).toBe(true)
+    })
+
+    it('returns true when a textarea receives focus', () => {
+      const { result } = renderHook(() => useKeyboardVisible())
+      const textarea = document.createElement('textarea')
+      act(() => {
+        fireFocusIn(textarea)
+      })
+      expect(result.current).toBe(true)
+    })
+
+    it('returns false when a button receives focus', () => {
+      const { result } = renderHook(() => useKeyboardVisible())
+      const button = document.createElement('button')
+      act(() => {
+        fireFocusIn(button)
+      })
+      expect(result.current).toBe(false)
+    })
+
+    it('returns false after input loses focus to a non-input element', () => {
+      const { result } = renderHook(() => useKeyboardVisible())
+      const input = document.createElement('input')
+      input.type = 'text'
+      const button = document.createElement('button')
+
+      act(() => {
+        fireFocusIn(input)
+      })
+      expect(result.current).toBe(true)
+
+      act(() => {
+        fireFocusOut(input, button)
+      })
+      expect(result.current).toBe(false)
+    })
+
+    it('stays true when focus moves between two text inputs', () => {
+      const { result } = renderHook(() => useKeyboardVisible())
+      const reps = document.createElement('input')
+      reps.type = 'text'
+      const weight = document.createElement('input')
+      weight.type = 'text'
+
+      act(() => {
+        fireFocusIn(reps)
+      })
+      expect(result.current).toBe(true)
+
+      act(() => {
+        fireFocusOut(reps, weight)
+      })
+      expect(result.current).toBe(true)
+    })
+
+    it('cleans up focus listeners on unmount', () => {
+      const addSpy = vi.spyOn(document, 'addEventListener')
+      const removeSpy = vi.spyOn(document, 'removeEventListener')
+      const { unmount } = renderHook(() => useKeyboardVisible())
+      unmount()
+      expect(addSpy).toHaveBeenCalledWith('focusin', expect.any(Function))
+      expect(removeSpy).toHaveBeenCalledWith('focusin', expect.any(Function))
+      expect(removeSpy).toHaveBeenCalledWith('focusout', expect.any(Function))
+    })
   })
 })
