@@ -10,15 +10,15 @@ interface Props {
   sessions: Session[]
   streak: number
   totalExerciseSets: number
-  todayISO: string
+  dateLabel: string
   onExerciseClick: (exercise: Exercise) => void
 }
 
-export function DashboardView({ exercises, sessions, streak, totalExerciseSets, todayISO, onExerciseClick }: Props) {
+export function DashboardView({ exercises, sessions, streak, totalExerciseSets, dateLabel, onExerciseClick }: Props) {
   return (
     <div className="px-4 py-4 space-y-6">
       <div>
-        <p className="text-xs text-white/30 uppercase tracking-wider">{todayISO}</p>
+        <p className="text-xs text-white/30 uppercase tracking-wider">{dateLabel}</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3">

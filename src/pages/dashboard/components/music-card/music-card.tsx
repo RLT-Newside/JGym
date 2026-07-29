@@ -130,9 +130,9 @@ export function MusicCard() {
           </button>
         </div>
         {expanded ? (
-          <ChevronDown size={16} className="text-white/30 shrink-0" />
-        ) : (
           <ChevronUp size={16} className="text-white/30 shrink-0" />
+        ) : (
+          <ChevronDown size={16} className="text-white/30 shrink-0" />
         )}
       </button>
 

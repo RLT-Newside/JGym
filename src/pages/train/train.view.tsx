@@ -303,7 +303,7 @@ export function TrainView({
       />
 
       {!keyboardVisible && (
-        <div className="fixed bottom-16 left-0 right-0 glass-nav border-t">
+        <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-lg glass-nav border-t">
           <MediaBar
             title={media.title}
             artist={media.artist}
