@@ -17,8 +17,8 @@ const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
 
 export function BottomNav({ active, onChange }: Props) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 glass-nav border-t safe-bottom">
-      <div className="flex items-center justify-around max-w-lg mx-auto">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-40 glass-nav border-t safe-bottom">
+      <div className="flex items-center justify-around">
         {tabs.map(({ id, label, icon: Icon }) => {
           const isActive = active === id
           const isTrain = id === 'train'

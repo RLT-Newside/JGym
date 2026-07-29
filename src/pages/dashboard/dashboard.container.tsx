@@ -3,7 +3,7 @@
 import { useMemo } from 'react'
 import { useAppData } from '../../context/app-data'
 import { useStreak } from '../../hooks/usePR'
-import { todayISO } from '../../utils/format'
+import { formatFullDate } from '../../utils/format'
 import { sortExercisesByFrequency } from '../../utils/pr'
 import { DashboardView } from './dashboard.view'
 
@@ -19,7 +19,7 @@ export function Dashboard() {
       sessions={sessions}
       streak={streak}
       totalExerciseSets={totalExerciseSets}
-      todayISO={todayISO()}
+      dateLabel={formatFullDate(new Date().toISOString())}
       onExerciseClick={exerciseClick}
     />
   )

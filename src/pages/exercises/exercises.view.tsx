@@ -135,13 +135,17 @@ export function ExercisesView({
                     </div>
                   </button>
                   <button
+                    type="button"
                     onClick={() => onEdit(ex)}
+                    aria-label={`Edit ${ex.name}`}
                     className="p-2 hover:bg-white/10 rounded-lg opacity-50 hover:opacity-100 transition-opacity"
                   >
                     <Pencil size={14} />
                   </button>
                   <button
+                    type="button"
                     onClick={() => onDeleteRequest(ex.id)}
+                    aria-label={`Delete ${ex.name}`}
                     className="p-2 hover:bg-red-900/30 rounded-lg opacity-50 hover:opacity-100 transition-opacity"
                   >
                     <Trash2 size={14} className="text-red-400" />
@@ -151,12 +155,18 @@ export function ExercisesView({
             })}
           </div>
 
-          <button
-            onClick={onFormOpen}
-            className="fixed right-4 bottom-20 z-30 w-14 h-14 bg-brand rounded-full flex items-center justify-center shadow-[0_0_24px_var(--color-brand)] shadow-brand/30 hover:shadow-brand/50 transition-shadow press-scale"
-          >
-            <Plus size={24} className="text-black" />
-          </button>
+          <div className="fixed inset-x-0 bottom-20 z-30 pointer-events-none">
+            <div className="max-w-lg mx-auto px-4 flex justify-end">
+              <button
+                type="button"
+                onClick={onFormOpen}
+                aria-label="Add exercise"
+                className="pointer-events-auto w-14 h-14 bg-brand rounded-full flex items-center justify-center shadow-[0_0_24px_var(--color-brand)] shadow-brand/30 hover:shadow-brand/50 transition-shadow press-scale"
+              >
+                <Plus size={24} className="text-black" />
+              </button>
+            </div>
+          </div>
 
           <ExerciseForm
             key={editing?.id ?? 'new'}
