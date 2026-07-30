@@ -4,16 +4,19 @@ import {
   BarChart3,
   CalendarDays,
   Check,
+  Crown,
   Download,
   Dumbbell,
   ExternalLink,
   Heart,
   KeyRound,
+  LogOut,
   Merge,
   MessageSquare,
   RefreshCw,
   Replace,
   Shield,
+  Sparkles,
   Trash2,
   Upload,
   X,
@@ -163,6 +166,10 @@ interface Props {
   checkingUpdate: boolean
   musicPopupDisabled: boolean
   onToggleMusicPopup: (disabled: boolean) => void
+  demoMode: boolean
+  onEnterDemo: () => void
+  onExitDemo: () => void
+  onToggleDemoPremium: () => void
 }
 
 export function SettingsModal({
@@ -181,6 +188,10 @@ export function SettingsModal({
   checkingUpdate,
   musicPopupDisabled,
   onToggleMusicPopup,
+  demoMode,
+  onEnterDemo,
+  onExitDemo,
+  onToggleDemoPremium,
 }: Props) {
   const fileRef = useRef<HTMLInputElement>(null)
   const exFileRef = useRef<HTMLInputElement>(null)
@@ -283,6 +294,53 @@ export function SettingsModal({
   return (
     <Modal open={open} onClose={onClose} title="Settings">
       <div className="space-y-5">
+        {/* Demo mode — presenter tool: populated sample data in a sandbox */}
+        {!demoMode ? (
+          <div className="glass rounded-xl p-4 space-y-3">
+            <div className="flex items-center gap-2">
+              <Sparkles size={15} className="text-brand" />
+              <h3 className="text-sm font-medium">Demo Mode</h3>
+            </div>
+            <p className="text-[10px] text-white/30 leading-relaxed">
+              Loads sample workouts, plans, and nutrition so the app looks lived-in for a presentation. Anything you
+              change stays in the demo and is discarded on exit — your real data is never touched.
+            </p>
+            <Button onClick={onEnterDemo} className="w-full flex items-center justify-center gap-2">
+              <Sparkles size={14} /> Enter Demo Mode
+            </Button>
+          </div>
+        ) : (
+          <div className="rounded-xl p-4 space-y-3 border border-brand/30 bg-brand/[0.06]">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Sparkles size={15} className="text-brand" />
+                <h3 className="text-sm font-medium">Demo Mode</h3>
+              </div>
+              <span className="text-[9px] bg-brand/15 text-brand px-2 py-0.5 rounded-full font-medium">ACTIVE</span>
+            </div>
+            <p className="text-[10px] text-white/40 leading-relaxed">
+              Sample data — changes aren't saved. Your real data is safe and returns when you exit.
+            </p>
+            <button
+              type="button"
+              onClick={onToggleDemoPremium}
+              className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium press-scale transition-colors ${
+                isSupporter ? 'bg-white/10 text-white/70 hover:bg-white/15' : 'bg-brand text-black hover:opacity-90'
+              }`}
+            >
+              <Crown size={14} className={isSupporter ? '' : 'fill-black'} />
+              {isSupporter ? 'Deactivate Premium (demo)' : 'Activate Premium (demo)'}
+            </button>
+            <button
+              type="button"
+              onClick={onExitDemo}
+              className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-white/[0.06] text-white/60 text-xs font-medium hover:bg-white/[0.1] transition-colors press-scale"
+            >
+              <LogOut size={13} /> Exit Demo Mode
+            </button>
+          </div>
+        )}
+
         <div>
           <h3 className="text-xs text-white/40 uppercase tracking-wider mb-3">Full Backup</h3>
           <div className="flex gap-3">

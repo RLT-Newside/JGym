@@ -1,17 +1,20 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useEffect, useState } from 'react'
 import { STORAGE_KEYS } from '../data/storage'
+import { isDemoMode, isDemoPremium, setDemoPremium, storeGet, storeSet } from '../data/store'
 import { activateCode, deactivateSupporter, isActivated, prefetchHashes } from '../utils/supporter'
 
 export type Theme = 'yellow' | 'cyan' | 'purple' | 'coral' | 'green'
 
 function readTheme(): Theme {
-  return (localStorage.getItem(STORAGE_KEYS.theme) as Theme) || 'yellow'
+  return (storeGet(STORAGE_KEYS.theme) as Theme) || 'yellow'
 }
 
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(readTheme)
-  const [isSupporter, setIsSupporterState] = useState(isActivated)
+  // In demo mode, supporter status is driven by the in-demo premium toggle
+  // (activate the full version without a code) rather than a real activation.
+  const [isSupporter, setIsSupporterState] = useState(() => (isDemoMode() ? isDemoPremium() : isActivated()))
 
   useEffect(() => {
     prefetchHashes()
@@ -24,8 +27,17 @@ export function useTheme() {
   }, [theme])
 
   const setTheme = (t: Theme) => {
-    localStorage.setItem(STORAGE_KEYS.theme, t)
+    storeSet(STORAGE_KEYS.theme, t)
     setThemeState(t)
+  }
+
+  // Demo-only: unlock/lock the full (supporter) version without an activation
+  // code, so the free → premium upgrade can be shown live.
+  const toggleDemoPremium = () => {
+    const next = !isDemoPremium()
+    setDemoPremium(next)
+    setIsSupporterState(next)
+    if (!next) setTheme('yellow')
   }
 
   const tryActivate = async (code: string): Promise<boolean> => {
@@ -40,5 +52,5 @@ export function useTheme() {
     setTheme('yellow')
   }
 
-  return { theme, setTheme, isSupporter, tryActivate, revoke }
+  return { theme, setTheme, isSupporter, tryActivate, revoke, toggleDemoPremium }
 }
