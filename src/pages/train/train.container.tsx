@@ -1,6 +1,6 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useAppData } from '../../context/app-data'
 import { useMediaSession } from '../../hooks/useMediaSession'
 import { useActiveSession } from '../../hooks/useSession'
@@ -22,9 +22,14 @@ export function TrainContainer() {
     isSupporter,
     exerciseClick: onExerciseClick,
     saveExercise,
+    setActiveSessionRunning,
   } = useAppData()
   const { active, elapsed, startSession, updateEntries, finishSession, cancelSession } = useActiveSession()
   const media = useMediaSession(!!active)
+
+  useEffect(() => {
+    setActiveSessionRunning(!!active)
+  }, [active, setActiveSessionRunning])
   const [label, setLabel] = useState('')
   const [pickerOpen, setPickerOpen] = useState(false)
   const [finishConfirm, setFinishConfirm] = useState(false)

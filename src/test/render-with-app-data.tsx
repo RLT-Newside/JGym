@@ -33,6 +33,8 @@ function baseAppData(): AppData {
     enterDemo: vi.fn(),
     exitDemo: vi.fn(),
     toggleDemoPremium: vi.fn(),
+    activeSessionRunning: false,
+    setActiveSessionRunning: vi.fn(),
     tab: 'dashboard',
     setTab: vi.fn(),
     settingsOpen: false,

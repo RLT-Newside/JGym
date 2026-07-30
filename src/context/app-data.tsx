@@ -47,6 +47,8 @@ export interface AppData {
   exitDemo: () => void
   toggleDemoPremium: () => void
   // Navigation / cross-page UI state.
+  activeSessionRunning: boolean
+  setActiveSessionRunning: (v: boolean) => void
   tab: Tab
   setTab: (t: Tab) => void
   settingsOpen: boolean
@@ -112,6 +114,14 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
   })
   const [activityEntries, setActivityEntries] = useStorage<ActivityEntry[]>('gym_activity', [])
   const [musicPopupDisabled, setMusicPopupDisabled] = useStorage<boolean>('gym_music_popup_disabled', false)
+
+  const [activeSessionRunning, setActiveSessionRunning] = useState<boolean>(() => {
+    try {
+      return !!storeGet(STORAGE_KEYS.activeSession)
+    } catch {
+      return false
+    }
+  })
 
   const [tab, setTab] = useState<Tab>(() => {
     try {
@@ -317,6 +327,8 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     enterDemo,
     exitDemo,
     toggleDemoPremium,
+    activeSessionRunning,
+    setActiveSessionRunning,
     tab,
     setTab,
     settingsOpen,
