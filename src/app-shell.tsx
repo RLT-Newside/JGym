@@ -1,4 +1,5 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
+import { Sparkles } from 'lucide-react'
 import { useState } from 'react'
 import { ErrorBoundary } from './components/error-boundary/error-boundary'
 import { ExerciseDetail } from './components/exercise-detail/exercise-detail'
@@ -36,6 +37,10 @@ export function AppShell() {
     revoke,
     musicPopupDisabled,
     setMusicPopupDisabled,
+    demoMode,
+    enterDemo,
+    exitDemo,
+    toggleDemoPremium,
   } = useAppData()
 
   const { update, checkNow, checking } = useUpdateCheck()
@@ -71,6 +76,17 @@ export function AppShell() {
       {update && <UpdateBanner version={update.version} url={update.url} />}
       <Header onSettingsClick={() => setSettingsOpen(true)} />
 
+      {demoMode && (
+        <button
+          type="button"
+          onClick={() => setSettingsOpen(true)}
+          className="w-full flex items-center justify-center gap-2 py-1.5 bg-brand/15 text-brand text-[11px] font-medium tracking-wide border-b border-brand/20"
+        >
+          <Sparkles size={12} />
+          DEMO MODE — changes aren't saved · tap to manage
+        </button>
+      )}
+
       <ErrorBoundary>
         <AppRouter />
       </ErrorBoundary>
@@ -102,6 +118,10 @@ export function AppShell() {
         checkingUpdate={checking}
         musicPopupDisabled={musicPopupDisabled}
         onToggleMusicPopup={setMusicPopupDisabled}
+        demoMode={demoMode}
+        onEnterDemo={enterDemo}
+        onExitDemo={exitDemo}
+        onToggleDemoPremium={toggleDemoPremium}
       />
 
       <Modal open={!!sharedImport} onClose={() => setSharedImport(null)} title="Import Backup">

@@ -1,6 +1,9 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from 'react'
+import { buildDemoSeed } from '../data/demoSeed'
 import { loadLibrary } from '../data/freeExerciseDb'
+import { STORAGE_KEYS } from '../data/storage'
+import { enterDemoMode, exitDemoMode, isDemoMode, storeGet, storeSet } from '../data/store'
 import { useBackButton } from '../hooks/useBackButton'
 import { useSharedImport } from '../hooks/useSharedImport'
 import { useStorage } from '../hooks/useStorage'
@@ -37,6 +40,12 @@ export interface AppData {
   isSupporter: boolean
   tryActivate: (code: string) => Promise<boolean>
   revoke: () => void
+  // Demo mode: show a populated app with sample data; edits stay in a
+  // sessionStorage sandbox and never touch the user's real data.
+  demoMode: boolean
+  enterDemo: () => void
+  exitDemo: () => void
+  toggleDemoPremium: () => void
   // Navigation / cross-page UI state.
   tab: Tab
   setTab: (t: Tab) => void
@@ -84,7 +93,7 @@ export function useAppData(): AppData {
 }
 
 export function AppDataProvider({ children }: { children: ReactNode }) {
-  const { theme, setTheme, isSupporter, tryActivate, revoke } = useTheme()
+  const { theme, setTheme, isSupporter, tryActivate, revoke, toggleDemoPremium } = useTheme()
 
   const [exercises, setExercises] = useStorage<Exercise[]>('gym_exercises', [])
   const [sessions, setSessions] = useStorage<Session[]>('gym_sessions', [])
@@ -106,7 +115,7 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
   const [tab, setTab] = useState<Tab>(() => {
     try {
-      return localStorage.getItem('gym_active_session') ? 'train' : 'dashboard'
+      return storeGet(STORAGE_KEYS.activeSession) ? 'train' : 'dashboard'
     } catch {
       return 'dashboard'
     }
@@ -127,12 +136,12 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
   // gain dataset images. Previously only newly-added exercises got a libraryId.
   // Gated by a flag so it runs once per user; bump the key to re-run. JGYM-10.
   useEffect(() => {
-    if (localStorage.getItem('gym_relink_images_v1')) return
+    if (storeGet(STORAGE_KEYS.relinkImagesV1)) return
     let cancelled = false
     loadLibrary().then((library) => {
       if (cancelled) return
       setExercises((prev) => relinkLibraryIds(prev, library, { force: true }).exercises)
-      localStorage.setItem('gym_relink_images_v1', '1')
+      storeSet(STORAGE_KEYS.relinkImagesV1, '1')
     })
     return () => {
       cancelled = true
@@ -278,6 +287,9 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     [setExercises, setSessions],
   )
 
+  const enterDemo = useCallback(() => enterDemoMode(buildDemoSeed()), [])
+  const exitDemo = useCallback(() => exitDemoMode(), [])
+
   const startWith = useCallback((exercise: Exercise) => {
     setPreSelectedExercise(exercise)
     setTab('train')
@@ -301,6 +313,10 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     isSupporter,
     tryActivate,
     revoke,
+    demoMode: isDemoMode(),
+    enterDemo,
+    exitDemo,
+    toggleDemoPremium,
     tab,
     setTab,
     settingsOpen,

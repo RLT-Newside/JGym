@@ -1,10 +1,11 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useCallback, useState } from 'react'
+import { storeGet, storeSet } from '../data/store'
 
 export function useStorage<T>(key: string, initialValue: T): [T, (value: T | ((prev: T) => T)) => void] {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      const item = localStorage.getItem(key)
+      const item = storeGet(key)
       return item ? JSON.parse(item) : initialValue
     } catch {
       return initialValue
@@ -15,11 +16,9 @@ export function useStorage<T>(key: string, initialValue: T): [T, (value: T | ((p
     (value: T | ((prev: T) => T)) => {
       setStoredValue((prev) => {
         const nextValue = value instanceof Function ? value(prev) : value
-        try {
-          localStorage.setItem(key, JSON.stringify(nextValue))
-        } catch {
-          console.error('localStorage quota exceeded — data not saved')
-        }
+        // storeGet/storeSet route to the demo overlay when demo mode is active,
+        // so real localStorage is never touched during a demo.
+        storeSet(key, JSON.stringify(nextValue))
         return nextValue
       })
     },
