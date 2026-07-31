@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { renderWithAppData } from '../../test/render-with-app-data'
 import type { Exercise, SavedPlan, Session } from '../../types'
 import { TrainContainer } from './train.container'
@@ -134,5 +134,21 @@ describe('TrainContainer', () => {
     await userEvent.click(screen.getByText('Add Exercise'))
     await userEvent.click(screen.getByText('Bench Press'))
     expect(screen.getByText('Warm')).toBeInTheDocument()
+  })
+
+  it('calls setActiveSessionRunning(true) when a session starts', async () => {
+    const setActiveSessionRunning = vi.fn()
+    renderWithAppData(<TrainContainer />, { setActiveSessionRunning })
+    await userEvent.click(screen.getByText('Start Training'))
+    expect(setActiveSessionRunning).toHaveBeenCalledWith(true)
+  })
+
+  it('calls setActiveSessionRunning(false) when a session is cancelled', async () => {
+    const setActiveSessionRunning = vi.fn()
+    renderWithAppData(<TrainContainer />, { setActiveSessionRunning })
+    await userEvent.click(screen.getByText('Start Training'))
+    await userEvent.click(screen.getByText('Cancel'))
+    await userEvent.click(screen.getByText('Discard'))
+    expect(setActiveSessionRunning).toHaveBeenCalledWith(false)
   })
 })
