@@ -5,6 +5,7 @@ import type { Tab } from '../../types'
 interface Props {
   active: Tab
   onChange: (tab: Tab) => void
+  sessionActive?: boolean
 }
 
 const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
@@ -15,7 +16,7 @@ const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
   { id: 'history', label: 'History', icon: Calendar },
 ]
 
-export function BottomNav({ active, onChange }: Props) {
+export function BottomNav({ active, onChange, sessionActive }: Props) {
   return (
     <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-40 glass-nav border-t safe-bottom">
       <div className="flex items-center justify-around">
@@ -40,6 +41,9 @@ export function BottomNav({ active, onChange }: Props) {
               <span className="text-[9px] mt-0.5 font-medium">{label}</span>
               {isActive && !isTrain && (
                 <span className="absolute bottom-1 w-1 h-1 rounded-full bg-brand shadow-[0_0_6px_var(--color-brand)]" />
+              )}
+              {isTrain && sessionActive && !isActive && (
+                <span className="absolute top-1.5 right-3 w-2 h-2 rounded-full bg-brand animate-pulse" />
               )}
             </button>
           )
