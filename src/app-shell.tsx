@@ -73,9 +73,7 @@ export function AppShell() {
   }
 
   return (
-    <div
-      className={`min-h-screen bg-[#0d0d0d] text-[#e8e4dc] ${activeSessionRunning ? 'pb-0' : 'pb-16'} max-w-lg mx-auto`}
-    >
+    <div className="min-h-screen bg-[#0d0d0d] text-[#e8e4dc] pb-16 max-w-lg mx-auto">
       {update && <UpdateBanner version={update.version} url={update.url} />}
       <Header onSettingsClick={() => setSettingsOpen(true)} />
 
@@ -94,7 +92,7 @@ export function AppShell() {
         <AppRouter />
       </ErrorBoundary>
 
-      {!activeSessionRunning && <BottomNav active={tab} onChange={setTab} />}
+      <BottomNav active={tab} onChange={setTab} sessionActive={activeSessionRunning} />
 
       <ExerciseDetail
         open={!!detailExercise}

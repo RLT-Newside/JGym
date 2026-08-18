@@ -261,7 +261,7 @@ export function TrainView({
   }
 
   return (
-    <div className="px-4 py-4 space-y-4 pb-24">
+    <div className="px-4 py-4 space-y-4 pb-40">
       <PRPopup pr={prPopup} onDone={onPrPopupDone} />
       <SessionTimer label={active.label} elapsed={elapsed} />
 
@@ -303,7 +303,7 @@ export function TrainView({
       />
 
       {!keyboardVisible && (
-        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg glass-nav border-t safe-bottom">
+        <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-lg z-50 glass-nav border-t">
           <MediaBar
             title={media.title}
             artist={media.artist}
