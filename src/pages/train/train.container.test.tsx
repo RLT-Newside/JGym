@@ -151,4 +151,13 @@ describe('TrainContainer', () => {
     await userEvent.click(screen.getByText('Discard'))
     expect(setActiveSessionRunning).toHaveBeenCalledWith(false)
   })
+
+  it('session action bar uses above-nav class instead of bottom-16 to avoid overlapping the navbar safe-area', async () => {
+    renderWithAppData(<TrainContainer />)
+    await userEvent.click(screen.getByText('Start Training'))
+    const finishBtn = screen.getByText('Finish Session')
+    const actionBar = finishBtn.closest('.above-nav')
+    expect(actionBar).not.toBeNull()
+    expect(actionBar?.classList.contains('bottom-16')).toBe(false)
+  })
 })
