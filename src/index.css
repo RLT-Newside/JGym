@@ -52,6 +52,10 @@
      report a large inset — cap the added padding. */
   padding-bottom: min(env(safe-area-inset-bottom), 8px);
 }
+.above-nav {
+  /* Sit flush above the bottom nav, accounting for its safe-area padding. */
+  bottom: calc(4rem + min(env(safe-area-inset-bottom), 8px));
+}
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
