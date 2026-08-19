@@ -160,4 +160,13 @@ describe('TrainContainer', () => {
     expect(actionBar).not.toBeNull()
     expect(actionBar?.classList.contains('bottom-16')).toBe(false)
   })
+
+  it('session action bar does not use z-50 so exercise-picker modals render above it', async () => {
+    renderWithAppData(<TrainContainer />)
+    await userEvent.click(screen.getByText('Start Training'))
+    const finishBtn = screen.getByText('Finish Session')
+    const actionBar = finishBtn.closest('.above-nav')
+    expect(actionBar).not.toBeNull()
+    expect(actionBar?.classList.contains('z-50')).toBe(false)
+  })
 })
