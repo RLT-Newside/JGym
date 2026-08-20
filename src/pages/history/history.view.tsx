@@ -2,6 +2,7 @@
 
 import { ConfirmDialog } from '../../components/confirm-dialog/confirm-dialog'
 import type { Exercise, Session } from '../../types'
+import { AnalysisChart } from './components/analysis-chart/analysis-chart'
 import { CalendarGrid } from './components/calendar-grid/calendar-grid'
 import { DurationEditModal } from './components/duration-edit-modal/duration-edit-modal'
 import { SessionCard } from './components/session-card/session-card'
@@ -44,6 +45,8 @@ export function HistoryView({
   return (
     <div className="px-4 py-4 space-y-4">
       <CalendarGrid sessions={sessions} selectedDate={selectedDate} onSelectDate={onSelectDate} />
+
+      {sessions.length > 0 && <AnalysisChart sessions={sessions} />}
 
       {selectedDate && (
         <button onClick={onClearDate} className="text-xs text-brand hover:underline">
