@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <!-- JGym launcher foreground: dumbbell -->
+  <defs>
+    <linearGradient id="gold" x1="54" y1="40" x2="54" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5E642"/>
+      <stop offset="1" stop-color="#D4BC1C"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-45 54 54)">
+    <path d="M38,50 L70,50 L70,58 L38,58 Z" fill="url(#gold)"/>
+    <path d="M30,43 L38,43 L38,65 L30,65 Z" fill="url(#gold)"/>
+    <path d="M70,43 L78,43 L78,65 L70,65 Z" fill="url(#gold)"/>
+    <path d="M23,47 L29,47 L29,61 L23,61 Z" fill="url(#gold)"/>
+    <path d="M79,47 L85,47 L85,61 L79,61 Z" fill="url(#gold)"/>
+  </g>
+</svg>

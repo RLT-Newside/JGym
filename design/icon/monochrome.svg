@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <!-- JGym themed icon (Android 13+). The system tints this silhouette. -->
+  <g transform="rotate(-45 54 54)">
+    <path d="M38,50 L70,50 L70,58 L38,58 Z" fill="#000000"/>
+    <path d="M30,43 L38,43 L38,65 L30,65 Z" fill="#000000"/>
+    <path d="M70,43 L78,43 L78,65 L70,65 Z" fill="#000000"/>
+    <path d="M23,47 L29,47 L29,61 L23,61 Z" fill="#000000"/>
+    <path d="M79,47 L85,47 L85,61 L79,61 Z" fill="#000000"/>
+  </g>
+</svg>
