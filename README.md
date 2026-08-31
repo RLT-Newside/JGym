@@ -1,6 +1,8 @@
 # JGym
 
-A mobile workout tracker and music controller for Android, built with React + Capacitor.
+**JGym** is a minimalist, offline-first gym tracking app for Android that lifters use to log workouts without the bloat. No accounts, no ads, no cloud lock-in — just a fast, distraction-free logbook that lives on your phone and gets out of the way between sets.
+
+It solves a simple problem: most training apps bury the actual act of logging a set under subscriptions, social feeds, and UI clutter. JGym strips that down to a bold, high-contrast interface designed to be used one-handed under the bar.
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -12,12 +14,16 @@ A mobile workout tracker and music controller for Android, built with React + Ca
 
 ## Features
 
-- **Training** — log workouts, track sets/reps, follow saved plans
-- **Exercise library** — custom exercises with muscle group tracking
-- **History** — view past sessions with volume and PR tracking
+- **Live session tracking** — log sets/reps/weight with a built-in rest timer, following saved plans
+- **Exercise wiki** — muscle-group filters, body map visualization, and a searchable library
+- **Training plans** — create, edit, import, export, and share plans as JSON, with day-by-day builder and exercise regenerator
+- **History** — calendar-grid view of past sessions with volume and PR tracking
+- **Automatic PR detection** — badges and celebrations on personal records
 - **Nutrition** — calorie, protein, water, and weight logging
 - **Music** — browse and control SimpMusic playback with shuffle/repeat/queue editing
-- **Wiki** — exercise reference library and plan builder
+- **Offline-first** — all data stored locally, installs as a native Android app (APK)
+
+Built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, and **Capacitor** for the Android shell.
 
 ## Requirements
 
