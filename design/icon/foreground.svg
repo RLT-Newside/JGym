@@ -1,16 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
-  <!-- JGym launcher foreground: dumbbell -->
   <defs>
-    <linearGradient id="gold" x1="54" y1="40" x2="54" y2="70" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F5E642"/>
-      <stop offset="1" stop-color="#D4BC1C"/>
+    <linearGradient id="plate" x1="54" y1="41" x2="54" y2="67" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF27E"/>
+      <stop offset="0.45" stop-color="#F5E642"/>
+      <stop offset="1" stop-color="#C9A614"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="54" y1="49.5" x2="54" y2="58.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9D63C"/>
+      <stop offset="1" stop-color="#B99A0E"/>
     </linearGradient>
   </defs>
   <g transform="rotate(-45 54 54)">
-    <path d="M38,50 L70,50 L70,58 L38,58 Z" fill="url(#gold)"/>
-    <path d="M30,43 L38,43 L38,65 L30,65 Z" fill="url(#gold)"/>
-    <path d="M70,43 L78,43 L78,65 L70,65 Z" fill="url(#gold)"/>
-    <path d="M23,47 L29,47 L29,61 L23,61 Z" fill="url(#gold)"/>
-    <path d="M79,47 L85,47 L85,61 L79,61 Z" fill="url(#gold)"/>
+    <path d="M31.4,41 H35.2 C36.746,41 38,42.254 38,43.8 V64.2 C38,65.746 36.746,67 35.2,67 H31.4 C29.854,67 28.6,65.746 28.6,64.2 V43.8 C28.6,42.254 29.854,41 31.4,41 Z" fill="url(#plate)"/>
+    <path d="M72.8,41 H76.6 C78.146,41 79.4,42.254 79.4,43.8 V64.2 C79.4,65.746 78.146,67 76.6,67 H72.8 C71.254,67 70,65.746 70,64.2 V43.8 C70,42.254 71.254,41 72.8,41 Z" fill="url(#plate)"/>
+    <path d="M25.1,45.5 H26.3 C27.128,45.5 27.8,46.172 27.8,47 V61 C27.8,61.828 27.128,62.5 26.3,62.5 H25.1 C24.272,62.5 23.6,61.828 23.6,61 V47 C23.6,46.172 24.272,45.5 25.1,45.5 Z" fill="url(#plate)"/>
+    <path d="M81.7,45.5 H82.9 C83.728,45.5 84.4,46.172 84.4,47 V61 C84.4,61.828 83.728,62.5 82.9,62.5 H81.7 C80.872,62.5 80.2,61.828 80.2,61 V47 C80.2,46.172 80.872,45.5 81.7,45.5 Z" fill="url(#plate)"/>
+    <path d="M39.8,50 H68.2 C69.415,50 70.4,50.985 70.4,52.2 V55.8 C70.4,57.015 69.415,58 68.2,58 H39.8 C38.585,58 37.6,57.015 37.6,55.8 V52.2 C37.6,50.985 38.585,50 39.8,50 Z" fill="url(#bar)"/>
   </g>
 </svg>

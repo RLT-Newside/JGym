@@ -1,11 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
-  <!-- JGym launcher background -->
   <defs>
     <radialGradient id="bg" cx="54" cy="46" r="78" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1E1E23"/>
-      <stop offset="0.55" stop-color="#141417"/>
-      <stop offset="1" stop-color="#08080B"/>
+      <stop offset="0" stop-color="#17171A"/>
+      <stop offset="0.55" stop-color="#0D0D0D"/>
+      <stop offset="1" stop-color="#050506"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="54" cy="54" r="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5E642" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#F5E642" stop-opacity="0"/>
     </radialGradient>
   </defs>
-    <path d="M0,0h108v108h-108z" fill="url(#bg)"/>
+  <path d="M0,0h108v108h-108z" fill="url(#bg)"/>
+  <path d="M0,0h108v108h-108z" fill="url(#glow)"/>
 </svg>
