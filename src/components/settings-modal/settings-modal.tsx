@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
 import {
+  Activity,
   BarChart3,
   CalendarDays,
   Check,
@@ -10,6 +11,8 @@ import {
   ExternalLink,
   Heart,
   KeyRound,
+  Link2,
+  Link2Off,
   LogOut,
   Merge,
   MessageSquare,
@@ -34,6 +37,13 @@ import {
   saveRepRanges,
   validateRepRangeEntry,
 } from '../../utils/progression'
+import {
+  disconnectSparkyFitness,
+  isSparkyFitnessConfigured,
+  readSparkyConfig,
+  saveSparkyConfig,
+  testSparkyConnection,
+} from '../../utils/sparkyfitness'
 import { Button } from '../button/button'
 import { Modal } from '../modal/modal'
 
@@ -202,6 +212,41 @@ export function SettingsModal({
   const [codeError, setCodeError] = useState(false)
   const [codeVerifying, setCodeVerifying] = useState(false)
   const [checkResult, setCheckResult] = useState<CheckResult | null>(null)
+  const [sparkyConnected, setSparkyConnected] = useState(() => isSparkyFitnessConfigured())
+  const [sparkyUrl, setSparkyUrl] = useState(() => readSparkyConfig()?.baseUrl ?? '')
+  const [sparkyKey, setSparkyKey] = useState(() => readSparkyConfig()?.apiKey ?? '')
+  const [sparkyTesting, setSparkyTesting] = useState(false)
+  const [sparkyTestResult, setSparkyTestResult] = useState<'ok' | 'fail' | null>(null)
+
+  const handleSaveSparky = () => {
+    const url = sparkyUrl.trim()
+    const key = sparkyKey.trim()
+    if (!url || !key) return
+    saveSparkyConfig({ baseUrl: url, apiKey: key })
+    setSparkyConnected(true)
+    setSparkyTestResult(null)
+  }
+
+  const handleDisconnectSparky = () => {
+    disconnectSparkyFitness()
+    setSparkyConnected(false)
+    setSparkyUrl('')
+    setSparkyKey('')
+    setSparkyTestResult(null)
+  }
+
+  const handleTestSparky = async () => {
+    setSparkyTesting(true)
+    setSparkyTestResult(null)
+    try {
+      const ok = await testSparkyConnection()
+      setSparkyTestResult(ok ? 'ok' : 'fail')
+    } catch {
+      setSparkyTestResult('fail')
+    } finally {
+      setSparkyTesting(false)
+    }
+  }
 
   const handleCheckUpdate = async () => {
     setCheckResult(null)
@@ -564,6 +609,84 @@ export function SettingsModal({
           <p className="text-[9px] text-white/20">
             Hides the music permission banner that appears during workouts when SimpMusic access is not granted.
           </p>
+        </div>
+
+        {/* SparkyFitness Integration */}
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <Activity size={14} className="text-white/50" />
+            <h3 className="text-xs text-white/40 uppercase tracking-wider">SparkyFitness</h3>
+          </div>
+          <p className="text-[9px] text-white/20 leading-relaxed">
+            Sync completed workouts to your self-hosted SparkyFitness instance. Enter your instance URL and API key to
+            connect. See{' '}
+            <a
+              href="https://github.com/SparkyFitness/sparkyfitness"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline opacity-60"
+            >
+              SparkyFitness docs
+            </a>{' '}
+            to find your API key.
+          </p>
+          {sparkyConnected ? (
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-xs text-green-400/80">
+                <Link2 size={12} /> Connected — {readSparkyConfig()?.baseUrl}
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant="secondary"
+                  onClick={handleTestSparky}
+                  disabled={sparkyTesting}
+                  className="flex-1 flex items-center justify-center gap-1.5 text-xs"
+                >
+                  <RefreshCw size={12} className={sparkyTesting ? 'animate-spin' : ''} />
+                  {sparkyTesting ? 'Testing…' : 'Test'}
+                </Button>
+                <Button
+                  variant="danger"
+                  onClick={handleDisconnectSparky}
+                  className="flex-1 flex items-center justify-center gap-1.5 text-xs"
+                >
+                  <Link2Off size={12} /> Disconnect
+                </Button>
+              </div>
+              {sparkyTestResult === 'ok' && (
+                <p className="text-[9px] text-green-400/70 flex items-center gap-1">
+                  <Check size={10} /> Connection successful
+                </p>
+              )}
+              {sparkyTestResult === 'fail' && (
+                <p className="text-[9px] text-red-400/70">Connection failed — check your URL and API key</p>
+              )}
+            </div>
+          ) : (
+            <div className="space-y-2">
+              <input
+                type="url"
+                value={sparkyUrl}
+                onChange={(e) => setSparkyUrl(e.target.value)}
+                placeholder="https://sparky.yourdomain.com"
+                className="w-full bg-white/[0.06] border border-white/[0.08] rounded-lg px-3 py-2 text-sm placeholder:text-white/20 focus:outline-none focus:border-white/20"
+              />
+              <input
+                type="password"
+                value={sparkyKey}
+                onChange={(e) => setSparkyKey(e.target.value)}
+                placeholder="API key"
+                className="w-full bg-white/[0.06] border border-white/[0.08] rounded-lg px-3 py-2 text-sm placeholder:text-white/20 focus:outline-none focus:border-white/20"
+              />
+              <Button
+                onClick={handleSaveSparky}
+                disabled={!sparkyUrl.trim() || !sparkyKey.trim()}
+                className="w-full flex items-center justify-center gap-2"
+              >
+                <Link2 size={14} /> Connect
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Feedback */}
