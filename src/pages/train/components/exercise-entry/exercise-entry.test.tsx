@@ -201,4 +201,140 @@ describe('ExerciseEntryComponent', () => {
     await userEvent.click(screen.getByText('Warmup'))
     expect(screen.queryByText('Default Warmup')).not.toBeInTheDocument()
   })
+
+  it('shows "Set target" button when no repRange is set', () => {
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={vi.fn()} onRemove={vi.fn()} />,
+    )
+    expect(screen.getByTitle('Set rep range target')).toBeInTheDocument()
+  })
+
+  it('shows existing repRange with edit button', () => {
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={{ ...entry, repRange: '8-12' }}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+      />,
+    )
+    expect(screen.getByTitle('Edit rep range target')).toBeInTheDocument()
+    expect(screen.getByText(/Target: 8-12 reps/)).toBeInTheDocument()
+  })
+
+  it('opens inline editor when "Set target" is clicked', async () => {
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={vi.fn()} onRemove={vi.fn()} />,
+    )
+    await userEvent.click(screen.getByTitle('Set rep range target'))
+    expect(screen.getByRole('textbox', { name: 'Rep range target' })).toBeInTheDocument()
+  })
+
+  it('opens inline editor pre-filled with existing repRange when edit button is clicked', async () => {
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={{ ...entry, repRange: '8-12' }}
+        sessions={[]}
+        onChange={vi.fn()}
+        onRemove={vi.fn()}
+      />,
+    )
+    await userEvent.click(screen.getByTitle('Edit rep range target'))
+    const input = screen.getByRole('textbox', { name: 'Rep range target' }) as HTMLInputElement
+    expect(input.value).toBe('8-12')
+  })
+
+  it('calls onChange with new repRange when a valid value is saved', async () => {
+    const onChange = vi.fn()
+    const entryWithRange: SessionExerciseEntry = { ...entry, repRange: '8-12' }
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entryWithRange}
+        sessions={[]}
+        onChange={onChange}
+        onRemove={vi.fn()}
+      />,
+    )
+    await userEvent.click(screen.getByTitle('Edit rep range target'))
+    const input = screen.getByRole('textbox', { name: 'Rep range target' })
+    await userEvent.clear(input)
+    await userEvent.type(input, '10-15')
+    await userEvent.click(screen.getByTitle('Save target'))
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ repRange: '10-15' }))
+  })
+
+  it('calls onChange with undefined repRange when input is cleared and saved', async () => {
+    const onChange = vi.fn()
+    const entryWithRange: SessionExerciseEntry = { ...entry, repRange: '8-12' }
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entryWithRange}
+        sessions={[]}
+        onChange={onChange}
+        onRemove={vi.fn()}
+      />,
+    )
+    await userEvent.click(screen.getByTitle('Edit rep range target'))
+    const input = screen.getByRole('textbox', { name: 'Rep range target' })
+    await userEvent.clear(input)
+    await userEvent.click(screen.getByTitle('Save target'))
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ repRange: undefined }))
+  })
+
+  it('does not call onChange with an invalid repRange value', async () => {
+    const onChange = vi.fn()
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={onChange} onRemove={vi.fn()} />,
+    )
+    await userEvent.click(screen.getByTitle('Set rep range target'))
+    const input = screen.getByRole('textbox', { name: 'Rep range target' })
+    await userEvent.type(input, 'notvalid')
+    await userEvent.click(screen.getByTitle('Save target'))
+    expect(onChange).not.toHaveBeenCalled()
+  })
+
+  it('cancels editing without calling onChange when cancel is clicked', async () => {
+    const onChange = vi.fn()
+    const entryWithRange: SessionExerciseEntry = { ...entry, repRange: '8-12' }
+    render(
+      <ExerciseEntryComponent
+        exercise={exercise}
+        entry={entryWithRange}
+        sessions={[]}
+        onChange={onChange}
+        onRemove={vi.fn()}
+      />,
+    )
+    await userEvent.click(screen.getByTitle('Edit rep range target'))
+    await userEvent.click(screen.getByTitle('Cancel'))
+    expect(onChange).not.toHaveBeenCalled()
+    expect(screen.queryByRole('textbox', { name: 'Rep range target' })).not.toBeInTheDocument()
+  })
+
+  it('saves repRange when Enter is pressed', async () => {
+    const onChange = vi.fn()
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={onChange} onRemove={vi.fn()} />,
+    )
+    await userEvent.click(screen.getByTitle('Set rep range target'))
+    const input = screen.getByRole('textbox', { name: 'Rep range target' })
+    await userEvent.type(input, '6-10{Enter}')
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ repRange: '6-10' }))
+  })
+
+  it('cancels editing when Escape is pressed', async () => {
+    const onChange = vi.fn()
+    render(
+      <ExerciseEntryComponent exercise={exercise} entry={entry} sessions={[]} onChange={onChange} onRemove={vi.fn()} />,
+    )
+    await userEvent.click(screen.getByTitle('Set rep range target'))
+    const input = screen.getByRole('textbox', { name: 'Rep range target' })
+    await userEvent.type(input, '6-10{Escape}')
+    expect(onChange).not.toHaveBeenCalled()
+    expect(screen.queryByRole('textbox', { name: 'Rep range target' })).not.toBeInTheDocument()
+  })
 })

@@ -1,11 +1,12 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { ArrowLeftRight, Check, CheckCircle2, ChevronDown, ChevronUp, Pencil, Plus, Trash2 } from 'lucide-react'
-import { useState } from 'react'
+import { ArrowLeftRight, Check, CheckCircle2, ChevronDown, ChevronUp, Pencil, Plus, Trash2, X } from 'lucide-react'
+import { useRef, useState } from 'react'
 import { ConfirmDialog } from '../../../../components/confirm-dialog/confirm-dialog'
 import type { Exercise, Session, SessionExerciseEntry, SetEntry } from '../../../../types'
 import { formatSetsSummary } from '../../../../utils/format'
 import { calculatePR, formatPR, getLastSession } from '../../../../utils/pr'
+import { isValidRepString } from '../../../../utils/progression'
 import { SetRow } from '../set-row/set-row'
 
 interface Props {
@@ -34,6 +35,9 @@ export function ExerciseEntryComponent({
   onUpdateExercise,
 }: Props) {
   const [warmupDefaultPrompt, setWarmupDefaultPrompt] = useState(false)
+  const [editingRepRange, setEditingRepRange] = useState(false)
+  const [repRangeInput, setRepRangeInput] = useState('')
+  const repRangeInputRef = useRef<HTMLInputElement>(null)
   const lastSession = getLastSession(exercise.id, sessions, exercise.progressResetAt)
   const pr = calculatePR(exercise.id, sessions, exercise.progressResetAt)
 
@@ -64,6 +68,22 @@ export function ExerciseEntryComponent({
 
   const deleteSet = (i: number) => {
     onChange({ ...entry, sets: entry.sets.filter((_, idx) => idx !== i) })
+  }
+
+  const openRepRangeEdit = () => {
+    setRepRangeInput(entry.repRange ?? '')
+    setEditingRepRange(true)
+    setTimeout(() => repRangeInputRef.current?.select(), 0)
+  }
+
+  const commitRepRange = () => {
+    const trimmed = repRangeInput.trim()
+    if (trimmed === '') {
+      onChange({ ...entry, repRange: undefined })
+    } else if (isValidRepString(trimmed)) {
+      onChange({ ...entry, repRange: trimmed })
+    }
+    setEditingRepRange(false)
   }
 
   const finishExercise = () => {
@@ -151,7 +171,56 @@ export function ExerciseEntryComponent({
             Last: {lastSession.sets.map((s) => `${s.reps}×${s.weight}${s.unit}`).join(' / ')}
           </p>
         )}
-        {entry.repRange && <p className="text-[10px] text-brand/60 ml-auto">Target: {entry.repRange} reps</p>}
+        <div className="ml-auto flex items-center gap-1">
+          {editingRepRange ? (
+            <>
+              <input
+                ref={repRangeInputRef}
+                type="text"
+                value={repRangeInput}
+                onChange={(e) => setRepRangeInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') commitRepRange()
+                  if (e.key === 'Escape') setEditingRepRange(false)
+                }}
+                placeholder="e.g. 8-12"
+                aria-label="Rep range target"
+                className="w-20 bg-white/[0.04] border border-brand/30 rounded px-1.5 py-0.5 text-[10px] text-center focus:outline-none focus:border-brand/60"
+              />
+              <button
+                onClick={commitRepRange}
+                title="Save target"
+                className="p-0.5 text-green-400/70 hover:text-green-400 transition-colors"
+              >
+                <Check size={11} />
+              </button>
+              <button
+                onClick={() => setEditingRepRange(false)}
+                title="Cancel"
+                className="p-0.5 text-white/30 hover:text-white/60 transition-colors"
+              >
+                <X size={11} />
+              </button>
+            </>
+          ) : entry.repRange ? (
+            <button
+              onClick={openRepRangeEdit}
+              title="Edit rep range target"
+              className="flex items-center gap-1 text-[10px] text-brand/60 hover:text-brand transition-colors"
+            >
+              Target: {entry.repRange} reps
+              <Pencil size={9} />
+            </button>
+          ) : (
+            <button
+              onClick={openRepRangeEdit}
+              title="Set rep range target"
+              className="flex items-center gap-1 text-[10px] text-white/25 hover:text-white/50 transition-colors"
+            >
+              <Plus size={9} /> Set target
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="flex items-center gap-2 mb-1 px-0">
