@@ -1,15 +1,17 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 
-import { AlertCircle, Loader, ScanLine } from 'lucide-react'
+import { AlertCircle, Camera, Loader, ScanLine } from 'lucide-react'
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Button } from '../../../../components/button/button'
 import { FormField } from '../../../../components/form-field/form-field'
 import { Modal } from '../../../../components/modal/modal'
 import type { FoodEntry, MealType } from '../../../../types'
+import type { FoodAnalysis } from '../../../../utils/claudeVision'
 import { getDateStr, MEAL_LABELS } from '../../../../utils/nutrition'
 import { lookupBarcode, type OpenFoodProduct, scaleMacros } from '../../../../utils/openFoodFacts'
 import { BarcodeScanner } from '../barcode-scanner/barcode-scanner'
+import { FoodPhotoScan } from '../food-photo-scan/food-photo-scan'
 
 interface Props {
   open: boolean
@@ -31,6 +33,7 @@ export function FoodEntryForm({ open, onClose, onSave, entry, defaultMeal = 'lun
 
   // Barcode / product state
   const [scannerOpen, setScannerOpen] = useState(false)
+  const [photoScanOpen, setPhotoScanOpen] = useState(false)
   const [looking, setLooking] = useState(false)
   const [lookupError, setLookupError] = useState<string | null>(null)
   const [product, setProduct] = useState<OpenFoodProduct | null>(null)
@@ -105,39 +108,59 @@ export function FoodEntryForm({ open, onClose, onSave, entry, defaultMeal = 'lun
     setFat(macros.fat.toString())
   }
 
+  const handlePhotoResult = (analysis: FoodAnalysis) => {
+    setPhotoScanOpen(false)
+    setName(analysis.name)
+    setCalories(analysis.calories.toString())
+    setProtein(analysis.protein.toString())
+    setCarbs(analysis.carbs.toString())
+    setFat(analysis.fat.toString())
+    setLookupError(null)
+  }
+
   const meals: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack', 'drink']
 
   return (
     <>
       {scannerOpen && <BarcodeScanner onScan={handleBarcodeScan} onClose={() => setScannerOpen(false)} />}
+      {photoScanOpen && <FoodPhotoScan onResult={handlePhotoResult} onClose={() => setPhotoScanOpen(false)} />}
       <Modal open={open} onClose={onClose} title={entry ? 'Edit Entry' : 'Add Entry'}>
         <div className="space-y-4">
-          {/* Scan button */}
+          {/* Scan buttons */}
           {!entry && (
-            <button
-              onClick={() => {
-                if (localStorage.getItem('gym_barcode_consent') !== 'true') {
-                  const ok = confirm(
-                    'Scanning a barcode sends the barcode number to OpenFoodFacts (openfoodfacts.org) to look up nutrition data.\n\nNo other personal data is sent. Continue?',
-                  )
-                  if (!ok) return
-                  localStorage.setItem('gym_barcode_consent', 'true')
-                }
-                setScannerOpen(true)
-              }}
-              disabled={looking}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-brand/10 border border-brand/20 text-brand text-sm font-medium hover:bg-brand/15 transition-colors disabled:opacity-50"
-            >
-              {looking ? (
-                <>
-                  <Loader size={14} className="animate-spin" /> Looking up product...
-                </>
-              ) : (
-                <>
-                  <ScanLine size={14} /> Scan Barcode
-                </>
-              )}
-            </button>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => {
+                  if (localStorage.getItem('gym_barcode_consent') !== 'true') {
+                    const ok = confirm(
+                      'Scanning a barcode sends the barcode number to OpenFoodFacts (openfoodfacts.org) to look up nutrition data.\n\nNo other personal data is sent. Continue?',
+                    )
+                    if (!ok) return
+                    localStorage.setItem('gym_barcode_consent', 'true')
+                  }
+                  setScannerOpen(true)
+                }}
+                disabled={looking}
+                className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-brand/10 border border-brand/20 text-brand text-sm font-medium hover:bg-brand/15 transition-colors disabled:opacity-50"
+              >
+                {looking ? (
+                  <>
+                    <Loader size={14} className="animate-spin" /> Looking up...
+                  </>
+                ) : (
+                  <>
+                    <ScanLine size={14} /> Scan Barcode
+                  </>
+                )}
+              </button>
+              <button
+                onClick={() => setPhotoScanOpen(true)}
+                disabled={looking}
+                className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-brand/10 border border-brand/20 text-brand text-sm font-medium hover:bg-brand/15 transition-colors disabled:opacity-50"
+              >
+                <Camera size={14} /> Scan Photo
+              </button>
+            </div>
           )}
 
           {/* Lookup error */}
