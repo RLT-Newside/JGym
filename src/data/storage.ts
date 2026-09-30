@@ -27,6 +27,8 @@ export const STORAGE_KEYS = {
   // Consent flags.
   privacyConsent: 'gym_privacy_consent',
   barcodeConsent: 'gym_barcode_consent',
+  // AI food scan endpoint; saving it is the user's consent. Holds an API key, so never exported.
+  aiFoodConfig: 'gym_ai_food_config',
   // One-time migrations.
   relinkImagesV1: 'gym_relink_images_v1',
   // Supporter activation.

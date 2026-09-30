@@ -1,6 +1,6 @@
 # Privacy Policy — JGym
 
-**Last Updated:** 2026-06-01
+**Last Updated:** 2026-09-30
 
 ## 1. Who We Are
 
@@ -31,6 +31,13 @@ JGym makes the following optional network requests:
 - **Recipient:** OpenFoodFacts (https://world.openfoodfacts.org)
 - **Purpose:** Look up nutrition information for scanned products
 - **You can opt out:** Enter nutrition data manually instead of scanning
+
+### AI food photo scan (opt-in)
+- **When:** Only when you take or choose a food photo with "Scan Photo", after you have configured an AI server and explicitly agreed to send photos to it
+- **What is sent:** The food photo (and the API key you entered, if any)
+- **Recipient:** The server you configure — a model you host yourself (e.g. Ollama) or a third party such as Anthropic. JGym cannot verify who operates that server and has no control over how it handles your photos
+- **Purpose:** Estimate calories and macros for the photographed food
+- **You can opt out:** Don't use "Scan Photo", or revoke consent via "Change AI server / revoke consent" in the scanner. The API key is stored on your device only and is excluded from "Export All" backups
 
 ### GitHub API (update check & supporter verification)
 - **When:** On app startup
