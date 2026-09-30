@@ -182,6 +182,8 @@ export function ExercisesView({
             }}
             onSave={(ex) => {
               onSave(ex)
+              // Keep the open sheet showing the saved data.
+              onDetailStateChange({ mode: 'viewing', exercise: ex })
             }}
             onResetProgress={onResetProgress}
             initialMode={detailState.mode === 'editing' ? 'editing' : 'viewing'}

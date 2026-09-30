@@ -98,6 +98,18 @@ describe('ExerciseDetail', () => {
     expect(screen.getByText('View Mode')).toBeInTheDocument()
   })
 
+  it('submits with Enter and muscle-mode buttons do not submit', async () => {
+    const onSave = vi.fn()
+    render(<ExerciseDetail {...defaultProps} exercise={base} onSave={onSave} />)
+    await userEvent.click(screen.getByRole('button', { name: /edit/i }))
+    await userEvent.click(screen.getByRole('button', { name: 'Secondary' }))
+    expect(onSave).not.toHaveBeenCalled()
+    const name = screen.getByPlaceholderText('e.g. Bench Press')
+    await userEvent.clear(name)
+    await userEvent.type(name, 'Renamed{Enter}')
+    expect(onSave).toHaveBeenCalledWith(expect.objectContaining({ name: 'Renamed' }))
+  })
+
   it('cancels edit and returns to view mode without saving', async () => {
     const onSave = vi.fn()
     render(<ExerciseDetail {...defaultProps} exercise={base} onSave={onSave} />)

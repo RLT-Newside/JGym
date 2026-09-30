@@ -23,7 +23,9 @@ export function ExerciseList() {
   } = useAppData()
 
   const handleResetProgress = (exercise: Exercise) => {
-    onSave({ ...exercise, progressResetAt: new Date().toISOString() })
+    const reset = { ...exercise, progressResetAt: new Date().toISOString() }
+    onSave(reset)
+    setDetailState((d) => (d.mode === 'viewing' || d.mode === 'editing' ? { ...d, exercise: reset } : d))
   }
 
   const [subTab, setSubTab] = useState<SubTab>('mine')

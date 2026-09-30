@@ -83,6 +83,7 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
       <div className="flex items-center justify-between gap-2">
         <div className="flex bg-white/[0.03] rounded-lg p-0.5">
           <button
+            type="button"
             onClick={() => setAdvanced(false)}
             className={`px-3 py-1 rounded text-[10px] font-medium transition-colors ${
               !advanced ? 'bg-white/[0.06] text-white' : 'text-white/40'
@@ -91,6 +92,7 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
             Simple
           </button>
           <button
+            type="button"
             onClick={() => setAdvanced(true)}
             className={`px-3 py-1 rounded text-[10px] font-medium transition-colors ${
               advanced ? 'bg-white/[0.06] text-white' : 'text-white/40'
@@ -113,6 +115,7 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
           </div>
 
           <button
+            type="button"
             onClick={() => setView((v) => (v === 'front' ? 'back' : 'front'))}
             className="flex items-center gap-1 text-[10px] text-white/40 hover:text-white/70 px-2 py-1 glass rounded transition-colors"
           >
@@ -230,6 +233,7 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
             return (
               <div key={cat} className="bg-white/[0.03] rounded-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => setExpandedCat(isExpanded ? null : cat)}
                   className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-white/[0.04] transition-colors"
                 >
@@ -264,6 +268,7 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
                   <div className="flex flex-wrap gap-1.5 px-3 pb-2.5">
                     {visibleMuscles.map((m) => (
                       <button
+                        type="button"
                         key={m}
                         onClick={() => onToggle(m)}
                         className={`px-2 py-1 rounded text-[10px] font-medium transition-all ${
