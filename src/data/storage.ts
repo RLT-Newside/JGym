@@ -38,6 +38,8 @@ export const STORAGE_KEYS = {
   // Update checker cache.
   updateLastCheck: 'gym_update_last_check',
   updateCached: 'gym_update_cached',
+  // SparkyFitness integration.
+  sparkyFitnessConfig: 'gym_sparkyfitness_config',
 } as const
 
 export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS]
