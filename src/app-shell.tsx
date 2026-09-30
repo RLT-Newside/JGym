@@ -95,12 +95,21 @@ export function AppShell() {
       <BottomNav active={tab} onChange={setTab} sessionActive={activeSessionRunning} />
 
       <ExerciseDetail
+        key={detailExercise?.id ?? ''}
         open={!!detailExercise}
         onClose={() => setDetailExercise(null)}
         exercise={detailExercise}
         sessions={sessions}
         onStartWith={startWith}
-        onResetProgress={(ex) => saveExercise({ ...ex, progressResetAt: new Date().toISOString() })}
+        onSave={(ex) => {
+          saveExercise(ex)
+          setDetailExercise(ex)
+        }}
+        onResetProgress={(ex) => {
+          const reset = { ...ex, progressResetAt: new Date().toISOString() }
+          saveExercise(reset)
+          setDetailExercise(reset)
+        }}
       />
 
       <SettingsModal

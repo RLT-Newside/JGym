@@ -229,7 +229,13 @@ interface EditFormProps {
 
 function EditForm({ form, fileInputRef, onAddImages, onSave, onCancel }: EditFormProps) {
   return (
-    <div className="space-y-4">
+    <form
+      className="space-y-4"
+      onSubmit={(e) => {
+        e.preventDefault()
+        onSave()
+      }}
+    >
       <FormField
         label="Name"
         type="text"
@@ -243,6 +249,7 @@ function EditForm({ form, fileInputRef, onAddImages, onSave, onCancel }: EditFor
         <label className="label-caption block mb-2">Muscle Groups</label>
         <div className="flex gap-2 mb-3">
           <button
+            type="button"
             onClick={() => form.setSelectionMode('primary')}
             className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
               form.selectionMode === 'primary'
@@ -253,6 +260,7 @@ function EditForm({ form, fileInputRef, onAddImages, onSave, onCancel }: EditFor
             Primary
           </button>
           <button
+            type="button"
             onClick={() => form.setSelectionMode('secondary')}
             className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
               form.selectionMode === 'secondary'
@@ -354,14 +362,14 @@ function EditForm({ form, fileInputRef, onAddImages, onSave, onCancel }: EditFor
       />
 
       <div className="flex gap-3 justify-end pt-2">
-        <Button variant="secondary" onClick={onCancel}>
+        <Button type="button" variant="secondary" onClick={onCancel}>
           Cancel
         </Button>
-        <Button onClick={onSave} disabled={!form.canSave}>
+        <Button type="submit" disabled={!form.canSave}>
           Save
         </Button>
       </div>
-    </div>
+    </form>
   )
 }
 
