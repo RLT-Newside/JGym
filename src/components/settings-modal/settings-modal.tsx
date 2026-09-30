@@ -22,6 +22,7 @@ import {
   X,
 } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { STORAGE_KEYS } from '../../data/storage'
 import type { Theme } from '../../hooks/useTheme'
 import type { CheckResult } from '../../hooks/useUpdateCheck'
 import type { Exercise } from '../../types'
@@ -212,7 +213,7 @@ export function SettingsModal({
     const data: Record<string, unknown> = {}
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i)
-      if (key?.startsWith('gym_')) {
+      if (key?.startsWith('gym_') && key !== STORAGE_KEYS.aiFoodConfig) {
         try {
           data[key] = JSON.parse(localStorage.getItem(key)!)
         } catch {
