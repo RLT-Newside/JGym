@@ -14,6 +14,10 @@ vi.mock('../../hooks/useExerciseImage', () => ({
   useExerciseImage: () => ({ src: '/test.jpg', error: false, loading: false }),
 }))
 
+vi.mock('../body-map/body-map', () => ({
+  BodyMap: () => null,
+}))
+
 const base: Exercise = {
   id: 'ex1',
   name: 'Test Exercise',
@@ -67,23 +71,46 @@ describe('ExerciseDetail', () => {
     expect(screen.queryByAltText('Test Exercise')).not.toBeInTheDocument()
   })
 
-  it('shows edit button when onEdit is provided', () => {
-    render(<ExerciseDetail {...defaultProps} exercise={base} onEdit={vi.fn()} />)
+  it('shows edit button when onSave is provided', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} onSave={vi.fn()} />)
     expect(screen.getByRole('button', { name: /edit/i })).toBeInTheDocument()
   })
 
-  it('does not show edit button when onEdit is not provided', () => {
+  it('does not show edit button when onSave is not provided', () => {
     render(<ExerciseDetail {...defaultProps} exercise={base} />)
-    expect(screen.queryByRole('button', { name: /edit/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^edit$/i })).not.toBeInTheDocument()
   })
 
-  it('calls onEdit and onClose when edit button is clicked', async () => {
-    const onEdit = vi.fn()
-    const onClose = vi.fn()
-    render(<ExerciseDetail {...defaultProps} exercise={base} onEdit={onEdit} onClose={onClose} />)
+  it('switches to edit mode when edit button is clicked', async () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} onSave={vi.fn()} />)
     await userEvent.click(screen.getByRole('button', { name: /edit/i }))
-    expect(onEdit).toHaveBeenCalledWith(base)
-    expect(onClose).toHaveBeenCalled()
+    expect(screen.getByDisplayValue('Test Exercise')).toBeInTheDocument()
+    expect(screen.getByText('Edit Mode')).toBeInTheDocument()
+  })
+
+  it('calls onSave and returns to view mode when Save is clicked in edit mode', async () => {
+    const onSave = vi.fn()
+    render(<ExerciseDetail {...defaultProps} exercise={base} onSave={onSave} />)
+    await userEvent.click(screen.getByRole('button', { name: /edit/i }))
+    await userEvent.click(screen.getByRole('button', { name: /^save$/i }))
+    expect(onSave).toHaveBeenCalledOnce()
+    expect(onSave.mock.calls[0][0]).toMatchObject({ id: 'ex1', name: 'Test Exercise' })
+    expect(screen.getByText('View Mode')).toBeInTheDocument()
+  })
+
+  it('cancels edit and returns to view mode without saving', async () => {
+    const onSave = vi.fn()
+    render(<ExerciseDetail {...defaultProps} exercise={base} onSave={onSave} />)
+    await userEvent.click(screen.getByRole('button', { name: /edit/i }))
+    await userEvent.click(screen.getByRole('button', { name: /cancel/i }))
+    expect(onSave).not.toHaveBeenCalled()
+    expect(screen.getByText('View Mode')).toBeInTheDocument()
+  })
+
+  it('opens in edit mode when initialMode is editing', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} onSave={vi.fn()} initialMode="editing" />)
+    expect(screen.getByDisplayValue('Test Exercise')).toBeInTheDocument()
+    expect(screen.getByText('Edit Mode')).toBeInTheDocument()
   })
 
   it('shows reset progress button when onResetProgress is provided', () => {

@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import { useAppData } from '../../context/app-data'
 import { useBackHandler } from '../../hooks/useBackButton'
-import type { Exercise, MuscleGroup } from '../../types'
+import type { Exercise, ExerciseDetailState, MuscleGroup } from '../../types'
 import { calculatePR } from '../../utils/pr'
 import { ExercisesView } from './exercises.view'
 
@@ -25,12 +25,11 @@ export function ExerciseList() {
   const handleResetProgress = (exercise: Exercise) => {
     onSave({ ...exercise, progressResetAt: new Date().toISOString() })
   }
+
   const [subTab, setSubTab] = useState<SubTab>('mine')
   const [search, setSearch] = useState('')
   const [filterGroups, setFilterGroups] = useState<MuscleGroup[]>([])
-  const [formOpen, setFormOpen] = useState(false)
-  const [editing, setEditing] = useState<Exercise | null>(null)
-  const [detailExercise, setDetailExercise] = useState<Exercise | null>(null)
+  const [detailState, setDetailState] = useState<ExerciseDetailState>({ mode: 'idle' })
   const [deleteId, setDeleteId] = useState<string | null>(null)
 
   useBackHandler(() => {
@@ -66,23 +65,14 @@ export function ExerciseList() {
       subTab={subTab}
       search={search}
       filterGroups={filterGroups}
-      formOpen={formOpen}
-      editing={editing}
-      detailExercise={detailExercise}
+      detailState={detailState}
       deleteId={deleteId}
       prMap={prMap}
       filtered={filtered}
       onSubTabChange={setSubTab}
       onSearchChange={setSearch}
       onFilterGroupsChange={setFilterGroups}
-      onFormOpen={() => setFormOpen(true)}
-      onFormClose={() => {
-        setFormOpen(false)
-        setEditing(null)
-      }}
-      onEdit={setEditing}
-      onDetailOpen={setDetailExercise}
-      onDetailClose={() => setDetailExercise(null)}
+      onDetailStateChange={setDetailState}
       onDeleteRequest={setDeleteId}
       onDeleteCancel={() => setDeleteId(null)}
       onSave={onSave}

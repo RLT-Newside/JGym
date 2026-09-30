@@ -207,6 +207,12 @@ export interface Session {
 
 export type Tab = 'dashboard' | 'exercises' | 'train' | 'history' | 'nutrition'
 
+export type ExerciseDetailState =
+  | { mode: 'idle' }
+  | { mode: 'viewing'; exercise: Exercise }
+  | { mode: 'editing'; exercise: Exercise }
+  | { mode: 'adding' }
+
 // ─── Music types ───
 
 export interface MediaItem {

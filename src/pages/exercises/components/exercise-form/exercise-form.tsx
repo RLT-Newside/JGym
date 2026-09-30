@@ -1,12 +1,12 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { ImagePlus, X } from 'lucide-react'
-import { useRef, useState } from 'react'
-import { v4 as uuid } from 'uuid'
+import { useRef } from 'react'
 import { BodyMap } from '../../../../components/body-map/body-map'
 import { Button } from '../../../../components/button/button'
 import { FormField } from '../../../../components/form-field/form-field'
 import { Modal } from '../../../../components/modal/modal'
-import type { Exercise, MuscleGroup } from '../../../../types'
+import { useExerciseForm } from '../../../../hooks/useExerciseForm'
+import type { Exercise } from '../../../../types'
 import { resizeImageFile } from '../../../../utils/imageResize'
 
 interface Props {
@@ -17,37 +17,8 @@ interface Props {
 }
 
 export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
-  const [name, setName] = useState(exercise?.name ?? '')
-  const [primaryMuscles, setPrimaryMuscles] = useState<MuscleGroup[]>(
-    exercise?.primaryMuscles ?? exercise?.muscleGroups ?? [],
-  )
-  const [secondaryMuscles, setSecondaryMuscles] = useState<MuscleGroup[]>(exercise?.secondaryMuscles ?? [])
-  const [notes, setNotes] = useState(exercise?.notes ?? '')
-  const [description, setDescription] = useState(exercise?.description ?? '')
-  const [customImages, setCustomImages] = useState<string[]>(exercise?.customImages ?? [])
-  const [defaultWarmup, setDefaultWarmup] = useState(exercise?.defaultWarmup ?? false)
-  const [selectionMode, setSelectionMode] = useState<'primary' | 'secondary'>('primary')
+  const form = useExerciseForm(exercise)
   const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleToggle = (muscle: MuscleGroup) => {
-    if (selectionMode === 'primary') {
-      if (primaryMuscles.includes(muscle)) {
-        setPrimaryMuscles((prev) => prev.filter((m) => m !== muscle))
-      } else {
-        // Remove from secondary if switching to primary
-        setSecondaryMuscles((prev) => prev.filter((m) => m !== muscle))
-        setPrimaryMuscles((prev) => [...prev, muscle])
-      }
-    } else {
-      if (secondaryMuscles.includes(muscle)) {
-        setSecondaryMuscles((prev) => prev.filter((m) => m !== muscle))
-      } else {
-        // Remove from primary if switching to secondary
-        setPrimaryMuscles((prev) => prev.filter((m) => m !== muscle))
-        setSecondaryMuscles((prev) => [...prev, muscle])
-      }
-    }
-  }
 
   const handleAddImages = async (files: FileList) => {
     const newImages: string[] = []
@@ -59,29 +30,16 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
         /* skip unreadable files */
       }
     }
-    setCustomImages((prev) => [...prev, ...newImages])
+    form.setCustomImages((prev) => [...prev, ...newImages])
   }
 
   const handleRemoveImage = (index: number) => {
-    setCustomImages((prev) => prev.filter((_, i) => i !== index))
+    form.setCustomImages((prev) => prev.filter((_, i) => i !== index))
   }
 
   const handleSave = () => {
-    if (!name.trim()) return
-    const allMuscles = [...primaryMuscles, ...secondaryMuscles]
-    onSave({
-      id: exercise?.id ?? uuid(),
-      name: name.trim(),
-      muscleGroups: allMuscles,
-      primaryMuscles,
-      secondaryMuscles,
-      notes: notes.trim(),
-      createdAt: exercise?.createdAt ?? new Date().toISOString(),
-      libraryId: exercise?.libraryId,
-      description: description.trim() || undefined,
-      customImages: customImages.length > 0 ? customImages : undefined,
-      defaultWarmup: defaultWarmup || undefined,
-    })
+    if (!form.canSave) return
+    onSave(form.buildExercise())
     onClose()
   }
 
@@ -91,8 +49,8 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
         <FormField
           label="Name"
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={form.name}
+          onChange={(e) => form.setName(e.target.value)}
           placeholder="e.g. Bench Press"
           autoFocus
         />
@@ -101,9 +59,9 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
           <label className="label-caption block mb-2">Muscle Groups</label>
           <div className="flex gap-2 mb-3">
             <button
-              onClick={() => setSelectionMode('primary')}
+              onClick={() => form.setSelectionMode('primary')}
               className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
-                selectionMode === 'primary'
+                form.selectionMode === 'primary'
                   ? 'bg-brand text-black'
                   : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
               }`}
@@ -111,9 +69,9 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
               Primary
             </button>
             <button
-              onClick={() => setSelectionMode('secondary')}
+              onClick={() => form.setSelectionMode('secondary')}
               className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
-                selectionMode === 'secondary'
+                form.selectionMode === 'secondary'
                   ? 'bg-brand/30 text-brand'
                   : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
               }`}
@@ -122,18 +80,18 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
             </button>
           </div>
           <BodyMap
-            primaryMuscles={primaryMuscles}
-            secondaryMuscles={secondaryMuscles}
-            onToggle={handleToggle}
-            mode={selectionMode}
+            primaryMuscles={form.primaryMuscles}
+            secondaryMuscles={form.secondaryMuscles}
+            onToggle={form.handleToggleMuscle}
+            mode={form.selectionMode}
           />
         </div>
 
         <FormField
           label="Description"
           multiline
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={form.description}
+          onChange={(e) => form.setDescription(e.target.value)}
           placeholder="How to perform this exercise..."
           rows={3}
         />
@@ -143,18 +101,20 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={() => setDefaultWarmup(false)}
+              onClick={() => form.setDefaultWarmup(false)}
               className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
-                !defaultWarmup ? 'bg-white/[0.12] text-white/70' : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
+                !form.defaultWarmup
+                  ? 'bg-white/[0.12] text-white/70'
+                  : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
               }`}
             >
               No warmup
             </button>
             <button
               type="button"
-              onClick={() => setDefaultWarmup(true)}
+              onClick={() => form.setDefaultWarmup(true)}
               className={`flex-1 text-xs py-2 rounded-lg font-medium transition-colors ${
-                defaultWarmup ? 'bg-sky-400/20 text-sky-400' : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
+                form.defaultWarmup ? 'bg-sky-400/20 text-sky-400' : 'bg-white/[0.06] text-white/40 hover:bg-white/[0.1]'
               }`}
             >
               With warmup
@@ -164,9 +124,9 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
 
         <div>
           <label className="label-caption block mb-2">Images</label>
-          {customImages.length > 0 && (
+          {form.customImages.length > 0 && (
             <div className="flex gap-2 flex-wrap mb-2">
-              {customImages.map((src, i) => (
+              {form.customImages.map((src, i) => (
                 <div key={i} className="relative w-20 h-20 rounded-lg overflow-hidden bg-white/[0.04]">
                   <img src={src} alt={`Custom ${i + 1}`} className="w-full h-full object-cover" />
                   <button
@@ -203,8 +163,8 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
         <FormField
           label="Notes"
           multiline
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          value={form.notes}
+          onChange={(e) => form.setNotes(e.target.value)}
           placeholder="Optional notes..."
           rows={2}
         />
@@ -213,7 +173,7 @@ export function ExerciseForm({ open, onClose, onSave, exercise }: Props) {
           <Button variant="secondary" onClick={onClose}>
             Cancel
           </Button>
-          <Button onClick={handleSave} disabled={!name.trim()}>
+          <Button onClick={handleSave} disabled={!form.canSave}>
             Save
           </Button>
         </div>

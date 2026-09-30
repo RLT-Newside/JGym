@@ -6,7 +6,7 @@ import { ExerciseDetail } from '../../components/exercise-detail/exercise-detail
 import { MuscleGroupFilter } from '../../components/muscle-group-filter/muscle-group-filter'
 import { MuscleTags } from '../../components/muscle-tags/muscle-tags'
 import { SearchBar } from '../../components/search-bar/search-bar'
-import type { Exercise, MuscleGroup, SavedPlan, Session } from '../../types'
+import type { Exercise, ExerciseDetailState, MuscleGroup, SavedPlan, Session } from '../../types'
 import type { calculatePR } from '../../utils/pr'
 import { formatPR } from '../../utils/pr'
 import { ExerciseForm } from './components/exercise-form/exercise-form'
@@ -21,20 +21,14 @@ interface Props {
   subTab: SubTab
   search: string
   filterGroups: MuscleGroup[]
-  formOpen: boolean
-  editing: Exercise | null
-  detailExercise: Exercise | null
+  detailState: ExerciseDetailState
   deleteId: string | null
   prMap: Map<string, ReturnType<typeof calculatePR>>
   filtered: Exercise[]
   onSubTabChange: (tab: SubTab) => void
   onSearchChange: (v: string) => void
   onFilterGroupsChange: (groups: MuscleGroup[]) => void
-  onFormOpen: () => void
-  onFormClose: () => void
-  onEdit: (ex: Exercise) => void
-  onDetailOpen: (ex: Exercise) => void
-  onDetailClose: () => void
+  onDetailStateChange: (state: ExerciseDetailState) => void
   onDeleteRequest: (id: string) => void
   onDeleteCancel: () => void
   onSave: (exercise: Exercise) => void
@@ -53,20 +47,14 @@ export function ExercisesView({
   subTab,
   search,
   filterGroups,
-  formOpen,
-  editing,
-  detailExercise,
+  detailState,
   deleteId,
   prMap,
   filtered,
   onSubTabChange,
   onSearchChange,
   onFilterGroupsChange,
-  onFormOpen,
-  onFormClose,
-  onEdit,
-  onDetailOpen,
-  onDetailClose,
+  onDetailStateChange,
   onDeleteRequest,
   onDeleteCancel,
   onSave,
@@ -77,6 +65,8 @@ export function ExercisesView({
   onUpdatePlan,
   onDeletePlan,
 }: Props) {
+  const detailExercise = detailState.mode === 'viewing' || detailState.mode === 'editing' ? detailState.exercise : null
+
   return (
     <div className="px-4 py-4 space-y-4">
       <div className="flex glass rounded-xl p-0.5">
@@ -125,7 +115,10 @@ export function ExercisesView({
                   key={ex.id}
                   className="glass rounded-xl p-3 flex items-center gap-3 group hover:bg-white/[0.06] transition-all"
                 >
-                  <button className="flex-1 text-left min-w-0" onClick={() => onDetailOpen(ex)}>
+                  <button
+                    className="flex-1 text-left min-w-0"
+                    onClick={() => onDetailStateChange({ mode: 'viewing', exercise: ex })}
+                  >
                     <div className="flex items-center gap-2">
                       <span className="font-heading text-lg truncate">{ex.name}</span>
                       {pr && <span className="text-brand text-xs font-heading">{formatPR(pr)}</span>}
@@ -136,7 +129,7 @@ export function ExercisesView({
                   </button>
                   <button
                     type="button"
-                    onClick={() => onEdit(ex)}
+                    onClick={() => onDetailStateChange({ mode: 'editing', exercise: ex })}
                     aria-label={`Edit ${ex.name}`}
                     className="p-2 hover:bg-white/10 rounded-lg opacity-50 hover:opacity-100 transition-opacity"
                   >
@@ -159,7 +152,7 @@ export function ExercisesView({
             <div className="max-w-lg mx-auto px-4 flex justify-end">
               <button
                 type="button"
-                onClick={onFormOpen}
+                onClick={() => onDetailStateChange({ mode: 'adding' })}
                 aria-label="Add exercise"
                 className="pointer-events-auto w-14 h-14 bg-brand rounded-full flex items-center justify-center shadow-[0_0_24px_var(--color-brand)] shadow-brand/30 hover:shadow-brand/50 transition-shadow press-scale"
               >
@@ -169,24 +162,29 @@ export function ExercisesView({
           </div>
 
           <ExerciseForm
-            key={editing?.id ?? 'new'}
-            open={formOpen || !!editing}
-            onClose={onFormClose}
-            onSave={onSave}
-            exercise={editing}
+            open={detailState.mode === 'adding'}
+            onClose={() => onDetailStateChange({ mode: 'idle' })}
+            onSave={(ex) => {
+              onSave(ex)
+              onDetailStateChange({ mode: 'idle' })
+            }}
           />
 
           <ExerciseDetail
-            open={!!detailExercise}
-            onClose={onDetailClose}
+            key={detailExercise?.id ?? ''}
+            open={detailState.mode === 'viewing' || detailState.mode === 'editing'}
+            onClose={() => onDetailStateChange({ mode: 'idle' })}
             exercise={detailExercise}
             sessions={sessions}
-            onStartWith={onStartWith}
-            onEdit={(ex) => {
-              onDetailClose()
-              onEdit(ex)
+            onStartWith={(ex) => {
+              onStartWith(ex)
+              onDetailStateChange({ mode: 'idle' })
+            }}
+            onSave={(ex) => {
+              onSave(ex)
             }}
             onResetProgress={onResetProgress}
+            initialMode={detailState.mode === 'editing' ? 'editing' : 'viewing'}
           />
 
           <ConfirmDialog
