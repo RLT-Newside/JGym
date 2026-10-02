@@ -52,6 +52,15 @@
      report a large inset — cap the added padding. */
   padding-bottom: min(env(safe-area-inset-bottom), 8px);
 }
+.keyboard-pad {
+  /* Leave room below the content for the software keyboard so the focused
+     field can scroll above it (JGYM-43). */
+  padding-bottom: var(--keyboard-inset, 0px);
+}
+.modal-panel {
+  max-height: 85vh;
+  max-height: calc(85dvh - var(--keyboard-inset, 0px));
+}
 .above-nav {
   /* Sit flush above the bottom nav, accounting for its safe-area padding. */
   bottom: calc(4rem + min(env(safe-area-inset-bottom), 8px));

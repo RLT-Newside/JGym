@@ -41,4 +41,9 @@ describe('BottomNav', () => {
     const { container } = render(<BottomNav active="train" onChange={vi.fn()} sessionActive={true} />)
     expect(container.querySelector('.animate-pulse')).toBeNull()
   })
+
+  it('renders nothing while hidden (software keyboard open)', () => {
+    const { container } = render(<BottomNav active="dashboard" onChange={vi.fn()} hidden />)
+    expect(container.querySelector('nav')).toBeNull()
+  })
 })

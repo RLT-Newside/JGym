@@ -6,6 +6,7 @@ interface Props {
   active: Tab
   onChange: (tab: Tab) => void
   sessionActive?: boolean
+  hidden?: boolean
 }
 
 const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
@@ -16,7 +17,10 @@ const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
   { id: 'history', label: 'History', icon: Calendar },
 ]
 
-export function BottomNav({ active, onChange, sessionActive }: Props) {
+export function BottomNav({ active, onChange, sessionActive, hidden }: Props) {
+  // Hidden while the software keyboard is open so the form gets the space (JGYM-43).
+  if (hidden) return null
+
   return (
     <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-40 glass-nav border-t safe-bottom">
       <div className="flex items-center justify-around">

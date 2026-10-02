@@ -9,6 +9,8 @@ import { SettingsModal } from './components/settings-modal/settings-modal'
 import { UpdateBanner } from './components/update-banner/update-banner'
 import { useAppData } from './context/app-data'
 import { STORAGE_KEYS } from './data/storage'
+import { useKeyboardAvoidance } from './hooks/useKeyboardAvoidance'
+import { useKeyboardVisible } from './hooks/useKeyboardVisible'
 import { useUpdateCheck } from './hooks/useUpdateCheck'
 import { BottomNav } from './layout/bottom-nav/bottom-nav'
 import { Header } from './layout/header/header'
@@ -45,6 +47,8 @@ export function AppShell() {
   } = useAppData()
 
   const { update, checkNow, checking } = useUpdateCheck()
+  const keyboardVisible = useKeyboardVisible()
+  useKeyboardAvoidance()
 
   const [privacyAccepted, setPrivacyAccepted] = useState(
     () => localStorage.getItem(STORAGE_KEYS.privacyConsent) === 'true',
@@ -73,7 +77,9 @@ export function AppShell() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0d0d0d] text-[#e8e4dc] pb-16 max-w-lg mx-auto">
+    <div
+      className={`min-h-screen bg-[#0d0d0d] text-[#e8e4dc] max-w-lg mx-auto ${keyboardVisible ? 'keyboard-pad' : 'pb-16'}`}
+    >
       {update && <UpdateBanner version={update.version} url={update.url} />}
       <Header onSettingsClick={() => setSettingsOpen(true)} />
 
@@ -92,7 +98,7 @@ export function AppShell() {
         <AppRouter />
       </ErrorBoundary>
 
-      <BottomNav active={tab} onChange={setTab} sessionActive={activeSessionRunning} />
+      <BottomNav active={tab} onChange={setTab} sessionActive={activeSessionRunning} hidden={keyboardVisible} />
 
       <ExerciseDetail
         key={detailExercise?.id ?? ''}

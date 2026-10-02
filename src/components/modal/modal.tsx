@@ -79,14 +79,14 @@ export function Modal({ open, onClose, title, children }: Props) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center animate-fade-in keyboard-pad">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative bg-[#1a1a1a]/80 backdrop-blur-2xl border border-white/[0.1] w-full sm:max-w-lg max-h-[85vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl p-5 animate-slide-up shadow-2xl"
+        className="relative bg-[#1a1a1a]/80 backdrop-blur-2xl border border-white/[0.1] w-full sm:max-w-lg modal-panel overflow-y-auto rounded-t-2xl sm:rounded-2xl p-5 animate-slide-up shadow-2xl"
       >
         <div className="flex items-center justify-between mb-4">
           <h2 id={titleId} className="font-heading text-2xl">
