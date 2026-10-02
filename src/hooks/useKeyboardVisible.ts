@@ -9,7 +9,7 @@ const KEYBOARD_THRESHOLD = 0.75
 // On iOS/Android (Capacitor), the visual viewport may not shrink when the
 // software keyboard opens (the keyboard overlays content instead). Tracking
 // focus on text inputs gives a reliable fallback for all platforms.
-function isTextInput(el: EventTarget | null): boolean {
+export function isTextInput(el: EventTarget | null): boolean {
   if (!(el instanceof HTMLElement)) return false
   if (el.tagName === 'TEXTAREA') return true
   if (el.tagName === 'INPUT') {
