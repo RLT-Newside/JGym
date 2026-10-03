@@ -10,9 +10,23 @@ const CHECK_KEY = STORAGE_KEYS.updateLastCheck
 const CACHE_KEY = STORAGE_KEYS.updateCached
 const DAY_MS = 24 * 60 * 60 * 1000
 
-interface UpdateInfo {
+export const RELEASES_URL = `https://github.com/${REPO}/releases/latest`
+
+export interface UpdateInfo {
   version: string
   url: string
+  // Hex SHA-256 of the APK as published by GitHub. Absent in caches written
+  // before in-app installs existed — the download is then installed unverified
+  // (Android still rejects APKs signed with a different key).
+  sha256?: string
+  size?: number
+}
+
+interface ReleaseAsset {
+  name: string
+  browser_download_url: string
+  size?: number
+  digest?: string | null
 }
 
 export type CheckResult = 'update' | 'latest' | 'error'
@@ -28,11 +42,13 @@ async function fetchLatest(current: string, signal?: AbortSignal): Promise<Updat
   const data = await r.json()
   const latest = data.tag_name?.replace(/^v/, '')
   if (!latest || !isNewer(latest, current)) return null
-  const apk = data.assets?.find((a: { name: string; browser_download_url: string }) => a.name.endsWith('.apk'))
+  const apk: ReleaseAsset | undefined = data.assets?.find((a: ReleaseAsset) => a.name.endsWith('.apk'))
   if (!apk) return null
   return {
     version: data.tag_name,
-    url: apk.browser_download_url ?? `https://github.com/${REPO}/releases/latest`,
+    url: apk.browser_download_url ?? RELEASES_URL,
+    sha256: apk.digest?.startsWith('sha256:') ? apk.digest.slice('sha256:'.length) : undefined,
+    size: typeof apk.size === 'number' ? apk.size : undefined,
   }
 }
 

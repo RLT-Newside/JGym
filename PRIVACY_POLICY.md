@@ -1,6 +1,6 @@
 # Privacy Policy — JGym
 
-**Last Updated:** 2026-09-30
+**Last Updated:** 2026-10-02
 
 ## 1. Who We Are
 
@@ -43,6 +43,12 @@ JGym makes the following optional network requests:
 - **When:** On app startup
 - **What is sent:** No personal data (plain GET requests)
 - **Purpose:** Check for app updates and verify supporter activation codes
+
+### GitHub Releases (app update download)
+- **When:** Only when you tap "Update" in the update dialog
+- **What is sent:** No personal data (a plain download of the new app version)
+- **Recipient:** GitHub (https://github.com/RLT-Newside/JGym/releases)
+- **Purpose:** Download the new APK, which is checked against GitHub's published checksum and then handed to Android's installer for you to confirm
 
 ## 4. Data We Do NOT Collect
 

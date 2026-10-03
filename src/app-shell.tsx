@@ -12,6 +12,7 @@ import { STORAGE_KEYS } from './data/storage'
 import { useKeyboardAvoidance } from './hooks/useKeyboardAvoidance'
 import { useKeyboardVisible } from './hooks/useKeyboardVisible'
 import { useUpdateCheck } from './hooks/useUpdateCheck'
+import { useUpdateInstall } from './hooks/useUpdateInstall'
 import { BottomNav } from './layout/bottom-nav/bottom-nav'
 import { Header } from './layout/header/header'
 import { AppRouter } from './router/router'
@@ -47,6 +48,8 @@ export function AppShell() {
   } = useAppData()
 
   const { update, checkNow, checking } = useUpdateCheck()
+  const updateInstaller = useUpdateInstall(update)
+  const [updateOpen, setUpdateOpen] = useState(true)
   const keyboardVisible = useKeyboardVisible()
   useKeyboardAvoidance()
 
@@ -80,7 +83,9 @@ export function AppShell() {
     <div
       className={`min-h-screen bg-[#0d0d0d] text-[#e8e4dc] max-w-lg mx-auto ${keyboardVisible ? 'keyboard-pad' : 'pb-16'}`}
     >
-      {update && <UpdateBanner version={update.version} url={update.url} />}
+      {update && updateOpen && (
+        <UpdateBanner update={update} installer={updateInstaller} onClose={() => setUpdateOpen(false)} />
+      )}
       <Header onSettingsClick={() => setSettingsOpen(true)} />
 
       {demoMode && (
@@ -130,6 +135,10 @@ export function AppShell() {
         onActivateCode={tryActivate}
         onRevoke={revoke}
         update={update}
+        onOpenUpdate={() => {
+          setSettingsOpen(false)
+          setUpdateOpen(true)
+        }}
         onCheckUpdate={checkNow}
         checkingUpdate={checking}
         musicPopupDisabled={musicPopupDisabled}

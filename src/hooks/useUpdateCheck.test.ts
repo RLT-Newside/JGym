@@ -59,6 +59,43 @@ describe('useUpdateCheck', () => {
     })
   })
 
+  it('includes the APK sha256 digest and size so the download can be verified', async () => {
+    const dayAgo = Date.now() - 25 * 60 * 60 * 1000
+    localStorage.setItem(CHECK_KEY, String(dayAgo))
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            tag_name: 'v2.0.0',
+            html_url: 'https://github.com/RLT-Newside/JGym/releases/tag/v2.0.0',
+            assets: [
+              {
+                name: 'JGym-v2.0.0.apk',
+                content_type: 'application/vnd.android.package-archive',
+                size: 11298707,
+                digest: 'sha256:646fe66d66c672d40f318a16421838ac6b98be36934e92bb9697e0072ea4263d',
+                browser_download_url: 'https://github.com/RLT-Newside/JGym/releases/download/v2.0.0/JGym-v2.0.0.apk',
+              },
+            ],
+          }),
+      }),
+    )
+
+    const { result } = renderHook(() => useUpdateCheck())
+
+    await waitFor(() => {
+      expect(result.current.update).toEqual({
+        version: 'v2.0.0',
+        url: 'https://github.com/RLT-Newside/JGym/releases/download/v2.0.0/JGym-v2.0.0.apk',
+        sha256: '646fe66d66c672d40f318a16421838ac6b98be36934e92bb9697e0072ea4263d',
+        size: 11298707,
+      })
+    })
+  })
+
   it('does not show update when API returns same version', async () => {
     const dayAgo = Date.now() - 25 * 60 * 60 * 1000
     localStorage.setItem(CHECK_KEY, String(dayAgo))

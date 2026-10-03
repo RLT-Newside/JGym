@@ -32,6 +32,8 @@ A mobile workout tracker and music controller for Android, built with React + Ca
 3. Install the APK
 4. Open JGym → Music tab → grant notification access → enjoy
 
+**Updates:** when a new version is out, JGym offers it on startup (or via Settings → Check for updates). Tap **Update** — JGym downloads and verifies the APK — then confirm **Update** in Android's dialog. The first time, Android asks you once to allow installs from JGym — allow it, then confirm the update.
+
 ## Development
 
 ```bash

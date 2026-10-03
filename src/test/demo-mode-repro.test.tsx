@@ -132,6 +132,7 @@ describe('each tab + exercise detail with demo data', () => {
           onActivateCode={vi.fn(async () => true)}
           onRevoke={vi.fn()}
           update={null}
+          onOpenUpdate={vi.fn()}
           onCheckUpdate={vi.fn()}
           checkingUpdate={false}
           musicPopupDisabled={false}
