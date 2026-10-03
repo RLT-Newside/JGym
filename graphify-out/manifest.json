@@ -1,269 +1,1652 @@
 {
-  "/home/martyj6/projects/JGym/vite.config.ts": 1781514399.837571,
-  "/home/martyj6/projects/JGym/capacitor.config.ts": 1781509562.071112,
-  "/home/martyj6/projects/JGym/vitest.config.ts": 1781098574.3619213,
-  "/home/martyj6/projects/JGym/src/main.tsx": 1781098574.2979198,
-  "/home/martyj6/projects/JGym/src/App.tsx": 1781514344.9723487,
-  "/home/martyj6/projects/JGym/src/fontsource.d.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/utils/fileExport.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/format.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/progression.test.ts": 1781098574.3619213,
-  "/home/martyj6/projects/JGym/src/utils/nutrition.test.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/version.ts": 1781098574.3619213,
-  "/home/martyj6/projects/JGym/src/utils/format.test.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/openFoodFacts.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/patternDetection.test.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/nutrition.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/progression.ts": 1781098574.3619213,
-  "/home/martyj6/projects/JGym/src/utils/exerciseImages.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/supporter.test.ts": 1781098574.3619213,
-  "/home/martyj6/projects/JGym/src/utils/patternDetection.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/pr.test.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/pr.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/utils/version.test.ts": 1781098574.3619213,
-  "/home/martyj6/projects/JGym/src/utils/supporter.ts": 1781509562.1071122,
-  "/home/martyj6/projects/JGym/src/data/wikiPlans.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/data/muscleSlugMap.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/data/musclePaths.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/data/wikiExercises.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/data/freeExerciseDb/nameAlias.ts": 1781509562.1031122,
-  "/home/martyj6/projects/JGym/src/data/freeExerciseDb/bundledFolders.ts": 1781098574.2819192,
-  "/home/martyj6/projects/JGym/src/data/freeExerciseDb/index.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/data/freeExerciseDb/muscleMap.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/components/button/button.test.tsx": 1781098574.2539186,
-  "/home/martyj6/projects/JGym/src/components/button/button.tsx": 1781098574.2539186,
-  "/home/martyj6/projects/JGym/src/components/settings-modal/settings-modal.tsx": 1781509562.1031122,
-  "/home/martyj6/projects/JGym/src/components/confirm-dialog/confirm-dialog.tsx": 1781098574.2579188,
-  "/home/martyj6/projects/JGym/src/components/confirm-dialog/confirm-dialog.test.tsx": 1781098574.2579188,
-  "/home/martyj6/projects/JGym/src/components/search-bar/search-bar.tsx": 1781098574.269919,
-  "/home/martyj6/projects/JGym/src/components/update-banner/update-banner.tsx": 1781098574.2779193,
-  "/home/martyj6/projects/JGym/src/components/exercise-detail/progression-chart.tsx": 1781098574.2579188,
-  "/home/martyj6/projects/JGym/src/components/exercise-detail/exercise-detail.tsx": 1781098574.2579188,
-  "/home/martyj6/projects/JGym/src/components/muscle-group-filter/muscle-group-filter.tsx": 1781098574.265919,
-  "/home/martyj6/projects/JGym/src/components/music/browse-view.tsx": 1781098574.265919,
-  "/home/martyj6/projects/JGym/src/components/music/now-playing.tsx": 1781098574.265919,
-  "/home/martyj6/projects/JGym/src/components/music/music.tsx": 1781098574.265919,
-  "/home/martyj6/projects/JGym/src/components/music/queue-view.tsx": 1781098574.265919,
-  "/home/martyj6/projects/JGym/src/components/modal/modal.test.tsx": 1781098574.2619188,
-  "/home/martyj6/projects/JGym/src/components/modal/modal.tsx": 1781098574.2619188,
-  "/home/martyj6/projects/JGym/src/components/privacy-consent/privacy-consent.tsx": 1781509562.1031122,
-  "/home/martyj6/projects/JGym/src/components/body-map/body-map.tsx": 1781098574.2539186,
-  "/home/martyj6/projects/JGym/src/components/muscle-tags/muscle-tags.tsx": 1781098574.265919,
-  "/home/martyj6/projects/JGym/src/types/index.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/hooks/useBackButton.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/hooks/useSharedImport.ts": 1781514344.9723487,
-  "/home/martyj6/projects/JGym/src/hooks/useStorage.test.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useUpdateCheck.ts": 1781509562.1031122,
-  "/home/martyj6/projects/JGym/src/hooks/useTheme.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useLibraryEntry.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/hooks/usePR.test.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useSession.test.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useMediaSession.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useStorage.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/usePR.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useMediaBrowser.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/hooks/useSession.ts": 1781098574.2939196,
-  "/home/martyj6/projects/JGym/src/hooks/useExerciseImage.ts": 1781098574.2899196,
-  "/home/martyj6/projects/JGym/src/layout/header/header.tsx": 1781098574.2979198,
-  "/home/martyj6/projects/JGym/src/layout/bottom-nav/bottom-nav.tsx": 1781098574.2979198,
-  "/home/martyj6/projects/JGym/src/pages/train/train.container.tsx": 1781098574.353921,
-  "/home/martyj6/projects/JGym/src/pages/train/train.container.test.tsx": 1781098574.353921,
-  "/home/martyj6/projects/JGym/src/pages/train/train.view.tsx": 1781098574.353921,
-  "/home/martyj6/projects/JGym/src/pages/train/components/exercise-picker/exercise-picker.tsx": 1781098574.3459208,
-  "/home/martyj6/projects/JGym/src/pages/train/components/pr-confetti/pr-confetti.tsx": 1781098574.349921,
-  "/home/martyj6/projects/JGym/src/pages/train/components/session-timer/session-timer.tsx": 1781098574.349921,
-  "/home/martyj6/projects/JGym/src/pages/train/components/media-bar/media-bar.tsx": 1781098574.3459208,
-  "/home/martyj6/projects/JGym/src/pages/train/components/exercise-entry/exercise-entry.tsx": 1781098574.3459208,
-  "/home/martyj6/projects/JGym/src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx": 1781509562.1031122,
-  "/home/martyj6/projects/JGym/src/pages/train/components/set-row/set-row.tsx": 1781098574.349921,
-  "/home/martyj6/projects/JGym/src/pages/exercises/exercises.container.test.tsx": 1781098574.3179202,
-  "/home/martyj6/projects/JGym/src/pages/exercises/exercises.view.tsx": 1781098574.3179202,
-  "/home/martyj6/projects/JGym/src/pages/exercises/exercises.container.tsx": 1781098574.3179202,
-  "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/wiki.tsx": 1781098574.3179202,
-  "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/saved-plan-detail/saved-plan-detail.tsx": 1781098574.3179202,
-  "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/exercise-library/exercise-library.tsx": 1781098574.30992,
-  "/home/martyj6/projects/JGym/src/pages/exercises/components/wiki/plan-detail/plan-detail.tsx": 1781098574.31392,
-  "/home/martyj6/projects/JGym/src/pages/exercises/components/exercise-form/exercise-form.tsx": 1781098574.30592,
-  "/home/martyj6/projects/JGym/src/pages/history/history.view.tsx": 1781098574.3219202,
-  "/home/martyj6/projects/JGym/src/pages/history/history.container.tsx": 1781098574.3219202,
-  "/home/martyj6/projects/JGym/src/pages/history/components/session-card/session-card.tsx": 1781098574.3219202,
-  "/home/martyj6/projects/JGym/src/pages/history/components/calendar-grid/calendar-grid.tsx": 1781098574.3219202,
-  "/home/martyj6/projects/JGym/src/pages/dashboard/dashboard.container.tsx": 1781098574.3019197,
-  "/home/martyj6/projects/JGym/src/pages/dashboard/dashboard.container.test.tsx": 1781098574.3019197,
-  "/home/martyj6/projects/JGym/src/pages/dashboard/dashboard.view.tsx": 1781098574.3019197,
-  "/home/martyj6/projects/JGym/src/pages/dashboard/components/exercise-card/exercise-card.tsx": 1781098574.3019197,
-  "/home/martyj6/projects/JGym/src/pages/dashboard/components/music-card/music-card.tsx": 1781098574.3019197,
-  "/home/martyj6/projects/JGym/src/pages/dashboard/components/pr-badge/pr-badge.tsx": 1781098574.3019197,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/nutrition.view.tsx": 1781098574.3419206,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/nutrition.container.tsx": 1781098574.3419206,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/activity-entry-form/activity-entry-form.tsx": 1781098574.3259203,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/daily-log/daily-log.tsx": 1781098574.3339205,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/nutrition-tips/nutrition-tips.tsx": 1781098574.3379207,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/weight-tracker/weight-tracker.tsx": 1781098574.3419206,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/calorie-insights/calorie-insights.tsx": 1781098574.3339205,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/food-entry-form/food-entry-form.tsx": 1781098574.3339205,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/goal-setup/goal-setup.tsx": 1781098574.3379207,
-  "/home/martyj6/projects/JGym/src/pages/nutrition/components/barcode-scanner/barcode-scanner.tsx": 1781098574.3299205,
-  "/home/martyj6/projects/JGym/src/router/router.tsx": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/src/test/setup.ts": 1781098574.3579211,
-  "/home/martyj6/projects/JGym/public/sw.js": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java": 1781098574.0019128,
-  "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaBridgePlugin.java": 1781509562.071112,
-  "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java": 1781514344.9643486,
-  "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaBrowserBridge.java": 1781509562.071112,
-  "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java": 1781509562.071112,
-  "/home/martyj6/projects/JGym/android/app/src/main/java/com/rltnewside/jgym/MainActivity.java": 1781514379.841071,
-  "/home/martyj6/projects/JGym/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java": 1781098574.0339134,
-  "/home/martyj6/projects/JGym/scripts/build-exercise-db.mjs": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/README.md": 1781509562.0591118,
-  "/home/martyj6/projects/JGym/CLAUDE.md": 1781098573.9899125,
-  "/home/martyj6/projects/JGym/THIRD_PARTY_LICENSES.md": 1781098573.9899125,
-  "/home/martyj6/projects/JGym/index.html": 1781098574.0539138,
-  "/home/martyj6/projects/JGym/PRIVACY_POLICY.md": 1781509562.055112,
-  "/home/martyj6/projects/JGym/fastlane/metadata/android/en-US/short_description.txt": 1781098574.0419137,
-  "/home/martyj6/projects/JGym/fastlane/metadata/android/en-US/title.txt": 1781098574.0419137,
-  "/home/martyj6/projects/JGym/fastlane/metadata/android/en-US/full_description.txt": 1781098574.0419137,
-  "/home/martyj6/projects/JGym/public/favicon.svg": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/public/icons.svg": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/public/icon.svg": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/public/exercise-images/Front_Dumbbell_Raise/1.jpg": 1781098574.1619165,
-  "/home/martyj6/projects/JGym/public/exercise-images/Front_Dumbbell_Raise/0.jpg": 1781098574.1619165,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Hip_Thrust/1.jpg": 1781098574.0779145,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Hip_Thrust/0.jpg": 1781098574.0779145,
-  "/home/martyj6/projects/JGym/public/exercise-images/Face_Pull/1.jpg": 1781098574.1579163,
-  "/home/martyj6/projects/JGym/public/exercise-images/Face_Pull/0.jpg": 1781098574.1579163,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Triceps_Press/1.jpg": 1781098574.2219179,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Triceps_Press/0.jpg": 1781098574.2219179,
-  "/home/martyj6/projects/JGym/public/exercise-images/Side_Lateral_Raise/1.jpg": 1781098574.229918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Side_Lateral_Raise/0.jpg": 1781098574.225918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Butterfly/1.jpg": 1781098574.1099153,
-  "/home/martyj6/projects/JGym/public/exercise-images/Butterfly/0.jpg": 1781098574.105915,
-  "/home/martyj6/projects/JGym/public/exercise-images/Side_Bridge/1.jpg": 1781098574.225918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Side_Bridge/0.jpg": 1781098574.225918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Glute_Bridge/1.jpg": 1781098574.0739145,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Glute_Bridge/0.jpg": 1781098574.0739145,
-  "/home/martyj6/projects/JGym/public/exercise-images/Close-Grip_Front_Lat_Pulldown/1.jpg": 1781098574.1259155,
-  "/home/martyj6/projects/JGym/public/exercise-images/Close-Grip_Front_Lat_Pulldown/0.jpg": 1781098574.1259155,
-  "/home/martyj6/projects/JGym/public/exercise-images/Wide-Grip_Lat_Pulldown/1.jpg": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/public/exercise-images/Wide-Grip_Lat_Pulldown/0.jpg": 1781098574.2499185,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Calf_Raise/1.jpg": 1781098574.217918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Calf_Raise/0.jpg": 1781098574.217918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Pullups/1.jpg": 1781098574.1979172,
-  "/home/martyj6/projects/JGym/public/exercise-images/Pullups/0.jpg": 1781098574.1979172,
-  "/home/martyj6/projects/JGym/public/exercise-images/Close-Grip_Barbell_Bench_Press/1.jpg": 1781098574.1219156,
-  "/home/martyj6/projects/JGym/public/exercise-images/Close-Grip_Barbell_Bench_Press/0.jpg": 1781098574.1219156,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dips_-_Chest_Version/1.jpg": 1781098574.133916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dips_-_Chest_Version/0.jpg": 1781098574.1299157,
-  "/home/martyj6/projects/JGym/public/exercise-images/Hanging_Leg_Raise/1.jpg": 1781098574.1779168,
-  "/home/martyj6/projects/JGym/public/exercise-images/Hanging_Leg_Raise/0.jpg": 1781098574.1779168,
-  "/home/martyj6/projects/JGym/public/exercise-images/Pushups/1.jpg": 1781098574.2019174,
-  "/home/martyj6/projects/JGym/public/exercise-images/Pushups/0.jpg": 1781098574.2019174,
-  "/home/martyj6/projects/JGym/public/exercise-images/EZ-Bar_Skullcrusher/1.jpg": 1781098574.1539164,
-  "/home/martyj6/projects/JGym/public/exercise-images/EZ-Bar_Skullcrusher/0.jpg": 1781098574.1499162,
-  "/home/martyj6/projects/JGym/public/exercise-images/Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench/1.jpg": 1781098574.105915,
-  "/home/martyj6/projects/JGym/public/exercise-images/Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench/0.jpg": 1781098574.105915,
-  "/home/martyj6/projects/JGym/public/exercise-images/Concentration_Curls/1.jpg": 1781098574.1299157,
-  "/home/martyj6/projects/JGym/public/exercise-images/Concentration_Curls/0.jpg": 1781098574.1299157,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Shrug/1.jpg": 1781098574.0779145,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Shrug/0.jpg": 1781098574.0779145,
-  "/home/martyj6/projects/JGym/public/exercise-images/Triceps_Pushdown/1.jpg": 1781098574.2419183,
-  "/home/martyj6/projects/JGym/public/exercise-images/Triceps_Pushdown/0.jpg": 1781098574.2419183,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Leg_Curl/1.jpg": 1781098574.217918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Leg_Curl/0.jpg": 1781098574.217918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Upright_Barbell_Row/1.jpg": 1781098574.2459185,
-  "/home/martyj6/projects/JGym/public/exercise-images/Upright_Barbell_Row/0.jpg": 1781098574.2459185,
-  "/home/martyj6/projects/JGym/public/exercise-images/Ab_Roller/1.jpg": 1781098574.0619142,
-  "/home/martyj6/projects/JGym/public/exercise-images/Ab_Roller/0.jpg": 1781098574.057914,
-  "/home/martyj6/projects/JGym/public/exercise-images/Goblet_Squat/1.jpg": 1781098574.1619165,
-  "/home/martyj6/projects/JGym/public/exercise-images/Goblet_Squat/0.jpg": 1781098574.1619165,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Deadlift/1.jpg": 1781098574.0699143,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Deadlift/0.jpg": 1781098574.0699143,
-  "/home/martyj6/projects/JGym/public/exercise-images/Cable_Crunch/1.jpg": 1781098574.1139154,
-  "/home/martyj6/projects/JGym/public/exercise-images/Cable_Crunch/0.jpg": 1781098574.1139154,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Squat/1.jpg": 1781098574.0899148,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Squat/0.jpg": 1781098574.0899148,
-  "/home/martyj6/projects/JGym/public/exercise-images/Hammer_Curls/1.jpg": 1781098574.1699166,
-  "/home/martyj6/projects/JGym/public/exercise-images/Hammer_Curls/0.jpg": 1781098574.1699166,
-  "/home/martyj6/projects/JGym/public/exercise-images/Chin-Up/1.jpg": 1781098574.1179154,
-  "/home/martyj6/projects/JGym/public/exercise-images/Chin-Up/0.jpg": 1781098574.1179154,
-  "/home/martyj6/projects/JGym/public/exercise-images/Cable_Crossover/1.jpg": 1781098574.1139154,
-  "/home/martyj6/projects/JGym/public/exercise-images/Cable_Crossover/0.jpg": 1781098574.1099153,
-  "/home/martyj6/projects/JGym/public/exercise-images/Hack_Squat/1.jpg": 1781098574.1659167,
-  "/home/martyj6/projects/JGym/public/exercise-images/Hack_Squat/0.jpg": 1781098574.1659167,
-  "/home/martyj6/projects/JGym/public/exercise-images/Cable_Chest_Press/1.jpg": 1781098574.1099153,
-  "/home/martyj6/projects/JGym/public/exercise-images/Cable_Chest_Press/0.jpg": 1781098574.1099153,
-  "/home/martyj6/projects/JGym/public/exercise-images/Inverted_Row/1.jpg": 1781098574.181917,
-  "/home/martyj6/projects/JGym/public/exercise-images/Inverted_Row/0.jpg": 1781098574.181917,
-  "/home/martyj6/projects/JGym/public/exercise-images/Leg_Press/1.jpg": 1781098574.189917,
-  "/home/martyj6/projects/JGym/public/exercise-images/Leg_Press/0.jpg": 1781098574.1859171,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Bicep_Curl/1.jpg": 1781098574.141916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Bicep_Curl/0.jpg": 1781098574.141916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Incline_Dumbbell_Curl/1.jpg": 1781098574.181917,
-  "/home/martyj6/projects/JGym/public/exercise-images/Incline_Dumbbell_Curl/0.jpg": 1781098574.1779168,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Flyes/1.jpg": 1781098574.1459162,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Flyes/0.jpg": 1781098574.141916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Reverse_Cable_Curl/1.jpg": 1781098574.2019174,
-  "/home/martyj6/projects/JGym/public/exercise-images/Reverse_Cable_Curl/0.jpg": 1781098574.2019174,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Cable_Rows/1.jpg": 1781098574.2139177,
-  "/home/martyj6/projects/JGym/public/exercise-images/Seated_Cable_Rows/0.jpg": 1781098574.2139177,
-  "/home/martyj6/projects/JGym/public/exercise-images/EZ-Bar_Curl/1.jpg": 1781098574.1499162,
-  "/home/martyj6/projects/JGym/public/exercise-images/EZ-Bar_Curl/0.jpg": 1781098574.1499162,
-  "/home/martyj6/projects/JGym/public/exercise-images/Arnold_Dumbbell_Press/1.jpg": 1781098574.0619142,
-  "/home/martyj6/projects/JGym/public/exercise-images/Arnold_Dumbbell_Press/0.jpg": 1781098574.0619142,
-  "/home/martyj6/projects/JGym/public/exercise-images/Sumo_Deadlift/1.jpg": 1781098574.2339182,
-  "/home/martyj6/projects/JGym/public/exercise-images/Sumo_Deadlift/0.jpg": 1781098574.2339182,
-  "/home/martyj6/projects/JGym/public/exercise-images/Preacher_Curl/1.jpg": 1781098574.1939173,
-  "/home/martyj6/projects/JGym/public/exercise-images/Preacher_Curl/0.jpg": 1781098574.1939173,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Shoulder_Press/1.jpg": 1781098574.1459162,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Shoulder_Press/0.jpg": 1781098574.1459162,
-  "/home/martyj6/projects/JGym/public/exercise-images/Standing_Military_Press/1.jpg": 1781098574.2339182,
-  "/home/martyj6/projects/JGym/public/exercise-images/Standing_Military_Press/0.jpg": 1781098574.2339182,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Bench_Press/1.jpg": 1781098574.1379158,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dumbbell_Bench_Press/0.jpg": 1781098574.133916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Leg_Extensions/1.jpg": 1781098574.1859171,
-  "/home/martyj6/projects/JGym/public/exercise-images/Leg_Extensions/0.jpg": 1781098574.1859171,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Curl/1.jpg": 1781098574.0659142,
-  "/home/martyj6/projects/JGym/public/exercise-images/Barbell_Curl/0.jpg": 1781098574.0659142,
-  "/home/martyj6/projects/JGym/public/exercise-images/Bent_Over_Barbell_Row/1.jpg": 1781098574.097915,
-  "/home/martyj6/projects/JGym/public/exercise-images/Bent_Over_Barbell_Row/0.jpg": 1781098574.097915,
-  "/home/martyj6/projects/JGym/public/exercise-images/T-Bar_Row_with_Handle/1.jpg": 1781098574.2379184,
-  "/home/martyj6/projects/JGym/public/exercise-images/T-Bar_Row_with_Handle/0.jpg": 1781098574.2339182,
-  "/home/martyj6/projects/JGym/public/exercise-images/Romanian_Deadlift/1.jpg": 1781098574.2059176,
-  "/home/martyj6/projects/JGym/public/exercise-images/Romanian_Deadlift/0.jpg": 1781098574.2059176,
-  "/home/martyj6/projects/JGym/public/exercise-images/Russian_Twist/1.jpg": 1781098574.2139177,
-  "/home/martyj6/projects/JGym/public/exercise-images/Russian_Twist/0.jpg": 1781098574.2099175,
-  "/home/martyj6/projects/JGym/public/exercise-images/Standing_Barbell_Calf_Raise/1.jpg": 1781098574.229918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Standing_Barbell_Calf_Raise/0.jpg": 1781098574.229918,
-  "/home/martyj6/projects/JGym/public/exercise-images/Good_Morning/1.jpg": 1781098574.1659167,
-  "/home/martyj6/projects/JGym/public/exercise-images/Good_Morning/0.jpg": 1781098574.1659167,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dips_-_Triceps_Version/1.jpg": 1781098574.133916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Dips_-_Triceps_Version/0.jpg": 1781098574.133916,
-  "/home/martyj6/projects/JGym/public/exercise-images/Lying_Leg_Curls/1.jpg": 1781098574.189917,
-  "/home/martyj6/projects/JGym/public/exercise-images/Lying_Leg_Curls/0.jpg": 1781098574.189917,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png": 1781098574.0299134,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable/splash.png": 1781098574.0219133,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-port-hdpi/splash.png": 1781098574.009913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-land-xxxhdpi/splash.png": 1781098574.009913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-port-xxxhdpi/splash.png": 1781098574.017913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-land-xhdpi/splash.png": 1781098574.009913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-port-mdpi/splash.png": 1781098574.009913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-land-xxhdpi/splash.png": 1781098574.009913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-port-xhdpi/splash.png": 1781098574.009913,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-land-mdpi/splash.png": 1781098574.0059128,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png": 1781098574.0259132,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": 1781098574.0219133,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png": 1781098574.0219133,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png": 1781098574.0219133,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": 1781098574.0219133,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-land-hdpi/splash.png": 1781098574.0059128,
-  "/home/martyj6/projects/JGym/android/app/src/main/res/drawable-port-xxhdpi/splash.png": 1781098574.013913
+  ".claude/settings.json": {
+    "mtime": 1790962635.533859,
+    "ast_hash": "11cffc9c60bd5a82474b17140a85fc65",
+    "semantic_hash": ""
+  },
+  "android/app/build.gradle": {
+    "mtime": 1791001930.0047612,
+    "ast_hash": "4689cce11fa38ce3e2911d46e2dece86",
+    "semantic_hash": ""
+  },
+  "android/app/capacitor.build.gradle": {
+    "mtime": 1791001995.8511598,
+    "ast_hash": "896f9737d09a3199e87e050a2b187bc0",
+    "semantic_hash": ""
+  },
+  "android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java": {
+    "mtime": 1790962635.5416045,
+    "ast_hash": "c777a4127ae7213f7da22c4105bdfeab",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/ApkDownloader.java": {
+    "mtime": 1790964914.4383285,
+    "ast_hash": "cdcc9beaf5497e02259877ada15276ac",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/AppUpdatePlugin.java": {
+    "mtime": 1790965311.6951299,
+    "ast_hash": "8c9cb093839e8844d30d2675e0c0a1fe",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/ImportBridgePlugin.java": {
+    "mtime": 1790962635.5446258,
+    "ast_hash": "e5ebc99797e5aa633e21f2e9765da8cc",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/MainActivity.java": {
+    "mtime": 1790964964.7622688,
+    "ast_hash": "3f03065eec4c9a5bf8c297a506bb9dd6",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/MediaBridgePlugin.java": {
+    "mtime": 1790962635.5456295,
+    "ast_hash": "cfe65d29695652ff65d243995842454e",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/MediaBrowserBridge.java": {
+    "mtime": 1790962635.5456295,
+    "ast_hash": "53bf73c3f33d65f6bf8321a6465ecc8b",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/rltnewside/jgym/MediaNotificationListener.java": {
+    "mtime": 1790962635.5466325,
+    "ast_hash": "fe3ef65b1a236ac10b8dd821fabb20a1",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java": {
+    "mtime": 1790962635.5571585,
+    "ast_hash": "3f8a2768101e4de10f606ea4516fd339",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/rltnewside/jgym/ApkDownloaderTest.java": {
+    "mtime": 1790964812.705053,
+    "ast_hash": "c98b3d8f1eeded0ac06b554fe30b1601",
+    "semantic_hash": ""
+  },
+  "android/build.gradle": {
+    "mtime": 1790962635.5581586,
+    "ast_hash": "e4fb89d49c0f29577c733c46bceb8ec9",
+    "semantic_hash": ""
+  },
+  "android/capacitor-cordova-android-plugins/build.gradle": {
+    "mtime": 1791001990.7070434,
+    "ast_hash": "2af61653d70c95d20802c8b5c433ba90",
+    "semantic_hash": ""
+  },
+  "android/capacitor-cordova-android-plugins/cordova.variables.gradle": {
+    "mtime": 1791001990.7080426,
+    "ast_hash": "d2372a0ae9aa60abb8d03e7f06bf9194",
+    "semantic_hash": ""
+  },
+  "android/capacitor.settings.gradle": {
+    "mtime": 1791001995.852159,
+    "ast_hash": "7e44c776e1fdcbc628d65648f351a243",
+    "semantic_hash": ""
+  },
+  "android/gradlew": {
+    "mtime": 1790962635.5611575,
+    "ast_hash": "f2d3d383787f61a4a99710ee8d780434",
+    "semantic_hash": ""
+  },
+  "android/settings.gradle": {
+    "mtime": 1790962635.5611575,
+    "ast_hash": "c609df618dbeec637255380c9f707ccf",
+    "semantic_hash": ""
+  },
+  "android/variables.gradle": {
+    "mtime": 1790962635.5611575,
+    "ast_hash": "32293aeff620cc10298866858c22ddc9",
+    "semantic_hash": ""
+  },
+  "biome.json": {
+    "mtime": 1790962635.562495,
+    "ast_hash": "b7909dcf2751a67629208fad07aa595c",
+    "semantic_hash": ""
+  },
+  "capacitor.config.ts": {
+    "mtime": 1790962635.562495,
+    "ast_hash": "2ef5e26f015cd43494ede9dddd179fd6",
+    "semantic_hash": ""
+  },
+  "design/icon/build.mjs": {
+    "mtime": 1790962635.5634942,
+    "ast_hash": "a4618c7291a12215a063a605106d5e99",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1790962635.5723233,
+    "ast_hash": "f7209755b3796fd5904ba95b82b3407b",
+    "semantic_hash": ""
+  },
+  "public/manifest.json": {
+    "mtime": 1790962635.6577716,
+    "ast_hash": "6e5f9f55de7f8c77e1adbdbc29595a6f",
+    "semantic_hash": ""
+  },
+  "public/sw.js": {
+    "mtime": 1790962635.6587777,
+    "ast_hash": "b7125996047826314ccd72a905022e70",
+    "semantic_hash": ""
+  },
+  "scripts/build-exercise-db.mjs": {
+    "mtime": 1790962635.6587777,
+    "ast_hash": "c2f38e96b39416fdabddc5086ee4b873",
+    "semantic_hash": ""
+  },
+  "src/App.tsx": {
+    "mtime": 1790962635.6607783,
+    "ast_hash": "37557bb9ec6ce4eb158df44deb5746d9",
+    "semantic_hash": ""
+  },
+  "src/app-shell.test.tsx": {
+    "mtime": 1790964647.3265135,
+    "ast_hash": "11e6bf700c8cf3bae24b4c61f64ce2c4",
+    "semantic_hash": ""
+  },
+  "src/app-shell.tsx": {
+    "mtime": 1790964647.2868083,
+    "ast_hash": "265414df4beb1580251e51e089aea5bf",
+    "semantic_hash": ""
+  },
+  "src/components/body-map/body-map.tsx": {
+    "mtime": 1790962635.661779,
+    "ast_hash": "f67d2154b1176c72c314d50bf744e426",
+    "semantic_hash": ""
+  },
+  "src/components/button/button.test.tsx": {
+    "mtime": 1790962635.661779,
+    "ast_hash": "b3c948395330334780531ae0460e4816",
+    "semantic_hash": ""
+  },
+  "src/components/button/button.tsx": {
+    "mtime": 1790962635.6627786,
+    "ast_hash": "05aa5599c0e0d8ae5730ebf356284314",
+    "semantic_hash": ""
+  },
+  "src/components/confirm-dialog/confirm-dialog.test.tsx": {
+    "mtime": 1790962635.6627786,
+    "ast_hash": "4b8c4e176d5f03f7215c17ce4153477c",
+    "semantic_hash": ""
+  },
+  "src/components/confirm-dialog/confirm-dialog.tsx": {
+    "mtime": 1790962635.6627786,
+    "ast_hash": "e3b263dff9858c9ee20bddf4ea1fda5e",
+    "semantic_hash": ""
+  },
+  "src/components/error-boundary/error-boundary.tsx": {
+    "mtime": 1790962635.6627786,
+    "ast_hash": "f325f45aabf8b7f677a6c5582f812a63",
+    "semantic_hash": ""
+  },
+  "src/components/exercise-detail/exercise-detail.test.tsx": {
+    "mtime": 1790962635.6642845,
+    "ast_hash": "07d5ee561948c21793009ec7c133500a",
+    "semantic_hash": ""
+  },
+  "src/components/exercise-detail/exercise-detail.tsx": {
+    "mtime": 1790962635.6642845,
+    "ast_hash": "9ceee50e415bb5ffbbed08261953c1ed",
+    "semantic_hash": ""
+  },
+  "src/components/exercise-detail/progression-chart.tsx": {
+    "mtime": 1790962635.665291,
+    "ast_hash": "f9a1eb2870d59bfff636d2196919b6fe",
+    "semantic_hash": ""
+  },
+  "src/components/form-field/form-field.tsx": {
+    "mtime": 1790962635.6662908,
+    "ast_hash": "91e90c30e9ac3158ca8cce87dbd26b4c",
+    "semantic_hash": ""
+  },
+  "src/components/glass-card/glass-card.tsx": {
+    "mtime": 1790962635.6662908,
+    "ast_hash": "bd7b0acaf0b6e2717ec5d4aec6ec38f2",
+    "semantic_hash": ""
+  },
+  "src/components/modal/modal.test.tsx": {
+    "mtime": 1790962635.6672907,
+    "ast_hash": "a9d108e14259f206e0eaf583b7d14c1f",
+    "semantic_hash": ""
+  },
+  "src/components/modal/modal.tsx": {
+    "mtime": 1790962635.6672907,
+    "ast_hash": "938cae638ece8b9c0d9dda902857fb69",
+    "semantic_hash": ""
+  },
+  "src/components/muscle-group-filter/muscle-group-filter.tsx": {
+    "mtime": 1790962635.667796,
+    "ast_hash": "787a705d0e8d26f564b899eb5cc247a8",
+    "semantic_hash": ""
+  },
+  "src/components/muscle-tags/muscle-tags.tsx": {
+    "mtime": 1790962635.667796,
+    "ast_hash": "ef8b4595e98150f4c7055f91c378c1e9",
+    "semantic_hash": ""
+  },
+  "src/components/music/browse-view.tsx": {
+    "mtime": 1790962635.6688023,
+    "ast_hash": "55e5d057f7c7aac93dc9d8a6330dc3c6",
+    "semantic_hash": ""
+  },
+  "src/components/music/music.tsx": {
+    "mtime": 1790962635.6688023,
+    "ast_hash": "1eb26e45b70cac06179d90c72fad6c93",
+    "semantic_hash": ""
+  },
+  "src/components/music/now-playing.tsx": {
+    "mtime": 1790962635.6698012,
+    "ast_hash": "4caba25d4f6c79f4cb76958f96e928fd",
+    "semantic_hash": ""
+  },
+  "src/components/music/queue-view.tsx": {
+    "mtime": 1790962635.6698012,
+    "ast_hash": "c714a827545ea4cb7137d1e37bbd41ad",
+    "semantic_hash": ""
+  },
+  "src/components/privacy-consent/privacy-consent.tsx": {
+    "mtime": 1790962635.6698012,
+    "ast_hash": "eee7e78b45b8da8358b9bb944ba4e24e",
+    "semantic_hash": ""
+  },
+  "src/components/search-bar/search-bar.tsx": {
+    "mtime": 1790962635.6713068,
+    "ast_hash": "f722f506bc2db0c458c24f7d56e362df",
+    "semantic_hash": ""
+  },
+  "src/components/section-header/section-header.tsx": {
+    "mtime": 1790962635.6713068,
+    "ast_hash": "f0b348d21ffde2c9094aa556d2f6291b",
+    "semantic_hash": ""
+  },
+  "src/components/settings-modal/settings-modal.test.tsx": {
+    "mtime": 1790964647.3265135,
+    "ast_hash": "54716ef88f63cf6438086ad6caf5b4cc",
+    "semantic_hash": ""
+  },
+  "src/components/settings-modal/settings-modal.tsx": {
+    "mtime": 1790964647.2878084,
+    "ast_hash": "ef409b54b45cb4ab64021d87bb3b8564",
+    "semantic_hash": ""
+  },
+  "src/components/update-banner/update-banner.test.tsx": {
+    "mtime": 1790964682.0070722,
+    "ast_hash": "c4ab414717b6b48c2e6399d540a8f2d6",
+    "semantic_hash": ""
+  },
+  "src/components/update-banner/update-banner.tsx": {
+    "mtime": 1791001917.0578995,
+    "ast_hash": "8434d2be62e15cbabfa26c590d3959b6",
+    "semantic_hash": ""
+  },
+  "src/context/app-data.tsx": {
+    "mtime": 1790962635.6728432,
+    "ast_hash": "a17bce53ba3f4667ad8589a94d66468e",
+    "semantic_hash": ""
+  },
+  "src/data/demoSeed.ts": {
+    "mtime": 1790962635.6728432,
+    "ast_hash": "fa503de2ba1199888d4e3428c5041f02",
+    "semantic_hash": ""
+  },
+  "src/data/freeExerciseDb/bundledFolders.ts": {
+    "mtime": 1790962635.6743584,
+    "ast_hash": "558bb2f3bca9f5e9661d0b9b2109dac3",
+    "semantic_hash": ""
+  },
+  "src/data/freeExerciseDb/exercises.json": {
+    "mtime": 1790962635.676877,
+    "ast_hash": "a3598314f2e1474e216581f84bcf48a2",
+    "semantic_hash": ""
+  },
+  "src/data/freeExerciseDb/index.ts": {
+    "mtime": 1790962635.676877,
+    "ast_hash": "3a92eb9c4b3f4af4553e17a7adce257b",
+    "semantic_hash": ""
+  },
+  "src/data/freeExerciseDb/muscleMap.ts": {
+    "mtime": 1790962635.676877,
+    "ast_hash": "b6bfe8c0c45000b8019af042357327f6",
+    "semantic_hash": ""
+  },
+  "src/data/freeExerciseDb/nameAlias.ts": {
+    "mtime": 1790962635.6778772,
+    "ast_hash": "e230ffb4858312ce06afdbc760566057",
+    "semantic_hash": ""
+  },
+  "src/data/musclePaths.ts": {
+    "mtime": 1790962635.6778772,
+    "ast_hash": "22cbb020871c0f44acf146753ab32041",
+    "semantic_hash": ""
+  },
+  "src/data/muscleSlugMap.ts": {
+    "mtime": 1790962635.6788754,
+    "ast_hash": "f87d07a0c727946e543c1137349cf90c",
+    "semantic_hash": ""
+  },
+  "src/data/storage.ts": {
+    "mtime": 1790962635.6788754,
+    "ast_hash": "9522e7c1b1cef4bd08e64b794f27b2fa",
+    "semantic_hash": ""
+  },
+  "src/data/store.ts": {
+    "mtime": 1790962635.6788754,
+    "ast_hash": "5bac4933afc468b9dfdd85faae3fbbce",
+    "semantic_hash": ""
+  },
+  "src/data/wikiExercises.ts": {
+    "mtime": 1790962635.6798773,
+    "ast_hash": "1d0540cf69548a6ba238bf1bb61b5111",
+    "semantic_hash": ""
+  },
+  "src/data/wikiPlans.ts": {
+    "mtime": 1790962635.6798773,
+    "ast_hash": "6938faec5476d1aebd4418520831ae98",
+    "semantic_hash": ""
+  },
+  "src/hooks/useBackButton.ts": {
+    "mtime": 1790962635.6798773,
+    "ast_hash": "e84d11a74b0e255667e9390eb35f229d",
+    "semantic_hash": ""
+  },
+  "src/hooks/useExerciseForm.test.ts": {
+    "mtime": 1790962635.6808772,
+    "ast_hash": "e5e2548fe4bbbdec0fc41124bbad7628",
+    "semantic_hash": ""
+  },
+  "src/hooks/useExerciseForm.ts": {
+    "mtime": 1790962635.6808772,
+    "ast_hash": "6c67e08828a0e9ea3d842f106fd3afc2",
+    "semantic_hash": ""
+  },
+  "src/hooks/useExerciseImage.ts": {
+    "mtime": 1790962635.6808772,
+    "ast_hash": "0a9a26904d7b8eadb61b0716a4048aec",
+    "semantic_hash": ""
+  },
+  "src/hooks/useKeyboardAvoidance.test.ts": {
+    "mtime": 1790962635.681877,
+    "ast_hash": "db4246668211038caf92154e1f332d59",
+    "semantic_hash": ""
+  },
+  "src/hooks/useKeyboardAvoidance.ts": {
+    "mtime": 1790962635.681877,
+    "ast_hash": "6e56cb934c06d72ba654ae389a257915",
+    "semantic_hash": ""
+  },
+  "src/hooks/useKeyboardVisible.test.ts": {
+    "mtime": 1790962635.681877,
+    "ast_hash": "61154297249d79b29e8c1d2846cc7996",
+    "semantic_hash": ""
+  },
+  "src/hooks/useKeyboardVisible.ts": {
+    "mtime": 1790962635.6828773,
+    "ast_hash": "58ea2924641be7160d4951704c6bb224",
+    "semantic_hash": ""
+  },
+  "src/hooks/useLibraryEntry.ts": {
+    "mtime": 1790962635.6828773,
+    "ast_hash": "ae07b395c3faa441b437c1d191c7ced3",
+    "semantic_hash": ""
+  },
+  "src/hooks/useMediaBrowser.ts": {
+    "mtime": 1790962635.6828773,
+    "ast_hash": "f6128934a5bcb665190622f4e1b4d919",
+    "semantic_hash": ""
+  },
+  "src/hooks/useMediaSession.ts": {
+    "mtime": 1790962635.6828773,
+    "ast_hash": "44b7bcef21029637942d0272839dae0b",
+    "semantic_hash": ""
+  },
+  "src/hooks/usePR.test.ts": {
+    "mtime": 1790962635.6843827,
+    "ast_hash": "fb7d3bde40e90b63bc9298eaa4ead0ee",
+    "semantic_hash": ""
+  },
+  "src/hooks/usePR.ts": {
+    "mtime": 1790962635.6843827,
+    "ast_hash": "546bb1f4fdd37da0f9c6fc2dd418ca59",
+    "semantic_hash": ""
+  },
+  "src/hooks/useSession.test.ts": {
+    "mtime": 1790962635.6843827,
+    "ast_hash": "23ab5adc96a822cbdc70a50942fa8d97",
+    "semantic_hash": ""
+  },
+  "src/hooks/useSession.ts": {
+    "mtime": 1790962635.6843827,
+    "ast_hash": "64d78befa31eb5da35ee68aff7d9266a",
+    "semantic_hash": ""
+  },
+  "src/hooks/useSharedImport.ts": {
+    "mtime": 1790962635.685389,
+    "ast_hash": "ae7cb1b085b9c4946289d18237045cc4",
+    "semantic_hash": ""
+  },
+  "src/hooks/useStorage.test.ts": {
+    "mtime": 1790962635.685389,
+    "ast_hash": "9507eccad04b6cbe3c58c0d3ec49141a",
+    "semantic_hash": ""
+  },
+  "src/hooks/useStorage.ts": {
+    "mtime": 1790962635.686388,
+    "ast_hash": "4dec6a6ee1fd0316cb089fc6b1b576e1",
+    "semantic_hash": ""
+  },
+  "src/hooks/useTheme.test.ts": {
+    "mtime": 1790962635.686388,
+    "ast_hash": "804153e02d1249826f56d49ceba19561",
+    "semantic_hash": ""
+  },
+  "src/hooks/useTheme.ts": {
+    "mtime": 1790962635.686388,
+    "ast_hash": "76dd69c1709c76bc62a4b561271f47ae",
+    "semantic_hash": ""
+  },
+  "src/hooks/useUpdateCheck.test.ts": {
+    "mtime": 1790964647.2893162,
+    "ast_hash": "4aa6621b3cb75c96951464ece0a19007",
+    "semantic_hash": ""
+  },
+  "src/hooks/useUpdateCheck.ts": {
+    "mtime": 1790964647.2893162,
+    "ast_hash": "8d3f87a0bc9499b9eddfbe2753a2f17f",
+    "semantic_hash": ""
+  },
+  "src/hooks/useUpdateInstall.test.ts": {
+    "mtime": 1791001907.3509994,
+    "ast_hash": "8e614ef2fc5a957a2f458e0f21757a5c",
+    "semantic_hash": ""
+  },
+  "src/hooks/useUpdateInstall.ts": {
+    "mtime": 1791001895.9638395,
+    "ast_hash": "0729ecd66a6670e24f730aa13a902c3e",
+    "semantic_hash": ""
+  },
+  "src/layout/bottom-nav/bottom-nav.test.tsx": {
+    "mtime": 1790962635.6883874,
+    "ast_hash": "4c674b84b34da082dec65e67d571706d",
+    "semantic_hash": ""
+  },
+  "src/layout/bottom-nav/bottom-nav.tsx": {
+    "mtime": 1790962635.6883874,
+    "ast_hash": "679b632fa4d744a8aa42272dc82b787d",
+    "semantic_hash": ""
+  },
+  "src/layout/header/header.tsx": {
+    "mtime": 1790962635.6898932,
+    "ast_hash": "4f3b45555e6657435239b5bf6081dae6",
+    "semantic_hash": ""
+  },
+  "src/main.tsx": {
+    "mtime": 1790962635.6898932,
+    "ast_hash": "067559b5df0dc9afd363d10a21a8d0a0",
+    "semantic_hash": ""
+  },
+  "src/pages/dashboard/components/exercise-card/exercise-card.tsx": {
+    "mtime": 1790962635.6909,
+    "ast_hash": "098473a893d9ea37bd0636ba77efb765",
+    "semantic_hash": ""
+  },
+  "src/pages/dashboard/components/music-card/music-card.tsx": {
+    "mtime": 1790962635.6919003,
+    "ast_hash": "5522b0db27481772db358a34219a671a",
+    "semantic_hash": ""
+  },
+  "src/pages/dashboard/components/pr-badge/pr-badge.tsx": {
+    "mtime": 1790962635.6919003,
+    "ast_hash": "36bef74d3dcde67ec934fac45c9b381f",
+    "semantic_hash": ""
+  },
+  "src/pages/dashboard/dashboard.container.test.tsx": {
+    "mtime": 1790962635.6919003,
+    "ast_hash": "264f913634df94d6ceaa5949c8402c67",
+    "semantic_hash": ""
+  },
+  "src/pages/dashboard/dashboard.container.tsx": {
+    "mtime": 1790962635.6929002,
+    "ast_hash": "59e161c05245b4aab19a0f2b7e16958d",
+    "semantic_hash": ""
+  },
+  "src/pages/dashboard/dashboard.view.tsx": {
+    "mtime": 1790962635.6929002,
+    "ast_hash": "2eaa120ae91bac7665cae4f3e2f1af67",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/exercise-form/exercise-form.test.tsx": {
+    "mtime": 1790962635.6941972,
+    "ast_hash": "53692848f7f26b663fff2c26b88e94c1",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/exercise-form/exercise-form.tsx": {
+    "mtime": 1790962635.6947124,
+    "ast_hash": "0cccf7e1e6e0fc7510cdb6f4e13f68a2",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/wiki/exercise-library/exercise-library.tsx": {
+    "mtime": 1790962635.6947124,
+    "ast_hash": "b5d22bc199da19e4108043119805a1a7",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/wiki/plan-detail/plan-detail.tsx": {
+    "mtime": 1790962635.6962247,
+    "ast_hash": "0d0f6eb8b553cce274cbdd55257d0c07",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/wiki/saved-plan-detail/saved-plan-detail.test.tsx": {
+    "mtime": 1790962635.6962247,
+    "ast_hash": "68aee53b27aa8be5a089a72f9136b0ef",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/wiki/saved-plan-detail/saved-plan-detail.tsx": {
+    "mtime": 1790962635.6972313,
+    "ast_hash": "17d59813ed470bd4f571d513912f548c",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/components/wiki/wiki.tsx": {
+    "mtime": 1790962635.6982293,
+    "ast_hash": "d77244d14a10e1c9d9dfda367b32362f",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/exercises.container.test.tsx": {
+    "mtime": 1790962635.6987348,
+    "ast_hash": "e9caabd2d340c4f3dac349573bc625ae",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/exercises.container.tsx": {
+    "mtime": 1790962635.6987348,
+    "ast_hash": "7d1658efb0c0a156cc49489b285193a5",
+    "semantic_hash": ""
+  },
+  "src/pages/exercises/exercises.view.tsx": {
+    "mtime": 1790962635.6987348,
+    "ast_hash": "c817fcad58c6592969d96b2c543463e5",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/analysis-chart/analysis-chart.test.tsx": {
+    "mtime": 1790962635.700251,
+    "ast_hash": "18c6f8199039f2dcde9dc3facc959bf9",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/analysis-chart/analysis-chart.tsx": {
+    "mtime": 1790962635.700251,
+    "ast_hash": "244ad8a50b46246052d4405409d0ba66",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/calendar-grid/calendar-grid.tsx": {
+    "mtime": 1790962635.7012587,
+    "ast_hash": "8f806198eb80b91a1013727ae4309c83",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/duration-edit-modal/duration-edit-modal.test.tsx": {
+    "mtime": 1790962635.7022555,
+    "ast_hash": "360ee26e63e4a680972f4921a44d1984",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/duration-edit-modal/duration-edit-modal.tsx": {
+    "mtime": 1790962635.7022555,
+    "ast_hash": "2ab778952cd9ef09d9d5474637fdfc03",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/session-card/session-card.test.tsx": {
+    "mtime": 1790962635.7032578,
+    "ast_hash": "df4bccd994865c6c80968a67b90dc39b",
+    "semantic_hash": ""
+  },
+  "src/pages/history/components/session-card/session-card.tsx": {
+    "mtime": 1790962635.7032578,
+    "ast_hash": "592ae4fbbf30774483c27a35eb325a70",
+    "semantic_hash": ""
+  },
+  "src/pages/history/history.container.tsx": {
+    "mtime": 1790962635.7032578,
+    "ast_hash": "8bef5fd777fcfc283eb556036440043d",
+    "semantic_hash": ""
+  },
+  "src/pages/history/history.view.tsx": {
+    "mtime": 1790962635.704258,
+    "ast_hash": "2724f5cc741cfe4b951b4f2e73087a9f",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/activity-entry-form/activity-entry-form.tsx": {
+    "mtime": 1790962635.704258,
+    "ast_hash": "2271df8c98832ddc49e9df62a5de47c2",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/barcode-scanner/barcode-scanner.tsx": {
+    "mtime": 1790962635.704258,
+    "ast_hash": "d6cf0bbff60327a31181002b1c58907a",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/calorie-insights/calorie-insights.tsx": {
+    "mtime": 1790962635.7062128,
+    "ast_hash": "766c437189bb850d2073bc71efc35d82",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/daily-log/daily-log.tsx": {
+    "mtime": 1790962635.7072194,
+    "ast_hash": "612851c34e1a82084733e139c4d12695",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/food-entry-form/food-entry-form.tsx": {
+    "mtime": 1790962635.7082195,
+    "ast_hash": "3184eae6d6725ed521258ce58e3864f4",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/food-photo-scan/food-photo-scan.tsx": {
+    "mtime": 1790962635.7087271,
+    "ast_hash": "ea45e0575db9c59731e613e52db624c4",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/goal-setup/goal-setup.tsx": {
+    "mtime": 1790962635.7087271,
+    "ast_hash": "00921e2d91926fb3e4d3ad00ffaf8229",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/nutrition-tips/nutrition-tips.tsx": {
+    "mtime": 1790962635.7097309,
+    "ast_hash": "db552d6fd33e2109845828b06a6315f6",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/components/weight-tracker/weight-tracker.tsx": {
+    "mtime": 1790962635.7097309,
+    "ast_hash": "8d15862aa138b5a2347d7b7f24a701d0",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/nutrition.container.tsx": {
+    "mtime": 1790962635.7107296,
+    "ast_hash": "45f91081eea9148c8290e7076d6acc95",
+    "semantic_hash": ""
+  },
+  "src/pages/nutrition/nutrition.view.tsx": {
+    "mtime": 1790962635.7107296,
+    "ast_hash": "f5655ae35e4fcb0908b81b0291e73c95",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/exercise-entry/exercise-entry.test.tsx": {
+    "mtime": 1790962635.711731,
+    "ast_hash": "766419ccb602addee3dd6795d40e023a",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/exercise-entry/exercise-entry.tsx": {
+    "mtime": 1790962635.7127285,
+    "ast_hash": "7921cd4df58626a4f6be7fea57226fef",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/exercise-picker/exercise-picker.tsx": {
+    "mtime": 1790962635.7127285,
+    "ast_hash": "487da41034d48d524a025e5b6584e1e4",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/media-bar/media-bar.tsx": {
+    "mtime": 1790962635.7127285,
+    "ast_hash": "42450d28f4868abd2f6b0d5f2bdb0433",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/pr-confetti/pr-confetti.tsx": {
+    "mtime": 1790962635.714234,
+    "ast_hash": "3bace38b578b03ee374ec35583c5cb17",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/pr-popup/pr-popup.test.tsx": {
+    "mtime": 1790962635.714234,
+    "ast_hash": "f9a86a6bc9a42f00988dc36b43bf0ea3",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/pr-popup/pr-popup.tsx": {
+    "mtime": 1790962635.7152417,
+    "ast_hash": "1a70bbcd4d853cea7c11d5b92a7ccd3e",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/session-timer/session-timer.tsx": {
+    "mtime": 1790962635.7152417,
+    "ast_hash": "26a0d3673bcef77744309d42aedb8cf6",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/set-row/set-row.test.tsx": {
+    "mtime": 1790962635.7162411,
+    "ast_hash": "254205d77198ac7b77b09a0148663159",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/set-row/set-row.tsx": {
+    "mtime": 1790962635.7162411,
+    "ast_hash": "aea83e13e5e2bab382e7b506940b5061",
+    "semantic_hash": ""
+  },
+  "src/pages/train/components/workout-summary-modal/workout-summary-modal.tsx": {
+    "mtime": 1790962635.7173378,
+    "ast_hash": "26eb5bf0f44a78ea9c191cc3908480b8",
+    "semantic_hash": ""
+  },
+  "src/pages/train/train.container.test.tsx": {
+    "mtime": 1790962635.7173378,
+    "ast_hash": "6923e0ce422c7251e4d370fff3c45fc4",
+    "semantic_hash": ""
+  },
+  "src/pages/train/train.container.tsx": {
+    "mtime": 1790962635.7173378,
+    "ast_hash": "50d7dc5208bb8f4c1700ac10818b74d2",
+    "semantic_hash": ""
+  },
+  "src/pages/train/train.view.tsx": {
+    "mtime": 1790962635.7183373,
+    "ast_hash": "32a4bc7a544d00f713784b4f152b8285",
+    "semantic_hash": ""
+  },
+  "src/router/router.tsx": {
+    "mtime": 1790962635.7183373,
+    "ast_hash": "5f644571584b5580acbefb2a95f9967a",
+    "semantic_hash": ""
+  },
+  "src/test/demo-mode-repro.test.tsx": {
+    "mtime": 1790964647.2903159,
+    "ast_hash": "da85794d52cca4356c4a5f24dcd8ab18",
+    "semantic_hash": ""
+  },
+  "src/test/render-with-app-data.tsx": {
+    "mtime": 1790962635.7193975,
+    "ast_hash": "59b55e6d960721332e1d5fb85664f123",
+    "semantic_hash": ""
+  },
+  "src/test/setup.ts": {
+    "mtime": 1790962635.7203977,
+    "ast_hash": "7298b5a616b9862a6b276eb59cbb8f1b",
+    "semantic_hash": ""
+  },
+  "src/types/fontsource.d.ts": {
+    "mtime": 1790962635.7203977,
+    "ast_hash": "e0e20ae99feb8325e80c663e0a392c68",
+    "semantic_hash": ""
+  },
+  "src/types/index.ts": {
+    "mtime": 1790962635.7213979,
+    "ast_hash": "088f7bcc58bbd13bd027f462f0ad43e3",
+    "semantic_hash": ""
+  },
+  "src/utils/backup.test.ts": {
+    "mtime": 1790962635.7213979,
+    "ast_hash": "8ad6990d5c5a0c87ca3bb3217c752e85",
+    "semantic_hash": ""
+  },
+  "src/utils/backup.ts": {
+    "mtime": 1790962635.722397,
+    "ast_hash": "dddc60077d312e65c9517b9a95d202d3",
+    "semantic_hash": ""
+  },
+  "src/utils/exerciseImages.ts": {
+    "mtime": 1790962635.722397,
+    "ast_hash": "393096edc610d57635484c4f39c7c25f",
+    "semantic_hash": ""
+  },
+  "src/utils/fileExport.test.ts": {
+    "mtime": 1790962635.722397,
+    "ast_hash": "ffc3440eb641abbbd09fcb0bf5fa091b",
+    "semantic_hash": ""
+  },
+  "src/utils/fileExport.ts": {
+    "mtime": 1790962635.7233987,
+    "ast_hash": "0ca75207c5849f4e358177cd425c1a5a",
+    "semantic_hash": ""
+  },
+  "src/utils/foodVision.test.ts": {
+    "mtime": 1790962635.7233987,
+    "ast_hash": "5964261dfbd0266b88923bebc9f79453",
+    "semantic_hash": ""
+  },
+  "src/utils/foodVision.ts": {
+    "mtime": 1790962635.7233987,
+    "ast_hash": "ba8adbc882ba53ece36bc273adc1778e",
+    "semantic_hash": ""
+  },
+  "src/utils/format.test.ts": {
+    "mtime": 1790962635.7243993,
+    "ast_hash": "e9213d9fe5e4efa157693c9212a8021d",
+    "semantic_hash": ""
+  },
+  "src/utils/format.ts": {
+    "mtime": 1790962635.7243993,
+    "ast_hash": "a0ea2d970c994083816ac7bbdd6aea9f",
+    "semantic_hash": ""
+  },
+  "src/utils/imageResize.ts": {
+    "mtime": 1790962635.7243993,
+    "ast_hash": "4a5e5484d3bf0bbea33cf7dcc1c76245",
+    "semantic_hash": ""
+  },
+  "src/utils/nutrition.test.ts": {
+    "mtime": 1790962635.7254412,
+    "ast_hash": "bd59ca6622586855c03ff89df87d7ca2",
+    "semantic_hash": ""
+  },
+  "src/utils/nutrition.ts": {
+    "mtime": 1790962635.7254412,
+    "ast_hash": "2a1a37f409989a36a10870786cc38ae8",
+    "semantic_hash": ""
+  },
+  "src/utils/openFoodFacts.ts": {
+    "mtime": 1790962635.7254412,
+    "ast_hash": "bd1947d4d335fd7f28f37e1ed2ad6f6d",
+    "semantic_hash": ""
+  },
+  "src/utils/patternDetection.test.ts": {
+    "mtime": 1790962635.7254412,
+    "ast_hash": "b5fa778d76fd21321883c44f2b7c2173",
+    "semantic_hash": ""
+  },
+  "src/utils/patternDetection.ts": {
+    "mtime": 1790962635.7269459,
+    "ast_hash": "c22c9e8b857bcc7bc8f071efdf305318",
+    "semantic_hash": ""
+  },
+  "src/utils/pr.test.ts": {
+    "mtime": 1790962635.7269459,
+    "ast_hash": "b942170fcdfe5062f07de6a254803a8b",
+    "semantic_hash": ""
+  },
+  "src/utils/pr.ts": {
+    "mtime": 1790962635.7269459,
+    "ast_hash": "2232f88cd048c49462a51ac34ced0150",
+    "semantic_hash": ""
+  },
+  "src/utils/progression.test.ts": {
+    "mtime": 1790962635.7279506,
+    "ast_hash": "a557abc532656f8da61802696eb8231c",
+    "semantic_hash": ""
+  },
+  "src/utils/progression.ts": {
+    "mtime": 1790962635.7279506,
+    "ast_hash": "9ea940ce186f0876dfb83c6bcde28221",
+    "semantic_hash": ""
+  },
+  "src/utils/relinkImages.test.ts": {
+    "mtime": 1790962635.7289493,
+    "ast_hash": "aa8344fed35b56d48404f4aeab12bab0",
+    "semantic_hash": ""
+  },
+  "src/utils/relinkImages.ts": {
+    "mtime": 1790962635.7289493,
+    "ast_hash": "c888c4ac78a2bfc070265a269a843965",
+    "semantic_hash": ""
+  },
+  "src/utils/supporter.test.ts": {
+    "mtime": 1790962635.7289493,
+    "ast_hash": "bc7d32ff7a57ef86fecfacf8618b54df",
+    "semantic_hash": ""
+  },
+  "src/utils/supporter.ts": {
+    "mtime": 1790962635.729952,
+    "ast_hash": "ee58bb109704e374234cbb20de7c622e",
+    "semantic_hash": ""
+  },
+  "src/utils/version.test.ts": {
+    "mtime": 1790962635.729952,
+    "ast_hash": "22b60dcb2b949dd9fbcfd278d5d9f15d",
+    "semantic_hash": ""
+  },
+  "src/utils/version.ts": {
+    "mtime": 1790962635.729952,
+    "ast_hash": "92b2fbdf16d94b4885e8cba6f4731538",
+    "semantic_hash": ""
+  },
+  "supporter-hashes.json": {
+    "mtime": 1790962635.7309513,
+    "ast_hash": "08384e0ee448a04d2ace75f76d4b5e06",
+    "semantic_hash": ""
+  },
+  "tsconfig.app.json": {
+    "mtime": 1790962635.7309513,
+    "ast_hash": "a7738d5ae050e94d6c1b6498d6ba5f85",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1790962635.7309513,
+    "ast_hash": "852c3a5df14a4b43ac28e9554ebedf4a",
+    "semantic_hash": ""
+  },
+  "tsconfig.node.json": {
+    "mtime": 1790962635.7319515,
+    "ast_hash": "1cd4c6b260b0dccbad5bc0a25029f390",
+    "semantic_hash": ""
+  },
+  "vercel.json": {
+    "mtime": 1790962635.7319515,
+    "ast_hash": "3c4fd57049e319b74105b3d3c687c5ad",
+    "semantic_hash": ""
+  },
+  "vite.config.ts": {
+    "mtime": 1790962635.7319515,
+    "ast_hash": "2c9770984c81e90c2bb790b43db76725",
+    "semantic_hash": ""
+  },
+  "vitest.config.ts": {
+    "mtime": 1790962635.7319515,
+    "ast_hash": "1fa51dd9d7a689473189a486234f7a6f",
+    "semantic_hash": ""
+  },
+  ".github/workflows/beta.yml": {
+    "mtime": 1790962635.5343628,
+    "ast_hash": "8add9604dd30c817a77b7deb2f24d4ea",
+    "semantic_hash": ""
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1790962635.5343628,
+    "ast_hash": "af42accf14a9f882e16503fd4f8c23c4",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1790962635.5358794,
+    "ast_hash": "aa2ca55be1ef0e490ed73d7a0903e460",
+    "semantic_hash": ""
+  },
+  "PLUGINS.md": {
+    "mtime": 1790962635.536888,
+    "ast_hash": "3498d4127d4fb24546ebfa27450411dc",
+    "semantic_hash": ""
+  },
+  "PRIVACY_POLICY.md": {
+    "mtime": 1790964837.210944,
+    "ast_hash": "6483871bea2359644a097d5ad146e00a",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1791001917.4906826,
+    "ast_hash": "fb513c027ddeedbf8e06851e8932934a",
+    "semantic_hash": ""
+  },
+  "THIRD_PARTY_LICENSES.md": {
+    "mtime": 1790962635.5380666,
+    "ast_hash": "a722c8c759303ce8fb64794dccc24e94",
+    "semantic_hash": ""
+  },
+  "fastlane/metadata/android/en-US/full_description.txt": {
+    "mtime": 1790962635.5667691,
+    "ast_hash": "13d54893d60214951964da0d904f466c",
+    "semantic_hash": ""
+  },
+  "fastlane/metadata/android/en-US/short_description.txt": {
+    "mtime": 1790962635.5677693,
+    "ast_hash": "12632b9276855196197f1227d689edee",
+    "semantic_hash": ""
+  },
+  "fastlane/metadata/android/en-US/title.txt": {
+    "mtime": 1790962635.5677693,
+    "ast_hash": "7b0f3515b5f034e83e4f81d513638c58",
+    "semantic_hash": ""
+  },
+  "fdroid-metadata.yml": {
+    "mtime": 1790962635.5677693,
+    "ast_hash": "034c3accec8600d13128d824fcba291a",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1790962635.5708177,
+    "ast_hash": "ea400a8c6c26ac8220ad97a34090caf2",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+    "mtime": 1790962635.5491424,
+    "ast_hash": "4ca66c080749d07966b1c3a02538c3c8",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png": {
+    "mtime": 1790962635.5501394,
+    "ast_hash": "e0cc7f30c4238ad85c1f0ef3865c5b7f",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+    "mtime": 1790962635.5501394,
+    "ast_hash": "61013caf7552d10db97415a873dbd0ed",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png": {
+    "mtime": 1790962635.551142,
+    "ast_hash": "cda74e262ad07675b3999fbb6b163e80",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+    "mtime": 1790962635.551142,
+    "ast_hash": "3082b3cd8e0a0bf84909a0032719efa3",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png": {
+    "mtime": 1790962635.5521402,
+    "ast_hash": "506cd76568f40efbedd42b241d825393",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+    "mtime": 1790962635.5521402,
+    "ast_hash": "2f25d113969cf4b1ec5c030f98c035e9",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png": {
+    "mtime": 1790962635.5531392,
+    "ast_hash": "aa8e1fe6a82ed04e9615e5d2392806ad",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+    "mtime": 1790962635.5531392,
+    "ast_hash": "401dfb553abcf941ffef25581ea7b387",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png": {
+    "mtime": 1790962635.5531392,
+    "ast_hash": "9732db6ea115ab5c3c08cd8f2c66a2f0",
+    "semantic_hash": ""
+  },
+  "design/icon/background.svg": {
+    "mtime": 1790962635.5634942,
+    "ast_hash": "5194141260cfe732585c1627e81aca87",
+    "semantic_hash": ""
+  },
+  "design/icon/foreground.svg": {
+    "mtime": 1790962635.564495,
+    "ast_hash": "19c6d58aaa430fad243dfb1dafc8a0a4",
+    "semantic_hash": ""
+  },
+  "design/icon/monochrome.svg": {
+    "mtime": 1790962635.564495,
+    "ast_hash": "742870f2ae9df18f640609cbaaff2753",
+    "semantic_hash": ""
+  },
+  "design/icon/play-store-512.png": {
+    "mtime": 1790962635.5657692,
+    "ast_hash": "723955ed4a95b3783f17bb5aaefe5a2f",
+    "semantic_hash": ""
+  },
+  "design/icon/preview-512.png": {
+    "mtime": 1790962635.5657692,
+    "ast_hash": "d092442e4ca53b36a7bbc2efd1cac4a0",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Ab_Roller/0.jpg": {
+    "mtime": 1790962635.57437,
+    "ast_hash": "4ff38ab9443f0c21b5438dbbcb69d9e6",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Ab_Roller/1.jpg": {
+    "mtime": 1790962635.57437,
+    "ast_hash": "1be377b573bf6a280c189df48e6a4f84",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Arnold_Dumbbell_Press/0.jpg": {
+    "mtime": 1790962635.5753767,
+    "ast_hash": "a54944e39d4b94f131bc1dfe877d25ba",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Arnold_Dumbbell_Press/1.jpg": {
+    "mtime": 1790962635.5763767,
+    "ast_hash": "789c917c502f48a21bdb67ddd25684fc",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Curl/0.jpg": {
+    "mtime": 1790962635.5773761,
+    "ast_hash": "0fbc4f566c62088cff7e3a84a5952a31",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Curl/1.jpg": {
+    "mtime": 1790962635.5773761,
+    "ast_hash": "91cae96aed5aef60182e626b320a6b9e",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Deadlift/0.jpg": {
+    "mtime": 1790962635.5784435,
+    "ast_hash": "4487963f124aa02702ce38e4d57d83b6",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Deadlift/1.jpg": {
+    "mtime": 1790962635.5794425,
+    "ast_hash": "0283ad6497777226cc153c4ad52ad330",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Glute_Bridge/0.jpg": {
+    "mtime": 1790962635.5804408,
+    "ast_hash": "0375f022bdf189b0fc7c3965caa735b1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Glute_Bridge/1.jpg": {
+    "mtime": 1790962635.5804408,
+    "ast_hash": "1527e129be109ee6c8bd345b2b800fcc",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Hip_Thrust/0.jpg": {
+    "mtime": 1790962635.5814414,
+    "ast_hash": "cab09575451be4bb399bfa2807802762",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Hip_Thrust/1.jpg": {
+    "mtime": 1790962635.5824409,
+    "ast_hash": "11cdc6c86b64209479794c4f8ea40021",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Shrug/0.jpg": {
+    "mtime": 1790962635.5824409,
+    "ast_hash": "0aeffaf8158f06b429f271166fc289c3",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Shrug/1.jpg": {
+    "mtime": 1790962635.5834415,
+    "ast_hash": "da8a86c34560b126251defcc9ef859ff",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Squat/0.jpg": {
+    "mtime": 1790962635.5844412,
+    "ast_hash": "3831199ea766c24a9faca78158ef6279",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Barbell_Squat/1.jpg": {
+    "mtime": 1790962635.5849433,
+    "ast_hash": "eda696c68753d5ce4af403701ddc9342",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Bent_Over_Barbell_Row/0.jpg": {
+    "mtime": 1790962635.585946,
+    "ast_hash": "f03277660223d640ba0ca85235678ee1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Bent_Over_Barbell_Row/1.jpg": {
+    "mtime": 1790962635.585946,
+    "ast_hash": "254e588aeece17ed6b1ae56fcc13690c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench/0.jpg": {
+    "mtime": 1790962635.5869486,
+    "ast_hash": "6d1d92842c9cc5e753286811cdf6af72",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench/1.jpg": {
+    "mtime": 1790962635.587948,
+    "ast_hash": "87e627f96533bafb85078ec52a4cf3c9",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Butterfly/0.jpg": {
+    "mtime": 1790962635.5889482,
+    "ast_hash": "439fd21e48230d4f1fb4350948748654",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Butterfly/1.jpg": {
+    "mtime": 1790962635.5889482,
+    "ast_hash": "646e0f11d4fe7349e116fb2e1e73a41b",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Cable_Chest_Press/0.jpg": {
+    "mtime": 1790962635.589948,
+    "ast_hash": "8fb51010edee0e2312e64afd4e0b9904",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Cable_Chest_Press/1.jpg": {
+    "mtime": 1790962635.5904517,
+    "ast_hash": "11329ad5ba3698e82f1c78e97324dd8c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Cable_Crossover/0.jpg": {
+    "mtime": 1790962635.5914617,
+    "ast_hash": "e689bc1b3f5c397127b851949b66dc3e",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Cable_Crossover/1.jpg": {
+    "mtime": 1790962635.592459,
+    "ast_hash": "a5058eb9e4800a99f045b290bf6d0aaf",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Cable_Crunch/0.jpg": {
+    "mtime": 1790962635.5934594,
+    "ast_hash": "fb471a07fc141977225e19eaed53fbcb",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Cable_Crunch/1.jpg": {
+    "mtime": 1790962635.5934594,
+    "ast_hash": "031775711d5db58bc4186f384283da77",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Chin-Up/0.jpg": {
+    "mtime": 1790962635.5945783,
+    "ast_hash": "6f6326293aedd84ef1e47b9194f7545d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Chin-Up/1.jpg": {
+    "mtime": 1790962635.5945783,
+    "ast_hash": "eb328e8bc339279f6623cebe114425dd",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Close-Grip_Barbell_Bench_Press/0.jpg": {
+    "mtime": 1790962635.5960941,
+    "ast_hash": "bc1587bf230c9bffcab44dca4d6713f1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Close-Grip_Barbell_Bench_Press/1.jpg": {
+    "mtime": 1790962635.5960941,
+    "ast_hash": "7a64bed92b6ff323a76f2fa680b880f3",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Close-Grip_Front_Lat_Pulldown/0.jpg": {
+    "mtime": 1790962635.597101,
+    "ast_hash": "57c8d4095869cc4f1b2891f7793120e9",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Close-Grip_Front_Lat_Pulldown/1.jpg": {
+    "mtime": 1790962635.5981002,
+    "ast_hash": "52dc894a0008c08a9009fd77952243a2",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Concentration_Curls/0.jpg": {
+    "mtime": 1790962635.5991008,
+    "ast_hash": "516cddbcc844467ebdbacc2b93ffbd95",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Concentration_Curls/1.jpg": {
+    "mtime": 1790962635.5991008,
+    "ast_hash": "8b9ed03b3750dcda126c131ea6a753d8",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dips_-_Chest_Version/0.jpg": {
+    "mtime": 1790962635.6006575,
+    "ast_hash": "507e997fffaf4fb4e7db6d4f5cf390b3",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dips_-_Chest_Version/1.jpg": {
+    "mtime": 1790962635.6006575,
+    "ast_hash": "f526d4ae732eb6d0341dcb94061a01b1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dips_-_Triceps_Version/0.jpg": {
+    "mtime": 1790962635.601664,
+    "ast_hash": "73dac4baab639888ec4db9f1350c4f7d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dips_-_Triceps_Version/1.jpg": {
+    "mtime": 1790962635.602664,
+    "ast_hash": "ba5e9e7c60613340cbb054416256990d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Bench_Press/0.jpg": {
+    "mtime": 1790962635.602664,
+    "ast_hash": "b2a82416ba297a3a6af2522a954abddc",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Bench_Press/1.jpg": {
+    "mtime": 1790962635.603664,
+    "ast_hash": "f8a396caf9c9ab625f4d67beff2ab39c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Bicep_Curl/0.jpg": {
+    "mtime": 1790962635.6046643,
+    "ast_hash": "0068e6346e9ec8563f7259c4442d7406",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Bicep_Curl/1.jpg": {
+    "mtime": 1790962635.6051695,
+    "ast_hash": "3568f40b710f40a1e82f988fcbd79f0c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Flyes/0.jpg": {
+    "mtime": 1790962635.605518,
+    "ast_hash": "c384fd7fdea2b202151a03bc1cdd0b78",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Flyes/1.jpg": {
+    "mtime": 1790962635.606521,
+    "ast_hash": "2b7fa21f18bdbb7a3b4100e9017535b2",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Shoulder_Press/0.jpg": {
+    "mtime": 1790962635.6075277,
+    "ast_hash": "a3e6cd4a0ff5fb59faf2c682d4bb66c3",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Dumbbell_Shoulder_Press/1.jpg": {
+    "mtime": 1790962635.6085281,
+    "ast_hash": "3d61dc39233f16545b449ed9c444bf63",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/EZ-Bar_Curl/0.jpg": {
+    "mtime": 1790962635.6085281,
+    "ast_hash": "e20a029074e04d043c9ae26bb034cbe3",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/EZ-Bar_Curl/1.jpg": {
+    "mtime": 1790962635.609528,
+    "ast_hash": "bcfacdac71a5971f8cb46230dc6cd28e",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/EZ-Bar_Skullcrusher/0.jpg": {
+    "mtime": 1790962635.610528,
+    "ast_hash": "c82d604278957eba46eb5ce2c3dd431d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/EZ-Bar_Skullcrusher/1.jpg": {
+    "mtime": 1790962635.610528,
+    "ast_hash": "8535c0a27f243085a22ba20cf3b91af8",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Face_Pull/0.jpg": {
+    "mtime": 1790962635.611528,
+    "ast_hash": "4fb9400129625b47d6c123b55e994dd5",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Face_Pull/1.jpg": {
+    "mtime": 1790962635.611528,
+    "ast_hash": "d4ffc39c8d75ee16d62957b0702ac498",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Front_Dumbbell_Raise/0.jpg": {
+    "mtime": 1790962635.612528,
+    "ast_hash": "4c854b7f7b2034fdb79b7de43962dd8c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Front_Dumbbell_Raise/1.jpg": {
+    "mtime": 1790962635.6135283,
+    "ast_hash": "c4e42a7c225aecf691a7eb06b88244c3",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Goblet_Squat/0.jpg": {
+    "mtime": 1790962635.6135283,
+    "ast_hash": "1d1cba2f5a51eec51b7eb34f19fcbe1c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Goblet_Squat/1.jpg": {
+    "mtime": 1790962635.6145253,
+    "ast_hash": "52e4aca4e0c66dddc9ae8e769cca425b",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Good_Morning/0.jpg": {
+    "mtime": 1790962635.6145253,
+    "ast_hash": "67359e3e4589c92d204945bd782d8f60",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Good_Morning/1.jpg": {
+    "mtime": 1790962635.6164145,
+    "ast_hash": "828d5b00287b88451e1813e4760fc4d4",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Hack_Squat/0.jpg": {
+    "mtime": 1790962635.6164145,
+    "ast_hash": "60038e89af61aca427aca18724cbe9cd",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Hack_Squat/1.jpg": {
+    "mtime": 1790962635.6179256,
+    "ast_hash": "bc7c9128c1e70ed77edc816e7dbc5622",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Hammer_Curls/0.jpg": {
+    "mtime": 1790962635.6179256,
+    "ast_hash": "a66134134c812a8adca696d7608feb7a",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Hammer_Curls/1.jpg": {
+    "mtime": 1790962635.6189322,
+    "ast_hash": "084ad1f00f2afd367b854b6484135de1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Hanging_Leg_Raise/0.jpg": {
+    "mtime": 1790962635.6199305,
+    "ast_hash": "0e019245bdc8f7bec8842632db073f1d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Hanging_Leg_Raise/1.jpg": {
+    "mtime": 1790962635.620931,
+    "ast_hash": "9a7baef305da6482be6083082640061a",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Incline_Dumbbell_Curl/0.jpg": {
+    "mtime": 1790962635.6219301,
+    "ast_hash": "39e4c21c670db414b7e7e79e4dbe286b",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Incline_Dumbbell_Curl/1.jpg": {
+    "mtime": 1790962635.6219301,
+    "ast_hash": "1930764b0869225fd5ba17850fd9b1cb",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Inverted_Row/0.jpg": {
+    "mtime": 1790962635.6229308,
+    "ast_hash": "e2623228543e54c6697b07a3d588d1bf",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Inverted_Row/1.jpg": {
+    "mtime": 1790962635.6229308,
+    "ast_hash": "12b365a2cf30c36f21c6cf1316f128bc",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Leg_Extensions/0.jpg": {
+    "mtime": 1790962635.6249516,
+    "ast_hash": "57c94bf9cebbdbe3f0746ada39660f7b",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Leg_Extensions/1.jpg": {
+    "mtime": 1790962635.6249516,
+    "ast_hash": "3daf165c72a33834ee00ffe0ae441453",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Leg_Press/0.jpg": {
+    "mtime": 1790962635.6264653,
+    "ast_hash": "c7ee8428b14ceb33408c7e6090367a83",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Leg_Press/1.jpg": {
+    "mtime": 1790962635.6274724,
+    "ast_hash": "9c78fe785c704dcd692fae7ece97472c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Lying_Leg_Curls/0.jpg": {
+    "mtime": 1790962635.6274724,
+    "ast_hash": "e8367cae0f58ad8de8985c918adb82d5",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Lying_Leg_Curls/1.jpg": {
+    "mtime": 1790962635.6284723,
+    "ast_hash": "d6b315895bd4ee117b4890d74896d59f",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Preacher_Curl/0.jpg": {
+    "mtime": 1790962635.62947,
+    "ast_hash": "c3c6778639eaec47899802122d07ebef",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Preacher_Curl/1.jpg": {
+    "mtime": 1790962635.6304724,
+    "ast_hash": "ced7c8b3f0fb299dfb4d8775eed43fb4",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Pullups/0.jpg": {
+    "mtime": 1790962635.6304724,
+    "ast_hash": "495376dd3632bdc0e6e0942e2304a92a",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Pullups/1.jpg": {
+    "mtime": 1790962635.63147,
+    "ast_hash": "3afb766d32aa604ae77ab681c791e660",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Pushups/0.jpg": {
+    "mtime": 1790962635.6324697,
+    "ast_hash": "f8c9d665254d73188ea1f263d09ec18f",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Pushups/1.jpg": {
+    "mtime": 1790962635.6324697,
+    "ast_hash": "1de3cda696bffe4c79008a6a3ae93a70",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Reverse_Cable_Curl/0.jpg": {
+    "mtime": 1790962635.6339755,
+    "ast_hash": "2af693719ff052ac18c046d1d07a4584",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Reverse_Cable_Curl/1.jpg": {
+    "mtime": 1790962635.6344855,
+    "ast_hash": "03e4c71e0ee4c75d548d8fc24691ea87",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Romanian_Deadlift/0.jpg": {
+    "mtime": 1790962635.6344855,
+    "ast_hash": "c447ee977e6b6be8ffafa6726be83919",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Romanian_Deadlift/1.jpg": {
+    "mtime": 1790962635.6359966,
+    "ast_hash": "c7157c19aaee5c30def28bdfb87e063b",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Russian_Twist/0.jpg": {
+    "mtime": 1790962635.6359966,
+    "ast_hash": "29cefe8c2f55e5ff55e5dda9d6c18a4c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Russian_Twist/1.jpg": {
+    "mtime": 1790962635.6370034,
+    "ast_hash": "4a4d0d7d56f20ed2c163f4b3da090009",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Cable_Rows/0.jpg": {
+    "mtime": 1790962635.6370034,
+    "ast_hash": "c98c3493171a51104649f0fe4ed7a82d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Cable_Rows/1.jpg": {
+    "mtime": 1790962635.6385088,
+    "ast_hash": "4c31c9e27eb7cecfd30c22ab63c7b549",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Calf_Raise/0.jpg": {
+    "mtime": 1790962635.6385088,
+    "ast_hash": "8204b544dcb3b22515b7347b2b27a9e5",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Calf_Raise/1.jpg": {
+    "mtime": 1790962635.6400442,
+    "ast_hash": "3e567587acadacf700ebef49b093bdc7",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Leg_Curl/0.jpg": {
+    "mtime": 1790962635.6400442,
+    "ast_hash": "a0e9bb18e19e8b6c590f37350b5ff29c",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Leg_Curl/1.jpg": {
+    "mtime": 1790962635.641051,
+    "ast_hash": "5dc543cd16cf135b8d0e981ad2c2a794",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Triceps_Press/0.jpg": {
+    "mtime": 1790962635.642049,
+    "ast_hash": "927fae03418e89dde9dc321f6722e68b",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Seated_Triceps_Press/1.jpg": {
+    "mtime": 1790962635.6425548,
+    "ast_hash": "e29e367ba17e79e9ffc094af2efaf393",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Side_Bridge/0.jpg": {
+    "mtime": 1790962635.6435616,
+    "ast_hash": "8a9a12dd11afd4520913da2121297258",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Side_Bridge/1.jpg": {
+    "mtime": 1790962635.6445618,
+    "ast_hash": "66271f6495ef82686e57692ed2fcad88",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Side_Lateral_Raise/0.jpg": {
+    "mtime": 1790962635.6456418,
+    "ast_hash": "a7a9fe3b93b44ee85c34c998541def26",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Side_Lateral_Raise/1.jpg": {
+    "mtime": 1790962635.6456418,
+    "ast_hash": "2a696bfbb91d01db438d1acec1553594",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Standing_Barbell_Calf_Raise/0.jpg": {
+    "mtime": 1790962635.6466482,
+    "ast_hash": "b0f161beaaf3409964b495eef888098d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Standing_Barbell_Calf_Raise/1.jpg": {
+    "mtime": 1790962635.6466482,
+    "ast_hash": "5d60a3b02fa9816fe1af1568e31427f1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Standing_Military_Press/0.jpg": {
+    "mtime": 1790962635.6481514,
+    "ast_hash": "59e7656530dd5d3068f85bf069df525d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Standing_Military_Press/1.jpg": {
+    "mtime": 1790962635.6491544,
+    "ast_hash": "ba40ee6e041596c26823916dba95660d",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Sumo_Deadlift/0.jpg": {
+    "mtime": 1790962635.6491544,
+    "ast_hash": "25a3e556f2e7731b15ab6432b9c7b26f",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Sumo_Deadlift/1.jpg": {
+    "mtime": 1790962635.6501553,
+    "ast_hash": "4e2e8731a472d3eb0541d481f0fb5d50",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/T-Bar_Row_with_Handle/0.jpg": {
+    "mtime": 1790962635.6506574,
+    "ast_hash": "0d4c3ff0f8725a0fd5658657293d8db5",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/T-Bar_Row_with_Handle/1.jpg": {
+    "mtime": 1790962635.6516595,
+    "ast_hash": "23032ce150d76cb9185c28a74ba1b5e1",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Triceps_Pushdown/0.jpg": {
+    "mtime": 1790962635.6526606,
+    "ast_hash": "aa26943a4998eea421b6d6b73f4afd33",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Triceps_Pushdown/1.jpg": {
+    "mtime": 1790962635.6526606,
+    "ast_hash": "9203950a52b8a87c6b5ca5a032552ab6",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Upright_Barbell_Row/0.jpg": {
+    "mtime": 1790962635.6536634,
+    "ast_hash": "b7b264d892ce15d1d6cdb38976ef56b7",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Upright_Barbell_Row/1.jpg": {
+    "mtime": 1790962635.654661,
+    "ast_hash": "eaecc373bb9b75a6323639bbbf95b249",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Wide-Grip_Lat_Pulldown/0.jpg": {
+    "mtime": 1790962635.654661,
+    "ast_hash": "ffc1932a51432c476ed1a8563ea52891",
+    "semantic_hash": ""
+  },
+  "public/exercise-images/Wide-Grip_Lat_Pulldown/1.jpg": {
+    "mtime": 1790962635.6562338,
+    "ast_hash": "8a7c4d7c50188759048303d1fce66db9",
+    "semantic_hash": ""
+  },
+  "public/icon-192.png": {
+    "mtime": 1790962635.6562338,
+    "ast_hash": "401dfb553abcf941ffef25581ea7b387",
+    "semantic_hash": ""
+  },
+  "public/icon-512.png": {
+    "mtime": 1790962635.6562338,
+    "ast_hash": "d092442e4ca53b36a7bbc2efd1cac4a0",
+    "semantic_hash": ""
+  },
+  "public/icon.svg": {
+    "mtime": 1790962635.6562338,
+    "ast_hash": "bd761a1acc723fd35f7d162c1f34c38d",
+    "semantic_hash": ""
+  },
+  "public/icons.svg": {
+    "mtime": 1790962635.6577716,
+    "ast_hash": "21c7473c592c67dc87223d49892c8f0a",
+    "semantic_hash": ""
+  }
 }
