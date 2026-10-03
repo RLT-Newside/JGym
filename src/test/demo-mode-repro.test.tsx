@@ -133,6 +133,7 @@ describe('each tab + exercise detail with demo data', () => {
           onRevoke={vi.fn()}
           update={null}
           onCheckUpdate={vi.fn()}
+          onOpenUpdate={vi.fn()}
           checkingUpdate={false}
           musicPopupDisabled={false}
           onToggleMusicPopup={vi.fn()}

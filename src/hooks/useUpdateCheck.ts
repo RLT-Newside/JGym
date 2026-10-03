@@ -1,6 +1,7 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
 import { useCallback, useEffect, useState } from 'react'
 import { STORAGE_KEYS } from '../data/storage'
+import { parseSha256Digest } from '../utils/app-update'
 import { isNewer } from '../utils/version'
 
 declare const __APP_VERSION__: string
@@ -10,9 +11,11 @@ const CHECK_KEY = STORAGE_KEYS.updateLastCheck
 const CACHE_KEY = STORAGE_KEYS.updateCached
 const DAY_MS = 24 * 60 * 60 * 1000
 
-interface UpdateInfo {
+export interface UpdateInfo {
   version: string
   url: string
+  // SHA-256 of the APK from the GitHub asset digest; required for in-app install.
+  sha256?: string
 }
 
 export type CheckResult = 'update' | 'latest' | 'error'
@@ -28,12 +31,17 @@ async function fetchLatest(current: string, signal?: AbortSignal): Promise<Updat
   const data = await r.json()
   const latest = data.tag_name?.replace(/^v/, '')
   if (!latest || !isNewer(latest, current)) return null
-  const apk = data.assets?.find((a: { name: string; browser_download_url: string }) => a.name.endsWith('.apk'))
+  const apk = data.assets?.find((a: { name: string; browser_download_url: string; digest?: string }) =>
+    a.name.endsWith('.apk'),
+  )
   if (!apk) return null
-  return {
+  const info: UpdateInfo = {
     version: data.tag_name,
     url: apk.browser_download_url ?? `https://github.com/${REPO}/releases/latest`,
   }
+  const sha256 = parseSha256Digest(apk.digest)
+  if (sha256) info.sha256 = sha256
+  return info
 }
 
 export function useUpdateCheck() {

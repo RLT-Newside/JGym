@@ -164,6 +164,7 @@ interface Props {
   onRevoke: () => void
   update: { version: string; url: string } | null
   onCheckUpdate: () => Promise<CheckResult>
+  onOpenUpdate: () => void
   checkingUpdate: boolean
   musicPopupDisabled: boolean
   onToggleMusicPopup: (disabled: boolean) => void
@@ -186,6 +187,7 @@ export function SettingsModal({
   onRevoke,
   update,
   onCheckUpdate,
+  onOpenUpdate,
   checkingUpdate,
   musicPopupDisabled,
   onToggleMusicPopup,
@@ -644,14 +646,13 @@ export function SettingsModal({
             {checkingUpdate ? 'Checking…' : 'Check for updates'}
           </button>
           {update ? (
-            <a
-              href={update.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-[10px] text-brand hover:underline"
+            <button
+              type="button"
+              onClick={onOpenUpdate}
+              className="block mx-auto text-[10px] text-brand hover:underline"
             >
               Update available: {update.version}
-            </a>
+            </button>
           ) : (
             checkResult === 'latest' && <p className="text-[10px] text-white/30">You're on the latest version.</p>
           )}
