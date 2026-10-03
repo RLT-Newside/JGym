@@ -1,21 +1,26 @@
 // Copyright (C) 2024-2026 Justin Marty (RLT-Newside). Licensed under GPL-3.0.
-import { Download, Sparkles, X } from 'lucide-react'
-import { useState } from 'react'
+import { Download, RotateCcw, ShieldAlert, Sparkles, X } from 'lucide-react'
 import { useBackHandler } from '../../hooks/useBackButton'
+import type { UpdateInfo } from '../../hooks/useUpdateCheck'
+import { useUpdateInstall } from '../../hooks/useUpdateInstall'
 
 interface Props {
-  version: string
-  url: string
+  update: UpdateInfo
+  open: boolean
+  onClose: () => void
 }
 
-export function UpdateBanner({ version, url }: Props) {
-  const [dismissed, setDismissed] = useState(false)
+export function UpdateBanner({ update, open, onClose }: Props) {
+  const install = useUpdateInstall(update)
+  const busy = install.status === 'downloading'
   useBackHandler(() => {
-    setDismissed(true)
+    if (!busy) onClose()
     return true
-  }, !dismissed)
+  }, open)
 
-  if (dismissed) return null
+  if (!open) return null
+
+  const percent = install.progress === null ? null : Math.round(install.progress * 100)
 
   return (
     <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 backdrop-blur-sm px-4 pb-8">
@@ -25,8 +30,11 @@ export function UpdateBanner({ version, url }: Props) {
             <Sparkles size={20} className="text-brand" />
           </div>
           <button
-            onClick={() => setDismissed(true)}
-            className="p-1.5 rounded-lg text-white/30 hover:text-white/70 hover:bg-white/5"
+            type="button"
+            aria-label="Close"
+            onClick={onClose}
+            disabled={busy}
+            className="p-1.5 rounded-lg text-white/30 hover:text-white/70 hover:bg-white/5 disabled:opacity-30"
           >
             <X size={18} />
           </button>
@@ -34,27 +42,87 @@ export function UpdateBanner({ version, url }: Props) {
 
         <h3 className="text-base font-heading font-bold">Update available</h3>
         <p className="text-sm text-white/50 mt-1">
-          Version <span className="text-white/80 font-medium">{version}</span> is ready to download.
+          Version <span className="text-white/80 font-medium">{update.version}</span> is ready to{' '}
+          {install.supported ? 'install' : 'download'}.
         </p>
+
+        {install.supported && install.canInstall === false && install.status === 'idle' && (
+          <div className="flex gap-2 mt-4 p-3 rounded-xl bg-white/5 text-xs text-white/60">
+            <ShieldAlert size={14} className="shrink-0 mt-0.5 text-brand" />
+            <p>
+              Android will ask once to allow installs from JGym.{' '}
+              <button type="button" onClick={install.openInstallSettings} className="text-brand hover:underline">
+                Open settings
+              </button>
+            </p>
+          </div>
+        )}
+
+        {busy && (
+          <div className="mt-4" role="status">
+            <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+              <div
+                role="progressbar"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={percent ?? undefined}
+                className={`h-full bg-brand transition-[width] ${percent === null ? 'w-1/3 animate-pulse' : ''}`}
+                style={percent === null ? undefined : { width: `${percent}%` }}
+              />
+            </div>
+            <p className="text-xs text-white/40 mt-2">Downloading… {percent !== null && `${percent}%`}</p>
+          </div>
+        )}
+
+        {install.status === 'installer' && (
+          <p className="text-xs text-white/50 mt-4">Installer opened — tap “Update” to finish.</p>
+        )}
+
+        {install.status === 'error' && <p className="text-xs text-red-400/80 mt-4">Update failed: {install.error}</p>}
 
         <div className="flex gap-3 mt-5">
           <button
-            onClick={() => setDismissed(true)}
-            className="flex-1 py-2.5 rounded-xl bg-white/8 text-sm text-white/60 font-medium hover:bg-white/12 transition-colors"
+            type="button"
+            onClick={onClose}
+            disabled={busy}
+            className="flex-1 py-2.5 rounded-xl bg-white/8 text-sm text-white/60 font-medium hover:bg-white/12 transition-colors disabled:opacity-40"
           >
             Not now
           </button>
+          {install.supported ? (
+            <button
+              type="button"
+              onClick={install.start}
+              disabled={busy}
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-brand text-black text-sm font-bold hover:bg-brand/90 transition-colors disabled:opacity-60"
+            >
+              {install.status === 'idle' || busy ? <Download size={14} /> : <RotateCcw size={14} />}
+              {install.status === 'idle' || busy ? 'Update' : install.status === 'error' ? 'Retry' : 'Install again'}
+            </button>
+          ) : (
+            <a
+              href={update.url}
+              target="_blank"
+              rel="noreferrer"
+              onClick={onClose}
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-brand text-black text-sm font-bold hover:bg-brand/90 transition-colors"
+            >
+              <Download size={14} />
+              Download
+            </a>
+          )}
+        </div>
+
+        {install.supported && install.status === 'error' && (
           <a
-            href={url}
+            href={update.url}
             target="_blank"
             rel="noreferrer"
-            onClick={() => setDismissed(true)}
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-brand text-black text-sm font-bold hover:bg-brand/90 transition-colors"
+            className="block text-center text-xs text-white/40 hover:text-white/70 mt-3"
           >
-            <Download size={14} />
-            Download
+            Download manually
           </a>
-        </div>
+        )}
       </div>
     </div>
   )

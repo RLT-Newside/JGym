@@ -47,6 +47,7 @@ export function AppShell() {
   } = useAppData()
 
   const { update, checkNow, checking } = useUpdateCheck()
+  const [updateDialogOpen, setUpdateDialogOpen] = useState(true)
   const keyboardVisible = useKeyboardVisible()
   useKeyboardAvoidance()
 
@@ -80,7 +81,7 @@ export function AppShell() {
     <div
       className={`min-h-screen bg-[#0d0d0d] text-[#e8e4dc] max-w-lg mx-auto ${keyboardVisible ? 'keyboard-pad' : 'pb-16'}`}
     >
-      {update && <UpdateBanner version={update.version} url={update.url} />}
+      {update && <UpdateBanner update={update} open={updateDialogOpen} onClose={() => setUpdateDialogOpen(false)} />}
       <Header onSettingsClick={() => setSettingsOpen(true)} />
 
       {demoMode && (
@@ -131,6 +132,10 @@ export function AppShell() {
         onRevoke={revoke}
         update={update}
         onCheckUpdate={checkNow}
+        onOpenUpdate={() => {
+          setSettingsOpen(false)
+          setUpdateDialogOpen(true)
+        }}
         checkingUpdate={checking}
         musicPopupDisabled={musicPopupDisabled}
         onToggleMusicPopup={setMusicPopupDisabled}

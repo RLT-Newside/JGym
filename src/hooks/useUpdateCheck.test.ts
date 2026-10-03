@@ -59,6 +59,30 @@ describe('useUpdateCheck', () => {
     })
   })
 
+  it('includes the SHA-256 from the GitHub asset digest', async () => {
+    const dayAgo = Date.now() - 25 * 60 * 60 * 1000
+    localStorage.setItem(CHECK_KEY, String(dayAgo))
+    const hex = 'c'.repeat(64)
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            tag_name: 'v2.0.0',
+            assets: [{ name: 'app.apk', browser_download_url: 'https://example.com/app.apk', digest: `sha256:${hex}` }],
+          }),
+      }),
+    )
+
+    const { result } = renderHook(() => useUpdateCheck())
+
+    await waitFor(() => {
+      expect(result.current.update).toEqual({ version: 'v2.0.0', url: 'https://example.com/app.apk', sha256: hex })
+    })
+  })
+
   it('does not show update when API returns same version', async () => {
     const dayAgo = Date.now() - 25 * 60 * 60 * 1000
     localStorage.setItem(CHECK_KEY, String(dayAgo))
