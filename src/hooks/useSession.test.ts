@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useActiveSession } from './useSession'
 
 describe('useActiveSession', () => {
@@ -115,5 +115,41 @@ describe('useActiveSession', () => {
     act(() => result.current.startSession('Freestyle'))
     expect(result.current.active?.planId).toBeUndefined()
     expect(result.current.active?.planNextIndex).toBeUndefined()
+  })
+})
+
+describe('useActiveSession in demo mode', () => {
+  afterEach(() => {
+    sessionStorage.clear()
+    vi.resetModules()
+  })
+
+  // The demo flag is read once at module load, so load a fresh copy of the
+  // store (and the hook) with demo mode switched on.
+  async function loadDemoHook() {
+    sessionStorage.setItem('jgym_demo', '1')
+    vi.resetModules()
+    return (await import('./useSession')).useActiveSession
+  }
+
+  it('keeps a demo session out of real localStorage', async () => {
+    const useDemoSession = await loadDemoHook()
+    const { result } = renderHook(() => useDemoSession())
+    act(() => result.current.startSession('Demo Push'))
+    expect(localStorage.getItem('gym_active_session')).toBeNull()
+    expect(sessionStorage.getItem('demo::gym_active_session')).not.toBeNull()
+  })
+
+  it('does not resume a demo session after leaving demo mode', async () => {
+    const useDemoSession = await loadDemoHook()
+    const { result, unmount } = renderHook(() => useDemoSession())
+    act(() => result.current.startSession('Demo Push'))
+    unmount()
+    // Leaving demo mode clears the overlay and reloads into real data.
+    sessionStorage.clear()
+    vi.resetModules()
+    const { useActiveSession: useRealSession } = await import('./useSession')
+    const { result: real } = renderHook(() => useRealSession())
+    expect(real.current.active).toBeNull()
   })
 })
