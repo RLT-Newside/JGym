@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { STORAGE_KEYS } from '../data/storage'
+import { storeGet, storeRemove, storeSet } from '../data/store'
 import type { Session, SessionExerciseEntry } from '../types'
 
 interface ActiveSession {
@@ -18,9 +19,11 @@ interface ActiveSession {
 
 const ACTIVE_SESSION_KEY = STORAGE_KEYS.activeSession
 
+// Goes through the store facade so a session started in demo mode stays in the
+// demo overlay and never leaks into the user's real data after exiting.
 function loadActive(): ActiveSession | null {
   try {
-    const raw = localStorage.getItem(ACTIVE_SESSION_KEY)
+    const raw = storeGet(ACTIVE_SESSION_KEY)
     return raw ? JSON.parse(raw) : null
   } catch {
     return null
@@ -29,9 +32,9 @@ function loadActive(): ActiveSession | null {
 
 function saveActive(session: ActiveSession | null) {
   if (session) {
-    localStorage.setItem(ACTIVE_SESSION_KEY, JSON.stringify(session))
+    storeSet(ACTIVE_SESSION_KEY, JSON.stringify(session))
   } else {
-    localStorage.removeItem(ACTIVE_SESSION_KEY)
+    storeRemove(ACTIVE_SESSION_KEY)
   }
 }
 
