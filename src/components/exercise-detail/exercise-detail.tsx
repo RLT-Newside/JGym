@@ -373,7 +373,7 @@ function EditForm({ form, fileInputRef, onAddImages, onSave, onCancel }: EditFor
   )
 }
 
-function LibrarySection({ entry }: { entry: LibraryExercise }) {
+export function LibrarySection({ entry }: { entry: LibraryExercise }) {
   const [imgIdx, setImgIdx] = useState(0)
   const { src, error, loading } = useExerciseImage(entry.imageFolder, imgIdx)
   const hasMultiple = entry.imageCount > 1

@@ -7,6 +7,7 @@ import { SearchBar } from '../../../../../components/search-bar/search-bar'
 import { loadLibrary } from '../../../../../data/freeExerciseDb'
 import { useExerciseImage } from '../../../../../hooks/useExerciseImage'
 import type { Exercise, LibraryExercise } from '../../../../../types'
+import { LibraryExerciseDetail } from './library-exercise-detail'
 
 interface Props {
   userExercises: Exercise[]
@@ -20,6 +21,7 @@ export function ExerciseLibrary({ userExercises, onAddExercise }: Props) {
   const [activeEquip, setActiveEquip] = useState<string | null>(null)
   const [activeLevel, setActiveLevel] = useState<string | null>(null)
   const [addedIds, setAddedIds] = useState<Set<string>>(new Set())
+  const [viewing, setViewing] = useState<LibraryExercise | null>(null)
 
   useEffect(() => {
     loadLibrary().then(setLibrary)
@@ -83,7 +85,13 @@ export function ExerciseLibrary({ userExercises, onAddExercise }: Props) {
 
       <div className="space-y-1.5">
         {filtered.slice(0, 200).map((ex) => (
-          <LibraryRow key={ex.id} entry={ex} owned={isOwned(ex)} onAdd={() => handleAdd(ex)} />
+          <LibraryRow
+            key={ex.id}
+            entry={ex}
+            owned={isOwned(ex)}
+            onOpen={() => setViewing(ex)}
+            onAdd={() => handleAdd(ex)}
+          />
         ))}
         {filtered.length > 200 && (
           <p className="text-[10px] text-white/30 text-center py-2">
@@ -91,6 +99,13 @@ export function ExerciseLibrary({ userExercises, onAddExercise }: Props) {
           </p>
         )}
       </div>
+
+      <LibraryExerciseDetail
+        entry={viewing}
+        owned={viewing ? isOwned(viewing) : false}
+        onClose={() => setViewing(null)}
+        onAdd={() => viewing && handleAdd(viewing)}
+      />
     </div>
   )
 }
@@ -135,38 +150,47 @@ function FilterRow({ label, value, options, onChange }: FilterRowProps) {
 interface LibraryRowProps {
   entry: LibraryExercise
   owned: boolean
+  onOpen: () => void
   onAdd: () => void
 }
 
-function LibraryRow({ entry, owned, onAdd }: LibraryRowProps) {
+function LibraryRow({ entry, owned, onOpen, onAdd }: LibraryRowProps) {
   const { src } = useExerciseImage(entry.imageFolder, 0)
   return (
     <div className="glass rounded-xl p-3 flex items-center gap-3">
-      <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-white/[0.04] overflow-hidden flex items-center justify-center">
-        {src ? (
-          <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-        ) : (
-          <span className="text-[8px] text-white/20">no img</span>
-        )}
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="text-sm truncate">{entry.name}</p>
-        <div className="flex flex-wrap gap-0.5 mt-1">
-          {entry.primaryMuscles.map((m) => (
-            <span key={m} className="text-[9px] px-1 py-0.5 bg-red-600/12 rounded text-red-400/70">
-              {m}
-            </span>
-          ))}
-          {entry.secondaryMuscles.map((m) => (
-            <span key={`s-${m}`} className="text-[9px] px-1 py-0.5 bg-orange-600/10 rounded text-orange-400/40">
-              {m}
-            </span>
-          ))}
-        </div>
-      </div>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`View ${entry.name}`}
+        className="flex-1 min-w-0 flex items-center gap-3 text-left"
+      >
+        <span className="w-12 h-12 flex-shrink-0 rounded-lg bg-white/[0.04] overflow-hidden flex items-center justify-center">
+          {src ? (
+            <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+          ) : (
+            <span className="text-[8px] text-white/20">no img</span>
+          )}
+        </span>
+        <span className="flex-1 min-w-0 block">
+          <span className="text-sm truncate block">{entry.name}</span>
+          <span className="flex flex-wrap gap-0.5 mt-1">
+            {entry.primaryMuscles.map((m) => (
+              <span key={m} className="text-[9px] px-1 py-0.5 bg-red-600/12 rounded text-red-400/70">
+                {m}
+              </span>
+            ))}
+            {entry.secondaryMuscles.map((m) => (
+              <span key={`s-${m}`} className="text-[9px] px-1 py-0.5 bg-orange-600/10 rounded text-orange-400/40">
+                {m}
+              </span>
+            ))}
+          </span>
+        </span>
+      </button>
       <button
         onClick={() => !owned && onAdd()}
         disabled={owned}
+        aria-label={owned ? `${entry.name} added` : `Add ${entry.name}`}
         className={`p-2 rounded-xl transition-colors flex-shrink-0 ${
           owned ? 'bg-green-900/20 text-green-400/60' : 'bg-brand/10 text-brand hover:bg-brand/20'
         }`}
