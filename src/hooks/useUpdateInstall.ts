@@ -12,11 +12,17 @@ interface ProgressEvent {
   total: number
 }
 
+interface ListenerHandle {
+  remove: () => unknown
+}
+
 interface AppUpdatePlugin {
   canInstall: () => Promise<{ allowed: boolean }>
   openInstallSettings: () => Promise<void>
   downloadAndInstall: (o: { url: string; sha256: string }) => Promise<void>
-  addListener: (event: 'downloadProgress', cb: (e: ProgressEvent) => void) => Promise<{ remove: () => Promise<void> }>
+  // The plugin object Android injects into window.Capacitor.Plugins returns the
+  // handle synchronously; registerPlugin() proxies return a Promise.
+  addListener: (event: 'downloadProgress', cb: (e: ProgressEvent) => void) => ListenerHandle | Promise<ListenerHandle>
 }
 
 function getPlugin(): AppUpdatePlugin | null {
@@ -63,10 +69,14 @@ export function useUpdateInstall(update: UpdateInfo | null) {
     setStatus('downloading')
     setProgress(null)
     setError(null)
-    const sub = await plugin
-      .addListener('downloadProgress', ({ received, total }) => {
-        setProgress(total > 0 ? Math.min(1, received / total) : null)
-      })
+    // Progress is optional: a listener that throws or returns a non-Promise must
+    // never keep the download from starting.
+    const sub = await Promise.resolve()
+      .then(() =>
+        plugin.addListener('downloadProgress', ({ received, total }) => {
+          setProgress(total > 0 ? Math.min(1, received / total) : null)
+        }),
+      )
       .catch(() => null)
     try {
       await plugin.downloadAndInstall({ url: update.url, sha256: update.sha256 })
