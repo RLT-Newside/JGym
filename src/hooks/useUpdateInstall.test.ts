@@ -98,6 +98,43 @@ describe('useUpdateInstall', () => {
     expect(remove).toHaveBeenCalled()
   })
 
+  // Android injects window.Capacitor.Plugins.* objects whose addListener returns
+  // `{ remove }` synchronously instead of a Promise.
+  it('starts the download when addListener returns synchronously', async () => {
+    const listeners: ProgressCb[] = []
+    const remove = vi.fn()
+    const { plugin } = installPlugin({
+      addListener: vi.fn((_event: string, cb: ProgressCb) => {
+        listeners.push(cb)
+        return { remove }
+      }),
+    })
+    const { result } = renderHook(() => useUpdateInstall(UPDATE))
+
+    await act(async () => {
+      await result.current.start()
+    })
+    expect(plugin.downloadAndInstall).toHaveBeenCalledWith({ url: URL_OK, sha256: SHA })
+    expect(listeners).toHaveLength(1)
+    expect(result.current.status).toBe('installer')
+    expect(remove).toHaveBeenCalled()
+  })
+
+  it('still downloads when the progress listener cannot be attached', async () => {
+    const { plugin } = installPlugin({
+      addListener: vi.fn(() => {
+        throw new Error('no events')
+      }),
+    })
+    const { result } = renderHook(() => useUpdateInstall(UPDATE))
+
+    await act(async () => {
+      await result.current.start()
+    })
+    expect(plugin.downloadAndInstall).toHaveBeenCalled()
+    expect(result.current.status).toBe('installer')
+  })
+
   it('surfaces errors so the user can retry', async () => {
     installPlugin({ downloadAndInstall: vi.fn(async () => Promise.reject(new Error('Checksum mismatch'))) })
     const { result } = renderHook(() => useUpdateInstall(UPDATE))
