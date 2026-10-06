@@ -11,6 +11,10 @@ def getVersionCode = { ->
 }
 
 def getVersionName = { ->
+    // CI computes the release version before the tag exists; `git describe`
+    // alone would report the previous release.
+    def appVersion = System.getenv('APP_VERSION')
+    if (appVersion) return appVersion.replaceFirst('^v', '')
     def stdout = new ByteArrayOutputStream()
     try {
         exec { commandLine 'git', 'describe', '--tags', '--abbrev=0'; standardOutput = stdout }

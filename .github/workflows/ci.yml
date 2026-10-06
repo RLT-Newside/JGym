@@ -121,6 +121,8 @@ jobs:
       - name: Build APK
         if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
         run: chmod +x android/gradlew && cd android && ./gradlew assembleRelease
+        env:
+          APP_VERSION: ${{ steps.version.outputs.version }}
 
       - name: Sign APK
         if: steps.release_check.outputs.exists == 'false' && steps.code_changes.outputs.skip == 'false'
