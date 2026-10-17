@@ -15,7 +15,11 @@ vi.mock('../../hooks/useExerciseImage', () => ({
 }))
 
 vi.mock('../body-map/body-map', () => ({
-  BodyMap: () => null,
+  BodyMap: ({ primaryMuscles, onToggle }: { primaryMuscles: string[]; onToggle?: unknown }) => (
+    <div data-testid="body-map" data-readonly={String(!onToggle)}>
+      {primaryMuscles.join(',')}
+    </div>
+  ),
 }))
 
 const base: Exercise = {
@@ -38,6 +42,25 @@ const defaultProps = {
 describe('ExerciseDetail', () => {
   beforeEach(() => {
     mockLibraryEntry.mockReturnValue(null)
+  })
+
+  it('shows a read-only body map of the targeted muscles in view mode', () => {
+    const exercise: Exercise = { ...base, primaryMuscles: ['Mid Chest'], secondaryMuscles: ['Rhomboids'] }
+    render(<ExerciseDetail {...defaultProps} exercise={exercise} onSave={vi.fn()} />)
+    const map = screen.getByTestId('body-map')
+    expect(map).toHaveAttribute('data-readonly', 'true')
+    expect(map).toHaveTextContent('Mid Chest')
+  })
+
+  it('falls back to legacy muscleGroups for the view-mode body map', () => {
+    const exercise = { ...base, muscleGroups: ['Upper Lats'], primaryMuscles: undefined } as unknown as Exercise
+    render(<ExerciseDetail {...defaultProps} exercise={exercise} />)
+    expect(screen.getByTestId('body-map')).toHaveTextContent('Upper Lats')
+  })
+
+  it('does not render a body map in view mode when no muscles are set', () => {
+    render(<ExerciseDetail {...defaultProps} exercise={base} />)
+    expect(screen.queryByTestId('body-map')).not.toBeInTheDocument()
   })
 
   it('displays a custom description when present', () => {

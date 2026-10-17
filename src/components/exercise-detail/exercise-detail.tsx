@@ -160,9 +160,16 @@ function ViewContent({
   onStartWith,
   onResetProgress,
 }: ViewContentProps) {
+  const primaryMuscles = exercise.primaryMuscles ?? exercise.muscleGroups ?? []
+  const secondaryMuscles = exercise.secondaryMuscles ?? []
+
   return (
     <>
       <MuscleTags exercise={exercise} size="sm" />
+
+      {(primaryMuscles.length > 0 || secondaryMuscles.length > 0) && (
+        <BodyMap primaryMuscles={primaryMuscles} secondaryMuscles={secondaryMuscles} />
+      )}
 
       {exercise.customImages && exercise.customImages.length > 0 && (
         <CustomImageSection images={exercise.customImages} name={exercise.name} />

@@ -11,11 +11,13 @@ import { MUSCLE_CATEGORIES, type MuscleGroup } from '../../types'
 interface Props {
   primaryMuscles: MuscleGroup[]
   secondaryMuscles: MuscleGroup[]
-  onToggle: (muscle: MuscleGroup) => void
-  mode: 'primary' | 'secondary'
+  /** Omit to render read-only: taps only reveal the muscle name. */
+  onToggle?: (muscle: MuscleGroup) => void
+  mode?: 'primary' | 'secondary'
 }
 
-export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Props) {
+export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode = 'primary' }: Props) {
+  const readOnly = !onToggle
   const [view, setView] = useState<'front' | 'back'>('front')
   const [advanced, setAdvanced] = useState(false)
   const [expandedCat, setExpandedCat] = useState<string | null>(null)
@@ -47,6 +49,7 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
   }, [primaryMuscles, secondaryMuscles, hoveredSlug])
 
   const handleBodyPartPress = (part: ExtendedBodyPart) => {
+    if (!onToggle) return
     const slug = part.slug
     if (!slug || !SLUG_TO_MUSCLES[slug]) return
     const muscles = SLUG_TO_MUSCLES[slug]
@@ -190,10 +193,10 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
                     strokeWidth={selected ? 1 : 0.4}
                     strokeLinejoin="round"
                     filter={selected ? 'url(#glow)' : undefined}
-                    onClick={() => onToggle(muscle)}
+                    onClick={() => (onToggle ? onToggle(muscle) : setHoveredMuscle(muscle))}
                     onMouseEnter={() => setHoveredMuscle(muscle)}
                     onMouseLeave={() => setHoveredMuscle(null)}
-                    className="cursor-pointer transition-[fill,stroke] duration-150"
+                    className={`${readOnly ? '' : 'cursor-pointer '}transition-[fill,stroke] duration-150`}
                   />
                 )
               })}
@@ -216,10 +219,14 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
       </div>
 
       {/* Mode hint */}
-      <p className="text-[10px] text-center text-white/20">
-        Tap muscles to set as{' '}
-        <span className={mode === 'primary' ? 'text-red-400 font-medium' : 'text-orange-400 font-medium'}>{mode}</span>
-      </p>
+      {!readOnly && (
+        <p className="text-[10px] text-center text-white/20">
+          Tap muscles to set as{' '}
+          <span className={mode === 'primary' ? 'text-red-400 font-medium' : 'text-orange-400 font-medium'}>
+            {mode}
+          </span>
+        </p>
+      )}
 
       {/* Advanced: expandable category chip list (supplementary — covers opposite-side muscles) */}
       {advanced && (
@@ -270,7 +277,8 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
                       <button
                         type="button"
                         key={m}
-                        onClick={() => onToggle(m)}
+                        disabled={readOnly}
+                        onClick={() => onToggle?.(m)}
                         className={`px-2 py-1 rounded text-[10px] font-medium transition-all ${
                           isPrimary(m)
                             ? 'bg-red-600/20 text-red-400 ring-1 ring-red-600/30'
@@ -290,8 +298,8 @@ export function BodyMap({ primaryMuscles, secondaryMuscles, onToggle, mode }: Pr
         </div>
       )}
 
-      {/* Selection summary */}
-      {(primaryMuscles.length > 0 || secondaryMuscles.length > 0) && (
+      {/* Selection summary (read-only callers already list the muscles as tags) */}
+      {!readOnly && (primaryMuscles.length > 0 || secondaryMuscles.length > 0) && (
         <div className="text-[10px] text-white/30 leading-relaxed">
           {primaryMuscles.length > 0 && (
             <p>
